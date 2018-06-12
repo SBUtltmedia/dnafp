@@ -1,0 +1,3583 @@
+#day1 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    visibility: visible;
+    z-index: 0;
+    font-family: "Helvetica", sans-serif;
+}
+
+#iceBucket {
+    width: 20%;
+    height: 12%;
+    left: 80%;
+    top: 66.57%;
+    position: absolute;
+    background-image: url(img/ice_bucket.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+    z-index: 5
+}
+
+#labBench2 {
+    width: 100%;
+    height: 60%;
+    left: 0%;
+    top: 67%;
+    position: absolute;
+    background-image: url(img/labBench2.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#micropipet0 {
+    width: 4.6%;
+    height: 23%;
+    left: 0.5%;
+    top: 52%;
+    position: absolute;
+    background-image: url(img/micropipet.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#micropipet1 {
+    width: 4.6%;
+    height: 23%;
+    left: 7.5%;
+    top: 52%;
+    position: absolute;
+    background-image: url(img/micropipet.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#micropipet2 {
+    width: 4.6%;
+    height: 23%;
+    left: 14.5%;
+    top: 52%;
+    position: absolute;
+    background-image: url(img/micropipet20.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 7
+}
+
+#micropipet3 {
+    width: 4.6%;
+    height: 23%;
+    left: 14.5%;
+    top: 52%;
+    position: absolute;
+    background-image: url(img/micropipet20.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 7
+}
+
+#pipetHolder {
+    width: 22%;
+    height: 29%;
+    left: -0.25%;
+    top: 51%;
+    position: relative;
+    background-image: url(img/piptetHolder.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#holder {
+    width: 10%;
+    height: 7.5%;
+    left: 20.5%;
+    top: 42.5%;
+    position: relative;
+    background-image: url(img/holder.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#tip {
+    width: 0.7%;
+    height: 7%;
+    left: 22.4%;
+    top: 70.2%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    visibility: visible;
+}
+
+#tip1 {
+    width: 0.7%;
+    height: 7%;
+    left: 20.8%;
+    top: 70.2%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    visibility: visible;
+}
+
+#pipetteTip1 {
+    width: 17%;
+    height: 27.5%;
+    left: 55%;
+    top: 96%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    visibility: hidden;
+}
+
+#tip2 {
+    width: 0.7%;
+    height: 7%;
+    left: 21.6%;
+    top: 70.2%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#tip3 {
+    width: 0.7%;
+    height: 7%;
+    left: 22.4%;
+    top: 70.2%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#tip4 {
+    width: 0.7%;
+    height: 7%;
+    left: 23.2%;
+    top: 70.2%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#tip5 {
+    width: 0.7%;
+    height: 7%;
+    left: 24%;
+    top: 70.2%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#tip6 {
+    width: 0.7%;
+    height: 7%;
+    left: 24.8%;
+    top: 70.2%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#tip7 {
+    width: 0.7%;
+    height: 7%;
+    left: 25.6%;
+    top: 70%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#tip8 {
+    width: 0.7%;
+    height: 7%;
+    left: 26.4%;
+    top: 70.2%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#tip9 {
+    width: 0.7%;
+    height: 7%;
+    left: 27.2%;
+    top: 70.2%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#tip10 {
+    width: 0.7%;
+    height: 7%;
+    left: 28%;
+    top: 70.2%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#tip11 {
+    width: 0.7%;
+    height: 7%;
+    left: 28.8%;
+    top: 70.2%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#tip12 {
+    width: 0.7%;
+    height: 7%;
+    left: 29.6%;
+    top: 70.2%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#shelf1 {
+    width: 18%;
+    height: 3%;
+    left: 60%;
+    top: 40%;
+    position: absolute;
+    background-image: url(img/shelf.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#shelf2 {
+    width: 18%;
+    height: 3%;
+    left: 2.5%;
+    top: 31%;
+    position: absolute;
+    background-image: url(img/shelf.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#waterBathNoLid {
+    width: 18%;
+    height: 26%;
+    left: 60%;
+    top: 14.8%;
+    position: absolute;
+    background-image: url(img/water_bath_no_lid.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 5;
+}
+
+#waterBathLid {
+    width: 18%;
+    height: 6%;
+    left: 59.88%;
+    top: 21.58%;
+    position: absolute;
+    background-image: url(img/water_bath_lid.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 7;
+}
+
+#backButton {
+    width: 6.5%;
+    height: 6%;
+    left: 76%;
+    top: 5.1%;
+    position: absolute;
+    background-image: url(img/backButton.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 100;
+}
+
+#zoomOutButton {
+    width: 0.95%;
+    height: 1%;
+    left: 59%;
+    top: 20%;
+    position: absolute;
+    background-image: url(img/zoomOutButton.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#zoomOutButton1 {
+    width: 0.95%;
+    height: 1%;
+    left: 38.3%;
+    top: 65.7%;
+    position: absolute;
+    background-image: url(img/zoomOutButton.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#zoomOutButton1a {
+    width: 0.95%;
+    height: 1%;
+    left: 38.3%;
+    top: 65.7%;
+    top: 65.7%;
+    position: absolute;
+    background-image: url(img/zoomOutButton.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#tubeRack {
+    width: 10%;
+    height: 7%;
+    left: 6.5%;
+    top: 24%;
+    position: absolute;
+    background-image: url(img/tubeRack.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#tubeBlock {
+    width: 17%;
+    height: 4.8%;
+    left: 35.2%;
+    top: 73.4%;
+    position: absolute;
+    background-image: url(img/tubeBlock.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    z-index: 3;
+}
+
+#enzTube {
+    width: 7%;
+    height: 5%;
+    left: 88%;
+    top: 64.7%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#enzTubeBody {
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    position: absolute;
+    background-image: url(img/enzymeTube.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#enzCap {
+    width: 100%;
+    height: 20%;
+    left: 0%;
+    top: 6%;
+    position: absolute;
+    background-image: url(img/enzymeCap.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: 1.5% 15%;
+}
+
+#s0Tube {
+    width: 2.9%;
+    height: 7.75%;
+    left: 35.5%;
+    top: 71.9%;
+    width: 2.9%;
+    height: 7.75%;
+    left: 35.5%;
+    top: 71.9%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: 100% 0%;
+    z-index: 2;
+}
+
+#s0TubeBody {
+    width: 100%;
+    height: 100%;
+    left: -7%;
+    top: -1%;
+    position: absolute;
+    background-image: url(img/csTube.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 2;
+}
+
+#s0Cap {
+    width: 100%;
+    height: 20%;
+    left: -2%;
+    top: 1.16%;
+    position: absolute;
+    background-image: url(img/csCap.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: 4% 29%;
+    z-index: 2;
+}
+
+#s0Tube1 {
+    width: 2.9%;
+    height: 7.75%;
+    left: 35.5%;
+    top: 71.9%;
+    width: 2.9%;
+    height: 7.75%;
+    left: 35.5%;
+    top: 71.9%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: 100% 0%;
+    z-index: 2;
+}
+
+#s0TubeBody1 {
+    width: 100%;
+    height: 100%;
+    left: -7%;
+    top: -1%;
+    position: absolute;
+    background-image: url(img/csTube.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#s0Cap1 {
+    width: 100%;
+    height: 20%;
+    left: -2%;
+    top: 1.16%;
+    position: absolute;
+    background-image: url(img/csCap.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: 4% 29%;
+}
+
+#s1Tube {
+    width: 2.5%;
+    height: 7.75%;
+    left: 38%;
+    top: 71.9%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: 100% 0%;
+}
+
+#s1TubeBody {
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    position: absolute;
+    background-image: url(img/s1Tube.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#s1Cap {
+    width: 100%;
+    height: 20%;
+    left: -2%;
+    top: 0%;
+    position: absolute;
+    background-image: url(img/s1Cap.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: 1% 22%;
+}
+
+#s2Tube {
+    width: 2.5%;
+    height: 7.75%;
+    left: 40.5%;
+    top: 71.9%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: 100% 0%;
+}
+
+#s2TubeBody {
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    position: absolute;
+    background-image: url(img/s2Tube.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#s2Cap {
+    width: 100%;
+    height: 20%;
+    left: -2%;
+    top: 0%;
+    position: absolute;
+    background-image: url(img/s2Cap.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: 2% 16%;
+}
+
+#s3Tube {
+    width: 2.5%;
+    height: 7.75%;
+    left: 43%;
+    top: 71.9%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: 100% 0%;
+}
+
+#s3TubeBody {
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    position: absolute;
+    background-image: url(img/s3Tube.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#s3Cap {
+    width: 100%;
+    height: 20%;
+    left: -2%;
+    top: 0%;
+    position: absolute;
+    background-image: url(img/s3Cap.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: 4% 21%;
+}
+
+#s4Tube {
+    width: 2.5%;
+    height: 7.75%;
+    left: 45.5%;
+    top: 71.9%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: left;
+    transform-origin: 100% 0%;
+}
+
+#s4TubeBody {
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    position: absolute;
+    background-image: url(img/s4Tube.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#s4Cap {
+    width: 100%;
+    height: 20%;
+    left: -2%;
+    top: 0%;
+    position: absolute;
+    background-image: url(img/s4Cap.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: 2% 17%;
+}
+
+#s5Tube {
+    width: 2.5%;
+    height: 7.75%;
+    left: 48%;
+    top: 71.9%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: 100% 0%;
+}
+
+#s5TubeBody {
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    position: absolute;
+    background-image: url(img/s5Tube.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#s5Cap {
+    width: 100%;
+    height: 20%;
+    left: -2%;
+    top: 0%;
+    position: absolute;
+    background-image: url(img/s5Cap.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: 5% 20%;
+}
+
+#loadDye {
+    width: 3%;
+    height: 7.8%;
+    left: 7.8%;
+    top: 23.2%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: left top;
+}
+
+#loadDyeBody {
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    position: absolute;
+    background-image: url(img/loadingDyeClosed.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#loadDyeCap {
+    width: 100%;
+    height: 20%;
+    left: 0%;
+    top: -2%;
+    position: absolute;
+    background-image: url(img/loadingDyeCap.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: 5% 29%;
+}
+
+
+/*
+#s1loadingDyeTube {
+    width: 3%;
+    height: 7.8%;
+    left: 11.7%;
+    top: 23.2%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#s1loadingDyeTubeBody {
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    position: absolute;
+    background-image: url(img/loadingDyeClosed.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#s1loadingDyeCap {
+    width: 100%;
+    height: 20%;
+    left: 0%;
+    top: -2%;
+    position: absolute;
+    background-image: url(img/loadingDyeCap.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: 5% 30%;
+}
+*/
+
+#wasteBasket {
+    width: 20%;
+    height: 14%;
+    left: 51%;
+    top: 64.5%;
+    position: absolute;
+    background-image: url(img/waste_basket.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 7;
+}
+
+#ejectButton {
+    width: 7%;
+    height: 6.4%;
+    left: 0.5%;
+    top: 5.5%;
+    position: absolute;
+    background-image: url(img/ejectButton.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#ejectButton1 {
+    width: 7%;
+    height: 6.4%;
+    left: 0.5%;
+    top: 5.5%;
+    position: absolute;
+    background-image: url(img/ejectButton.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
+/*
+#flickButton {
+    width: 7%;
+    height: 7%;
+    left: 8.1%;
+    top: 5.5%;
+    position: absolute;
+    background-image: url(img/flickButton.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+*/
+
+#mixContentsButton {
+    width: 7%;
+    height: 7%;
+    left: 8.1%;
+    top: 5.5%;
+    position: absolute;
+    background-image: url(img/mixContentsButton.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#mixContentsButton1 {
+    width: 7%;
+    height: 7%;
+    left: 8.1%;
+    top: 5.5%;
+    position: absolute;
+    background-image: url(img/mixContentsButton.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.opClass {
+    opacity: 0.0;
+    filter: alpha(opacity=0);
+}
+
+#pressButton0 {
+    width: 4%;
+    height: 4%;
+    left: 30%;
+    top: 52%;
+    position: absolute;
+    background-image: url(img/pressButton.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#pressButton1 {
+    width: 4%;
+    height: 4%;
+    left: 32.9%;
+    top: 52%;
+    position: absolute;
+    background-image: url(img/pressButton.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#pressButton2 {
+    width: 4%;
+    height: 4%;
+    left: 35.8%;
+    top: 52%;
+    position: absolute;
+    background-image: url(img/pressButton.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#pressButton3 {
+    width: 4%;
+    height: 4%;
+    left: 38.55%;
+    top: 52%;
+    position: absolute;
+    background-image: url(img/pressButton.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#pressButton4 {
+    width: 4%;
+    height: 4%;
+    left: 41.3%;
+    top: 52%;
+    position: absolute;
+    background-image: url(img/pressButton.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#pressButton5 {
+    width: 4%;
+    height: 4%;
+    left: 44.1%;
+    top: 52%;
+    position: absolute;
+    background-image: url(img/pressButton.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#checkVolume {
+    width: 20%;
+    height: 100%;
+    left: 10%;
+    top: 2600%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
+/*
+#indicatorArrow0 {
+    width: 0.7%;
+    height: 7%;
+    left: 20.8%;
+    top: 62.7%;
+    position: absolute;
+    background-image: url(img/indicatorArrow.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}*/
+
+#indicatorArrow1 {
+    width: 0.7%;
+    height: 7%;
+    left: 88%;
+    top: 60.7%;
+    position: absolute;
+    background-image: url(img/indicatorArrow.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#indicatorArrow2 {
+    width: 0.7%;
+    height: 7%;
+    left: 12%;
+    top: 5.5%;
+    position: absolute;
+    background-image: url(img/indicatorArrowUp.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#indicatorArrow3 {
+    width: 0.7%;
+    height: 7%;
+    left: 20.8%;
+    top: 62.7%;
+    position: absolute;
+    background-image: url(img/indicatorArrowUp.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#indicatorArrow4 {
+    width: 0.7%;
+    height: 7%;
+    left: 20.8%;
+    top: 62.7%;
+    position: absolute;
+    background-image: url(img/indicatorArrow.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#indicatorArrow5 {
+    width: 0.7%;
+    height: 7%;
+    left: 20.8%;
+    top: 62.7%;
+    position: absolute;
+    background-image: url(img/indicatorArrow.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#indicatorArrow6 {
+    width: 0.7%;
+    height: 7%;
+    left: 36.6%;
+    top: 62%;
+    z-index: 1;
+    position: absolute;
+    background-image: url(img/indicatorArrow.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+@keyframes oscillate4 {
+    0% {
+        left: 36.6%;
+        top: 62%;
+    }
+    50% {
+        left: 36.6%;
+        top: 64%;
+    }
+    100% {
+        left: 36.6%;
+        top: 62%;
+    }
+}
+
+.anim_oscillate4 {
+    animation: oscillate4 0.75s linear 0s infinite normal forwards;
+}
+
+
+/*
+#volumeButton {
+    width: 2%;
+    height: 1.6%;
+    left: 91%;
+    top: 36.2%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-size: .1rem;
+}
+
+#volumeButton1 {
+    width: 2%;
+    height: 1.6%;
+    left: 25.7%;
+    top: 14%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-size: .1rem;
+}
+*/
+
+#volumeButton {
+    width: 2%;
+    height: 1.6%;
+    left: 91%;
+    top: 36.2%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(img/check.svg);
+    /*    font-size: .1rem;*/
+}
+
+#volumeButton2 {
+    width: 2%;
+    height: 1.6%;
+    left: 25.7%;
+    top: 14%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(img/check.svg);
+    /*    font-size: .1rem;*/
+}
+
+#indicatorArrow0 {
+    width: 6%;
+    height: 9%;
+    left: 22%;
+    top: 58.7%;
+    position: absolute;
+    background-image: url(img/largeArrow.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#indicatorArrow1 {
+    width: 0.7%;
+    height: 7%;
+    left: 20.8%;
+    top: 62.7%;
+    position: absolute;
+    background-image: url(img/indicatorArrow.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#volumeInput {
+    width: 1.6%;
+    height: 1.3%;
+    left: 88.4%;
+    top: 36%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 10;
+}
+
+#volumeInput1 {
+    width: 1.6%;
+    height: 1.3%;
+    left: 23.2%;
+    top: 14%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 10;
+}
+
+#answerButton {
+    width: 4%;
+    height: 3%;
+    left: 13%;
+    top: 36.2%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-size: 0.25rem;
+}
+
+#answerInput {
+    width: 7%;
+    height: 2%;
+    left: 5%;
+    top: 36%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 10;
+}
+
+#timer {
+    width: 2%;
+    height: 1.2%;
+    left: 61.3%;
+    top: 36.4%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 5;
+}
+
+#timerButton {
+    width: 3.5%;
+    height: 2.8%;
+    left: 64%;
+    top: 36%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 5;
+}
+
+#tubeContentMixing2 {
+    width: 2.9%;
+    height: 7.75%;
+    left: 35.3%;
+    top: 62.9%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(img/tubeContentMixing2.svg);
+}
+
+#tubeContentMixing3 {
+    width: 2.9%;
+    height: 7.75%;
+    left: 35.3%;
+    top: 62.9%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(img/tubeContentMixing3.svg);
+}
+
+#tubeContentMixing4 {
+    width: 2.9%;
+    height: 7.75%;
+    left: 35.3%;
+    top: 62.9%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(img/tubeContentMixing3.svg);
+    z-index: 0;
+}
+
+#day2 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    visibility: visible;
+    z-index: -1;
+    font-family: "Helvetica", sans-serif;
+}
+
+#powerSupply {
+    width: 16%;
+    height: 9%;
+    left: 63%;
+    top: 61.5%;
+    position: absolute;
+    background-image: url(img/powerSupply.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+#powerSupplyUp {
+    width: 5%;
+    height: 5%;
+    left: 46.5%;
+    top: 38%;
+    position: absolute;
+    background-image: url(img/powerSupplyUp.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+    z-index: inherit;
+}
+
+#powerSupplyDown {
+    width: 5%;
+    height: 5%;
+    left: 46.5%;
+    top: 42%;
+    position: absolute;
+    background-image: url(img/powerSupplyDown.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+    z-index: inherit;
+}
+
+#voltage {
+    width: 6%;
+    height: 4%;
+    left: 40%;
+    top: 40%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: inherit;
+}
+
+#zoomOutButton3 {
+    width: 2%;
+    height: 2%;
+    left: 73%;
+    top: 59.5%;
+    position: absolute;
+    background-image: url(img/zoomOutButton.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    visibility: visible;
+}
+
+#gelTray {
+    width: 13%;
+    height: 8%;
+    left: 69%;
+    top: 73%;
+    position: absolute;
+    background-image: url(img/gelTray.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+#gelComb {
+    width: 11%;
+    height: 8%;
+    left: 70%;
+    top: 71%;
+    position: absolute;
+    background-image: url(img/gelComb.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+#gelCombHitBox {
+    width: 100%;
+    height: 100%;
+    left: 70%;
+    top: 71%;
+    position: absolute;
+    z-index: 100;
+}
+
+#gelSideView {
+    width: 20%;
+    height: 6%;
+    left: 78%;
+    top: 61.55%;
+    position: absolute;
+    background-image: url(img/gelSideView.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+#stainingTraySide {
+    width: 10%;
+    height: 4%;
+    left: 88%;
+    top: 78%;
+    position: absolute;
+    background-image: url(img/stainingTraySide.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    z-index: 10000;
+}
+
+#stainedGel {
+    width: 10%;
+    height: 4%;
+    left: 88%;
+    top: 78%;
+    position: absolute;
+    background-image: url(img/stainedGel.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    z-index: 9999;
+}
+
+#graduatedCylinder {
+    width: 3%;
+    height: 12%;
+    left: 84%;
+    top: 70%;
+    position: absolute;
+    background-image: url(img/graduatedCylinder.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    z-index: 10000;
+}
+
+#emptyGraduatedCylinder {
+    width: 3%;
+    height: 12%;
+    left: 84%;
+    top: 70%;
+    position: absolute;
+    background-image: url(img/emptyGraduatedCylinder.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    z-index: 999;
+}
+
+#stainedGelContainer {
+    width: 20%;
+    height: 20%;
+    left: 35%;
+    top: 30%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    z-index: 2;
+}
+
+#gel {
+    width: 80%;
+    height: 80%;
+    left: 20%;
+    top: 11%;
+    position: absolute;
+    z-index: 20000;
+    visibility: hidden;
+}
+
+#topView {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -5;
+    font-family: "Helvetica", sans-serif;
+}
+
+#arrowDown {
+    width: 10%;
+    height: 15%;
+    left: 52%;
+    top: 10%;
+    position: absolute;
+    background-image: url(img/arrowDown.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+    z-index: 200;
+}
+
+#arrowUp {
+    width: 10%;
+    height: 15%;
+    left: 58%;
+    top: 10%;
+    position: absolute;
+    background-image: url(img/arrowUp.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+    z-index: 200;
+}
+
+#gelTopView {
+    width: 20%;
+    height: 30%;
+    left: 7%;
+    top: 55%;
+    position: absolute;
+    background-image: url(img/gelTopView.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: hidden;
+}
+
+#labBenchTop {
+    width: 85%;
+    height: 175%;
+    left: -21%;
+    top: -25%;
+    position: absolute;
+    background-image: url(img/labBenchTop.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    z-index: inherit;
+    visibility: hidden;
+}
+
+#gelTrayTop {
+    width: 22%;
+    height: 11%;
+    left: 6%;
+    top: 65.4%;
+    position: absolute;
+    background-image: url(img/gelTrayTop.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+    z-index: 500;
+}
+
+#gelFinalTop {
+    width: 22%;
+    height: 11%;
+    left: 6%;
+    top: 65.4%;
+    position: absolute;
+    background-image: url(img/gelFinalTop.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+    z-index: 2000;
+}
+
+#micropipetTopView {
+    width: 5%;
+    height: 7%;
+    left: 10.5%;
+    top: 71.6%;
+    position: absolute;
+    background-image: url(img/micropipetTopView.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+    z-index: 505;
+}
+
+#restPosition {
+    top: 51.3%;
+    left: 13.9%;
+}
+
+#well1 {
+    top: 55%;
+    left: 13.9%;
+}
+
+#well2 {
+    top: 57.9%;
+    left: 13.9%;
+}
+
+#well3 {
+    top: 60.3%;
+    left: 13.9%;
+}
+
+#well4 {
+    top: 62.6%;
+    left: 13.9%;
+}
+
+#well5 {
+    top: 65%;
+    left: 13.9%;
+}
+
+#well6 {
+    top: 67.1%;
+    left: 13.9%;
+}
+
+#well7 {
+    top: 69.3%;
+    left: 13.9%;
+}
+
+#lidBox {
+    width: 35%;
+    height: 45%;
+    left: -5.5%;
+    top: 40%;
+    position: absolute;
+    background-image: url(img/lidBox.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+    z-index: 1000
+}
+
+#lidSide {
+    width: 36%;
+    height: 30%;
+    left: -2%;
+    top: 20.3%;
+    position: absolute;
+    background-image: url(img/lid.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+    z-index: 1001
+}
+
+#powerSupplyTop {
+    width: 15%;
+    height: 30%;
+    left: -3.9%;
+    top: 19.4%;
+    position: absolute;
+    background-image: url(img/powerSupplyTop.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+}
+
+#sideView {
+    width: 36%;
+    height: 49%;
+    left: 51%;
+    top: 50.5%;
+    position: absolute;
+    background-image: url(img/sideBackground.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    visibility: visible;
+    z-index: -9;
+}
+
+#gelWell {
+    width: 70%;
+    height: 40%;
+    left: 2%;
+    top: 57%;
+    position: absolute;
+    background-image: url(img/gelWell.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+}
+
+#gelWellBoundary {
+    width: 48%;
+    height: 24%;
+    left: 26%;
+    top: 0%;
+    position: absolute;
+    visibility: visible;
+}
+
+#tipSide {
+    width: 10%;
+    height: 50%;
+    left: 35%;
+    top: 0%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+}
+
+#stainingTray {
+    width: 15%;
+    height: 18%;
+    left: 28%;
+    top: 55%;
+    position: absolute;
+    background-image: url(img/stainingTray.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+#microtubeHolderTop {
+    width: 8%;
+    height: 30%;
+    left: 35%;
+    top: 23%;
+    position: absolute;
+    background-image: url(img/microtubeHolderTop.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+}
+
+#ladderTop {
+    width: 7%;
+    height: 7%;
+    left: 33.5%;
+    top: 16%;
+    position: absolute;
+    background-image: url(img/ladderTop.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+}
+
+#csTop {
+    width: 7%;
+    height: 7%;
+    left: 33.5%;
+    top: 22%;
+    position: absolute;
+    background-image: url(img/csTop.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+}
+
+#s1Top {
+    width: 7%;
+    height: 7%;
+    left: 33.5%;
+    top: 26.5%;
+    position: absolute;
+    background-image: url(img/s1Top.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+}
+
+#s2Top {
+    width: 7%;
+    height: 7%;
+    left: 33.5%;
+    top: 31%;
+    position: absolute;
+    background-image: url(img/s2Top.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+}
+
+#s3Top {
+    width: 7%;
+    height: 7%;
+    left: 33.5%;
+    top: 35.5%;
+    position: absolute;
+    background-image: url(img/s3Top.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+}
+
+#s4Top {
+    width: 7%;
+    height: 7%;
+    left: 33.5%;
+    top: 40%;
+    position: absolute;
+    background-image: url(img/s4Top.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+}
+
+#s5Top {
+    width: 7%;
+    height: 7%;
+    left: 33.5%;
+    top: 44.5%;
+    position: absolute;
+    background-image: url(img/s5Top.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+}
+
+#zoomOutButton2 {
+    width: 7.5%;
+    height: 8%;
+    left: 73%;
+    top: 41.7%;
+    position: absolute;
+    background-image: url(img/zoomOutButton.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    visibility: visible;
+}
+
+#wasteBinTop {
+    width: 10%;
+    height: 10%;
+    left: 33%;
+    top: 75%;
+    position: absolute;
+    background-image: url(img/wasteBinTop.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+}
+
+#tipBoxTop {
+    width: 10%;
+    height: 10%;
+    left: 33%;
+    top: 60%;
+    position: absolute;
+    background-image: url(img/tipBoxTop.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+    z-index: 407;
+}
+
+#gelVoltageCover {
+    width: 200%;
+    height: 160%;
+    left: -55%;
+    top: -20%;
+    position: absolute;
+    background-image: url(img/gelVoltageCover.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+    z-index: -5000;
+}
+
+
+/*
+#gelLid {
+    width: 16%;
+    height: 9%;
+    left: 63%;
+    top: 61.5%;
+    position: absolute;
+    background-image: url(img/gelLid.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+*/
+
+@keyframes moveTube {
+    from {
+        top: 71.9%
+    }
+    to {
+        top: 63%;
+    }
+}
+
+.anim_moveTube {
+    animation: moveTube 0.5s linear 0s 1 normal forwards;
+}
+
+@keyframes moveEnz {
+    from {
+        top: 64.7%;
+    }
+    to {
+        top: 60%;
+    }
+}
+
+.anim_moveEnz {
+    animation: moveEnz 0.5s linear 0s 1 normal forwards;
+}
+
+@keyframes rotateCap {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-135deg);
+    }
+}
+
+.anim_rotateCap {
+    animation: rotateCap 0.5s linear forwards;
+}
+
+@keyframes closeCap {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-135deg);
+    }
+}
+
+.anim_closeCap {
+    animation: closeCap 0.5s linear reverse forwards;
+}
+
+@keyframes tubeDown {
+    from {
+        top: 71.9%
+    }
+    to {
+        top: 63%;
+    }
+}
+
+.anim_tubeDown {
+    animation: tubeDown 0.5s linear 0s 1 reverse forwards;
+}
+
+@keyframes movePipet {
+    0% {
+        left: 0.5%;
+        top: 52%;
+    }
+    10% {
+        left: 0.5%;
+        top: 35%;
+    }
+    40% {
+        left: 52%;
+        top: 35%;
+    }
+    50% {
+        left: 52%;
+        top: 41.6%;
+    }
+    80% {
+        left: 82.5%;
+        top: 47%;
+    }
+    90% {
+        left: 83%;
+        top: 32%;
+    }
+    100% {
+        left: 86.4%;
+        top: 40.8%;
+    }
+}
+
+.anim_movePipet {
+    animation: movePipet 8s linear 0s 1 normal forwards;
+}
+
+@keyframes removeLid {
+    0% {
+        top: 21.58%;
+        left: 59.88%;
+        transform: rotate(0deg)
+    }
+    10% {
+        top: 18.5%;
+    }
+    25% {
+        top: 16.7% transform: rotate(20deg)
+    }
+    100% {
+        top: 11.6%;
+        left: 70%;
+        transform: rotate(86deg)
+    }
+}
+
+.anim_removeLid {
+    animation: removeLid 0.9s linear 0s 1 normal forwards;
+}
+
+@keyframes replaceLid {
+    0% {
+        top: 21.58%;
+        left: 59.88%;
+        transform: rotate(0deg)
+    }
+    10% {
+        top: 18.5%;
+    }
+    25% {
+        top: 16.7% transform: rotate(20deg)
+    }
+    100% {
+        top: 11.6%;
+        left: 70%;
+        transform: rotate(86deg)
+    }
+}
+
+.anim_replaceLid {
+    animation: replaceLid 0.9s linear 0s 1 reverse forwards;
+}
+
+@keyframes flickTube {
+    0% {
+        top: 63%;
+        transform: rotate(0deg)
+    }
+    25% {
+        top: 63%;
+        transform: rotate(90deg)
+    }
+    50% {
+        top: 63%;
+        transform: rotate(0deg)
+    }
+    75% {
+        top: 63%;
+        transform: rotate(90deg)
+    }
+    100% {
+        top: 63%;
+        transform: rotate(0deg)
+    }
+}
+
+.anim_flickTube {
+    animation: flickTube 0.6s linear 0s 1 normal forwards;
+}
+
+@keyframes tapTube {
+    0% {
+        top: 63%;
+    }
+    35% {
+        top: 72.3%;
+        left: 32%;
+    }
+    45% {
+        top: 67%;
+        left: 32%;
+    }
+    55% {
+        top: 72.3%;
+        left: 32%;
+    }
+    65% {
+        top: 67%;
+        left: 32%;
+    }
+    75% {
+        top: 72.3%;
+        left: 32%;
+    }
+    85% {
+        top: 67%;
+        left: 32%;
+    }
+    100% {
+        top: 63%;
+    }
+}
+
+.anim_tapTube {
+    animation: tapTube 1.6s linear 0s 1 normal forwards;
+}
+
+
+/*
+@keyframes addTip1 {
+    0% {
+        left: 14.5%;
+        top: 52%;
+    }
+    20% {
+        left: 17%;
+        top: 47.6%;
+    }
+    25% {
+        left: 17%;
+        top: 42%;
+    }
+    90% {
+        left: 83%;
+        top: 28%;
+    }
+    95% {
+        left: 86.4%;
+        top: 28%;
+    }
+    100% {
+        left: 86.4%;
+        top: 35%;
+    }
+}
+*/
+
+.anim_addTip1 {
+    animation: addTip1 5s linear 0s 1 normal forwards;
+}
+
+@keyframes addTip2 {
+    0% {
+        left: 1.5%;
+        top: 52%;
+    }
+    90% {
+        left: 17%;
+        top: 47.6%;
+    }
+    100% {
+        left: 17%;
+        top: 42%;
+    }
+}
+
+.anim_addTip2 {
+    animation: addTip2 1.25s linear 0s 1 normal forwards;
+}
+
+@keyframes lowerPipet {
+    0% {
+        left: 86.4%;
+        top: 28%;
+    }
+    100% {
+        left: 86.4%;
+        top: 35%;
+    }
+}
+
+.anim_lowerPipet {
+    animation: lowerPipet 0.4s linear 0s normal forwards;
+}
+
+@keyframes hideTip1 {
+    0% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.anim_hideTip1 {
+    animation: hideTip1 1s linear 0s 1 normal forwards;
+}
+
+@keyframes showTip1 {
+    0% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 0;
+        visibility: visible;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.anim_showTip1 {
+    animation: showTip1 1s linear 0s 1 normal forwards;
+}
+
+@keyframes moveTip1 {
+    0% {
+        left: 20.8%;
+        top: 70%;
+    }
+    20% {
+        left: 20.8%;
+        top: 70%;
+    }
+    25% {
+        left: 20.8%;
+        top: 64.6%;
+    }
+    90% {
+        left: 85.5%;
+        top: 50.6%;
+    }
+    100% {
+        left: 88.9%;
+        top: 50.6%;
+    }
+}
+
+.anim_moveTip1 {
+    animation: moveTip1 5s linear 0s 1 normal forwards;
+}
+
+@keyframes lowerTip1 {
+    0% {
+        left: 88.9%;
+        top: 50.6%;
+    }
+    100% {
+        left: 89.03%;
+        top: 57.1%;
+    }
+}
+
+.anim_lowerTip1 {
+    animation: lowerTip1 0.4s linear 0s 1 normal forwards
+}
+
+@keyframes addTip2 {
+    0% {
+        left: 52.7%;
+        top: 34.7%;
+    }
+    20% {
+        left: 18.9%;
+        top: 47.6%;
+    }
+    25% {
+        left: 18.9%;
+        top: 42%;
+    }
+    90% {
+        left: 83%;
+        top: 28%;
+    }
+    95% {
+        left: 86.4%;
+        top: 28%;
+    }
+    100% {
+        left: 86.4%;
+        top: 35%;
+    }
+}
+
+.anim_addTip2 {
+    animation: addTip2 5s linear 0s 1 normal forwards;
+}
+
+@keyframes moveTip2 {
+    0% {
+        left: 21.6%;
+        top: 70.2%;
+    }
+    20% {
+        left: 21.6%;
+        top: 70.2%;
+    }
+    25% {
+        left: 21.6%;
+        top: 64.6%;
+    }
+    90% {
+        left: 85.5%;
+        top: 50.6%;
+    }
+    95% {
+        left: 88.9%;
+        top: 50.6%;
+    }
+    100% {
+        left: 89.03%;
+        top: 57.1%;
+    }
+}
+
+.anim_moveTip2 {
+    animation: moveTip2 5s linear 0s 1 normal forwards;
+}
+
+@keyframes addTip3 {
+    0% {
+        left: 14.5%;
+        top: 52%;
+    }
+    8% {
+        left: 14.5%;
+        top: 44%;
+    }
+    14% {
+        left: 19.8%;
+        top: 44%;
+    }
+    20% {
+        left: 19.8%;
+        top: 47.6%;
+    }
+    25% {
+        left: 19.8%;
+        top: 42%;
+    }
+    50% {
+        left: 61%;
+        top: 42%;
+    }
+    58% {
+        left: 61%;
+        top: 47%;
+    }
+    80% {
+        left: 75%;
+        top: 47%;
+    }
+    90% {
+        left: 83%;
+        top: 28%;
+    }
+    95% {
+        left: 86.4%;
+        top: 28%;
+    }
+    100% {
+        left: 86.4%;
+        top: 35%;
+    }
+}
+
+.anim_addTip3 {
+    animation: addTip3 5s linear 0s 1 normal forwards;
+}
+
+@keyframes moveTip3 {
+    0% {
+        left: 22.4%;
+        top: 70.2%;
+    }
+    20% {
+        left: 22.4%;
+        top: 70.2%;
+    }
+    25% {
+        left: 22.4%;
+        top: 64.6%;
+    }
+    50% {
+        left: 63.5%;
+        top: 64.6%;
+    }
+    58% {
+        left: 63.5%;
+        top: 69.6%;
+    }
+    80% {
+        left: 77.5%;
+        top: 69.6%;
+    }
+    90% {
+        left: 85.5%;
+        top: 50.6%;
+    }
+    95% {
+        left: 89%;
+        top: 50.6%;
+    }
+    100% {
+        left: 89.03%;
+        top: 57.1%;
+    }
+}
+
+.anim_moveTip3 {
+    animation: moveTip3 5s linear 0s 1 normal forwards;
+}
+
+@keyframes addTip4 {
+    0% {
+        left: 14.5%;
+        top: 52%;
+    }
+    8% {
+        left: 14.5%;
+        top: 44%;
+    }
+    14% {
+        left: 20.6%;
+        top: 44%;
+    }
+    20% {
+        left: 20.6%;
+        top: 47.6%;
+    }
+    25% {
+        left: 20.6%;
+        top: 42%;
+    }
+    50% {
+        left: 61%;
+        top: 42%;
+    }
+    58% {
+        left: 61%;
+        top: 47%;
+    }
+    80% {
+        left: 75%;
+        top: 47%;
+    }
+    90% {
+        left: 83%;
+        top: 28%;
+    }
+    95% {
+        left: 86.4%;
+        top: 28%;
+    }
+    100% {
+        left: 86.4%;
+        top: 35%;
+    }
+}
+
+.anim_addTip4 {
+    animation: addTip4 5s linear 0s 1 normal forwards;
+}
+
+@keyframes moveTip4 {
+    0% {
+        left: 23.2%;
+        top: 70.2%;
+    }
+    20% {
+        left: 23.2%;
+        top: 70.2%;
+    }
+    25% {
+        left: 23.2%;
+        top: 64.6%;
+    }
+    50% {
+        left: 63.5%;
+        top: 64.6%;
+    }
+    58% {
+        left: 63.5%;
+        top: 69.6%;
+    }
+    80% {
+        left: 77.5%;
+        top: 69.6%;
+    }
+    90% {
+        left: 85.5%;
+        top: 50.6%;
+    }
+    95% {
+        left: 89%;
+        top: 50.6%;
+    }
+    100% {
+        left: 89%;
+        top: 57.6%;
+    }
+}
+
+.anim_moveTip4 {
+    animation: moveTip4 5s linear 0s 1 normal forwards;
+}
+
+@keyframes tipToBin {
+    0% {
+        left: 36.6%;
+        top: 61.5%;
+    }
+    10.9091% {
+        left: 36.6%;
+        top: 53.5%;
+    }
+    72.72727% {
+        left: 55.3%;
+        top: 56.9%;
+    }
+    100% {
+        left: 55.3%;
+        top: 65%;
+    }
+}
+
+.anim_tipToBin {
+    animation: tipToBin 2.2s linear 0s 1 normal forwards;
+}
+
+@keyframes pipetToBin {
+    0% {
+        left: 34%;
+        top: 39%;
+    }
+    15% {
+        left: 34%;
+        top: 31%;
+    }
+    100% {
+        left: 52.7%;
+        top: 34.7%;
+    }
+}
+
+.anim_pipetToBin {
+    animation: pipetToBin 1.6s linear 0s 1 normal forwards;
+}
+
+@keyframes moveLoadingDye {
+    0% {
+        top: 23.2%;
+        left: 7.8%;
+    }
+    15% {
+        top: 16%;
+        left: 7.8%;
+    }
+    70% {
+        top: 16%;
+        left: 22%;
+    }
+    100% {
+        top: 28%;
+        left: 22%;
+    }
+}
+
+.anim_moveLoadingDye {
+    animation: moveLoadingDye 2s linear 0s 1 normal forwards;
+}
+
+@keyframes returnLoadingDye1 {
+    0% {
+        top: 23.2%;
+        left: 7.8%;
+    }
+    15% {
+        top: 16%;
+        left: 7.8%;
+    }
+    70% {
+        top: 16%;
+        left: 22%;
+    }
+    100% {
+        top: 28%;
+        left: 22%;
+    }
+}
+
+.anim_returnLoadingDye1 {
+    animation: returnLoadingDye1 2s linear 0s 1 reverse forwards;
+}
+
+@keyframes moveLoadingDye2 {
+    0% {
+        left: 11.7%;
+        top: 23.2%;
+    }
+    15% {
+        top: 16%;
+        left: 11.7%;
+    }
+    70% {
+        top: 16%;
+        left: 26%;
+    }
+    100% {
+        top: 28%;
+        left: 27%;
+    }
+}
+
+.anim_moveLoadingDye2 {
+    animation: moveLoadingDye2 2s linear 0s 1 normal forwards;
+}
+
+@keyframes ejectTip {
+    from {
+        left: 55.3%;
+        top: 56.9%;
+    }
+    to {
+        left: 55.3%;
+        top: 65%;
+    }
+}
+
+.anim_ejectTip {
+    animation: ejectTip 0.8s linear 0s 1 normal forwards;
+}
+
+@keyframes tipToTube1 {
+    0% {
+        left: 89%;
+        top: 57.6%;
+    }
+    10% {
+        left: 89%;
+        top: 50.6%;
+    }
+    85% {
+        left: 39.6%;
+        top: 57.6%;
+    }
+    90% {
+        left: 36.6%;
+        top: 54.2%;
+    }
+    100% {
+        left: 36.6%;
+        top: 61.5%;
+    }
+}
+
+.anim_tipToTube1 {
+    animation: tipToTube1 3.4s linear 0s 1 normal forwards;
+}
+
+@keyframes pipetToTube1 {
+    0% {
+        left: 86.4%;
+        top: 35%;
+    }
+    10% {
+        left: 86.4%;
+        top: 28%;
+    }
+    85% {
+        left: 37%;
+        top: 35%
+    }
+    90% {
+        left: 34%;
+        top: 31.7%;
+    }
+    100% {
+        left: 34%;
+        top: 39%;
+    }
+}
+
+.anim_pipetToTube1 {
+    animation: pipetToTube1 3.4s linear 0s 1 normal forwards;
+}
+
+@keyframes tipToTube2 {
+    0% {
+        left: 89%;
+        top: 57.6%;
+    }
+    10% {
+        left: 89%;
+        top: 50.6%;
+    }
+    85% {
+        left: 37.1%;
+        top: 57.6%;
+    }
+    90% {
+        left: 34.1%;
+        top: 54.2%;
+    }
+    100% {
+        left: 34.1%;
+        top: 61.5%;
+    }
+}
+
+.anim_tipToTube2 {
+    animation: tipToTube2 3.4s linear 0s 1 normal forwards;
+}
+
+@keyframes pipetToTube2 {
+    0% {
+        left: 86.4%;
+        top: 35%;
+    }
+    10% {
+        left: 86.4%;
+        top: 28%;
+    }
+    85% {
+        left: 34.5%;
+        top: 35%
+    }
+    90% {
+        left: 31.5%;
+        top: 31.7%;
+    }
+    100% {
+        left: 31.5%;
+        top: 39%;
+    }
+}
+
+.anim_pipetToTube2 {
+    animation: pipetToTube2 3.4s linear 0s 1 normal forwards;
+}
+
+@keyframes tipToTube3 {
+    0% {
+        left: 89%;
+        top: 57.6%;
+    }
+    10% {
+        left: 89%;
+        top: 50.6%;
+    }
+    85% {
+        left: 37.1%;
+        top: 57.6%;
+    }
+    90% {
+        left: 34.1%;
+        top: 54.2%;
+    }
+    100% {
+        left: 34.1%;
+        top: 61.5%;
+    }
+}
+
+.anim_tipToTube3 {
+    animation: tipToTube3 3.4s linear 0s 1 normal forwards;
+}
+
+@keyframes pipetToTube3 {
+    0% {
+        left: 86.4%;
+        top: 35%;
+    }
+    10% {
+        left: 86.4%;
+        top: 28%;
+    }
+    85% {
+        left: 34.5%;
+        top: 35%
+    }
+    90% {
+        left: 31.5%;
+        top: 31.7%;
+    }
+    100% {
+        left: 31.5%;
+        top: 39%;
+    }
+}
+
+.anim_pipetToTube3 {
+    animation: pipetToTube3 3.4s linear 0s 1 normal forwards;
+}
+
+@keyframes tipToTube4 {
+    0% {
+        left: 89%;
+        top: 57.6%;
+    }
+    10% {
+        left: 89%;
+        top: 50.6%;
+    }
+    85% {
+        left: 37.1%;
+        top: 57.6%;
+    }
+    90% {
+        left: 34.1%;
+        top: 54.2%;
+    }
+    100% {
+        left: 34.1%;
+        top: 61.5%;
+    }
+}
+
+.anim_tipToTube4 {
+    animation: tipToTube4 3.4s linear 0s 1 normal forwards;
+}
+
+@keyframes pipetToTube4 {
+    0% {
+        left: 86.4%;
+        top: 35%;
+    }
+    10% {
+        left: 86.4%;
+        top: 28%;
+    }
+    85% {
+        left: 34.5%;
+        top: 35%
+    }
+    90% {
+        left: 31.5%;
+        top: 31.7%;
+    }
+    100% {
+        left: 31.5%;
+        top: 39%;
+    }
+}
+
+.anim_pipetToTube4 {
+    animation: pipetToTube4 3.4s linear 0s 1 normal forwards;
+}
+
+@keyframes tipToTube5 {
+    0% {
+        left: 89%;
+        top: 57.6%;
+    }
+    10% {
+        left: 89%;
+        top: 50.6%;
+    }
+    85% {
+        left: 37.1%;
+        top: 57.6%;
+    }
+    90% {
+        left: 34.1%;
+        top: 54.2%;
+    }
+    100% {
+        left: 34.1%;
+        top: 61.5%;
+    }
+}
+
+.anim_tipToTube5 {
+    animation: tipToTube5 3.4s linear 0s 1 normal forwards;
+}
+
+@keyframes pipetToTube5 {
+    0% {
+        left: 86.4%;
+        top: 35%;
+    }
+    10% {
+        left: 86.4%;
+        top: 28%;
+    }
+    85% {
+        left: 34.5%;
+        top: 35%
+    }
+    90% {
+        left: 31.5%;
+        top: 31.7%;
+    }
+    100% {
+        left: 31.5%;
+        top: 39%;
+    }
+}
+
+.anim_pipetToTube5 {
+    animation: pipetToTube5 3.4s linear 0s 1 normal forwards;
+}
+
+@keyframes tipToTube6 {
+    0% {
+        left: 89%;
+        top: 57.6%;
+    }
+    10% {
+        left: 89%;
+        top: 50.6%;
+    }
+    85% {
+        left: 37.1%;
+        top: 57.6%;
+    }
+    90% {
+        left: 34.1%;
+        top: 54.2%;
+    }
+    100% {
+        left: 34.1%;
+        top: 61.5%;
+    }
+}
+
+.anim_tipToTube6 {
+    animation: tipToTube6 3.4s linear 0s 1 normal forwards;
+}
+
+@keyframes pipetToTube6 {
+    0% {
+        left: 86.4%;
+        top: 35%;
+    }
+    10% {
+        left: 86.4%;
+        top: 28%;
+    }
+    85% {
+        left: 34.5%;
+        top: 35%
+    }
+    90% {
+        left: 31.5%;
+        top: 31.7%;
+    }
+    100% {
+        left: 31.5%;
+        top: 39%;
+    }
+}
+
+.anim_pipetToTube6 {
+    animation: pipetToTube6 3.4s linear 0s 1 normal forwards;
+}
+
+@keyframes moveBlock {
+    0% {
+        left: 35.72%;
+        top: 73.4%;
+    }
+    100% {
+        left: 30.72%;
+        top: 57%;
+    }
+}
+
+.anim_moveBlock {
+    animation: moveBlock 1s linear 0s 1 normal forwards;
+}
+
+@keyframes tube0ToBath {
+    0% {
+        left: 35.72%;
+        top: 71.9%;
+    }
+    100% {
+        left: 30.72%;
+        top: 55%;
+    }
+}
+
+.anim_tube0ToBath {
+    animation: tube0ToBath 1s linear 0s 1 normal forwards;
+}
+
+@keyframes tube1ToBath {
+    0% {
+        left: 38%;
+        top: 71.9%;
+    }
+    100% {
+        left: 33.5%;
+        top: 55%;
+    }
+}
+
+.anim_tube1ToBath {
+    animation: tube1ToBath 1s linear 0s 1 normal forwards;
+}
+
+@keyframes tube2ToBath {
+    0% {
+        left: 40.5%;
+        top: 71.9%;
+    }
+    100% {
+        left: 36.3%;
+        top: 55%;
+    }
+}
+
+.anim_tube2ToBath {
+    animation: tube2ToBath 1s linear 0s 1 normal forwards;
+}
+
+@keyframes tube3ToBath {
+    0% {
+        left: 43%;
+        top: 71.9%;
+    }
+    100% {
+        left: 39%;
+        top: 55%;
+    }
+}
+
+.anim_tube3ToBath {
+    animation: tube3ToBath 1s linear 0s 1 normal forwards;
+}
+
+@keyframes tube4ToBath {
+    0% {
+        left: 45.5%;
+        top: 71.9%;
+    }
+    100% {
+        left: 41.7%;
+        top: 55%;
+    }
+}
+
+.anim_tube4ToBath {
+    animation: tube4ToBath 1s linear 0s 1 normal forwards;
+}
+
+@keyframes tube5ToBath {
+    0% {
+        left: 48%;
+        top: 71.9%;
+    }
+    100% {
+        left: 44.4%;
+        top: 55%;
+    }
+}
+
+.anim_tube5ToBath {
+    animation: tube5ToBath 1s linear 0s 1 normal forwards;
+}
+
+@keyframes oscillate {
+    0% {
+        left: 22%;
+        top: 58.7%;
+    }
+    50% {
+        left: 22%;
+        top: 57%;
+    }
+    100% {
+        left: 22%;
+        top: 58.7%;
+    }
+}
+
+.anim_oscillate {
+    animation: oscillate 0.75s linear 0s infinite normal forwards;
+}
+
+@keyframes oscillate1 {
+    0% {
+        left: 89%;
+        top: 52%;
+    }
+    50% {
+        left: 89%;
+        top: 54.5%;
+    }
+    100% {
+        left: 89%;
+        top: 52%;
+    }
+}
+
+.anim_oscillate1 {
+    animation: oscillate1 0.75s linear 0s infinite normal forwards;
+}
+
+@keyframes oscillate2 {
+    0% {
+        left: 12%;
+        top: 12%;
+    }
+    50% {
+        left: 12%;
+        top: 14%;
+    }
+    100% {
+        left: 12%;
+        top: 12%;
+    }
+}
+
+.anim_oscillate2 {
+    animation: oscillate2 0.75s linear 0s infinite normal forwards;
+}
+
+@keyframes oscillate3 {
+    0% {
+        left: 3.4%;
+        top: 12%;
+    }
+    50% {
+        left: 3.4%;
+        top: 14%;
+    }
+    100% {
+        left: 3.4%;
+        top: 12%;
+    }
+}
+
+.anim_oscillate3 {
+    animation: oscillate3 0.75s linear 0s infinite normal forwards;
+}
+
+@keyframes pressTube0 {
+    from {
+        left: 30.72%;
+        top: 55%;
+    }
+    to {
+        left: 30.72%;
+        top: 56.5%;
+    }
+}
+
+.anim_pressTube0 {
+    animation: pressTube0 0.3s linear 0s 1 normal forwards;
+}
+
+@keyframes pressTube1 {
+    from {
+        left: 33.5%;
+        top: 55%;
+    }
+    to {
+        left: 33.5%;
+        top: 56.5%;
+    }
+}
+
+.anim_pressTube1 {
+    animation: pressTube1 0.3s linear 0s 1 normal forwards;
+}
+
+@keyframes pressTube2 {
+    from {
+        left: 36.3%;
+        top: 55%;
+    }
+    to {
+        left: 36.3%;
+        top: 56.5%;
+    }
+}
+
+.anim_pressTube2 {
+    animation: pressTube2 0.3s linear 0s 1 normal forwards;
+}
+
+@keyframes pressTube3 {
+    from {
+        left: 39%;
+        top: 55%;
+    }
+    to {
+        left: 39%;
+        top: 56.5%;
+    }
+}
+
+.anim_pressTube3 {
+    animation: pressTube3 0.3s linear 0s 1 normal forwards;
+}
+
+@keyframes pressTube4 {
+    from {
+        left: 41.7%;
+        top: 55%;
+    }
+    to {
+        left: 41.7%;
+        top: 56.5%;
+    }
+}
+
+.anim_pressTube4 {
+    animation: pressTube4 0.3s linear 0s 1 normal forwards;
+}
+
+@keyframes pressTube5 {
+    from {
+        left: 44.4%;
+        top: 55%;
+    }
+    to {
+        left: 44.4%;
+        top: 56.5%;
+    }
+}
+
+.anim_pressTube5 {
+    animation: pressTube5 0.3s linear 0s 1 normal forwards;
+}
+
+@keyframes insertRack {
+    0% {
+        left: 30.72%;
+        top: 57%;
+    }
+    70% {
+        left: 50%;
+        top: 15%;
+        z-index: 2
+    }
+    80% {
+        left: 60%;
+        top: 15%;
+    }
+    100% {
+        left: 60%;
+        top: 30%;
+        transform: scale(0.7);
+    }
+}
+
+.anim_insertRack {
+    animation: insertRack 1.8s linear 0s 1 normal forwards;
+}
+
+@keyframes insertTube0 {
+    0% {
+        left: 30.72%;
+        top: 56.5%;
+    }
+    70% {
+        left: 50%;
+        top: 17%;
+        z-index: 2;
+    }
+    80% {
+        left: 60%;
+        top: 17%;
+    }
+    100% {
+        left: 61%;
+        top: 28%;
+        transform: scale(0.7);
+    }
+}
+
+.anim_insertTube0 {
+    animation: insertTube0 1.8s linear 0s 1 normal forwards;
+}
+
+@keyframes insertTube1 {
+    0% {
+        left: 33.5%;
+        top: 56.5%;
+    }
+    70% {
+        left: 52.78%;
+        top: 17%;
+        z-index: 2
+    }
+    80% {
+        left: 62.78%;
+        top: 17%;
+    }
+    100% {
+        left: 63.78%;
+        top: 28%;
+        transform: scale(0.7);
+    }
+}
+
+.anim_insertTube1 {
+    animation: insertTube1 1.8s linear 0s 1 normal forwards;
+}
+
+@keyframes insertTube2 {
+    0% {
+        left: 36.3%;
+        top: 56.5%;
+    }
+    70% {
+        left: 55.56%;
+        top: 17%;
+        z-index: 2
+    }
+    80% {
+        left: 65.56%;
+        top: 17%;
+    }
+    100% {
+        left: 66.56%;
+        top: 30%;
+        transform: scale(0.7);
+    }
+}
+
+.anim_insertTube2 {
+    animation: insertTube2 1.8s linear 0s 1 normal forwards;
+}
+
+@keyframes insertTube3 {
+    0% {
+        left: 38.8%;
+        top: 56.5%;
+    }
+    70% {
+        left: 58%;
+        top: 17%;
+        z-index: 2
+    }
+    80% {
+        left: 68%;
+        top: 17%;
+    }
+    100% {
+        left: 69%;
+        top: 30%;
+        transform: scale(0.7);
+    }
+}
+
+.anim_insertTube3 {
+    animation: insertTube3 1.8s linear 0s 1 normal forwards;
+}
+
+@keyframes insertTube4 {
+    0% {
+        left: 41.3%;
+        top: 56.5%;
+    }
+    70% {
+        left: 61.5%;
+        top: 17%;
+        z-index: 2
+    }
+    80% {
+        left: 71.5%;
+        top: 17%;
+    }
+    100% {
+        left: 72.5%;
+        top: 30%;
+        transform: scale(0.7);
+    }
+}
+
+.anim_insertTube4 {
+    animation: insertTube4 1.8s linear 0s 1 normal forwards;
+}
+
+@keyframes insertTube5 {
+    0% {
+        left: 44.4%;
+        top: 56.5%;
+    }
+    70% {
+        left: 63%;
+        top: 17%;
+        z-index: 2
+    }
+    80% {
+        left: 73%;
+        top: 17%;
+    }
+    100% {
+        left: 74%;
+        top: 30%;
+        transform: scale(0.7);
+    }
+}
+
+.anim_insertTube5 {
+    animation: insertTube5 1.8s linear 0s 1 normal forwards;
+}
+
+@keyframes tipVisible {
+    from {
+        visibility: hidden;
+    }
+    to {
+        visibility: visible;
+    }
+}
+
+.anim_tipVisible {
+    animation: tipVisible 0.1s linear 0s normal forwards
+}
+
+@keyframes tipHidden {
+    from {
+        visibility: visible;
+    }
+    to {
+        visibility: hidden;
+    }
+}
+
+.anim_tipHidden {
+    animation: tipHidden 0.1s linear 0s normal forwards
+}
+
+.meterButton {
+    width: 12%;
+    height: 7.1%;
+    top: 65%;
+    background: none;
+    opacity: 1;
+    position: absolute;
+    border-radius: 50%;
+}
+
+#itemButton1 {
+    left: 15.85%;
+}
+
+#itemButton2 {
+    left: 35.2%;
+}
+
+#itemButton3 {
+    left: 54.55%;
+}
+
+#itemButton4 {
+    left: 73.9%;
+}
+
+#itemButton5 {
+    left: 73.9%;
+}
+
+#itemButton6 {
+    left: 73.9%;
+}
+
+#itemButton7 {
+    left: 73.9%;
+}
+
+#itemButton8 {
+    left: 73.9%;
+}
+
+#itemButton9 {
+    left: 73.9%;
+}
+
+#itemButton10 {
+    left: 73.9%;
+}
+
+#itemButton11 {
+    left: 73.9%;
+}
+
+#itemButton12 {
+    left: 73.9%;
+}
+
+#itemButton13 {
+    left: 73.9%;
+}
+
+#itemButton14 {
+    left: 73.9%;
+}
+
+.itemLabel {
+    width: 500%;
+    height: 300%;
+    left: -200%;
+    top: 100%;
+    position: absolute;
+    background-image: url("../resources/img/white_text_bubble_up.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 10000;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.itemLabelText {
+    width: 100%;
+    top: 43%;
+    position: absolute;
+    color: black;
+    text-align: center;
+}
+
+.anim_quickFadeIn {
+    animation: quickFadeIn .125s 0s 1 linear normal forwards;
+}
+
+@keyframes quickFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.anim_quickFadeOut {
+    animation: quickFadeOut .125s 0s 1 linear normal forwards;
+}
+
+@keyframes quickFadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes removeComb {
+    0% {
+        top: 71%;
+        opacity: 1;
+    }
+    90% {
+        top: 73.5%;
+    }
+    100% {
+        top {
+            73.5%;
+            opacity: 0
+        }
+    }
+}
+
+.anim_removeComb {
+    animation: removeComb 1s 0s 1 linear normal forwards;
+}
+
+@keyframes changeDay1 {
+    from {
+        z-index: 0
+    }
+    to {
+        z-index: : -1
+    }
+}
+
+.anim_changeDay1 {
+    animation: changeDay1 1s linear 0s normal forwards;
+}
+
+@keyframes changeDay2 {
+    from {
+        z-index: -1
+    }
+    to {
+        z-index: 0
+    }
+}
+
+.anim_changeDay2 {
+    animation: changeDay2 1s linear 0s normal forwards;
+}
+
+@keyframes toTopView1 {
+    0% {
+        visibility: hidden:
+    }
+    100% {
+        visibility: visible;
+        z-index: -1;
+    }
+}
+
+.anim_toTopView1 {
+    animation: toTopView1 1s 0s 1 linear normal forwards;
+}
+
+@keyframes toTopView2 {
+    0% {
+        visibility: visible;
+    }
+    100% {
+        visibility: hidden;
+        z-index: -3;
+    }
+}
+
+.anim_toTopView2 {
+    animation: toTopView2 1s 0s 1 linear normal forwards;
+}
+
+@keyframes toFrontView {
+    0% {}
+    100% {
+        visibility: visible;
+        z-index: 10;
+    }
+}
+
+.anim_toFrontView {
+    animation: toFrontView 1s 0s 1 linear normal reverse;
+}
+
+@keyframes toFrontView1 {
+    0% {
+        visibility: visible;
+    }
+    100% {
+        visibility: hidden;
+        z-index: -3;
+    }
+}
+
+.anim_toFrontView1 {
+    animation: toFrontView1 1s 0s 1 linear normal reverse;
+}
+
+@keyframes placeItem {
+    0% {
+        visibility: hidden;
+    }
+    100% {
+        visibility: visible;
+    }
+}
+
+.anim_placeItem {
+    animation: placeTray 1s 0s 1 linear normal forwards;
+}
+
+@keyframes pourStain {
+    0% {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    60% {
+        transform: rotate(105deg);
+    }
+    100% {
+        opacity: 0;
+        transform: rotate(105deg);
+    }
+}
+
+.anim_pourStain {
+    animation: pourStain 0.6s 0s 1 linear normal forwards;
+}
+
+@keyframes stain1 {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.anim_stain1 {
+    animation: stain1 0.1s 0s 1 linear normal forwards;
+}
+
+@keyframes stain2 {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.anim_stain2 {
+    animation: stain2 1s 0s 1 linear normal forwards;
+}

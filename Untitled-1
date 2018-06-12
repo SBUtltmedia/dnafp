@@ -1,0 +1,17 @@
+steps=[function () {
+        if (game.getCurrentStep().id != "openEnzyme") {
+            updateScore(-10);
+        }
+        if (game.getCurrentStep().id == "openEnzyme") {
+            $("#enzCap").addClass("anim_rotateCap");
+            $("#indicatorArrow0").addClass("anim_oscillate");
+            $("#indicatorArrow0").delay(950).animate({
+                opacity: '1.0'
+            });
+            setTimeout(function () {
+                game.nextStep();
+                updateScore(10);
+                console.log(game.getCurrentStep().id)
+            }, 500);
+        }
+    },  ]
