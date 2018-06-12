@@ -97,7 +97,7 @@ var helperFunctions = {
         //            opacity: '0.0'
         //        });
         
-        animate("#volumeButton,#volumeInput",5000,"animate",[{opacity: '1.0',top: '-8.9%'},10000]);
+        animate("#volumeButton,#volumeInput",5000,"animate",[{opacity: '1.0'}]);
         
 //        $("#volumeButton").delay(5000).animate({
 //            opacity: '1.0'
@@ -731,7 +731,7 @@ var helperFunctions = {
         }, 600);
     }, //step 23
     "mixContents1": function () {
-        animate("#view", 0, zoom, [39, 67, 12, 1250])
+        animate("#view", 1, zoom, [39, 67, 12, 1250])
         //zoom(39, 67, 12, 1250)
 
         //HAVE TO BE CONFIRMED
