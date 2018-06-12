@@ -731,7 +731,7 @@ var helperFunctions = {
         }, 600);
     }, //step 23
     "mixContents1": function () {
-        animate("#view", 1, zoom, [39, 67, 12, 1250])
+        animate("#view", 0, zoom, [39, 67, 12, 1250])
         //zoom(39, 67, 12, 1250)
 
         //HAVE TO BE CONFIRMED
