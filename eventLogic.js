@@ -1,7 +1,7 @@
 // Clicky stuff here
 var isAdminVar;
 var hash = location.hash.split("#")[1];
-var testMode;
+
 if (hash) {
     testMode = true;
 }
@@ -104,7 +104,21 @@ var tips = [18.2, 19, 19.8, 20.6, 21.4, 22.2, 23, 24.8, 25.6, 26.4, 26.8, 27.3]
 //var breach = false;
 var breach = false;
 $(function () {
-    loadSVG()
+    loadSVG();
+    $('#mainStyle').load("style.css",function(){
+        if(testMode){ 
+        var mainStyle=  $('#mainStyle').html()
+    //console.log(mainStyle)  
+          
+    mainSplit=mainStyle.split(hash);
+        
+     mainSplit[0] =  mainSplit[0].replace(/(animation: )([^ ]*) ([^ ]*) (.*)/g,"$1$2 0s $4");
+    // mainSplit[0] =  mainSplit[0].replace(/(zoom: )([^ ]*) ([^ ]*) (.*)/g,"$1$2 0s $4");
+        
+      $('#mainStyle').html(mainSplit[0]+hash+mainSplit[1]); 
+        }
+        })
+
     // Resize window on page load to ensure proper sizing of elements
     resizeWindow();
     //makePipetteTipAnimation();

@@ -105,6 +105,7 @@ var helperFunctions = {
 //        $("#volumeInput").delay(5000).animate({
 //            opacity: '1.0'
 //        });
+        //PROBLEM
         animate("#view", 5000, zoom, [95, 36, 9.5, 2700])
         // $("#view").delay(5000, [zoom(95, 36, 9.5, 2700)]);
         //        setTimeout(function () {
@@ -173,9 +174,9 @@ var helperFunctions = {
         //console.log(microtubeState)
     }, //step 5
     "addEnzyme": function () {
-        //animate("#tip1", 0, "addClass", "anim_tipToTube1")
+        animate("#tip1", 0, "addClass", "anim_tipToTube1")
         $("#tip1").addClass("anim_tipToTube1");
-        //animate("#micropipet2", 0, "addClass", "anim_pipetToTube1")
+        animate("#micropipet2", 0, "addClass", "anim_pipetToTube1")
         //
         //
         //THIS IS A PROBLEM AND I DONT KNOW WHY
@@ -184,14 +185,14 @@ var helperFunctions = {
         $("#micropipet2").addClass("anim_pipetToTube1");
         //animate("#indicatorArrow2", 0, "addClass", "anim_oscillate2")
         $("#indicatorArrow2").addClass("anim_oscillate2");
-
-        //HAVE TO BE CONFIRMED
         animate("#indicatorArrow2",1800,"animate",[{opacity: '1.0'}]);
 /*
         $("#indicatorArrow2").delay(1800).animate({
             opacity: '1.0'
         });
 */
+
+
         
         //            setTimeout(function () {
         //                zoom(80, 60, 8, 6000)
@@ -389,11 +390,11 @@ var helperFunctions = {
             opacity: '1.0'
         });
 */
-        setTimeout(function () {
-            // game.nextStep();
-            updateScore(10);
-            console.log(game.getCurrentStep().id)
-        }, 300);
+//        setTimeout(function () {
+//            // game.nextStep();
+//            updateScore(10);
+//            console.log(game.getCurrentStep().id)
+//        }, 300);
     }, //
     //
     //
@@ -673,7 +674,7 @@ var helperFunctions = {
             console.log("correct volume")
 
             //HAVE TO BE CONFIRMED
-            animate("#button,#volumeInput1",1,"animate",[{opacity: '0.0'}]);        
+            animate("#button,#volumeInput1",1,"animate",[{opacity: '0.0'}]);
 /*
             $("button").delay(1).animate({
                 opacity: '0.0'
@@ -685,7 +686,10 @@ var helperFunctions = {
             animate("#view", 0, zoom, [50, 50, 1, 1000])
             //zoom(50, 50, 1, 1000)
         }
-    }, //step 22
+    },//step 21
+    "openTube1": function () {
+       
+    },//step 22
     "addDye": function () {
 
         //HAVE TO BE CONFIRMED
@@ -1393,6 +1397,10 @@ var helperFunctions = {
         //        }, 1500);
     }, //step 73
     "setVoltage": function () {
+        if (voltage == 100 || testMode) {
+            
+                       criteriaPassed = true;
+        }
         $("#powerSupplyUp").click(function () {
             updateVoltage(10);
             console.log(voltage);
@@ -1403,7 +1411,7 @@ var helperFunctions = {
             console.log(voltage);
             $("#voltage").val(voltage);
         });
-        if (voltage == 100) {
+        if (voltage == 100 || testMode) {
             criteriaPassed = true;
         }
     },

@@ -330,7 +330,7 @@ function loadSteps() {
                     , "logic": {
                         "eventSelector": "#s0TubeBody1"
                         , "eventType": "click"
-                        , "eventFunction": helperFunctions.openTube1
+                        , "eventFunction":function (){}
                         , "criteria": {
                             "variable": "microtubeState"
                             , "value": [12, 0, 0, 0, 0, 0]
@@ -376,7 +376,7 @@ function loadSteps() {
                     , "logic": {
                         "eventSelector": "#s0Tube1"
                         , "eventType": "click"
-                        , "eventFunction": helperFunctions.closeTube1
+                        , "eventFunction":  function(){}//helperFunctions.closeTube1
                         , "criteria": {
                             "variable": "microtubeState"
                             , "value": [14, 0, 0, 0, 0, 0]
@@ -391,7 +391,7 @@ function loadSteps() {
                     , "logic": {
                         "eventSelector": "#s0TubeBody"
                         , "eventType": "click"
-                        , "eventFunction": helperFunctions.flickTube1
+                        , "eventFunction": function(){}
                         , "criteria": {
                             "variable": "microtubeState"
                             , "value": [16, 0, 0, 0, 0, 0]
@@ -740,7 +740,7 @@ function loadSteps() {
                     , "logic": {
                         "eventSelector": "#s3Top"
                         , "eventType": "click"
-                        , "eventFunction": helperFunctions.takesS3
+                        , "eventFunction": function (){}
                     }
                 }
                 , {
@@ -800,7 +800,7 @@ function loadSteps() {
                     , "logic": {
                         "eventSelector": "#s4Top"
                         , "eventType": "click"
-                        , "eventFunction": helperFunctions.takesS4
+                        , "eventFunction": function(){} //helperFunctions.takesS4
                     }
                 }
                 , {
@@ -860,7 +860,7 @@ function loadSteps() {
                     , "logic": {
                         "eventSelector": "#s5Top"
                         , "eventType": "click"
-                        , "eventFunction": helperFunctions.takesS5
+                        , "eventFunction": function() {}//helperFunctions.takesS5
                     }
                 }
                 , {

@@ -13,10 +13,10 @@ function zoomInstant(left, top, scale) {
 
 function zoom(newLeft, newTop, newScale, duration) {
     console.log(testMode)
-    if (testMode) {
-        zoomInstant(newLeft, newTop, newScale);
+    if (testMode || 1==1) {
+        duration=0;
     }
-    else {
+
         $(currentZoom).animate({
             "left": newLeft
             , "top": newTop
@@ -31,5 +31,5 @@ function zoom(newLeft, newTop, newScale, duration) {
                 zoomInstant(newLeft, newTop, newScale);
             }
         });
-    }
+    
 }

@@ -78,10 +78,12 @@ function stepFunction() {
 
 function jumpToStep(stepName) {
     var whileCount = 0
+    var stepList=[];
     var currentStep = game.getCurrentStep();
     //console.log(stopId, testMode, game.getCurrentStep().id, stopId)
     while (game.getCurrentStep().id != stepName && whileCount < 100) {
-        //  console.log(game.getCurrentStep().id, stepName);
+        console.log(testMode)
+        console.log(game.getCurrentStep().id, stepName);
         criteriaPassed = true;
         currentStep = game.getCurrentStep();
         if (game.getCurrentStep().id == "setVolume") {
@@ -98,11 +100,18 @@ function jumpToStep(stepName) {
         $('#messageBox').remove();
         //endStep(currentStep);
         //game.nextStep();
+        stepList.push(game.getCurrentStep().id)
     }
-    testMode = false;
+console.log(stepList)
     startStep(game.getCurrentStep())
-    animate("#view", 0, zoom, [50, 50, 1, 100])
+   // animate("#view", 0, zoom, [50, 50, 1, 100])
+    setTimeout(function(){
+    
+     testMode = true;  
+    
+},1000)
 }
+
 /* 
     endGame: the "result" parameter should take the value of "win" or "lose"
     when the player wins, call endGame("win"); when they lose, call endGame("lose")
@@ -171,6 +180,9 @@ function startStep(step) {
 }
 
 function isEqual(a, b) {
+    if (testMode){
+        return true;
+    }
     if (a.length && b.length && a.length == b.length) {
         for (i = 0; i < a.length; i++) {
             if (a[i] != b[i]) {
