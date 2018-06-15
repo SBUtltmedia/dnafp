@@ -109,13 +109,17 @@ $(function () {
         if(testMode){ 
         var mainStyle=  $('#mainStyle').html()
     //console.log(mainStyle)  
-          
-    mainSplit=mainStyle.split(hash);
-        
-     mainSplit[0] =  mainSplit[0].replace(/(animation: )([^ ]*) ([^ ]*) (.*)/g,"$1$2 0s $4");
+//          mainStyle=  mainStyle.replace(/(animation: )([^ ]*) ([^ ]*) (.*)/g,"$1$2 0s $4") 
+              console.log(mainStyle)
+                // mainStyle=  mainStyle.replace(/(animation: )([^ ]*) ([^ ]*) (.*)/g,"dsfgadg") 
+      
+            // $('#mainStyle').html(mainStyle); 
+//    mainSplit=mainStyle.split(hash);
+//        
+//     mainSplit[0] =  mainSplit[0].replace(/(animation: )([^ ]*) ([^ ]*) (.*)/g,"$1$2 0s $4");
     // mainSplit[0] =  mainSplit[0].replace(/(zoom: )([^ ]*) ([^ ]*) (.*)/g,"$1$2 0s $4");
         
-      $('#mainStyle').html(mainSplit[0]+hash+mainSplit[1]); 
+     // $('#mainStyle').html(mainSplit[0]+hash+mainSplit[1]); 
         }
         })
 

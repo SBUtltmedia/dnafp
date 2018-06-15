@@ -54,18 +54,6 @@
     background-size: cover;
 }
 
-#micropipet2 {
-    width: 4.6%;
-    height: 23%;
-    left: 14.5%;
-    top: 52%;
-    position: absolute;
-    background-image: url(img/micropipet20.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: 7
-}
-
 #micropipet3 {
     width: 4.6%;
     height: 23%;
@@ -115,163 +103,6 @@
     visibility: visible;
 }
 
-#tip1 {
-    width: 0.7%;
-    height: 7%;
-    left: 20.8%;
-    top: 70.2%;
-    position: absolute;
-    background-image: url(img/tip.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    visibility: visible;
-}
-
-#pipetteTip1 {
-    width: 17%;
-    height: 27.5%;
-    left: 55%;
-    top: 96%;
-    position: absolute;
-    background-image: url(img/tip.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    visibility: hidden;
-}
-
-#tip2 {
-    width: 0.7%;
-    height: 7%;
-    left: 21.6%;
-    top: 70.2%;
-    position: absolute;
-    background-image: url(img/tip.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-
-#tip3 {
-    width: 0.7%;
-    height: 7%;
-    left: 22.4%;
-    top: 70.2%;
-    position: absolute;
-    background-image: url(img/tip.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-
-#tip4 {
-    width: 0.7%;
-    height: 7%;
-    left: 23.2%;
-    top: 70.2%;
-    position: absolute;
-    background-image: url(img/tip.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-
-#tip5 {
-    width: 0.7%;
-    height: 7%;
-    left: 24%;
-    top: 70.2%;
-    position: absolute;
-    background-image: url(img/tip.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-
-#tip6 {
-    width: 0.7%;
-    height: 7%;
-    left: 24.8%;
-    top: 70.2%;
-    position: absolute;
-    background-image: url(img/tip.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-
-#tip7 {
-    width: 0.7%;
-    height: 7%;
-    left: 25.6%;
-    top: 70%;
-    position: absolute;
-    background-image: url(img/tip.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-
-#tip8 {
-    width: 0.7%;
-    height: 7%;
-    left: 26.4%;
-    top: 70.2%;
-    position: absolute;
-    background-image: url(img/tip.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-
-#tip9 {
-    width: 0.7%;
-    height: 7%;
-    left: 27.2%;
-    top: 70.2%;
-    position: absolute;
-    background-image: url(img/tip.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-
-#tip10 {
-    width: 0.7%;
-    height: 7%;
-    left: 28%;
-    top: 70.2%;
-    position: absolute;
-    background-image: url(img/tip.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-
-#tip11 {
-    width: 0.7%;
-    height: 7%;
-    left: 28.8%;
-    top: 70.2%;
-    position: absolute;
-    background-image: url(img/tip.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-
-#tip12 {
-    width: 0.7%;
-    height: 7%;
-    left: 29.6%;
-    top: 70.2%;
-    position: absolute;
-    background-image: url(img/tip.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
 
 #shelf1 {
     width: 18%;
@@ -387,39 +218,6 @@
     background-size: cover;
     background-position: center center;
     z-index: 3;
-}
-
-#enzTube {
-    width: 7%;
-    height: 5%;
-    left: 88%;
-    top: 64.7%;
-    position: absolute;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-#enzTubeBody {
-    width: 100%;
-    height: 100%;
-    left: 0%;
-    top: 0%;
-    position: absolute;
-    background-image: url(img/enzymeTube.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-#enzCap {
-    width: 100%;
-    height: 20%;
-    left: 0%;
-    top: 6%;
-    position: absolute;
-    background-image: url(img/enzymeCap.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    transform-origin: 1.5% 15%;
 }
 
 #s0Tube {
@@ -895,8 +693,8 @@
 }
 
 
-/*
-#indicatorArrow0 {
+
+/*#indicatorArrow0 {
     width: 0.7%;
     height: 7%;
     left: 20.8%;
@@ -1025,18 +823,6 @@
 }
 */
 
-#volumeButton {
-    width: 2%;
-    height: 1.6%;
-    left: 91%;
-    top: 36.2%;
-    position: absolute;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-image: url(img/check.svg);
-    /*    font-size: .1rem;*/
-}
-
 #volumeButton2 {
     width: 2%;
     height: 1.6%;
@@ -1049,18 +835,6 @@
     /*    font-size: .1rem;*/
 }
 
-#indicatorArrow0 {
-    width: 6%;
-    height: 9%;
-    left: 22%;
-    top: 58.7%;
-    position: absolute;
-    background-image: url(img/largeArrow.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-
 #indicatorArrow1 {
     width: 0.7%;
     height: 7%;
@@ -1071,17 +845,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-}
-
-#volumeInput {
-    width: 1.6%;
-    height: 1.3%;
-    left: 88.4%;
-    top: 36%;
-    position: absolute;
-    background-repeat: no-repeat;
-    background-size: contain;
-    z-index: 10;
 }
 
 #volumeInput1 {
@@ -1797,32 +1560,6 @@
     animation: moveTube 0.5s linear 0s 1 normal forwards;
 }
 
-@keyframes moveEnz {
-    from {
-        top: 64.7%;
-    }
-    to {
-        top: 60%;
-    }
-}
-
-.anim_moveEnz {
-    animation: moveEnz 0.5s linear 0s 1 normal forwards;
-}
-
-@keyframes rotateCap {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(-135deg);
-    }
-}
-
-.anim_rotateCap {
-    animation: rotateCap 0.5s linear forwards;
-}
-
 @keyframes closeCap {
     from {
         transform: rotate(0deg);
@@ -2024,9 +1761,6 @@
 }
 */
 
-.anim_addTip1 {
-    animation: addTip1 5s linear 0s 1 normal forwards;
-}
 
 @keyframes addTip2 {
     0% {
@@ -2060,40 +1794,6 @@
 
 .anim_lowerPipet {
     animation: lowerPipet 0.4s linear 0s normal forwards;
-}
-
-@keyframes hideTip1 {
-    0% {
-        opacity: 1;
-    }
-    80% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-.anim_hideTip1 {
-    animation: hideTip1 1s linear 0s 1 normal forwards;
-}
-
-@keyframes showTip1 {
-    0% {
-        opacity: 0;
-    }
-    80% {
-        opacity: 0;
-        visibility: visible;
-    }
-    100% {
-        opacity: 1;
-        visibility: visible;
-    }
-}
-
-.anim_showTip1 {
-    animation: showTip1 1s linear 0s 1 normal forwards;
 }
 
 @keyframes moveTip1 {
@@ -3581,3 +3281,306 @@
 .anim_stain2 {
     animation: stain2 1s 0s 1 linear normal forwards;
 }
+
+/*Step 1 & 2*/
+@keyframes moveEnz {
+    from {
+        top: 64.7%;
+    }
+    to {
+        top: 60%;
+    }
+}
+
+.anim_moveEnz {
+    animation: moveEnz 0.5s linear 0s 1 normal forwards;
+}
+
+#enzTube {
+    width: 7%;
+    height: 5%;
+    left: 88%;
+    top: 64.7%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#enzTubeBody {
+    width: 100%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    position: absolute;
+    background-image: url(img/enzymeTube.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#enzCap {
+    width: 100%;
+    height: 20%;
+    left: 0%;
+    top: 6%;
+    position: absolute;
+    background-image: url(img/enzymeCap.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform-origin: 1.5% 15%;
+}
+
+@keyframes rotateCap {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-135deg);
+    }
+}
+
+.anim_rotateCap {
+    animation: rotateCap 0.5s linear forwards;
+}
+
+#indicatorArrow0 {
+    width: 6%;
+    height: 9%;
+    left: 22%;
+    top: 58.7%;
+    position: absolute;
+    background-image: url(img/largeArrow.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#pipetteTip1 {
+    width: 17%;
+    height: 27.5%;
+    left: 55%;
+    top: 96%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    visibility: hidden;
+}
+
+#tip1 {
+    width: 0.7%;
+    height: 7%;
+    left: 20.8%;
+    top: 70.2%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    visibility: visible;
+}
+
+#tip2 {
+    width: 0.7%;
+    height: 7%;
+    left: 21.6%;
+    top: 70.2%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#tip3 {
+    width: 0.7%;
+    height: 7%;
+    left: 22.4%;
+    top: 70.2%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#tip4 {
+    width: 0.7%;
+    height: 7%;
+    left: 23.2%;
+    top: 70.2%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#tip5 {
+    width: 0.7%;
+    height: 7%;
+    left: 24%;
+    top: 70.2%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#tip6 {
+    width: 0.7%;
+    height: 7%;
+    left: 24.8%;
+    top: 70.2%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#tip7 {
+    width: 0.7%;
+    height: 7%;
+    left: 25.6%;
+    top: 70%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#tip8 {
+    width: 0.7%;
+    height: 7%;
+    left: 26.4%;
+    top: 70.2%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#tip9 {
+    width: 0.7%;
+    height: 7%;
+    left: 27.2%;
+    top: 70.2%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#tip10 {
+    width: 0.7%;
+    height: 7%;
+    left: 28%;
+    top: 70.2%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#tip11 {
+    width: 0.7%;
+    height: 7%;
+    left: 28.8%;
+    top: 70.2%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#tip12 {
+    width: 0.7%;
+    height: 7%;
+    left: 29.6%;
+    top: 70.2%;
+    position: absolute;
+    background-image: url(img/tip.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#micropipet2 {
+    width: 4.6%;
+    height: 23%;
+    left: 14.5%;
+    top: 52%;
+    position: absolute;
+    background-image: url(img/micropipet20.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 7
+}
+
+.anim_addTip1 {
+    animation: addTip1 5s linear 0s 1 normal forwards;
+}
+@keyframes hideTip1 {
+    0% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.anim_hideTip1 {
+    animation: hideTip1 1s linear 0s 1 normal forwards;
+}
+
+@keyframes showTip1 {
+    0% {
+        opacity: 0;
+    }
+    80% {
+        opacity: 0;
+        visibility: visible;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.anim_showTip1 {
+    animation: showTip1 1s linear 0s 1 normal forwards;
+}
+
+#volumeButton {
+    width: 2%;
+    height: 1.6%;
+    left: 91%;
+    top: 36.2%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(img/check.svg);
+    /*    font-size: .1rem;*/
+}
+
+#volumeInput {
+    width: 1.6%;
+    height: 1.3%;
+    left: 88.4%;
+    top: 36%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 10;
+}
+/*Step 4*/

@@ -86,13 +86,13 @@ function jumpToStep(stepName) {
         console.log(game.getCurrentStep().id, stepName);
         criteriaPassed = true;
         currentStep = game.getCurrentStep();
-        if (game.getCurrentStep().id == "setVolume") {
-            console.log("foo")
-            animate("#view", 0, zoom, [50, 50, 1, 100])
-            $("#volumeInput").remove();
-            $("#volumeButton").remove();
-            game.nextStep();
-        }
+//        if (game.getCurrentStep().id == "setVolume") {
+//            console.log("foo")
+//            animate("#view", 0, zoom, [50, 50, 1, 100])
+//            $("#volumeInput").remove();
+//            $("#volumeButton").remove();
+//            game.nextStep();
+//        }
         console.log(currentStep)
         startStep(currentStep)
         endStep(currentStep)
@@ -102,12 +102,13 @@ function jumpToStep(stepName) {
         //game.nextStep();
         stepList.push(game.getCurrentStep().id)
     }
-console.log(stepList)
-    startStep(game.getCurrentStep())
+console.log(game.getCurrentStep())
+      testMode = false;
+   startStep(game.getCurrentStep())
    // animate("#view", 0, zoom, [50, 50, 1, 100])
     setTimeout(function(){
     
-     testMode = true;  
+     testMode = false;  
     
 },1000)
 }
@@ -144,9 +145,9 @@ function failGame(error, correct) {
     specify code that should be executed when a step starts (animations, etc)
 */
 function startStep(step) {
-    if (game.getCurrentStep().id == "liftEnzyme") {
-        animate("#indicatorArrow1", 50, "removeClass", "opClass")
-    }
+//    if (game.getCurrentStep().id == "liftEnzyme") {
+//        animate("#indicatorArrow1", 50, "removeClass", "opClass")
+//    }
     var s = jQuery.extend(true, {}, step);
     $("#headerText").text(s.longText);
     $("#footerText").text(s.bottomText);
@@ -167,12 +168,15 @@ function startStep(step) {
         }
     }
     if (testMode) {
+        
+         if (s.logic && s.logic.criteria) {
+            state[s.logic.criteria.variable] = s.logic.criteria.value
+        }
+        
         $(s.logic.eventSelector).on(s.logic.eventType, composite);
         $(s.logic.eventSelector).trigger(s.logic.eventType);
         $(s.logic.eventSelector).off();
-        if (s.logic && s.logic.criteria) {
-            state[s.logic.criteria.variable] = s.logic.criteria.value
-        }
+       
     }
     else if (s.logic) {
         $(s.logic.eventSelector).on(s.logic.eventType, composite);
@@ -180,9 +184,6 @@ function startStep(step) {
 }
 
 function isEqual(a, b) {
-    if (testMode){
-        return true;
-    }
     if (a.length && b.length && a.length == b.length) {
         for (i = 0; i < a.length; i++) {
             if (a[i] != b[i]) {

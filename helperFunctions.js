@@ -351,7 +351,12 @@ var helperFunctions = {
         var buttonPress = state[game.getCurrentStep().logic.criteria.variable]
         var buttonNum = betterParseInt(evt.target.id)
         console.log(buttonNum)
+//        if buttonPress.valueOf(buttonNum >= 1) {
+//            buttonPress[buttonNum] = 1;
+//        }
+//        else {
         buttonPress[buttonNum]++;
+//        }
         console.log(buttonPress)
         //animate(currentButton, 0, "addClass", "opClass")
         //$(document.getElementsByClassName("pressButton")[buttonNum]).remove();
