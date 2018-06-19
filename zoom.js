@@ -13,7 +13,7 @@ function zoomInstant(left, top, scale) {
 
 function zoom(newLeft, newTop, newScale, duration) {
     console.log(testMode)
-    if (testMode || 1==1) {
+    if (testMode) {
         duration=0;
     }
 

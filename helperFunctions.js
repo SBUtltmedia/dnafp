@@ -174,14 +174,15 @@ var helperFunctions = {
         //console.log(microtubeState)
     }, //step 5
     "addEnzyme": function () {
-        animate("#tip1", 0, "addClass", "anim_tipToTube1")
+        //animate("#tip1", 0, "addClass", "anim_tipToTube1")
         $("#tip1").addClass("anim_tipToTube1");
-        animate("#micropipet2", 0, "addClass", "anim_pipetToTube1")
+        //animate("#micropipet2", 0, "addClass", "anim_pipetToTube1")
         //
         //
         //THIS IS A PROBLEM AND I DONT KNOW WHY
         //
         //
+        $("#micropipet2").removeClass("anim_addTip1");
         $("#micropipet2").addClass("anim_pipetToTube1");
         //animate("#indicatorArrow2", 0, "addClass", "anim_oscillate2")
         $("#indicatorArrow2").addClass("anim_oscillate2");
@@ -207,7 +208,6 @@ var helperFunctions = {
         animate("#view", 0, zoom, [39, 67, 12, 1050])
         //zoom(39, 67, 12, 1250)
 
-        //HAVE TO BE CONFIRMED
         animate("#zoomOutButton1",4000,"animate",[{opacity: '1.0'}]);
 /*
         $("#zoomOutButton1").delay(4000).animate({
@@ -260,10 +260,22 @@ var helperFunctions = {
         }, 1500);
     },
     "mixContentsPost": function () {
-        setTimeout(function () {
-            //$("#tubeContentMixing3").remove()
-            console.log("done")
-        }, 4000)
+        $("#zoomOutButton1").click(function () {
+        zoom(50, 50, 1, 1000)
+        $("#zoomOutButton1").animate({
+            opacity: '0.0'
+        });
+    });
+        if(testMode){
+       $("#zoomOutButton1").trigger("click")      
+            
+     
+        }
+        
+//        zoom(50, 50, 1, 1000)
+//        $("#zoomOutButton1").animate({
+//            opacity: '0.0'
+//        });
     }, //step 7
     //
     //
@@ -282,7 +294,7 @@ var helperFunctions = {
         $("#micropipet2").attr("class", "micropipet anim_pipetToBin");
 
         //HAVE TO BE CONFIRMED
-        animate("#indicatorArrow3",50,"animate",[{opacity: '1.0'}]);
+  //      animate("#indicatorArrow3",50,"animate",[{opacity: '0.0'}]);
 /*
         $("#indicatorArrow3").delay(50).animate({
             opacity: '0.0'
@@ -300,6 +312,7 @@ var helperFunctions = {
         console.log(state["microtubeState"])
         if (state["microtubeState"][0] == 3) {
             //animate("#s0Cap", 0, "addClass", "anim_closeCap")
+            $("#s0Cap").removeClass("anim_rotateCap")
             $("#s0Cap").addClass("anim_closeCap")
             state["microtubeState"][0]++;
             console.log(state["microtubeState"])

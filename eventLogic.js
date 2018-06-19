@@ -105,24 +105,7 @@ var tips = [18.2, 19, 19.8, 20.6, 21.4, 22.2, 23, 24.8, 25.6, 26.4, 26.8, 27.3]
 var breach = false;
 $(function () {
     loadSVG();
-    $('#mainStyle').load("style.css",function(){
-        if(testMode){ 
-        var mainStyle=  $('#mainStyle').html()
-    //console.log(mainStyle)  
-//          mainStyle=  mainStyle.replace(/(animation: )([^ ]*) ([^ ]*) (.*)/g,"$1$2 0s $4") 
-              console.log(mainStyle)
-                // mainStyle=  mainStyle.replace(/(animation: )([^ ]*) ([^ ]*) (.*)/g,"dsfgadg") 
-      
-            // $('#mainStyle').html(mainStyle); 
-//    mainSplit=mainStyle.split(hash);
-//        
-//     mainSplit[0] =  mainSplit[0].replace(/(animation: )([^ ]*) ([^ ]*) (.*)/g,"$1$2 0s $4");
-    // mainSplit[0] =  mainSplit[0].replace(/(zoom: )([^ ]*) ([^ ]*) (.*)/g,"$1$2 0s $4");
-        
-     // $('#mainStyle').html(mainSplit[0]+hash+mainSplit[1]); 
-        }
-        })
-
+     loadCSS().then(function(){
     // Resize window on page load to ensure proper sizing of elements
     resizeWindow();
     //makePipetteTipAnimation();
@@ -150,7 +133,49 @@ $(function () {
         newStudentData();
         continueLoading();
     });
+     });
+         
+         
 });
+
+
+
+function loadCSS(){
+
+     var defer = $.Deferred()
+      $('#mainStyle').load("style.css",function(){
+                      console.log("hit",testMode)
+        if(testMode){ 
+
+        var mainStyle=  $('#mainStyle').html()
+    //console.log(mainStyle)  
+        mainStyle=  mainStyle.replace(/(animation: )([^ ]*) ([^ ]*) (.*)/g,"$1$2 .01s $4") 
+                // mainStyle=  mainStyle.replace(/(animation: )([^ ]*) ([^ ]*) (.*)/g,"dsfgadg") 
+      
+             $('#mainStyle').html(mainStyle); 
+            
+            
+           
+            
+//    mainSplit=mainStyle.split(hash);
+//        
+//     mainSplit[0] =  mainSplit[0].replace(/(animation: )([^ ]*) ([^ ]*) (.*)/g,"$1$2 0s $4");
+    // mainSplit[0] =  mainSplit[0].replace(/(zoom: )([^ ]*) ([^ ]*) (.*)/g,"$1$2 0s $4");
+        
+     // $('#mainStyle').html(mainSplit[0]+hash+mainSplit[1]); 
+        }
+           defer.resolve();
+        })
+
+    
+    
+    return defer;
+    
+}
+
+
+
+
 
 function enableOptionButtons() {
     $("#endOption1").click(function () {
@@ -504,12 +529,12 @@ function continueLoading() {
             opacity: '0.0'
         });
     });
-    $("#zoomOutButton1").click(function () {
-        zoom(50, 50, 1, 1000)
-        $("#zoomOutButton1").animate({
-            opacity: '0.0'
-        });
-    });
+//    $("#zoomOutButton1").click(function () {
+//        zoom(50, 50, 1, 1000)
+//        $("#zoomOutButton1").animate({
+//            opacity: '0.0'
+//        });
+//    });
     $("#csTop").click(function () {
         if ((game.getCurrentStep().id == "takeCS")) {
             $("#micropipetTopView").animate({

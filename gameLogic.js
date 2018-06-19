@@ -104,13 +104,16 @@ function jumpToStep(stepName) {
     }
 console.log(game.getCurrentStep())
       testMode = false;
-   startStep(game.getCurrentStep())
+ loadCSS().then(function(){
+    startStep(game.getCurrentStep())
+ })
+//     setTimeout(function(){
+//    
+//     testMode = false;  
+//    
+//},1000)
    // animate("#view", 0, zoom, [50, 50, 1, 100])
-    setTimeout(function(){
-    
-     testMode = false;  
-    
-},1000)
+
 }
 
 /* 
@@ -153,6 +156,11 @@ function startStep(step) {
     $("#footerText").text(s.bottomText);
     var composite = function (evt) {
         s.logic.eventFunction(evt)
+        
+        if (testMode && s.logic && s.logic.criteria) {
+            state[s.logic.criteria.variable] = s.logic.criteria.value
+        }
+        
         if ((s.logic.criteria && isEqual(state[s.logic.criteria.variable], s.logic.criteria.value)) || !s.logic.criteria) {
             console.log("moving to next step", testMode)
             $(s.logic.eventSelector).off()
@@ -167,20 +175,15 @@ function startStep(step) {
             message(s.logic.criteria.messageWrong)
         }
     }
+    
+      $(s.logic.eventSelector).on(s.logic.eventType, composite);
+    
     if (testMode) {
-        
-         if (s.logic && s.logic.criteria) {
-            state[s.logic.criteria.variable] = s.logic.criteria.value
-        }
-        
-        $(s.logic.eventSelector).on(s.logic.eventType, composite);
         $(s.logic.eventSelector).trigger(s.logic.eventType);
         $(s.logic.eventSelector).off();
        
     }
-    else if (s.logic) {
-        $(s.logic.eventSelector).on(s.logic.eventType, composite);
-    }
+ 
 }
 
 function isEqual(a, b) {
