@@ -53,7 +53,8 @@ function animate(selector, delay, method, param) {
 var helperFunctions = {
     //step 0
     "liftEnzyme": function () {
-        animate("#enzTube", 0, "addClass", "anim_moveEnz")
+        $("#enzTube").playKeyframe(animdefs["anim_moveEnz"]);
+
         //animate("#indicatorArrow1", 0, "addClass", "opClass")
         $("#indicatorArrow1").remove();
     }, //step 1
