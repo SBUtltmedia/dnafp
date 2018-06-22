@@ -1432,9 +1432,11 @@ $.keyframe.define([{ name:'changeDay2',
 $.keyframe.define([{ name:'toTopView1',
     '0%':{
         visibility: 'hidden',
+     
 },
     '100%':{
         visibility: 'visible',
+        display:'initial',
         'z-index': -1
 },
 },])
@@ -1443,7 +1445,8 @@ $.keyframe.define([{ name:'toTopView1',
 
 $.keyframe.define([{ name:'toTopView2',
     '0%':{
-        visibility: 'visible'
+        visibility: 'visible',
+            display:'initial'
 },
     '100%':{
         visibility: 'hidden',
