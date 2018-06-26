@@ -105,7 +105,7 @@ function loadSteps() {
                     "id": "addEnzyme"
                         //                    , "shortText": "Add enzyme mix"
                         //                    , "longText": "Click on the micropipette to add the enzyme mix to the reaction tube"
-                        
+
                     , "shortText": "Add enzyme mix"
                     , "longText": "Pipet 10 µl of enzyme mix into the very bottom of the tube"
                     , "feedbackText": "complete the third step"

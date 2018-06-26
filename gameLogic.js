@@ -55,7 +55,7 @@ var modes = [
 ];
 // Set this to true to enable step skipping: click the active step object to complete it
 var skipEnabled = false;
-/* 
+/*
     newGame: this function is called to start a new game with the specified parameters
     you can specify whatever parameters you like in the "props" object (current game mode, etc)
     also specify code that should be run when a new game starts
@@ -68,7 +68,10 @@ function newGame(props) {
     game.start();
     updateSteps();
     hideMenu();
-    // 
+    console.log("hit")
+    animate("#indicatorArrow1", 50, "removeClass", "opClass");
+    animate("#indicatorArrow1",0,"keyframe", animdefs["anim_oscillate1"])
+    //
 }
 
 function stepFunction() {
@@ -108,15 +111,15 @@ console.log(game.getCurrentStep())
     startStep(game.getCurrentStep())
  })
 //     setTimeout(function(){
-//    
-//     testMode = false;  
-//    
+//
+//     testMode = false;
+//
 //},1000)
    // animate("#view", 0, zoom, [50, 50, 1, 100])
 
 }
 
-/* 
+/*
     endGame: the "result" parameter should take the value of "win" or "lose"
     when the player wins, call endGame("win"); when they lose, call endGame("lose")
 */
@@ -142,7 +145,7 @@ function failGame(error, correct) {
         game.getCurrentStep().fail();
     }
 }
-/* 
+/*
     startStep: this function is called whenever a step starts
     this is the "set-up" phase for a particular step
     specify code that should be executed when a step starts (animations, etc)
@@ -156,11 +159,11 @@ function startStep(step) {
     $("#footerText").text(s.bottomText);
     var composite = function (evt) {
         s.logic.eventFunction(evt)
-        
+
         if (testMode && s.logic && s.logic.criteria) {
             state[s.logic.criteria.variable] = s.logic.criteria.value
         }
-        
+
         if ((s.logic.criteria && isEqual(state[s.logic.criteria.variable], s.logic.criteria.value)) || !s.logic.criteria) {
             console.log("moving to next step", testMode)
             $(s.logic.eventSelector).off()
@@ -175,15 +178,15 @@ function startStep(step) {
             message(s.logic.criteria.messageWrong)
         }
     }
-    
+
       $(s.logic.eventSelector).on(s.logic.eventType, composite);
-    
+
     if (testMode) {
         $(s.logic.eventSelector).trigger(s.logic.eventType);
         $(s.logic.eventSelector).off();
-       
+
     }
- 
+
 }
 
 function isEqual(a, b) {
@@ -197,7 +200,7 @@ function isEqual(a, b) {
     }
     return a == b;
 }
-/* 
+/*
     endStep: this function is called whenever a step ends
     this is the "clean-up" phase for a particular step
     specify code that should be executed when a step ends (animations, etc)

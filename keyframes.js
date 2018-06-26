@@ -1,3 +1,32 @@
+/*function makeMoveTip(tipLocation){
+    var keyframeString = `
+$.keyframe.define([{ name: mooveTip,
+    '0%': {
+        left: '2.5%' + ${tipLocation}%';
+        top: '70%';
+    }  
+    '20%': {
+        left: '${tipLocation}%';
+        top: 70%;
+    }
+    '25%': {
+        left: '${tipLocation}%';
+        top: '64.6%';
+    }
+    '90%': {
+        left: '85.5%';
+        top: '50.6%';
+    }
+    '100%': {
+        left: '88.9%';
+        top: '50.6%';
+    }
+} 
+    `
+    $('#dynamic-style').html(keyframeString)
+}*/
+
+
 
 $.keyframe.define([{ name:'moveTube',
     from: {
@@ -174,34 +203,34 @@ $.keyframe.define([{ name:'tapTube',
 
 
 
-/*
-$.keyframe.define([{ name:'addTip1',
-    '0%':{
-        left: '14.5%',
-        top: '52%',
-},
-    '20%':{
-        left: '17%',
-        top: '47.6%',
-},
-    '25%':{
-        left: '17%',
-        top: '42%',
-},
-    '90%':{
-        left: '83%',
-        top: '28%',
-},
-    '95%':{
-        left: '86.4%',
-        top: '28%',
-},
-    '100%':{
-        left: '86.4%',
-        top: '35%',
-},
-},])
-*/
+
+//$.keyframe.define([{ name:'addTip1',
+//    '0%':{
+//        left: '14.5%',
+//        top: '52%',
+//},
+//    '20%':{
+//        left: '17%',
+//        top: '47.6%',
+//},
+//    '25%':{
+//        left: '17%',
+//        top: '42%',
+//},
+//    '90%':{
+//        left: '83%',
+//        top: '28%',
+//},
+//    '95%':{
+//        left: '86.4%',
+//        top: '28%',
+//},
+//    '100%':{
+//        left: '86.4%',
+//        top: '35%',
+//},
+//},])
+
 
 
 $.keyframe.define([{ name:'addTip2',
@@ -1432,7 +1461,7 @@ $.keyframe.define([{ name:'changeDay2',
 $.keyframe.define([{ name:'toTopView1',
     '0%':{
         visibility: 'hidden',
-     
+       display:'initial',
 },
     '100%':{
         visibility: 'visible',

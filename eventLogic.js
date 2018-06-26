@@ -134,8 +134,7 @@ $(function () {
         continueLoading();
     });
      });
-         
-         
+animate("#indicatorArrow1", 50, "removeClass", "opClass")
 });
 
 
@@ -145,32 +144,32 @@ function loadCSS(){
      var defer = $.Deferred()
       $('#mainStyle').load("style.css",function(){
                       console.log("hit",testMode)
-        if(testMode){ 
+        if(testMode){
 
         var mainStyle=  $('#mainStyle').html()
-    //console.log(mainStyle)  
-        mainStyle=  mainStyle.replace(/(animation: )([^ ]*) ([^ ]*) (.*)/g,"$1$2 .01s $4") 
-                // mainStyle=  mainStyle.replace(/(animation: )([^ ]*) ([^ ]*) (.*)/g,"dsfgadg") 
-      
-             $('#mainStyle').html(mainStyle); 
-            
-            
-           
-            
+    //console.log(mainStyle)
+        mainStyle=  mainStyle.replace(/(animation: )([^ ]*) ([^ ]*) (.*)/g,"$1$2 .01s $4")
+                // mainStyle=  mainStyle.replace(/(animation: )([^ ]*) ([^ ]*) (.*)/g,"dsfgadg")
+
+             $('#mainStyle').html(mainStyle);
+
+
+
+
 //    mainSplit=mainStyle.split(hash);
-//        
+//
 //     mainSplit[0] =  mainSplit[0].replace(/(animation: )([^ ]*) ([^ ]*) (.*)/g,"$1$2 0s $4");
     // mainSplit[0] =  mainSplit[0].replace(/(zoom: )([^ ]*) ([^ ]*) (.*)/g,"$1$2 0s $4");
-        
-     // $('#mainStyle').html(mainSplit[0]+hash+mainSplit[1]); 
+
+     // $('#mainStyle').html(mainSplit[0]+hash+mainSplit[1]);
         }
            defer.resolve();
         })
 
-    
-    
+
+
     return defer;
-    
+
 }
 
 
@@ -257,15 +256,15 @@ function moveTipSide(direction) {
         //
         var currentTop = parseFloat($('#tipSide').css("top")) / sideViewHeight * 100;
         var currentLeft = parseFloat($('#tipSide').css("left")) / sideViewWidth * 100;
-        //var currentTop=parseFloat($('#tipSide').css("top"))/100  
-        //var currentLeft=parseFloat($('#tipSide').css("left"))  
+        //var currentTop=parseFloat($('#tipSide').css("top"))/100
+        //var currentLeft=parseFloat($('#tipSide').css("left"))
         var newLeft = Math.min(90, Math.max(0, (currentLeft - direction[0] * sideTipMoveSpeed)))
         var newTop = Math.min(60, Math.max(0, (currentTop - direction[1] * sideTipMoveSpeed)))
         var checkTop = betterParseInt(newTop);
         var checkLeft = betterParseInt(newLeft);
         $('#tipSide').css("left", newLeft + "%")
         $('#tipSide').css("top", newTop + "%")
-        //return [newLeft,newTop] 
+        //return [newLeft,newTop]
         var wellDepth = parseFloat($('#gelWellBoundary').css("height"));
         var wellWidth = parseFloat($('#gelWellBoundary').css("width"));
         var date = new Date();
@@ -323,7 +322,7 @@ function continueLoading() {
     //        var tipNum = betterParseInt(evt.target.id);
     //        var tipLeft = tips[tipNum];
     //        return tipLeft;
-    //        
+    //
     //    });
     var volumeButton = document.getElementById("volumeButton");
     //Step 0
@@ -339,6 +338,7 @@ function continueLoading() {
         var tipLeft = tips[(tipNum - 1)];
         makePipetteTipAnimation(tipLeft);
     });
+
     //
     //Back button in progress
     //
@@ -357,7 +357,7 @@ function continueLoading() {
         console.log(backNum)
         localStorage.setItem("backCount", backNum)
         document.location.reload();
-        
+
     });
     //Step 1
     //Step 2
@@ -369,27 +369,27 @@ function continueLoading() {
     //Step 7
     //$("#ejectButton").click();
     //    $(".microTube").click(function (evt) {
-    //        
+    //
     //        //Step 4, 7, 8, 9, 10, 11
     //        if ((game.getCurrentStep().id == "openTube") || (game.getCurrentStep().id == "closeTube") || (game.getCurrentStep().id == "flickTube") || (game.getCurrentStep().id == "tapTube") || (game.getCurrentStep().id == "tubeRack")) {
     //            var tubeIdName = evt.target.id.split("TubeBody")[0]
     //            var tubeNum = parseInt(tubeIdName.split('')[1])
     //            var currentAnimation = microtubeAnimation[microtubeState[tubeNum]]
-    //            
+    //
     //            var selector = "#" + tubeIdName + currentAnimation.target;
     //            $.each(microtubeAnimation, function (index, value) {
     //                $(selector).removeClass(value.name)
     //            })
-    //            
+    //
     //            $(selector).addClass(currentAnimation.name)
     //            //$("#s0Cap1").addClass("anim_rotateCap");
     //            microtubeState[tubeNum]++
     //                microtubeState[tubeNum] %= microtubeAnimation.length;
-    //            
+    //
     //            if (microtubeState[tubeNum] != 1) {
     //                //game.nextStep();
     //                updateScore(10);
-    //                
+    //
     //            }
     //        }
     //    });
@@ -410,11 +410,11 @@ function continueLoading() {
     //            //$("#s0Cap1").addClass("anim_rotateCap");
     //            microtubeState[tubeNum]++
     //                microtubeState[tubeNum] %= microtubeAnimation.length;
-    //            
+    //
     //            if (microtubeState[tubeNum] != 1) {
     //                // game.nextStep();
     //                updateScore(10);
-    //                
+    //
     //            }
     //        }
     //    });
@@ -777,7 +777,31 @@ function enableClicks(bool) {
 //makePipetteTipAnimation((target.position.left));
 //makePipetteTipAnimation(Event.target.position.left);
 function makePipetteTipAnimation(tipLocation) {
-    var keyframeString = `    
+    var keyframeString =
+        `
+@keyframes mooveTip {
+    0% {
+        left: ${tipLocation}%;
+        top: 70%;
+    }
+    20% {
+        left: ${tipLocation}%;
+        top: 70%;
+    }
+    25% {
+        left: ${tipLocation}%;
+        top: 64.6%;
+    }
+    90% {
+        left: 85.5%;
+        top: 50.6%;
+    }
+    100% {
+        left: 88.9%;
+        top: 50.6%;
+    }
+}
+
 @keyframes addTip1 {
     0% {
         left: 14.5%;
@@ -808,15 +832,16 @@ function makePipetteTipAnimation(tipLocation) {
         top: 28%;
     }
 }
+
     `
-    //
     $('#dynamic-style').html(keyframeString)
 }
+
 //function findTipLeft(evt) {
 //    var tipNum = betterParseInt(evt.target.id);
 //    var tipLeft = tips[tipNum];
 //    return tipLeft;
-//    
+//
 //}
 function setLane(laneNum, weightArray) {
     weightArray.forEach(function (val, idx) {

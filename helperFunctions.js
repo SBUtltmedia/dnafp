@@ -31,13 +31,18 @@ function updateVoltage(amount) {
 }
 
 function zeroTime(def){
-    
-    return def.replace(/ [/d\.]+s)/g,".001s") 
-    
+
+    return def.replace(/ [\d\.]+s/g," .001s")
+
 }
 
 
 function animate(selector, delay, method, param) {
+
+  if($(selector+':visible').length == 0)
+  {
+$(selector).show();
+  }
     var animateDur=400;
     if (testMode) {
         delay = 0
@@ -46,33 +51,33 @@ function animate(selector, delay, method, param) {
     if (method=="keyframe")
 
         {
-               if (testMode) { 
+               if (testMode) {
                    param=zeroTime(param)
                }
-           $(selector).delay(delay).playKeyframe(param); 
+           $(selector).delay(delay).playKeyframe(param);
         }
-    
+
    else if (typeof (method) == "function") {
-        
-        animate()
+
         $(selector).delay(delay).queue(function () {
             method(...param)
             $(this).dequeue();
         })
-    } else {
-        //console.log(param.length)
-        if (typeof (param) == "object") {
-            $(selector).delay(delay)[method](...param,animateDur)
-        } else {
-            $(selector).delay(delay).queue('fx', function () {
-                $(selector)[method](param);
-            });
+    } else if (typeof (param) == "object") {
+            setTimeout(function(){
+            $(selector)[method](...param,animateDur)
+            },delay);
+
+        }  else if (typeof (method) == "string") {
+          setTimeout(function(){
+          $(selector)[method](param,animateDur)
+          },delay);
         }
-    }
 }
 var helperFunctions = {
     //step 0
     "liftEnzyme": function () {
+
         animate("#enzTube",0,"keyframe", animdefs["anim_moveEnz"])
         //$("#enzTube").playKeyframe(animdefs[animdefs["anim_moveEnz"]]);
 
@@ -100,8 +105,8 @@ var helperFunctions = {
         //        });
         console.log("post function")
         animate("#indicatorArrow0", 0, "keyframe", animdefs["anim_oscillate"])
-        
-        
+
+
         //animate("#indicatorArrow0", 0, "removeClass", "opClass")
         $("#indicatorArrow0").removeClass("opClass")
         updateScore(10);
@@ -111,35 +116,14 @@ var helperFunctions = {
         console.log(game.getCurrentStep().id)
         $("#indicatorArrow0").addClass("opClass")
         animate("#micropipet2", 0, "keyframe", animdefs["anim_addTip1"])
-        //$("#micropipet2").addClass(animdefs["anim_addTip1"]);
-        //$("#tip1").addClass(animdefs["anim_hideTip1"]);
         animate("#" + evt.target.id, 0, "keyframe", animdefs["anim_hideTip1"])
-        //$("#" + evt.target.id).addClass(animdefs["anim_hideTip1"]);
+        animate("#tip1", 0, "keyframe", animdefs["anim_mooveTip"])
         animate("#pipetteTip1", 0, "keyframe", animdefs["anim_showTip1"])
-        //$("#pipetteTip1").addClass(animdefs["anim_showTip1"])
-        //        $("#indicatorArrow0").delay(50).animate({
-        //            opacity: '0.0'
-        //        });
-        
-        animate("#volumeButton,#volumeInput",5000,"removeClass",["opClass"]);
-        
-//        $("#volumeButton").delay(5000).animate({
-//            opacity: '1.0'
-//        });
-//        $("#volumeInput").delay(5000).animate({
-//            opacity: '1.0'
-//        });
-        //PROBLEM
+
+
         animate("#view", 5000, zoom, [95, 36, 9.5, 2700])
-        // $("#view").delay(5000, [zoom(95, 36, 9.5, 2700)]);
-        //        setTimeout(function () {
-        //            zoom(95, 36, 9.5, 2700)
-        //        }, 5000);
-        //        setTimeout(function () {
-        //            // game.nextStep();
-        //            // updateScore(10);
-        //
-        //        }, 5000);
+        animate("#volumeButton,#volumeInput",5000,"css",[{display:"block",opacity:1}]);
+
     }, //step 3
     "setVolume": function () {
         console.log(game.getCurrentStep().id)
@@ -150,7 +134,7 @@ var helperFunctions = {
         updateScore(10);
         console.log(game.getCurrentStep().id)
         console.log("correct volume")
-        animate("#volumeButton,#volumeInput",1,"animate",[{opacity: '0.0'}]);
+        animate("#volumeButton,#volumeInput",1,"animate",[{opacity: '0.0',display:"none"}]);
 /*
         $("#volumeButton").delay(1).animate({
             opacity: '0.0'
@@ -218,7 +202,7 @@ var helperFunctions = {
 */
 
 
-        
+
         //            setTimeout(function () {
         //                zoom(80, 60, 8, 6000)
         //            }, 1900);
@@ -238,7 +222,7 @@ var helperFunctions = {
             opacity: '1.0'
         });
 */
-        
+
         if (mix == 0) {
             for (i = 0; i <= 14; i++) {
                 console.log(i);
@@ -263,20 +247,20 @@ var helperFunctions = {
         }
 
         //HAVE TO BE CONFIRMED
-        animate("#zoomOut",9500,"animate",[{opacity: '1.0'}]);        
+        animate("#zoomOut",9500,"animate",[{opacity: '1.0'}]);
 /*
         $("#zoomOut").delay(950).animate({
             opacity: '1.0'
         });
 */
         //HAVE TO BE CONFIRMED
-        animate("#indicatorArrow2",80,"animate",[{opacity: '0.0'}]);                
+        animate("#indicatorArrow2",80,"animate",[{opacity: '0.0'}]);
 /*
         $("#indicatorArrow2").delay(80).animate({
             opacity: '0.0'
         });
 */
-        
+
         setTimeout(function () {
             // game.nextStep();
             updateScore(10);
@@ -291,11 +275,11 @@ var helperFunctions = {
         });
     });
         if(testMode){
-       $("#zoomOutButton1").trigger("click")      
-            
-     
+       $("#zoomOutButton1").trigger("click")
+
+
         }
-        
+
 //        zoom(50, 50, 1, 1000)
 //        $("#zoomOutButton1").animate({
 //            opacity: '0.0'
@@ -370,15 +354,15 @@ var helperFunctions = {
         console.log(state["microtubeState"])
         if (state["microtubeState"][0] == 9) {
             animate("#s0Tube", 0, "keyframe", animdefs["anim_tubeDown"])
-            
+
             //HAVE TO BE CONFIRMED
-            animate("#s0Tube",0,"animate",[{top: '-8.9%'}]);        
+            animate("#s0Tube",0,"animate",[{top: '-8.9%'}]);
 /*
             $("#s0Tube").animate({
                 "top": '-8.9%'
             })
 */
-            
+
             state["microtubeState"][0]++;
         }
         //state["microtubeState"][0]++
@@ -425,7 +409,7 @@ var helperFunctions = {
         //zoom(65, 21, 10, 1000)
 
         //HAVE TO BE CONFIRMED
-        animate("#zoomOutButton",1600,"animate",[{opacity: '1.0'}]);        
+        animate("#zoomOutButton",1600,"animate",[{opacity: '1.0'}]);
 /*
         $("#zoomOutButton").delay(1600).animate({
             opacity: '1.0'
@@ -474,7 +458,7 @@ var helperFunctions = {
         animate("#view", 1000, zoom, [65, 36, 5, 1500])
 
         //HAVE TO BE CONFIRMED
-        animate("#button",1000,"animate",[{opacity: '1.0'}]);        
+        animate("#button",1000,"animate",[{opacity: '1.0'}]);
 /*
         $("button").delay(1000).animate({
             opacity: '1.0'
@@ -497,7 +481,7 @@ var helperFunctions = {
             console.log(game.getCurrentStep().id)
 
             //HAVE TO BE CONFIRMED
-            animate("#button,#timer",1,"animate",[{opacity: '0.0'}]);        
+            animate("#button,#timer",1,"animate",[{opacity: '0.0'}]);
 /*
             $("button").delay(1).animate({
                 opacity: '0.0'
@@ -580,7 +564,7 @@ var helperFunctions = {
         console.log("1234")
 
         //HAVE TO BE CONFIRMED
-        animate("#volumeButton1,#volumeInput1",5000,"animate",[{opacity: '1.0'}]);        
+        animate("#volumeButton1,#volumeInput1",5000,"animate",[{opacity: '1.0'}]);
 /*
         $("#volumeButton1").delay(5000).animate({
             opacity: '1.0'
@@ -599,9 +583,9 @@ var helperFunctions = {
         //Figure out
         //
         //
-        
+
         //HAVE TO BE CONFIRMED
-        animate("#micropipet3",200,"animate",[{left: '+=5.5%'}]);        
+        animate("#micropipet3",200,"animate",[{left: '+=5.5%'}]);
 /*
         $("#micropipet3").delay(200).animate({
             left: '+=5.5%'
@@ -616,13 +600,13 @@ var helperFunctions = {
         //        }, 200);
 
         //HAVE TO BE CONFIRMED
-        animate("#micropipet3",600,"animate",[{top: '+=3.3%'}]);        
+        animate("#micropipet3",600,"animate",[{top: '+=3.3%'}]);
 /*
         $("#micropipet3").delay(600).animate({
             top: '+=3.3%'
         });
 */
-        
+
         //        setTimeout(function () {
         //            $("#micropipet3").animate({
         //                top: '+=3.3%'
@@ -632,7 +616,7 @@ var helperFunctions = {
         //HAVE TO BE CONFIRMED
         animate("#micropipet3",1500,"animate",[{top: '1%',
                                                 left: '+=0.9%',
-                                                transform: "scale(0.8)"}]);        
+                                                transform: "scale(0.8)"}]);
 /*
         $("#micropipet3").delay(1500).animate({
             top: '1%',
@@ -651,8 +635,8 @@ var helperFunctions = {
         //HAVE TO BE CONFIRMED
         animate("#tip",1500,"animate",[{opacity: '1.0',
                                         top: '22.3%',
-                                        left: '+=0.9%', 
-                                        transform: "scale(0.8)"}]);        
+                                        left: '+=0.9%',
+                                        transform: "scale(0.8)"}]);
 /*
         $("#tip").delay(1500).animate({
             opacity: '1.0',
@@ -671,7 +655,7 @@ var helperFunctions = {
         //        }, 1500);
 
         //HAVE TO BE CONFIRMED
-        animate("#micropipet3,#tip",2100,"animate",[{top: '+=4.4%'}]);        
+        animate("#micropipet3,#tip",2100,"animate",[{top: '+=4.4%'}]);
 /*
         $("#micropipet3").delay(2100).animate({
             top: '+=4.4%'
@@ -729,12 +713,12 @@ var helperFunctions = {
         }
     },//step 21
     "openTube1": function () {
-       
+
     },//step 22
     "addDye": function () {
 
         //HAVE TO BE CONFIRMED
-        animate("#micropipet3,#tip",0,"animate",[{top: '-=4.4%'}]);        
+        animate("#micropipet3,#tip",0,"animate",[{top: '-=4.4%'}]);
 /*
         $("#micropipet3").animate({
             top: '-=4.4%'
@@ -745,7 +729,7 @@ var helperFunctions = {
 */
         //HAVE TO BE CONFIRMED
         animate("#micropipet3,#tip",400,"animate",[{left: '+=13.3%',
-                                                    top: '+=38%'}]);        
+                                                    top: '+=38%'}]);
 /*
         $("#micropipet3").delay(400).animate({
             left: '+=13.2%',
@@ -780,14 +764,14 @@ var helperFunctions = {
         //zoom(39, 67, 12, 1250)
 
         //HAVE TO BE CONFIRMED
-        animate("#zoomOutButton1",4000,"animate",[{opacity: '1.0'}]);        
+        animate("#zoomOutButton1",4000,"animate",[{opacity: '1.0'}]);
 /*
         $("#zoomOutButton1").delay(4000).animate({
             opacity: '1.0'
         });
 */
         //HAVE TO BE CONFIRMED
-        animate("#s0Tube1",1250,"animate",[{opacity: '0.0'}]);        
+        animate("#s0Tube1",1250,"animate",[{opacity: '0.0'}]);
 /*
         $("#s0Tube1").delay(1250).animate({
             opacity: '0.0'
@@ -804,14 +788,14 @@ var helperFunctions = {
         });
 */
         //HAVE TO BE CONFIRMED
-        animate("#s0Tube1",12,"animate",[{opacity: '1.0'}]);        
+        animate("#s0Tube1",12,"animate",[{opacity: '1.0'}]);
 /*
         $("#s0Tube1").delay(12).animate({
             opacity: '1.0'
         });
 */
         //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '0.0'}]);        
+        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '0.0'}]);
 /*
         $("#tubeContentMixing4").delay(12).animate({
             opacity: '0.0'
@@ -821,7 +805,7 @@ var helperFunctions = {
         });
 */
         //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '1.0'}]);        
+        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '1.0'}]);
 /*
         $("#tubeContentMixing4").delay(12).animate({
             opacity: '1.0'
@@ -831,7 +815,7 @@ var helperFunctions = {
         });
 */
         //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '0.0'}]);        
+        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '0.0'}]);
 /*
         $("#tubeContentMixing4").delay(12).animate({
             opacity: '0.0'
@@ -841,7 +825,7 @@ var helperFunctions = {
         });
 */
         //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '1.0'}]);        
+        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '1.0'}]);
 /*
         $("#tubeContentMixing4").delay(12).animate({
             opacity: '1.0'
@@ -851,7 +835,7 @@ var helperFunctions = {
         });
 */
         //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '0.0'}]);        
+        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '0.0'}]);
 /*
         $("#tubeContentMixing4").delay(12).animate({
             opacity: '0.0'
@@ -861,7 +845,7 @@ var helperFunctions = {
         });
 */
         //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '1.0'}]);        
+        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '1.0'}]);
 /*
         $("#tubeContentMixing4").delay(12).animate({
             opacity: '1.0'
@@ -871,7 +855,7 @@ var helperFunctions = {
         });
 */
         //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '0.0'}]);        
+        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '0.0'}]);
 /*
         $("#tubeContentMixing4").delay(12).animate({
             opacity: '0.0'
@@ -881,7 +865,7 @@ var helperFunctions = {
         });
 */
         //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '1.0'}]);        
+        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '1.0'}]);
 /*
         $("#tubeContentMixing4").delay(12).animate({
             opacity: '1.0'
@@ -891,14 +875,14 @@ var helperFunctions = {
         });
 */
         //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4",12,"animate",[{opacity: '0.0'}]);        
+        animate("#tubeContentMixing4",12,"animate",[{opacity: '0.0'}]);
 /*
         $("#tubeContentMixing4").delay(12).animate({
             opacity: '0.0'
         });
 */
         //HAVE TO BE CONFIRMED
-        animate("#zoomOutButton1a",3800,"animate",[{opacity: '1.0'}]);        
+        animate("#zoomOutButton1a",3800,"animate",[{opacity: '1.0'}]);
 /*
         $("#zoomOutButton1a").delay(3800).animate({
             opacity: '1.0'
@@ -959,7 +943,7 @@ var helperFunctions = {
         //$("#tipBoxTop").addClass(animdefs["anim_tipVisible"])
 
         //HAVE TO BE CONFIRMED
-        animate("#tipBoxTop",0,"animate",[{opacity: '1.0'}]);        
+        animate("#tipBoxTop",0,"animate",[{opacity: '1.0'}]);
 /*
         $("#tipBoxTop").animate({
             opacity: '1.0'
@@ -999,7 +983,7 @@ var helperFunctions = {
         });
 */
         //HAVE TO BE CONFIRMED
-        animate("#zoomOutButton3,#powerSupplyUp,#powerSupplyDown,#tip",1,"animate",[{opacity: '0.0'}]);        
+        animate("#zoomOutButton3,#powerSupplyUp,#powerSupplyDown,#tip",1,"animate",[{opacity: '0.0'}]);
 /*
         $("#zoomOutButton3").delay(1).animate({
             opacity: '0.0'
@@ -1014,7 +998,7 @@ var helperFunctions = {
             opacity: '0.0'
         });
 */
-        
+
         setTimeout(function () {
             // game.nextStep();
             updateScore(10);
@@ -1022,7 +1006,7 @@ var helperFunctions = {
         }, 300);
     }, //step 31
     "orientGel": function () {
-        
+
         //HAVE TO BE CONFIRMED
         animate("#gelTrayTop,#micropipetTopView,.side",1,"animate",[{opacity: '1.0'}]);
         animate("#arrowDown,#arrowUp",1,"animate",[{opacity: '1.0'}]);
@@ -1050,7 +1034,7 @@ var helperFunctions = {
         }, 300);
     }, //step 32, 37, 42
     "addTipTop": function () {
-        
+
         //HAVE TO BE CONFIRMED
         animate("#micropipetTopView",0,"animate",[{"left": '31.5%',
                                                    "top": '64%'}]);
@@ -1093,7 +1077,7 @@ var helperFunctions = {
             updateScore(10);
         };
         //movePipetTop(wellTop[arrayIndex])
-        //     $("#micropipetTopView").animate({top: '${newTop}%;'});     
+        //     $("#micropipetTopView").animate({top: '${newTop}%;'});
     }, //step 35,40
     "insertTip": function (evt) {
         var arrayIndex = evt.keyCode - 37;
@@ -1140,7 +1124,7 @@ var helperFunctions = {
             updateScore(10);
         };
         //movePipetTop(wellTop[arrayIndex])
-        //     $("#micropipetTopView").animate({top: '${newTop}%;'});     
+        //     $("#micropipetTopView").animate({top: '${newTop}%;'});
     }, //step 41
     "disposeTip1": function () {
         $("#micropipetTopView").animate({
@@ -1183,7 +1167,7 @@ var helperFunctions = {
             updateScore(10);
         };
         //movePipetTop(wellTop[arrayIndex])
-        //     $("#micropipetTopView").animate({top: '${newTop}%;'});     
+        //     $("#micropipetTopView").animate({top: '${newTop}%;'});
     }, //step 46
     "disposeTip2": function () {
         $("#micropipetTopView").animate({
@@ -1226,7 +1210,7 @@ var helperFunctions = {
             updateScore(10);
         };
         //movePipetTop(wellTop[arrayIndex])
-        //     $("#micropipetTopView").animate({top: '${newTop}%;'});     
+        //     $("#micropipetTopView").animate({top: '${newTop}%;'});
     }, //step 51
     "disposeTip3": function () {
         $("#micropipetTopView").animate({
@@ -1269,7 +1253,7 @@ var helperFunctions = {
             updateScore(10);
         };
         //movePipetTop(wellTop[arrayIndex])
-        //     $("#micropipetTopView").animate({top: '${newTop}%;'});     
+        //     $("#micropipetTopView").animate({top: '${newTop}%;'});
     }, //step 56
     "disposeTip3": function () {
         $("#micropipetTopView").animate({
@@ -1280,7 +1264,7 @@ var helperFunctions = {
         // game.nextStep();
         updateScore(10);
         console.log(game.getCurrentStep().id)
-    }, //step 58  
+    }, //step 58
     "takeS3": function (evt) {
         console.log(evt.target.id)
         $("#micropipetTopView").animate({
@@ -1312,7 +1296,7 @@ var helperFunctions = {
             updateScore(10);
         };
         //movePipetTop(wellTop[arrayIndex])
-        //     $("#micropipetTopView").animate({top: '${newTop}%;'});     
+        //     $("#micropipetTopView").animate({top: '${newTop}%;'});
     }, //step 61
     "disposeTip4": function () {
         $("#micropipetTopView").animate({
@@ -1355,7 +1339,7 @@ var helperFunctions = {
             updateScore(10);
         };
         //movePipetTop(wellTop[arrayIndex])
-        //     $("#micropipetTopView").animate({top: '${newTop}%;'});     
+        //     $("#micropipetTopView").animate({top: '${newTop}%;'});
     }, //step 66
     "disposeTip5": function () {
         $("#micropipetTopView").animate({
@@ -1398,7 +1382,7 @@ var helperFunctions = {
             updateScore(10);
         };
         //movePipetTop(wellTop[arrayIndex])
-        //     $("#micropipetTopView").animate({top: '${newTop}%;'});     
+        //     $("#micropipetTopView").animate({top: '${newTop}%;'});
     }, //step 71
     "disposeTip6": function () {
         $("#micropipetTopView").animate({
@@ -1444,7 +1428,7 @@ var helperFunctions = {
     }, //step 73
     "setVoltage": function () {
         if (voltage == 100 || testMode) {
-            
+
                        criteriaPassed = true;
         }
         $("#powerSupplyUp").click(function () {
@@ -1519,7 +1503,7 @@ var helperFunctions = {
         $("#lidBox").delay(1).animate({
             zindex: -2
         });
-    }, //step 75 
+    }, //step 75
     "removeGel": function () {
         $("#gelTrayTop").delay(1).animate({
             top: '+=8%',
@@ -1561,7 +1545,7 @@ var helperFunctions = {
             opacity: '1.0'
         });
         console.log(answer)
-    }, //step 79 
+    }, //step 79
     "pickLane": function () {
         var studentAnswer = $("#answerInput").val();
         if (studentAnswer != (answer - 2)) {
@@ -1642,7 +1626,7 @@ var helperFunctions = {
         animate("#labBenchTop", 0, "keyframe", animdefs["anim_toTopView1"])
         //$("#labBenchTop").addClass(animdefs["anim_toTopView1"])
         //$("#tipBoxTop").addClass(animdefs["anim_tipVisible"])
-        
+
         $("#tipBoxTop").animate({
             opacity: '1.0'
         });
