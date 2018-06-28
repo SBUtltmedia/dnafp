@@ -21,11 +21,18 @@ function Game(props) {
         // Make group objects
         $("#steps").empty();
         for (var i = 0; i < this.groups.length; i++) {
-            $("#steps").append("<div id='group" + i + "' class='group'></div>");
-            $("#group" + i).append("<div id='groupPanel" + i + "' class='groupPanel'></div>");
-            $("#groupPanel" + i).append("<div id='groupText" + i + "' class='stepText fs-18'></div>");
-            $("#group" + i).append("<div class='icon_bg' z-index:'10'> </div>");
-            $("#group" + i).append("<div id='groupIcon" + i + "' class='icon clickToSpin'></div>");
+
+            var group=$('<div/>', {id:'group' + i,class:"group" })
+            var groupPanel=$('<div/>', {id:'groupPanel'+ i,class:"groupPanel" })
+            var groupIconBG=$('<div/>', {class:"icon_bg" })
+            var groupText=$('<div/>', {id:'groupText'+ i,class:"stepText" })
+            var groupIcon=$('<div/>', {id:'groupIcon'+ i,class:"icon clickToSpin" })
+            groupPanel.append(groupText);
+            group.append(groupPanel)
+            group.append(groupIconBG)
+            group.append(groupIcon)
+              $("#steps").append(groupPanel)
+             $("#steps").append(group)
         }
         // Make step objects
         for (var i = 0; i < this.steps.length; i++) {
