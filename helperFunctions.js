@@ -122,7 +122,7 @@ var helperFunctions = {
 
 
         animate("#view", 5000, zoom, [95, 36, 9.5, 2700])
-        animate("#volumeButton,#volumeInput",5000,"css",[{display:"block",opacity:1}]);
+        animate("#volumeButton,#volumeInput",6000,"css",[{display:"block",opacity:1}]);
 
     }, //step 3
     "setVolume": function () {

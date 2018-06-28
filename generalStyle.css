@@ -50,7 +50,7 @@ body {
     position: absolute;
     text-align: center;
     background-color: black;
-    z-index:0; /*z-index: 20;*/
+    z-index:; /*z-index: 20;*/
     font-size: 0.75rem
 }
 
@@ -62,7 +62,7 @@ body {
     position: absolute;
     text-align: center;
     background-color: black;
-    z-index:0; /*z-index: 20;*/
+    z-index:; /*z-index: 20;*/
     font-size: 0.75rem
 }
 
@@ -91,31 +91,7 @@ body {
     left: 100%;
     top: 0%;
     position: absolute;
-    z-index:0; /*z-index: 500;*/
-}
-
-.icon {
-    height: 100%;
-    width: 15%;
-    top: 0%;
-    left: 0%;
-    position: absolute;
-    background-image: url("../resources/img/step_inactive.svg");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    z-index:0; /*z-index: 10;*/
-}
-
-.incompleteIcon {
-    background-image: url(img/step_incomplete.svg)
-}
-
-.completeIcon {
-    background-image: url(../resources/img/step_complete.svg)
-}
-
-.failedIcon {
-    background-image: url(../resources/img/step_failed.svg)
+    z-index:5; /*z-index: 500;*/
 }
 
 .stepPanel {
@@ -149,6 +125,30 @@ body {
     pointer-events: none;
 }
 
+.icon {
+    height: 100%;
+    width: 15%;
+    top: 0%;
+    left: 0%;
+    position: absolute;
+    background-image: url("../resources/img/step_inactive.svg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    z-index: 100; /*z-index: 10;*/
+}
+
+.incompleteIcon {
+    background-image: url(img/step_incomplete.svg)
+}
+
+.completeIcon {
+    background-image: url(../resources/img/step_complete.svg)
+}
+
+.failedIcon {
+    background-image: url(../resources/img/step_failed.svg)
+}
+
 .inactiveIcon {
     background-image: url("../resources/img/step_inactive.svg");
 }
@@ -178,7 +178,7 @@ body {
     background-image: url("general_img/step_bg.svg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    z-index:0; /*z-index: 10;*/
+    z-index:10; /*z-index: 10;*/
 }
 
 @keyframes stepExit {

@@ -17,23 +17,23 @@ function Game(props) {
         this.makeStepObjects();
     }
     this.makeStepObjects = function () {
-        // 
+        //
         // Make group objects
         $("#steps").empty();
         for (var i = 0; i < this.groups.length; i++) {
             $("#steps").append("<div id='group" + i + "' class='group'></div>");
-            $("#group" + i).append("<div class='icon_bg'></div>");
-            $("#group" + i).append("<div id='groupIcon" + i + "' class='icon clickToSpin'></div>");
             $("#group" + i).append("<div id='groupPanel" + i + "' class='groupPanel'></div>");
             $("#groupPanel" + i).append("<div id='groupText" + i + "' class='stepText fs-18'></div>");
+            $("#group" + i).append("<div class='icon_bg' z-index:'10'> </div>");
+            $("#group" + i).append("<div id='groupIcon" + i + "' class='icon clickToSpin'></div>");
         }
         // Make step objects
         for (var i = 0; i < this.steps.length; i++) {
             $("#steps").append("<div id='step" + i + "' class='step'></div>");
-            $("#step" + i).append("<div class='icon_bg'></div>");
-            $("#step" + i).append("<div id='icon" + i + "' class='icon clickToSpin'></div>");
             $("#step" + i).append("<div id='panel" + i + "' class='stepPanel'></div>");
             $("#panel" + i).append("<div id='stepText" + i + "' class='stepText fs-18'></div>");
+            $("#step" + i).append("<div class='icon_bg'></div>");
+            $("#step" + i).append("<div id='icon" + i + "' class='icon clickToSpin'></div>");
         }
         $(".clickToSpin").click(function (event) {
             var id = "#" + $(this).attr("id");
@@ -197,7 +197,7 @@ function Step(cur, div, iconDiv) {
             }
             //            if (testMode) {
             //                jumpToStep(this.id)
-            //                
+            //
             //            }
             // Start timer to show hint
             if (game.isGuided()) {
@@ -253,9 +253,9 @@ function StepGroup(id, shortText, div, iconDiv) {
     this.id = id;
     this.shortText = shortText;
     this.div = div;
-    this.iconDiv = iconDiv;
     this.steps = [];
     this.position = 0;
+    this.iconDiv = iconDiv;
     this.state = 0; // 0 = inactive, 1 = active, 2 = complete
     this.addStep = function (newStep) {
         this.steps.push(newStep);

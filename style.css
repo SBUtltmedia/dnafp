@@ -1837,7 +1837,7 @@
     background-image: url(img/micropipet20.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: 0; /*z-index: 7*/
+    z-index: 3; /*z-index: 7*/
 }
 
 textarea:focus, input:focus{

@@ -779,29 +779,6 @@ function enableClicks(bool) {
 function makePipetteTipAnimation(tipLocation) {
     var keyframeString =
         `
-@keyframes mooveTip {
-    0% {
-        left: ${tipLocation}%;
-        top: 70%;
-    }
-    20% {
-        left: ${tipLocation}%;
-        top: 70%;
-    }
-    25% {
-        left: ${tipLocation}%;
-        top: 64.6%;
-    }
-    90% {
-        left: 85.5%;
-        top: 50.6%;
-    }
-    100% {
-        left: 88.9%;
-        top: 50.6%;
-    }
-}
-
 @keyframes addTip1 {
     0% {
         left: 14.5%;
