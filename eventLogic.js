@@ -333,7 +333,7 @@ function continueLoading() {
     //        //        });
     //        animate("#indicatorArrow1", 50, "addClass", "opClass")
     //    });
-    $(".tip").click(function (evt) {
+    $(".tip").on("click",function (evt) {
         var tipNum = betterParseInt(evt.target.id);
         var tipLeft = tips[(tipNum - 1)];
         makePipetteTipAnimation(tipLeft);

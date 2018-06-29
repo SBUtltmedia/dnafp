@@ -27,21 +27,39 @@ function Game(props) {
             var groupIconBG=$('<div/>', {class:"icon_bg" })
             var groupText=$('<div/>', {id:'groupText'+ i,class:"stepText" })
             var groupIcon=$('<div/>', {id:'groupIcon'+ i,class:"icon clickToSpin" })
+
             groupPanel.append(groupText);
             group.append(groupPanel)
             group.append(groupIconBG)
             group.append(groupIcon)
-              $("#steps").append(groupPanel)
-             $("#steps").append(group)
+            
+               $("#steps").append(group)
         }
         // Make step objects
         for (var i = 0; i < this.steps.length; i++) {
+            
+            var currentStep=$('<div/>', {id:'step' + i, class:"step" })
+            var currentPanel = $('<div/>', {id:'panel' + i, class:"stepPanel" })
+            var currentStepText = $('<div/>', {id:'stepText' + i, class:"stepText fs-18" })
+            var iconBG = $('<div/>', {class:"icon_bg" })
+            var currentIcon = $('<div/>', {id:'icon' + i, class:"icon clickToSpin" })
+            
+            currentPanel.append(currentStepText)
+            currentStep.append(currentPanel)
+            currentStep.append(iconBG)
+            currentStep.append(currentIcon)
+            
+                $("#steps").append(currentStep)
+            
+/*
             $("#steps").append("<div id='step" + i + "' class='step'></div>");
             $("#step" + i).append("<div id='panel" + i + "' class='stepPanel'></div>");
             $("#panel" + i).append("<div id='stepText" + i + "' class='stepText fs-18'></div>");
             $("#step" + i).append("<div class='icon_bg'></div>");
             $("#step" + i).append("<div id='icon" + i + "' class='icon clickToSpin'></div>");
+*/
         }
+        
         $(".clickToSpin").click(function (event) {
             var id = "#" + $(this).attr("id");
             spinElement(id);

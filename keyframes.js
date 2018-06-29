@@ -4,7 +4,7 @@ $.keyframe.define([{ name: mooveTip,
     '0%': {
         left: '2.5%' + ${tipLocation}%';
         top: '70%';
-    }  
+    }
     '20%': {
         left: '${tipLocation}%';
         top: 70%;
@@ -21,7 +21,7 @@ $.keyframe.define([{ name: mooveTip,
         left: '88.9%';
         top: '50.6%';
     }
-} 
+}
     `
     $('#dynamic-style').html(keyframeString)
 }*/
@@ -572,8 +572,8 @@ $.keyframe.define([{ name:'pipetToBin',
     '100%':{
         left: '52.7%',
         top: '34.7%',
-},
-},])
+}
+}])
 
 
 
@@ -1398,7 +1398,30 @@ $.keyframe.define([{ name:'rotateCap',
 },])
 
 
+$.keyframe.define([{ name:'mixs0TubeBody',
+    '0%':{
+        opacity: 1
+},
+    '50%':{
+        opacity: 0
+},
+    '100%':{
+        opacity: 1
+},
+},])
 
+
+$.keyframe.define([{ name:'mixTubeContent',
+    '0%':{
+        opacity: 0
+},
+    '50%':{
+        opacity: 1
+},
+    '100%':{
+        opacity: 0
+},
+},])
 
 
 $.keyframe.define([{ name:'quickFadeIn',
@@ -1596,7 +1619,3 @@ $.keyframe.define([{ name:'showTip1',
         visibility: 'visible'
 },
 },])
-
-
-
-

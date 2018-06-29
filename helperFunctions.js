@@ -30,55 +30,60 @@ function updateVoltage(amount) {
     console.log(score)
 }
 
-function zeroTime(def){
+function zeroTime(def) {
 
-    return def.replace(/ [\d\.]+s/g," .001s")
+    return def.replace(/ [\d\.]+s/g, " .001s")
 
 }
 
 
 function animate(selector, delay, method, param) {
 
-  if($(selector+':visible').length == 0)
-  {
-$(selector).show();
-  }
-    var animateDur=400;
+    if ($(selector + ':visible').length == 0) {
+        $(selector).show();
+    }
+    var animateDur = 400;
     if (testMode) {
         delay = 0
-        animateDur=.001;
+        animateDur = .001;
     }
-    if (method=="keyframe")
+    if (method == "keyframe")
 
-        {
-               if (testMode) {
-                   param=zeroTime(param)
-               }
-           $(selector).delay(delay).playKeyframe(param);
+    {
+        if (testMode) {
+            param = zeroTime(param)
+        }
+        console.log(selector, param)
+        //$(selector).attr("style","")
+        $(selector).delay(delay).playKeyframe(param, function () {});
+    } else if (typeof (method) == "function") {
+        if (method.name == "zoom" && testMode) {
+            zoomInstant(param[0], param[1], param[2])
+        } else {
+            $(selector).delay(delay).queue(function () {
+                method(...param, testMode)
+                $(this).dequeue();
+            })
         }
 
-   else if (typeof (method) == "function") {
 
-        $(selector).delay(delay).queue(function () {
-            method(...param)
-            $(this).dequeue();
-        })
+
     } else if (typeof (param) == "object") {
-            setTimeout(function(){
-            $(selector)[method](...param,animateDur)
-            },delay);
+        setTimeout(function () {
+            $(selector)[method](...param, animateDur)
+        }, delay);
 
-        }  else if (typeof (method) == "string") {
-          setTimeout(function(){
-          $(selector)[method](param,animateDur)
-          },delay);
-        }
+    } else if (typeof (method) == "string") {
+        setTimeout(function () {
+            $(selector)[method](param, animateDur)
+        }, delay);
+    }
 }
 var helperFunctions = {
     //step 0
     "liftEnzyme": function () {
 
-        animate("#enzTube",0,"keyframe", animdefs["anim_moveEnz"])
+        animate("#enzTube", 0, "keyframe", animdefs["anim_moveEnz"])
         //$("#enzTube").playKeyframe(animdefs[animdefs["anim_moveEnz"]]);
 
         //animate("#indicatorArrow1", 0, "addClass", "opClass")
@@ -121,8 +126,11 @@ var helperFunctions = {
         animate("#pipetteTip1", 0, "keyframe", animdefs["anim_showTip1"])
 
 
-        animate("#view", 5000, zoom, [95, 36, 9.5, 2700])
-        animate("#volumeButton,#volumeInput",6000,"css",[{display:"block",opacity:1}]);
+        animate("html", 5000, zoom, [95, 36, 9.5, 2700])
+        animate("#volumeButton,#volumeInput", 6000, "css", [{
+            display: "block",
+            opacity: 1
+        }]);
 
     }, //step 3
     "setVolume": function () {
@@ -134,15 +142,18 @@ var helperFunctions = {
         updateScore(10);
         console.log(game.getCurrentStep().id)
         console.log("correct volume")
-        animate("#volumeButton,#volumeInput",1,"animate",[{opacity: '0.0',display:"none"}]);
-/*
-        $("#volumeButton").delay(1).animate({
-            opacity: '0.0'
-        });
-        $("#volumeInput").delay(1).animate({
-            opacity: '0.0'
-        });
-*/
+        animate("#volumeButton,#volumeInput", 1, "animate", [{
+            opacity: '0.0',
+            display: "none"
+        }]);
+        /*
+                $("#volumeButton").delay(1).animate({
+                    opacity: '0.0'
+                });
+                $("#volumeInput").delay(1).animate({
+                    opacity: '0.0'
+                });
+        */
         animate("#view", 0, zoom, [50, 50, 1, 1000])
         //zoom(50, 50, 1, 1000)
         animate("#micropipet2", 1100, "keyframe", animdefs["anim_lowerPipet"])
@@ -194,12 +205,14 @@ var helperFunctions = {
         //$("#micropipet2").addClass(animdefs["anim_pipetToTube1"]);
         animate("#indicatorArrow2", 0, "keyframe", animdefs["anim_oscillate2"])
         //$("#indicatorArrow2").addClass(animdefs["anim_oscillate2"]);
-        animate("#indicatorArrow2",1800,"animate",[{opacity: '1.0'}]);
-/*
-        $("#indicatorArrow2").delay(1800).animate({
+        animate("#indicatorArrow2", 1800, "animate", [{
             opacity: '1.0'
-        });
-*/
+        }]);
+        /*
+                $("#indicatorArrow2").delay(1800).animate({
+                    opacity: '1.0'
+                });
+        */
 
 
 
@@ -216,74 +229,45 @@ var helperFunctions = {
         animate("#view", 0, zoom, [39, 67, 12, 1050])
         //zoom(39, 67, 12, 1250)
 
-        animate("#zoomOutButton1",4000,"animate",[{opacity: '1.0'}]);
-/*
-        $("#zoomOutButton1").delay(4000).animate({
+        animate("#zoomOutButton1", 4000, "animate", [{
             opacity: '1.0'
-        });
-*/
+        }]);
+        /*
+                $("#zoomOutButton1").delay(4000).animate({
+                    opacity: '1.0'
+                });
+        */
+        $("s0Tube").addClass("opClass")
+        $("#tip1").addClass("opClass")
+        animate("#s0TubeBody", 0, "keyframe", animdefs["anim_mixs0TubeBody"])
+        animate("#tubeContentMixing3", 0, "keyframe", animdefs["anim_mixTubeContent"])
 
-        if (mix == 0) {
-            for (i = 0; i <= 14; i++) {
-                console.log(i);
-                if (i == 1) {
-                    $("s0Tube").addClass("opClass")
-                    $("#tip1").addClass("opClass")
-                }
-                if (i % 2 == 1) {
-                    $("#s0TubeBody").fadeTo(400, 0);
-                    $("#tubeContentMixing3").fadeTo(400, 1);
-                    console.log("foo")
-                } else if (i % 2 == 0) {
-                    $("#s0TubeBody").fadeTo(400, 1);
-                    $("#tubeContentMixing3").fadeTo(400, 0);
-                    console.log("bar")
-                }
-                setTimeout(function () {
-                    mix = i;
-                    console.log(mix)
-                }, 3000);
-            }
-        }
-
-        //HAVE TO BE CONFIRMED
-        animate("#zoomOut",9500,"animate",[{opacity: '1.0'}]);
-/*
-        $("#zoomOut").delay(950).animate({
+        animate("#zoomOut", 9500, "animate", [{
             opacity: '1.0'
-        });
-*/
-        //HAVE TO BE CONFIRMED
-        animate("#indicatorArrow2",80,"animate",[{opacity: '0.0'}]);
-/*
-        $("#indicatorArrow2").delay(80).animate({
+        }]);
+        animate("#indicatorArrow2", 80, "animate", [{
             opacity: '0.0'
-        });
-*/
+        }]);
 
-        setTimeout(function () {
-            // game.nextStep();
-            updateScore(10);
-            console.log(game.getCurrentStep().id)
-        }, 1500);
     },
+
     "mixContentsPost": function () {
         $("#zoomOutButton1").click(function () {
-        zoom(50, 50, 1, 1000)
-        $("#zoomOutButton1").animate({
-            opacity: '0.0'
+            animate("#view", 0,zoom,[50, 50, 1, 1000]);
+            animate("#zoomOutButton1", 0, "animate", [{
+                opacity: '0.0'
+            }]);
         });
-    });
-        if(testMode){
-       $("#zoomOutButton1").trigger("click")
+        if (testMode) {
+            $("#zoomOutButton1").trigger("click")
 
 
         }
 
-//        zoom(50, 50, 1, 1000)
-//        $("#zoomOutButton1").animate({
-//            opacity: '0.0'
-//        });
+        //        zoom(50, 50, 1, 1000)
+        //        $("#zoomOutButton1").animate({
+        //            opacity: '0.0'
+        //        });
     }, //step 7
     //
     //
@@ -295,36 +279,34 @@ var helperFunctions = {
     //
     //
     "replaceTip": function () {
+        console.log("replaceTip");
         //$("#tip1").attr("class",animdefs["anim_ejectTip"]);
         //animate("#tip1", 0, zoom, [39, 67, 12, 1250])
-        $("#tip1").attr("keyframe", animdefs["anim_tipToBin"]);
-        $("#pipetteTip1").attr("keyframe", animdefs["anim_hideTip1"])
-        $("#micropipet2").attr("keyframe", animdefs["anim_pipetToBin"])
-//        $("#micropipet2").attr("class", "micropipet anim_pipetToBin");
+        animate("#tip1", 0, "keyframe", animdefs["anim_tipToBin"]);
+        //  $("#tip1").attr("keyframe", animdefs["anim_tipToBin"]);
+
+        animate("#pipetteTip1", 0, "keyframe", animdefs["anim_hideTip1"]);
+        animate("#micropipet2", 0, "keyframe", animdefs["anim_pipetToBin"])
+        //        $("#micropipet2").attr("class", "micropipet anim_pipetToBin");
 
         //HAVE TO BE CONFIRMED
-  //      animate("#indicatorArrow3",50,"animate",[{opacity: '0.0'}]);
-/*
-        $("#indicatorArrow3").delay(50).animate({
-            opacity: '0.0'
-        });
-*/
-        setTimeout(function () {
-            // game.nextStep();
-            updateScore(10);
-            //game.setCurrentStep(takeEnzyme)
-            console.log(game.getCurrentStep().id)
-        }, 1700);
+        //      animate("#indicatorArrow3",50,"animate",[{opacity: '0.0'}]);
+        /*
+                $("#indicatorArrow3").delay(50).animate({
+                    opacity: '0.0'
+                });
+        */
+  
     },
     "closeTube": function (evt) {
         state["microtubeState"][0] = 3;
-        console.log(state["microtubeState"])
-        if (state["microtubeState"][0] == 3) {
+
+      
             animate("#s0Cap", 0, "keyframe", animdefs["anim_closeCap"])
             //$("#s0Cap").addClass(animdefs["anim_closeCap"])
             state["microtubeState"][0]++;
             console.log(state["microtubeState"])
-        }
+        
         //state["microtubeState"][0]++
     },
     "flickTube": function (evt) {
@@ -356,12 +338,14 @@ var helperFunctions = {
             animate("#s0Tube", 0, "keyframe", animdefs["anim_tubeDown"])
 
             //HAVE TO BE CONFIRMED
-            animate("#s0Tube",0,"animate",[{top: '-8.9%'}]);
-/*
-            $("#s0Tube").animate({
-                "top": '-8.9%'
-            })
-*/
+            animate("#s0Tube", 0, "animate", [{
+                top: '-8.9%'
+            }]);
+            /*
+                        $("#s0Tube").animate({
+                            "top": '-8.9%'
+                        })
+            */
 
             state["microtubeState"][0]++;
         }
@@ -372,12 +356,12 @@ var helperFunctions = {
         var buttonPress = state[game.getCurrentStep().logic.criteria.variable]
         var buttonNum = betterParseInt(evt.target.id)
         console.log(buttonNum)
-//        if buttonPress.valueOf(buttonNum >= 1) {
-//            buttonPress[buttonNum] = 1;
-//        }
-//        else {
+        //        if buttonPress.valueOf(buttonNum >= 1) {
+        //            buttonPress[buttonNum] = 1;
+        //        }
+        //        else {
         buttonPress[buttonNum]++;
-//        }
+        //        }
         console.log(buttonPress)
         //animate(currentButton, 0, "addClass", "opClass")
         //$(document.getElementsByClassName("pressButton")[buttonNum]).remove();
@@ -409,17 +393,19 @@ var helperFunctions = {
         //zoom(65, 21, 10, 1000)
 
         //HAVE TO BE CONFIRMED
-        animate("#zoomOutButton",1600,"animate",[{opacity: '1.0'}]);
-/*
-        $("#zoomOutButton").delay(1600).animate({
+        animate("#zoomOutButton", 1600, "animate", [{
             opacity: '1.0'
-        });
-*/
-//        setTimeout(function () {
-//            // game.nextStep();
-//            updateScore(10);
-//            console.log(game.getCurrentStep().id)
-//        }, 300);
+        }]);
+        /*
+                $("#zoomOutButton").delay(1600).animate({
+                    opacity: '1.0'
+                });
+        */
+        //        setTimeout(function () {
+        //            // game.nextStep();
+        //            updateScore(10);
+        //            console.log(game.getCurrentStep().id)
+        //        }, 300);
     }, //
     //
     //
@@ -458,12 +444,14 @@ var helperFunctions = {
         animate("#view", 1000, zoom, [65, 36, 5, 1500])
 
         //HAVE TO BE CONFIRMED
-        animate("#button",1000,"animate",[{opacity: '1.0'}]);
-/*
-        $("button").delay(1000).animate({
+        animate("#button", 1000, "animate", [{
             opacity: '1.0'
-        });
-*/
+        }]);
+        /*
+                $("button").delay(1000).animate({
+                    opacity: '1.0'
+                });
+        */
         //        setTimeout(function () {
         //            zoom(65, 36, 5, 1500)
         //            $("button").delay(1).animate({
@@ -481,25 +469,29 @@ var helperFunctions = {
             console.log(game.getCurrentStep().id)
 
             //HAVE TO BE CONFIRMED
-            animate("#button,#timer",1,"animate",[{opacity: '0.0'}]);
-/*
-            $("button").delay(1).animate({
+            animate("#button,#timer", 1, "animate", [{
                 opacity: '0.0'
-            });
-            $("#timer").delay(1).animate({
-                opacity: '0.0'
-            });
-*/
+            }]);
+            /*
+                        $("button").delay(1).animate({
+                            opacity: '0.0'
+                        });
+                        $("#timer").delay(1).animate({
+                            opacity: '0.0'
+                        });
+            */
             //zoom(50, 50, 1, 1000)
             animate("#view", 0, zoom, 50, 50, 1, 1000)
 
             //HAVE TO BE CONFIRMED
-            animate("#day1",1000,"animate",[{opacity: '0.0'}]);
-/*
-            $("#day1").delay(1000).animate({
+            animate("#day1", 1000, "animate", [{
                 opacity: '0.0'
-            });
-*/
+            }]);
+            /*
+                        $("#day1").delay(1000).animate({
+                            opacity: '0.0'
+                        });
+            */
             //            setTimeout(function () {
             //                $("#day1").delay(1).animate({
             //                    opacity: '0.0'
@@ -564,15 +556,17 @@ var helperFunctions = {
         console.log("1234")
 
         //HAVE TO BE CONFIRMED
-        animate("#volumeButton1,#volumeInput1",5000,"animate",[{opacity: '1.0'}]);
-/*
-        $("#volumeButton1").delay(5000).animate({
+        animate("#volumeButton1,#volumeInput1", 5000, "animate", [{
             opacity: '1.0'
-        });
-        $("#volumeInput1").delay(5000).animate({
-            opacity: '1.0'
-        });
-*/
+        }]);
+        /*
+                $("#volumeButton1").delay(5000).animate({
+                    opacity: '1.0'
+                });
+                $("#volumeInput1").delay(5000).animate({
+                    opacity: '1.0'
+                });
+        */
         $("#micropipet3").animate({
             top: '-=6%'
         });
@@ -585,12 +579,14 @@ var helperFunctions = {
         //
 
         //HAVE TO BE CONFIRMED
-        animate("#micropipet3",200,"animate",[{left: '+=5.5%'}]);
-/*
-        $("#micropipet3").delay(200).animate({
+        animate("#micropipet3", 200, "animate", [{
             left: '+=5.5%'
-        });
-*/
+        }]);
+        /*
+                $("#micropipet3").delay(200).animate({
+                    left: '+=5.5%'
+                });
+        */
         $("#micropipet3").delay(200).css('z-index', '1');
         //        setTimeout(function () {
         ////            $("#micropipet3").animate({
@@ -600,12 +596,14 @@ var helperFunctions = {
         //        }, 200);
 
         //HAVE TO BE CONFIRMED
-        animate("#micropipet3",600,"animate",[{top: '+=3.3%'}]);
-/*
-        $("#micropipet3").delay(600).animate({
+        animate("#micropipet3", 600, "animate", [{
             top: '+=3.3%'
-        });
-*/
+        }]);
+        /*
+                $("#micropipet3").delay(600).animate({
+                    top: '+=3.3%'
+                });
+        */
 
         //        setTimeout(function () {
         //            $("#micropipet3").animate({
@@ -614,16 +612,18 @@ var helperFunctions = {
         //        }, 600);
 
         //HAVE TO BE CONFIRMED
-        animate("#micropipet3",1500,"animate",[{top: '1%',
-                                                left: '+=0.9%',
-                                                transform: "scale(0.8)"}]);
-/*
-        $("#micropipet3").delay(1500).animate({
+        animate("#micropipet3", 1500, "animate", [{
             top: '1%',
             left: '+=0.9%',
             transform: "scale(0.8)"
-        });
-*/
+        }]);
+        /*
+                $("#micropipet3").delay(1500).animate({
+                    top: '1%',
+                    left: '+=0.9%',
+                    transform: "scale(0.8)"
+                });
+        */
         //        setTimeout(function () {
         //            $("#micropipet3").animate({
         //                top: '1%',
@@ -633,18 +633,20 @@ var helperFunctions = {
         //        }, 1500);
 
         //HAVE TO BE CONFIRMED
-        animate("#tip",1500,"animate",[{opacity: '1.0',
-                                        top: '22.3%',
-                                        left: '+=0.9%',
-                                        transform: "scale(0.8)"}]);
-/*
-        $("#tip").delay(1500).animate({
+        animate("#tip", 1500, "animate", [{
             opacity: '1.0',
             top: '22.3%',
             left: '+=0.9%',
             transform: "scale(0.8)"
-        });
-*/
+        }]);
+        /*
+                $("#tip").delay(1500).animate({
+                    opacity: '1.0',
+                    top: '22.3%',
+                    left: '+=0.9%',
+                    transform: "scale(0.8)"
+                });
+        */
         //        setTimeout(function () {
         //            $("#tip").animate({
         //                opacity: '1.0',
@@ -655,16 +657,18 @@ var helperFunctions = {
         //        }, 1500);
 
         //HAVE TO BE CONFIRMED
-        animate("#micropipet3,#tip",2100,"animate",[{top: '+=4.4%'}]);
-/*
-        $("#micropipet3").delay(2100).animate({
+        animate("#micropipet3,#tip", 2100, "animate", [{
             top: '+=4.4%'
-        });
-        $("#tip").delay(2100).animate({
-            top: '+=4.4%'
-        });
+        }]);
+        /*
+                $("#micropipet3").delay(2100).animate({
+                    top: '+=4.4%'
+                });
+                $("#tip").delay(2100).animate({
+                    top: '+=4.4%'
+                });
 
-*/
+        */
         //        setTimeout(function () {
         //            $("#micropipet3").animate({
         //                top: '+=4.4%'
@@ -699,47 +703,53 @@ var helperFunctions = {
             console.log("correct volume")
 
             //HAVE TO BE CONFIRMED
-            animate("#button,#volumeInput1",1,"animate",[{opacity: '0.0'}]);
-/*
-            $("button").delay(1).animate({
+            animate("#button,#volumeInput1", 1, "animate", [{
                 opacity: '0.0'
-            });
-            $("#volumeInput1").delay(1).animate({
-                opacity: '0.0'
-            });
-*/
+            }]);
+            /*
+                        $("button").delay(1).animate({
+                            opacity: '0.0'
+                        });
+                        $("#volumeInput1").delay(1).animate({
+                            opacity: '0.0'
+                        });
+            */
             animate("#view", 0, zoom, [50, 50, 1, 1000])
             //zoom(50, 50, 1, 1000)
         }
-    },//step 21
+    }, //step 21
     "openTube1": function () {
 
-    },//step 22
+    }, //step 22
     "addDye": function () {
 
         //HAVE TO BE CONFIRMED
-        animate("#micropipet3,#tip",0,"animate",[{top: '-=4.4%'}]);
-/*
-        $("#micropipet3").animate({
+        animate("#micropipet3,#tip", 0, "animate", [{
             top: '-=4.4%'
-        });
-        $("#tip").animate({
-            top: '-=4.4%'
-        });
-*/
+        }]);
+        /*
+                $("#micropipet3").animate({
+                    top: '-=4.4%'
+                });
+                $("#tip").animate({
+                    top: '-=4.4%'
+                });
+        */
         //HAVE TO BE CONFIRMED
-        animate("#micropipet3,#tip",400,"animate",[{left: '+=13.3%',
-                                                    top: '+=38%'}]);
-/*
-        $("#micropipet3").delay(400).animate({
-            left: '+=13.2%',
-            top: '+=38%'
-        });
-        $("#tip").delay(400).animate({
+        animate("#micropipet3,#tip", 400, "animate", [{
             left: '+=13.3%',
-            top: '+=38.8%'
-        });
-*/
+            top: '+=38%'
+        }]);
+        /*
+                $("#micropipet3").delay(400).animate({
+                    left: '+=13.2%',
+                    top: '+=38%'
+                });
+                $("#tip").delay(400).animate({
+                    left: '+=13.3%',
+                    top: '+=38.8%'
+                });
+        */
 
         //        setTimeout(function () {
         //            $("#micropipet3").animate({
@@ -764,137 +774,167 @@ var helperFunctions = {
         //zoom(39, 67, 12, 1250)
 
         //HAVE TO BE CONFIRMED
-        animate("#zoomOutButton1",4000,"animate",[{opacity: '1.0'}]);
-/*
-        $("#zoomOutButton1").delay(4000).animate({
+        animate("#zoomOutButton1", 4000, "animate", [{
             opacity: '1.0'
-        });
-*/
+        }]);
+        /*
+                $("#zoomOutButton1").delay(4000).animate({
+                    opacity: '1.0'
+                });
+        */
         //HAVE TO BE CONFIRMED
-        animate("#s0Tube1",1250,"animate",[{opacity: '0.0'}]);
-/*
-        $("#s0Tube1").delay(1250).animate({
+        animate("#s0Tube1", 1250, "animate", [{
             opacity: '0.0'
-        });
-*/
+        }]);
+        /*
+                $("#s0Tube1").delay(1250).animate({
+                    opacity: '0.0'
+                });
+        */
         //            $("#tubeContentMixing2").delay(1250).animate({
         //                opacity: '0.0'
         //            });
         //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4",1250,"animate",[{opacity: '1.0'}]);
-/*
-        $("#tubeContentMixing4").delay(1250).animate({
+        animate("#tubeContentMixing4", 1250, "animate", [{
             opacity: '1.0'
-        });
-*/
+        }]);
+        /*
+                $("#tubeContentMixing4").delay(1250).animate({
+                    opacity: '1.0'
+                });
+        */
         //HAVE TO BE CONFIRMED
-        animate("#s0Tube1",12,"animate",[{opacity: '1.0'}]);
-/*
-        $("#s0Tube1").delay(12).animate({
+        animate("#s0Tube1", 12, "animate", [{
             opacity: '1.0'
-        });
-*/
+        }]);
+        /*
+                $("#s0Tube1").delay(12).animate({
+                    opacity: '1.0'
+                });
+        */
         //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '0.0'}]);
-/*
-        $("#tubeContentMixing4").delay(12).animate({
+        animate("#tubeContentMixing4,#s0Tube1", 12, "animate", [{
             opacity: '0.0'
-        });
-        $("#s0Tube1").delay(12).animate({
-            opacity: '0.0'
-        });
-*/
+        }]);
+        /*
+                $("#tubeContentMixing4").delay(12).animate({
+                    opacity: '0.0'
+                });
+                $("#s0Tube1").delay(12).animate({
+                    opacity: '0.0'
+                });
+        */
         //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '1.0'}]);
-/*
-        $("#tubeContentMixing4").delay(12).animate({
+        animate("#tubeContentMixing4,#s0Tube1", 12, "animate", [{
             opacity: '1.0'
-        });
-        $("#s0Tube1").delay(12).animate({
-            opacity: '1.0'
-        });
-*/
+        }]);
+        /*
+                $("#tubeContentMixing4").delay(12).animate({
+                    opacity: '1.0'
+                });
+                $("#s0Tube1").delay(12).animate({
+                    opacity: '1.0'
+                });
+        */
         //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '0.0'}]);
-/*
-        $("#tubeContentMixing4").delay(12).animate({
+        animate("#tubeContentMixing4,#s0Tube1", 12, "animate", [{
             opacity: '0.0'
-        });
-        $("#s0Tube1").delay(12).animate({
-            opacity: '0.0'
-        });
-*/
+        }]);
+        /*
+                $("#tubeContentMixing4").delay(12).animate({
+                    opacity: '0.0'
+                });
+                $("#s0Tube1").delay(12).animate({
+                    opacity: '0.0'
+                });
+        */
         //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '1.0'}]);
-/*
-        $("#tubeContentMixing4").delay(12).animate({
+        animate("#tubeContentMixing4,#s0Tube1", 12, "animate", [{
             opacity: '1.0'
-        });
-        $("#s0Tube1").delay(12).animate({
-            opacity: '1.0'
-        });
-*/
+        }]);
+        /*
+                $("#tubeContentMixing4").delay(12).animate({
+                    opacity: '1.0'
+                });
+                $("#s0Tube1").delay(12).animate({
+                    opacity: '1.0'
+                });
+        */
         //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '0.0'}]);
-/*
-        $("#tubeContentMixing4").delay(12).animate({
+        animate("#tubeContentMixing4,#s0Tube1", 12, "animate", [{
             opacity: '0.0'
-        });
-        $("#s0Tube1").delay(12).animate({
-            opacity: '0.0'
-        });
-*/
+        }]);
+        /*
+                $("#tubeContentMixing4").delay(12).animate({
+                    opacity: '0.0'
+                });
+                $("#s0Tube1").delay(12).animate({
+                    opacity: '0.0'
+                });
+        */
         //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '1.0'}]);
-/*
-        $("#tubeContentMixing4").delay(12).animate({
+        animate("#tubeContentMixing4,#s0Tube1", 12, "animate", [{
             opacity: '1.0'
-        });
-        $("#s0Tube1").delay(12).animate({
-            opacity: '1.0'
-        });
-*/
+        }]);
+        /*
+                $("#tubeContentMixing4").delay(12).animate({
+                    opacity: '1.0'
+                });
+                $("#s0Tube1").delay(12).animate({
+                    opacity: '1.0'
+                });
+        */
         //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '0.0'}]);
-/*
-        $("#tubeContentMixing4").delay(12).animate({
+        animate("#tubeContentMixing4,#s0Tube1", 12, "animate", [{
             opacity: '0.0'
-        });
-        $("#s0Tube1").delay(12).animate({
-            opacity: '0.0'
-        });
-*/
+        }]);
+        /*
+                $("#tubeContentMixing4").delay(12).animate({
+                    opacity: '0.0'
+                });
+                $("#s0Tube1").delay(12).animate({
+                    opacity: '0.0'
+                });
+        */
         //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1",12,"animate",[{opacity: '1.0'}]);
-/*
-        $("#tubeContentMixing4").delay(12).animate({
+        animate("#tubeContentMixing4,#s0Tube1", 12, "animate", [{
             opacity: '1.0'
-        });
-        $("#s0Tube1").delay(12).animate({
-            opacity: '1.0'
-        });
-*/
+        }]);
+        /*
+                $("#tubeContentMixing4").delay(12).animate({
+                    opacity: '1.0'
+                });
+                $("#s0Tube1").delay(12).animate({
+                    opacity: '1.0'
+                });
+        */
         //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4",12,"animate",[{opacity: '0.0'}]);
-/*
-        $("#tubeContentMixing4").delay(12).animate({
+        animate("#tubeContentMixing4", 12, "animate", [{
             opacity: '0.0'
-        });
-*/
+        }]);
+        /*
+                $("#tubeContentMixing4").delay(12).animate({
+                    opacity: '0.0'
+                });
+        */
         //HAVE TO BE CONFIRMED
-        animate("#zoomOutButton1a",3800,"animate",[{opacity: '1.0'}]);
-/*
-        $("#zoomOutButton1a").delay(3800).animate({
+        animate("#zoomOutButton1a", 3800, "animate", [{
             opacity: '1.0'
-        });
-*/
+        }]);
+        /*
+                $("#zoomOutButton1a").delay(3800).animate({
+                    opacity: '1.0'
+                });
+        */
         //HAVE TO BE CONFIRMED
-        animate("#indicatorArrow2",80,"animate",[{opacity: '0.0'}]);
-/*
-        $("#indicatorArrow2").delay(80).animate({
+        animate("#indicatorArrow2", 80, "animate", [{
             opacity: '0.0'
-        });
-*/
+        }]);
+        /*
+                $("#indicatorArrow2").delay(80).animate({
+                    opacity: '0.0'
+                });
+        */
         setTimeout(function () {
             // game.nextStep();
             updateScore(10);
@@ -943,61 +983,67 @@ var helperFunctions = {
         //$("#tipBoxTop").addClass(animdefs["anim_tipVisible"])
 
         //HAVE TO BE CONFIRMED
-        animate("#tipBoxTop",0,"animate",[{opacity: '1.0'}]);
-/*
-        $("#tipBoxTop").animate({
+        animate("#tipBoxTop", 0, "animate", [{
             opacity: '1.0'
-        });
-*/
+        }]);
+        /*
+                $("#tipBoxTop").animate({
+                    opacity: '1.0'
+                });
+        */
         //HAVE TO BE CONFIRMED
-        animate("#arrowDown,#arrowUp,#labBenchTop,#gelTopView,#lidSide,#powerSupplyTop,.holderTop,.tipBoxTop,#wasteBinTop,#zoomOutButton2",1,"animate",[{opacity: '1.0'}]);
-/*        $("#arrowDown").delay(1).animate({
+        animate("#arrowDown,#arrowUp,#labBenchTop,#gelTopView,#lidSide,#powerSupplyTop,.holderTop,.tipBoxTop,#wasteBinTop,#zoomOutButton2", 1, "animate", [{
             opacity: '1.0'
-        });
-        $("#arrowUp").delay(1).animate({
-            opacity: '1.0'
-        });
-        $("#labBenchTop").delay(1).animate({
-            opacity: '1.0'
-        });
-        $("#gelTopView").delay(1).animate({
-            opacity: '1.0'
-        });
-        $("#lidSide").delay(1).animate({
-            opacity: '1.0'
-        });
-        $("#powerSupplyTop").delay(1).animate({
-            opacity: '1.0'
-        });
-        $('.holderTop').delay(1).animate({
-            opacity: '1.0'
-        });
-        $(".tipBoxTop").delay(1).animate({
-            opacity: '1.0'
-        });
-        $("#wasteBinTop").delay(1).animate({
-            opacity: '1.0'
-        });
-        $("#zoomOutButton2").delay(1).animate({
-            opacity: '1.0'
-        });
-*/
+        }]);
+        /*        $("#arrowDown").delay(1).animate({
+                    opacity: '1.0'
+                });
+                $("#arrowUp").delay(1).animate({
+                    opacity: '1.0'
+                });
+                $("#labBenchTop").delay(1).animate({
+                    opacity: '1.0'
+                });
+                $("#gelTopView").delay(1).animate({
+                    opacity: '1.0'
+                });
+                $("#lidSide").delay(1).animate({
+                    opacity: '1.0'
+                });
+                $("#powerSupplyTop").delay(1).animate({
+                    opacity: '1.0'
+                });
+                $('.holderTop').delay(1).animate({
+                    opacity: '1.0'
+                });
+                $(".tipBoxTop").delay(1).animate({
+                    opacity: '1.0'
+                });
+                $("#wasteBinTop").delay(1).animate({
+                    opacity: '1.0'
+                });
+                $("#zoomOutButton2").delay(1).animate({
+                    opacity: '1.0'
+                });
+        */
         //HAVE TO BE CONFIRMED
-        animate("#zoomOutButton3,#powerSupplyUp,#powerSupplyDown,#tip",1,"animate",[{opacity: '0.0'}]);
-/*
-        $("#zoomOutButton3").delay(1).animate({
+        animate("#zoomOutButton3,#powerSupplyUp,#powerSupplyDown,#tip", 1, "animate", [{
             opacity: '0.0'
-        });
-        $("#powerSupplyUp").delay(1).animate({
-            opacity: '0.0'
-        });
-        $("#powerSupplyDown").delay(1).animate({
-            opacity: '0.0'
-        });
-        $("#tip").delay(1).animate({
-            opacity: '0.0'
-        });
-*/
+        }]);
+        /*
+                $("#zoomOutButton3").delay(1).animate({
+                    opacity: '0.0'
+                });
+                $("#powerSupplyUp").delay(1).animate({
+                    opacity: '0.0'
+                });
+                $("#powerSupplyDown").delay(1).animate({
+                    opacity: '0.0'
+                });
+                $("#tip").delay(1).animate({
+                    opacity: '0.0'
+                });
+        */
 
         setTimeout(function () {
             // game.nextStep();
@@ -1008,25 +1054,29 @@ var helperFunctions = {
     "orientGel": function () {
 
         //HAVE TO BE CONFIRMED
-        animate("#gelTrayTop,#micropipetTopView,.side",1,"animate",[{opacity: '1.0'}]);
-        animate("#arrowDown,#arrowUp",1,"animate",[{opacity: '1.0'}]);
-/*
-        $("#gelTrayTop").delay(1).animate({
+        animate("#gelTrayTop,#micropipetTopView,.side", 1, "animate", [{
             opacity: '1.0'
-        });
-        $("#arrowDown").delay(1).animate({
-            opacity: '0.0'
-        });
-        $("#arrowUp").delay(1).animate({
-            opacity: '0.0'
-        });
-        $("#micropipetTopView").delay(1).animate({
+        }]);
+        animate("#arrowDown,#arrowUp", 1, "animate", [{
             opacity: '1.0'
-        });
-        $(".side").delay(1).animate({
-            opacity: '1.0'
-        });
-*/
+        }]);
+        /*
+                $("#gelTrayTop").delay(1).animate({
+                    opacity: '1.0'
+                });
+                $("#arrowDown").delay(1).animate({
+                    opacity: '0.0'
+                });
+                $("#arrowUp").delay(1).animate({
+                    opacity: '0.0'
+                });
+                $("#micropipetTopView").delay(1).animate({
+                    opacity: '1.0'
+                });
+                $(".side").delay(1).animate({
+                    opacity: '1.0'
+                });
+        */
         setTimeout(function () {
             // game.nextStep();
             updateScore(10);
@@ -1036,14 +1086,16 @@ var helperFunctions = {
     "addTipTop": function () {
 
         //HAVE TO BE CONFIRMED
-        animate("#micropipetTopView",0,"animate",[{"left": '31.5%',
-                                                   "top": '64%'}]);
-/*
-        $("#micropipetTopView").animate({
+        animate("#micropipetTopView", 0, "animate", [{
             "left": '31.5%',
             "top": '64%'
-        });
-*/
+        }]);
+        /*
+                $("#micropipetTopView").animate({
+                    "left": '31.5%',
+                    "top": '64%'
+                });
+        */
     }, //step 33
     "takeHind": function (evt) {
         i
@@ -1429,7 +1481,7 @@ var helperFunctions = {
     "setVoltage": function () {
         if (voltage == 100 || testMode) {
 
-                       criteriaPassed = true;
+            criteriaPassed = true;
         }
         $("#powerSupplyUp").click(function () {
             updateVoltage(10);

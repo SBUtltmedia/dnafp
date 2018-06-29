@@ -134,7 +134,7 @@ body {
     background-image: url("../resources/img/step_inactive.svg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    z-index: 100; /*z-index: 10;*/
+    z-index: 0; /*z-index: 10;*/
 }
 
 .incompleteIcon {
@@ -178,7 +178,7 @@ body {
     background-image: url("general_img/step_bg.svg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    z-index:10; /*z-index: 10;*/
+    z-index:0; /*z-index: 10;*/
 }
 
 @keyframes stepExit {

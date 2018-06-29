@@ -12,7 +12,7 @@ function zoomInstant(left, top, scale) {
 }
 
 function zoom(newLeft, newTop, newScale, duration) {
-    console.log(testMode)
+    console.log("heyheyhey"+testMode)
     if (testMode) {
         duration=0;
     }
@@ -31,5 +31,5 @@ function zoom(newLeft, newTop, newScale, duration) {
                 zoomInstant(newLeft, newTop, newScale);
             }
         });
-    
+
 }
