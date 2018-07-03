@@ -618,70 +618,57 @@
 }
 
 
-#pressButton0 {
+
+
+
+.pressButton{
     width: 4%;
-    height: 4%;
+    height: 4%; 
+    position: absolute;
+    top: 52%;
+    background-image: url(img/pressButton.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
+
+
+#pressButton_0 {
+  
     left: 30%;
-    top: 52%;
-    position: absolute;
-    background-image: url(img/pressButton.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
+
+
 }
 
-#pressButton1 {
-    width: 4%;
-    height: 4%;
+#pressButton_1 {
+
     left: 32.9%;
-    top: 52%;
-    position: absolute;
-    background-image: url(img/pressButton.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
+    
 }
 
-#pressButton2 {
-    width: 4%;
-    height: 4%;
+#pressButton_2 {
+
     left: 35.8%;
-    top: 52%;
-    position: absolute;
-    background-image: url(img/pressButton.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
+    
 }
 
-#pressButton3 {
-    width: 4%;
-    height: 4%;
+#pressButton_3 {
+
     left: 38.55%;
-    top: 52%;
-    position: absolute;
-    background-image: url(img/pressButton.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
+   
 }
 
-#pressButton4 {
-    width: 4%;
-    height: 4%;
+#pressButton_4 {
+
     left: 41.3%;
-    top: 52%;
-    position: absolute;
-    background-image: url(img/pressButton.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
+   
 }
 
-#pressButton5 {
-    width: 4%;
-    height: 4%;
+#pressButton_5 {
+  
     left: 44.1%;
-    top: 52%;
-    position: absolute;
-    background-image: url(img/pressButton.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
+    
 }
 
 #checkVolume {

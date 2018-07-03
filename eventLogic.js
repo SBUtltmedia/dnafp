@@ -434,71 +434,71 @@ function continueLoading() {
             //            $("#pressButton0").delay(delayFactor * 950).animate({
             //                opacity: '1.0'
             //            });
-            animate("#pressButton0", 950, "removeClass", "opClass")
+            animate("#pressButton_0", 950, "removeClass", "opClass")
             //            $("#pressButton1").delay(delayFactor * 950).animate({
             //                opacity: '1.0'
             //            });
-            animate("#pressButton1", 950, "removeClass", "opClass")
+            animate("#pressButton_1", 950, "removeClass", "opClass")
             //            $("#pressButton2").delay(delayFactor * 950).animate({
             //                opacity: '1.0'
             //            });
-            animate("#pressButton2", 950, "removeClass", "opClass")
+            animate("#pressButton_2", 950, "removeClass", "opClass")
             //            $("#pressButton3").delay(delayFactor * 950).animate({
             //                opacity: '1.0'
             //            });
-            animate("#pressButton3", 950, "removeClass", "opClass")
+            animate("#pressButton_3", 950, "removeClass", "opClass")
             //            $("#pressButton4").delay(delayFactor * 950).animate({
             //                opacity: '1.0'
             //            });
-            animate("#pressButton4", 950, "removeClass", "opClass")
+            animate("#pressButton_4", 950, "removeClass", "opClass")
             //            $("#pressButton5").delay(delayFactor * 950).animate({
             //                opacity: '1.0'
             //            });
-            animate("#pressButton5", 950, "removeClass", "opClass")
+            animate("#pressButton_5", 950, "removeClass", "opClass")
         }
     });
-    $("#pressButton0").click(function () {
-        $("#s0Tube").addClass("anim_pressTube0");
-        //        $("#pressButton0").delay(delayFactor * 50).animate({
-        //            opacity: '0.0'
-        //        });
-        animate("#pressButton0", 50, "addClass", "opClass")
-    });
-    $("#pressButton1").click(function () {
-        $("#s1Tube").addClass("anim_pressTube1");
-        //        $("#pressButton1").delay(delayFactor * 50).animate({
-        //            opacity: '0.0'
-        //        });
-        animate("#pressButton1", 50, "addClass", "opClass")
-    });
-    $("#pressButton2").click(function () {
-        $("#s2Tube").addClass("anim_pressTube2");
-        //        $("#pressButton2").delay(delayFactor * 50).animate({
-        //            opacity: '0.0'
-        //        });
-        animate("#pressButton2", 50, "addClass", "opClass")
-    });
-    $("#pressButton3").click(function () {
-        $("#s3Tube").addClass("anim_pressTube3");
-        //        $("#pressButton3").delay(delayFactor * 50).animate({
-        //            opacity: '0.0'
-        //        });
-        animate("#pressButton3", 50, "addClass", "opClass")
-    });
-    $("#pressButton4").click(function () {
-        $("#s4Tube").addClass("anim_pressTube4");
-        //        $("#pressButton4").delay(delayFactor * 50).animate({
-        //            opacity: '0.0'
-        //        });
-        animate("#pressButton4", 50, "addClass", "opClass")
-    });
-    $("#pressButton5").click(function () {
-        $("#s5Tube").addClass("anim_pressTube5");
-        //        $("#pressButton5").delay(delayFactor * 50).animate({
-        //            opacity: '0.0'
-        //        });
-        animate("#pressButton5", 50, "addClass", "opClass")
-    });
+//    $("#pressButton0").click(function () {
+//        $("#s0Tube").addClass("anim_pressTube0");
+//        //        $("#pressButton0").delay(delayFactor * 50).animate({
+//        //            opacity: '0.0'
+//        //        });
+//        animate("#pressButton0", 50, "addClass", "opClass")
+//    });
+//    $("#pressButton1").click(function () {
+//        $("#s1Tube").addClass("anim_pressTube1");
+//        //        $("#pressButton1").delay(delayFactor * 50).animate({
+//        //            opacity: '0.0'
+//        //        });
+//        animate("#pressButton1", 50, "addClass", "opClass")
+//    });
+//    $("#pressButton2").click(function () {
+//        $("#s2Tube").addClass("anim_pressTube2");
+//        //        $("#pressButton2").delay(delayFactor * 50).animate({
+//        //            opacity: '0.0'
+//        //        });
+//        animate("#pressButton2", 50, "addClass", "opClass")
+//    });
+//    $("#pressButton3").click(function () {
+//        $("#s3Tube").addClass("anim_pressTube3");
+//        //        $("#pressButton3").delay(delayFactor * 50).animate({
+//        //            opacity: '0.0'
+//        //        });
+//        animate("#pressButton3", 50, "addClass", "opClass")
+//    });
+//    $("#pressButton4").click(function () {
+//        $("#s4Tube").addClass("anim_pressTube4");
+//        //        $("#pressButton4").delay(delayFactor * 50).animate({
+//        //            opacity: '0.0'
+//        //        });
+//        animate("#pressButton4", 50, "addClass", "opClass")
+//    });
+//    $("#pressButton5").click(function () {
+//        $("#s5Tube").addClass("anim_pressTube5");
+//        //        $("#pressButton5").delay(delayFactor * 50).animate({
+//        //            opacity: '0.0'
+//        //        });
+//        animate("#pressButton5", 50, "addClass", "opClass")
+//    });
     //Step 13
     // $(".pressButton").click();
     //Step14
@@ -627,60 +627,64 @@ function continueLoading() {
             opacity: '0.0'
         });
     });
-    $('#pressButton0').addClass('opClass');
-    $('#pressButton1').addClass('opClass');
-    $('#pressButton2').addClass('opClass');
-    $('#pressButton3').addClass('opClass');
-    $('#pressButton4').addClass('opClass');
-    $('#pressButton5').addClass('opClass');
-    $('#zoomOutButton').addClass('opClass');
-    $('#zoomOutButton1').addClass('opClass');
-    $('#indicatorArrow0').addClass('opClass');
-    $('#indicatorArrow1').addClass('opClass');
-    $('#indicatorArrow2').addClass('opClass');
-    $('#indicatorArrow3').addClass('opClass');
-    $('#indicatorArrow4').addClass('opClass');
-    $('#indicatorArrow5').addClass('opClass');
-    $('#indicatorArrow6').addClass('opClass');
-    $('#volumeButton').addClass('opClass');
-    $('#volumeInput').addClass('opClass');
-    $('#tubeContentMixing2').addClass('opClass');
-    $('#tubeContentMixing3').addClass('opClass');
-    $('.side').addClass('opClass');
-    $('#powerSupply').addClass('opClass');
-    $('#powerSupplyUp').addClass('opClass');
-    $('#powerSupplyDown').addClass('opClass');
-    $('#voltage').addClass('opClass');
-    $('#gelSideView').addClass('opClass');
-    $('#arrowUp').addClass('opClass');
-    $('#arrowDown').addClass('opClass');
-    $('#labBenchTop').addClass('opClass');
-    $('#gelTopView').addClass('opClass');
-    $('#powerSupplyTop').addClass('opClass');
-    $('#lidSide').addClass('opClass');
-    $('#gelTrayTop').addClass('opClass');
-    $('#gelFinalTop').addClass('opClass');
-    $('#micropipetTopView').addClass('opClass');
-    $('#wasteBinTop').addClass('opClass');
-    $('#lidBox').addClass('opClass');
-    $('#zoomOutButton2').addClass('opClass');
-    $('#zoomOutButton3').addClass('opClass');
-    $('#emptyGraduatedCylinder').addClass('opClass');
-    $('#stainedGelContainer').addClass('opClass');
-    $('#stainingTray').addClass('opClass');
-    $('#tipBoxTop').addClass('opClass');
-    $('#gelVoltageCover').addClass('opClass');
-    $('#volumeButton1').addClass('opClass');
-    $('#volumeInput1').addClass('opClass');
-    $('#tip').addClass('opClass');
-    $('#pipetteTip1').addClass('opClass');
-    $('#gel').addClass('opClass');
-    $('#answerButton').addClass('opClass');
-    $('#answerInput').addClass('opClass');
-    $('#tubeContentMixing4').addClass('opClass');
-    $('#zoomOutButton1a').addClass('opClass');
-    $('.holderTop').addClass('opClass');
-    $('.day2').addClass('opClass');
+   ['#pressButton_0',
+   '#pressButton_1',
+   '#pressButton_2',
+   '#pressButton_3',
+   '#pressButton_4',
+   '#pressButton_5',
+   '#zoomOutButton',
+   '#zoomOutButton1',
+   '#indicatorArrow0',
+   '#indicatorArrow1',
+   '#indicatorArrow2',
+   '#indicatorArrow3',
+   '#indicatorArrow4',
+   '#indicatorArrow5',
+   '#indicatorArrow6',
+   '#volumeButton',
+   '#volumeInput',
+   '#tubeContentMixing2',
+   '#tubeContentMixing3',
+   '.side',
+   '#powerSupply',
+   '#powerSupplyUp',
+   '#powerSupplyDown',
+   '#voltage',
+   '#gelSideView',
+   '#arrowUp',
+   '#arrowDown',
+   '#labBenchTop',
+   '#gelTopView',
+   '#powerSupplyTop',
+   '#lidSide',
+   '#gelTrayTop',
+   '#gelFinalTop',
+   '#micropipetTopView',
+   '#wasteBinTop',
+   '#lidBox',
+   '#zoomOutButton2',
+   '#zoomOutButton3',
+   '#emptyGraduatedCylinder',
+   '#stainedGelContainer',
+   '#stainingTray',
+   '#tipBoxTop',
+   '#gelVoltageCover',
+   '#volumeButton1',
+   '#volumeInput1',
+   '#tip',
+   '#pipetteTip1',
+   '#gel',
+   '#answerButton',
+   '#answerInput',
+   '#tubeContentMixing4',
+   '#zoomOutButton1a',
+   '.holderTop',
+   '.day2'].forEach(function(item){
+       
+       $(item).addClass("opClass")
+       
+   })
     loadStartMenu();
 }
 

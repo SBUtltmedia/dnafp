@@ -164,6 +164,8 @@ function startStep(step) {
             state[s.logic.criteria.variable] = s.logic.criteria.value
         }
 
+        if (s.logic.criteria) console.log(state[s.logic.criteria.variable],s.logic.criteria.value)
+        
         if ((s.logic.criteria && isEqual(state[s.logic.criteria.variable], s.logic.criteria.value)) || !s.logic.criteria) {
             console.log("moving to next step", testMode)
             $(s.logic.eventSelector).off()

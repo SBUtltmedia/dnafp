@@ -182,7 +182,8 @@ function loadSteps() {
                     , "logic": {
                         "eventSelector": "#s0TubeBody"
                         , "eventType": "click"
-                        , "eventFunction": helperFunctions.tapTube
+                        , "eventFunction": helperFunctions.tapTube,
+                         "postEventFunction": helperFunctions.afterTapTube
                         , "criteria": {
                             "variable": "microtubeState"
                             , "value": [8, 0, 0, 0, 0, 0]

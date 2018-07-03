@@ -1386,6 +1386,20 @@ $.keyframe.define([{ name:'oscillate4',
 },
 },])
 
+$.keyframe.define([{ name:'oscillate6',
+    '0%':{
+        left: '36.6%',
+        top: '62%'
+},
+    '50%':{
+        left: '36.6%',
+        top: '64%'
+},
+    '100%':{
+        left: '36.6%',
+        top: '62%'
+},
+},])
 
 
 $.keyframe.define([{ name:'rotateCap',
@@ -1594,13 +1608,16 @@ $.keyframe.define([{ name:'moveEnz',
 
 $.keyframe.define([{ name:'hideTip1',
     '0%':{
-        opacity: 1
+        opacity: 1,
+ 
 },
     '80%':{
-        opacity: 1
+        opacity: 1,
+
 },
     '100%':{
-        opacity: 0
+        opacity: 0,
+     
 },
 },])
 

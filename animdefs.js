@@ -16,7 +16,7 @@ var animdefs = {
 	"anim_tipHidden": " tipHidden 0.1s linear 0s normal forwards",
 	"anim_tipVisible": " tipVisible 0.1s linear 0s normal forwards",
 	"anim_pressTube3": " pressTube3 0.3s linear 0s 1 normal forwards",
-	"anim_hideTip1": " hideTip1 1s linear 0s 1 normal forwards",
+	"anim_hideTip1": " hideTip1 2s linear 0s 1 normal forwards",
 	"anim_tube2ToBath": " tube2ToBath 1s linear 0s 1 normal forwards",
 	"anim_closeCap": " closeCap 0.5s linear reverse forwards",
 	"anim_moveTube": " moveTube 0.5s linear 0s 1 normal forwards",
@@ -28,7 +28,6 @@ var animdefs = {
     
     
     "anim_mixTubeContent": "mixTubeContent .9s linear 0s 5 normal forwards",	"anim_mixs0TubeBody": "mixs0TubeBody .9s linear 0s 5 normal forwards",
-    
     
 	"anim_pipetToTube2": " pipetToTube2 3.4s linear 0s 1 normal forwards",
 	"anim_returnLoadingDye1": " returnLoadingDye1 2s linear 0s 1 reverse forwards",

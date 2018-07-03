@@ -53,10 +53,42 @@ function animate(selector, delay, method, param) {
         if (testMode) {
             param = zeroTime(param)
         }
-        console.log(selector, param)
+
         //$(selector).attr("style","")
-        $(selector).delay(delay).playKeyframe(param, function () {});
-    } else if (typeof (method) == "function") {
+        
+          setTimeout(function () {
+            $(selector).playKeyframe(param, function () {});  
+          },delay)
+        
+        //$(selector).delay(delay).playKeyframe(param, function () {});
+    } 
+    
+     if (method == "animate")
+
+    {
+
+        //$(selector).attr("style","")
+        
+          setTimeout(function () {
+            $(selector).animate(...param, function () {
+                
+              if($(selector).css("opacity")==0){
+                  $(selector).css("display","none")
+                  
+              }  
+                
+            });  
+          },delay)
+        
+        //$(selector).delay(delay).playKeyframe(param, function () {});
+    } 
+    
+    
+    
+    
+    
+    
+    else if (typeof (method) == "function") {
         if (method.name == "zoom" && testMode) {
             zoomInstant(param[0], param[1], param[2])
         } else {
@@ -67,17 +99,25 @@ function animate(selector, delay, method, param) {
         }
 
 
-
-    } else if (typeof (param) == "object") {
-        setTimeout(function () {
-            $(selector)[method](...param, animateDur)
-        }, delay);
-
-    } else if (typeof (method) == "string") {
-        setTimeout(function () {
-            $(selector)[method](param, animateDur)
-        }, delay);
     }
+    
+//        else if (typeof (method) == "string") {  //e.g "removeClass"
+//        setTimeout(function () {
+//            $(selector)[method](param, animateDur)
+//        }, delay);
+//    }
+//    
+//    } else if (typeof (param) == "object") {
+//        console.log(selector, delay, method, param)
+//        setTimeout(function () {
+//            $(selector)[method](...param, animateDur)
+//        }, delay);
+//
+//    } else if (typeof (method) == "string") {
+//        setTimeout(function () {
+//            $(selector)[method](param, animateDur)
+//        }, delay);
+//    }
 }
 var helperFunctions = {
     //step 0
@@ -142,10 +182,7 @@ var helperFunctions = {
         updateScore(10);
         console.log(game.getCurrentStep().id)
         console.log("correct volume")
-        animate("#volumeButton,#volumeInput", 1, "animate", [{
-            opacity: '0.0',
-            display: "none"
-        }]);
+        animate("#volumeButton,#volumeInput", 1, "animate", [{opacity: '0.0'}]);
         /*
                 $("#volumeButton").delay(1).animate({
                     opacity: '0.0'
@@ -157,6 +194,8 @@ var helperFunctions = {
         animate("#view", 0, zoom, [50, 50, 1, 1000])
         //zoom(50, 50, 1, 1000)
         animate("#micropipet2", 1100, "keyframe", animdefs["anim_lowerPipet"])
+        animate("#indicatorArrow6",0,"animate", [{opacity: '1.0'}])
+        animate("#indicatorArrow6",0,"keyframe", animdefs["anim_oscillate4"])
         //$("micropipet2").addClass(animdefs["anim_lowerPipet"])
         //        $("#micropipet2").animate({
         //            top: -7%
@@ -181,6 +220,7 @@ var helperFunctions = {
         if (state["microtubeState"][0] == 1) {
             animate("#s0Tube", 0, "keyframe", animdefs["anim_moveTube"])
             animate("#s0Cap", 0, "keyframe", animdefs["anim_rotateCap"])
+            animate("#indicatorArrow6",0,"animate",  [{ opacity: '0.0'}])
             state["microtubeState"][0]++;
         }
         //state["microtubeState"][0]++
@@ -248,6 +288,11 @@ var helperFunctions = {
         animate("#indicatorArrow2", 80, "animate", [{
             opacity: '0.0'
         }]);
+        animate("#indicatorArrow3", 80, "animate", [{
+            opacity: '1.0'
+        }]);
+        animate("#indicatorArrow3",0,"keyframe", animdefs["anim_oscillate3"]);
+
 
     },
 
@@ -284,13 +329,12 @@ var helperFunctions = {
         //animate("#tip1", 0, zoom, [39, 67, 12, 1250])
         animate("#tip1", 0, "keyframe", animdefs["anim_tipToBin"]);
         //  $("#tip1").attr("keyframe", animdefs["anim_tipToBin"]);
-
-        animate("#pipetteTip1", 0, "keyframe", animdefs["anim_hideTip1"]);
+        animate("#pipetteTip1", 1700, "keyframe", animdefs["anim_hideTip1"]);
         animate("#micropipet2", 0, "keyframe", animdefs["anim_pipetToBin"])
-        //        $("#micropipet2").attr("class", "micropipet anim_pipetToBin");
+        //$("#micropipet2").attr("class", "micropipet anim_pipetToBin");
 
         //HAVE TO BE CONFIRMED
-        //      animate("#indicatorArrow3",50,"animate",[{opacity: '0.0'}]);
+        animate("#indicatorArrow3",50,"animate",[{opacity: '0.0'}]);
         /*
                 $("#indicatorArrow3").delay(50).animate({
                     opacity: '0.0'
@@ -336,38 +380,57 @@ var helperFunctions = {
         console.log(state["microtubeState"])
         if (state["microtubeState"][0] == 9) {
             animate("#s0Tube", 0, "keyframe", animdefs["anim_tubeDown"])
-
-            //HAVE TO BE CONFIRMED
-            animate("#s0Tube", 0, "animate", [{
-                top: '-8.9%'
-            }]);
-            /*
-                        $("#s0Tube").animate({
-                            "top": '-8.9%'
-                        })
-            */
-
+            
+//            animate("#s"+.+"Tube",1000,"keyframe",  animdefs["anim_tube"+.+"ToBath"]);
+            animate("#s0Tube",1000,"keyframe",  animdefs["anim_tube0ToBath"]);
+            animate("#s1Tube",1000,"keyframe",  animdefs["anim_tube1ToBath"]);
+            animate("#s2Tube",1000,"keyframe",  animdefs["anim_tube2ToBath"]);
+            animate("#s3Tube",1000,"keyframe",  animdefs["anim_tube3ToBath"]);
+            animate("#s4Tube",1000,"keyframe",  animdefs["anim_tube4ToBath"]);
+            animate("#s5Tube",1000,"keyframe",  animdefs["anim_tube5ToBath"]);
+// See if we can do this without repeating too much           animate("#s"+.+"Tube",1000,"keyframe",  animdefs["anim_tube"+.+"ToBath"]);
+            animate("#tubeBlock",1000,"keyframe",  animdefs["anim_moveBlock"]);
+//            $("#s5Tube").attr("class", "microTube anim_tube5ToBath");
+//            $("#tubeBlock").addClass("anim_moveBlock");
+            
+            animate(".pressButton",2000,"animate",[{opacity: '1.0'}])
+            //animate("#tubeBlock", 700, "keyframe", animdefs["anim_moveBlock"])
+            
             state["microtubeState"][0]++;
         }
         //state["microtubeState"][0]++
         console.log(state["microtubeState"])
     }, //step 12
     "pressTube": function (evt) {
-        var buttonPress = state[game.getCurrentStep().logic.criteria.variable]
-        var buttonNum = betterParseInt(evt.target.id)
-        console.log(buttonNum)
-        //        if buttonPress.valueOf(buttonNum >= 1) {
-        //            buttonPress[buttonNum] = 1;
-        //        }
-        //        else {
-        buttonPress[buttonNum]++;
-        //        }
-        console.log(buttonPress)
-        //animate(currentButton, 0, "addClass", "opClass")
-        //$(document.getElementsByClassName("pressButton")[buttonNum]).remove();
-        if (buttonPress.indexOf(0) == -1) {
-            // if ((jQuery.inArray(0, buttonPress)) == -1) {
-        }
+        console.log("fds")
+        var criteriaVariable= game.getCurrentStep().logic.criteria.variable
+
+    
+         var tubeId= evt.target.id.split("_")[1];
+            console.log(tubeId)
+         animate("#s"+tubeId+"Tube",0,"keyframe",  animdefs["anim_pressTube"+tubeId]);
+            animate("#pressButton_"+tubeId,50,"animate",[{opacity: '0.0'}])
+            
+            state[criteriaVariable][tubeId]=1;
+             console.log(state[criteriaVariable])     
+
+  
+//        
+//        var buttonPress = state[game.getCurrentStep().logic.criteria.variable]
+//        var buttonNum = betterParseInt(evt.target.id)
+//        console.log(buttonNum)
+//        if (buttonPress[buttonNum]>=1){
+//            buttonPress[buttonNum] = 1;
+//        } else {
+//        buttonPress[buttonNum]++;
+//        }
+//        //        }
+//        console.log(buttonPress)
+//        //animate(currentButton, 0, "addClass", "opClass")
+//        //$(document.getElementsByClassName("pressButton")[buttonNum]).remove();
+//        if (buttonPress.indexOf(0) == -1) {
+//            // if ((jQuery.inArray(0, buttonPress)) == -1) {
+//        }
     }, //step 13
     "removeLid": function () {
         var top1 = document.getElementsByClassName("topView")
