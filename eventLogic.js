@@ -152,8 +152,7 @@ function loadCSS(){
                 // mainStyle=  mainStyle.replace(/(animation: )([^ ]*) ([^ ]*) (.*)/g,"dsfgadg")
 
              $('#mainStyle').html(mainStyle);
-
-
+           // $("#"+(/[^]Button/)+"Button"+(/.*/)).trigger("click");
 
 
 //    mainSplit=mainStyle.split(hash);
@@ -419,86 +418,8 @@ function continueLoading() {
     //        }
     //    });
     //Step12
-    $("#tubeBlock").click(function () {
-        if (game.getCurrentStep().id != "pressTube") {
-            updateScore(-10);
-        }
-        if (game.getCurrentStep().id == "pressTube") {
-            $("#s0Tube").attr("class", "microTube anim_tube0ToBath");
-            $("#s1Tube").attr("class", "microTube anim_tube1ToBath");
-            $("#s2Tube").attr("class", "microTube anim_tube2ToBath");
-            $("#s3Tube").attr("class", "microTube anim_tube3ToBath");
-            $("#s4Tube").attr("class", "microTube anim_tube4ToBath");
-            $("#s5Tube").attr("class", "microTube anim_tube5ToBath");
-            $("#tubeBlock").addClass("anim_moveBlock");
-            //            $("#pressButton0").delay(delayFactor * 950).animate({
-            //                opacity: '1.0'
-            //            });
-            animate("#pressButton_0", 950, "removeClass", "opClass")
-            //            $("#pressButton1").delay(delayFactor * 950).animate({
-            //                opacity: '1.0'
-            //            });
-            animate("#pressButton_1", 950, "removeClass", "opClass")
-            //            $("#pressButton2").delay(delayFactor * 950).animate({
-            //                opacity: '1.0'
-            //            });
-            animate("#pressButton_2", 950, "removeClass", "opClass")
-            //            $("#pressButton3").delay(delayFactor * 950).animate({
-            //                opacity: '1.0'
-            //            });
-            animate("#pressButton_3", 950, "removeClass", "opClass")
-            //            $("#pressButton4").delay(delayFactor * 950).animate({
-            //                opacity: '1.0'
-            //            });
-            animate("#pressButton_4", 950, "removeClass", "opClass")
-            //            $("#pressButton5").delay(delayFactor * 950).animate({
-            //                opacity: '1.0'
-            //            });
-            animate("#pressButton_5", 950, "removeClass", "opClass")
-        }
-    });
-//    $("#pressButton0").click(function () {
-//        $("#s0Tube").addClass("anim_pressTube0");
-//        //        $("#pressButton0").delay(delayFactor * 50).animate({
-//        //            opacity: '0.0'
-//        //        });
-//        animate("#pressButton0", 50, "addClass", "opClass")
-//    });
-//    $("#pressButton1").click(function () {
-//        $("#s1Tube").addClass("anim_pressTube1");
-//        //        $("#pressButton1").delay(delayFactor * 50).animate({
-//        //            opacity: '0.0'
-//        //        });
-//        animate("#pressButton1", 50, "addClass", "opClass")
-//    });
-//    $("#pressButton2").click(function () {
-//        $("#s2Tube").addClass("anim_pressTube2");
-//        //        $("#pressButton2").delay(delayFactor * 50).animate({
-//        //            opacity: '0.0'
-//        //        });
-//        animate("#pressButton2", 50, "addClass", "opClass")
-//    });
-//    $("#pressButton3").click(function () {
-//        $("#s3Tube").addClass("anim_pressTube3");
-//        //        $("#pressButton3").delay(delayFactor * 50).animate({
-//        //            opacity: '0.0'
-//        //        });
-//        animate("#pressButton3", 50, "addClass", "opClass")
-//    });
-//    $("#pressButton4").click(function () {
-//        $("#s4Tube").addClass("anim_pressTube4");
-//        //        $("#pressButton4").delay(delayFactor * 50).animate({
-//        //            opacity: '0.0'
-//        //        });
-//        animate("#pressButton4", 50, "addClass", "opClass")
-//    });
-//    $("#pressButton5").click(function () {
-//        $("#s5Tube").addClass("anim_pressTube5");
-//        //        $("#pressButton5").delay(delayFactor * 50).animate({
-//        //            opacity: '0.0'
-//        //        });
-//        animate("#pressButton5", 50, "addClass", "opClass")
-//    });
+    //#tubeBlock
+    
     //Step 13
     // $(".pressButton").click();
     //Step14

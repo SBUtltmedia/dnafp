@@ -380,22 +380,13 @@ var helperFunctions = {
         console.log(state["microtubeState"])
         if (state["microtubeState"][0] == 9) {
             animate("#s0Tube", 0, "keyframe", animdefs["anim_tubeDown"])
+            for (i=0;i<=5;i++)
+                {
+                  animate("#s"+i+"Tube",1000,"keyframe", animdefs["anim_tube"+i+"ToBath"]);  
+                }
             
-//            animate("#s"+.+"Tube",1000,"keyframe",  animdefs["anim_tube"+.+"ToBath"]);
-            animate("#s0Tube",1000,"keyframe",  animdefs["anim_tube0ToBath"]);
-            animate("#s1Tube",1000,"keyframe",  animdefs["anim_tube1ToBath"]);
-            animate("#s2Tube",1000,"keyframe",  animdefs["anim_tube2ToBath"]);
-            animate("#s3Tube",1000,"keyframe",  animdefs["anim_tube3ToBath"]);
-            animate("#s4Tube",1000,"keyframe",  animdefs["anim_tube4ToBath"]);
-            animate("#s5Tube",1000,"keyframe",  animdefs["anim_tube5ToBath"]);
-// See if we can do this without repeating too much           animate("#s"+.+"Tube",1000,"keyframe",  animdefs["anim_tube"+.+"ToBath"]);
             animate("#tubeBlock",1000,"keyframe",  animdefs["anim_moveBlock"]);
-//            $("#s5Tube").attr("class", "microTube anim_tube5ToBath");
-//            $("#tubeBlock").addClass("anim_moveBlock");
-            
             animate(".pressButton",2000,"animate",[{opacity: '1.0'}])
-            //animate("#tubeBlock", 700, "keyframe", animdefs["anim_moveBlock"])
-            
             state["microtubeState"][0]++;
         }
         //state["microtubeState"][0]++
@@ -405,34 +396,23 @@ var helperFunctions = {
         console.log("fds")
         var criteriaVariable= game.getCurrentStep().logic.criteria.variable
 
-    
-         var tubeId= evt.target.id.split("_")[1];
-            console.log(tubeId)
-         animate("#s"+tubeId+"Tube",0,"keyframe",  animdefs["anim_pressTube"+tubeId]);
-            animate("#pressButton_"+tubeId,50,"animate",[{opacity: '0.0'}])
-            
-            state[criteriaVariable][tubeId]=1;
-             console.log(state[criteriaVariable])     
+        var tubeId= evt.target.id.split("_")[1];
+        console.log(tubeId)
+        if (testMode) {
+            animate(".pressButton",0,"animate",[{opacity: '0.0'}]);
+            for (i=0;i<=5;i++)
+            {
+             animate("#s"+i+"Tube",0,"keyframe",animdefs["anim_pressTube"+i]);
+            }
+        }
+        animate("#s"+tubeId+"Tube",0,"keyframe", animdefs["anim_pressTube"+tubeId]);
+        animate("#pressButton_"+tubeId,50,"animate",[{opacity: '0.0'}])
+        state[criteriaVariable][tubeId]=1;
+        console.log(state[criteriaVariable])
 
-  
-//        
-//        var buttonPress = state[game.getCurrentStep().logic.criteria.variable]
-//        var buttonNum = betterParseInt(evt.target.id)
-//        console.log(buttonNum)
-//        if (buttonPress[buttonNum]>=1){
-//            buttonPress[buttonNum] = 1;
-//        } else {
-//        buttonPress[buttonNum]++;
-//        }
-//        //        }
-//        console.log(buttonPress)
-//        //animate(currentButton, 0, "addClass", "opClass")
-//        //$(document.getElementsByClassName("pressButton")[buttonNum]).remove();
-//        if (buttonPress.indexOf(0) == -1) {
-//            // if ((jQuery.inArray(0, buttonPress)) == -1) {
-//        }
     }, //step 13
-    "removeLid": function () {
+    "removeLid": function (evt) {
+        console.log("once")
         var top1 = document.getElementsByClassName("topView")
 
         //        if (top1[9].classList[1] == "opClass") {
@@ -443,6 +423,7 @@ var helperFunctions = {
         //        }
 
         animate("#waterBathLid", 0, "keyframe", animdefs["anim_removeLid"])
+        console.log("twice")
         //$("#waterBathLid").addClass(animdefs["anim_removeLid"]);
         setTimeout(function () {
             // game.nextStep();
