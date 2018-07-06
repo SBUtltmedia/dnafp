@@ -957,6 +957,7 @@ $.keyframe.define([{ name:'moveBlock',
     '0%':{
         left: '35.72%',
         top: '73.4%',
+      
 },
     '100%':{
         left: '30.72%',
@@ -1198,16 +1199,18 @@ $.keyframe.define([{ name:'insertRack',
     '70%':{
         left: '50%',
         top: '15%',
-        'z-index': 2
+        'z-index': 6
 },
     '80%':{
         left: '60%',
         top: '15%',
+            'z-index': 6
 },
     '100%':{
         left: '60%',
         top: '30%',
-        transform:'scale(0.7)'
+        transform:'scale(0.7)',
+            'z-index': -1
 },
 },])
 

@@ -75,8 +75,8 @@ function loadSteps() {
                     , "longText": "Enter the correct volume (in microliters) of fluid to remove"
                     , "feedbackText": "complete the second step"
                     , "logic": {
-                        "eventSelector": "#volumeButton"
-                        , "eventType": "click"
+                        "eventSelector": "#volumeInputForm"
+                        , "eventType": "submit"
                         , "eventFunction": helperFunctions.setVolume
                         , "postEventFunction": helperFunctions.setVolumePost
                         , "criteria": {
@@ -259,6 +259,7 @@ function loadSteps() {
                     "id": "closeLid"
                     , "shortText": "Close incubator"
                     , "longText": "Click on the lid to close the incubator"
+                    , "bottomText": "Hello Joochan"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#waterBathLid"
@@ -271,9 +272,10 @@ function loadSteps() {
                     , "longText": "Incubate the tubes for 45 min at 37°C"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#timerButton"
-                        , "eventType": "click"
+                        "eventSelector": "#timerForm"
+                        , "eventType": "submit"
                         , "eventFunction": helperFunctions.setTimer
+                        , "postEventFunction": helperFunctions.setTimerPost
                         , "criteria": {
                             "variable": "time"
                             , "value": 45

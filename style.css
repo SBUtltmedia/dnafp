@@ -1,3 +1,14 @@
+button, input[type="submit"], input[type="reset"] {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+
 #day1 {
     width: 100%;
     height: 100%;
@@ -89,6 +100,16 @@
     background-size: cover;
     background-position: center center;
 }
+
+/*
+#tubeDiv {
+    border: 1px solid blue;
+    position:absolute;
+    
+    width:100%;
+    height:20%;
+}
+*/
 
 #tip {
     width: 0.7%;
@@ -220,15 +241,10 @@
     z-index: 0; /*z-index: 3;*/
 }
 
-#s0Tube {
+/*------------------------------------*/
+.microTube {
     width: 2.9%;
-    height: 7.75%;
-    left: 35.5%;
-    top: 71.9%;
-    width: 2.9%;
-    height: 7.75%;
-    left: 35.5%;
-    top: 71.9%;
+    height: 7.75%;   
     position: absolute;
     background-repeat: no-repeat;
     background-size: contain;
@@ -236,30 +252,136 @@
     z-index: 0; /*z-index: 2;*/
 }
 
-#s0TubeBody {
+#s0Tube {
+    left: 35.5%;
+    top: 71.9%;  
+}
+
+#s1Tube {
+    left: 38%;
+    top: 71.9%;
+}
+
+#s2Tube {
+    left: 40.5%; /* width: 2.5%; */
+    top: 71.9%;
+}
+
+#s3Tube {
+    left: 43%; /* width: 2.5%; */
+    top: 71.9%;
+
+}
+
+#s4Tube {
+    left: 45.5%; /* width: 2.5%; */
+    top: 71.9%;
+/*???*/    transform-origin: left;
+}
+
+#s5Tube {
+    left: 48%; /* width: 2.5%; */
+    top: 71.9%;
+    transform-origin: 100% 0%;
+}
+
+.microTubeCap {
     width: 100%;
-    height: 100%;
-    left: -7%;
-    top: -1%;
-    position: absolute;
-    background-image: url(img/csTube.svg);
+    height: 20%;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: contain;    
+    position: absolute;
     z-index: 0; /*z-index: 2;*/
 }
 
 #s0Cap {
-    width: 100%;
-    height: 20%;
     left: -2%;
     top: 1.16%;
-    position: absolute;
     background-image: url(img/csCap.svg);
+    transform-origin: 4% 29%;
+}
+
+#s1Cap {
+    left: -2%;
+    top: 0%;
+    background-image: url(img/s1Cap.svg);
+    transform-origin: 1% 22%;
+}
+
+#s2Cap {
+    left: -2%;
+    top: 0%;
+    background-image: url(img/s2Cap.svg);
+    transform-origin: 2% 16%;
+}
+
+#s3Cap {
+    left: -2%;
+    top: 0%;
+    background-image: url(img/s3Cap.svg);
+    transform-origin: 4% 21%;
+}
+
+#s4Cap {
+    left: -2%;
+    top: 0%;
+    background-image: url(img/s4Cap.svg);
+    transform-origin: 2% 17%;
+}
+
+#s5Cap {
+    left: -2%;
+    top: 0%;
+    background-image: url(img/s5Cap.svg);
+    transform-origin: 5% 20%;
+}
+
+.microTubeBody {
+    width: 100%;
+    height: 100%;
+    position: absolute;
     background-repeat: no-repeat;
     background-size: contain;
-    transform-origin: 4% 29%;
-    z-index: 0; /*z-index: 2;*/
+    z-index: 0; /*z-index: 2;*/    
 }
+
+#s0TubeBody {
+    left: -7%;
+    top: -1%;
+    background-image: url(img/csTube.svg);
+}
+
+#s1TubeBody {
+    left: 0%;
+    top: 0%;
+    background-image: url(img/s1Tube.svg);
+}
+
+#s2TubeBody {
+    left: 0%;
+    top: 0%;
+    background-image: url(img/s2Tube.svg);
+}
+
+#s3TubeBody {
+    left: 0%;
+    top: 0%;
+    background-image: url(img/s3Tube.svg);
+}
+
+#s4TubeBody {
+    left: 0%;
+    top: 0%;
+    background-image: url(img/s4Tube.svg);
+}
+
+#s5TubeBody {
+    left: 0%;
+    top: 0%;
+    background-image: url(img/s5Tube.svg);
+}
+
+
 
 #s0Tube1 {
     width: 2.9%;
@@ -298,177 +420,6 @@
     background-repeat: no-repeat;
     background-size: contain;
     transform-origin: 4% 29%;
-}
-
-#s1Tube {
-    width: 2.5%;
-    height: 7.75%;
-    left: 38%;
-    top: 71.9%;
-    position: absolute;
-    background-repeat: no-repeat;
-    background-size: contain;
-    transform-origin: 100% 0%;
-}
-
-#s1TubeBody {
-    width: 100%;
-    height: 100%;
-    left: 0%;
-    top: 0%;
-    position: absolute;
-    background-image: url(img/s1Tube.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-#s1Cap {
-    width: 100%;
-    height: 20%;
-    left: -2%;
-    top: 0%;
-    position: absolute;
-    background-image: url(img/s1Cap.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    transform-origin: 1% 22%;
-}
-
-#s2Tube {
-    width: 2.5%;
-    height: 7.75%;
-    left: 40.5%;
-    top: 71.9%;
-    position: absolute;
-    background-repeat: no-repeat;
-    background-size: contain;
-    transform-origin: 100% 0%;
-}
-
-#s2TubeBody {
-    width: 100%;
-    height: 100%;
-    left: 0%;
-    top: 0%;
-    position: absolute;
-    background-image: url(img/s2Tube.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-#s2Cap {
-    width: 100%;
-    height: 20%;
-    left: -2%;
-    top: 0%;
-    position: absolute;
-    background-image: url(img/s2Cap.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    transform-origin: 2% 16%;
-}
-
-#s3Tube {
-    width: 2.5%;
-    height: 7.75%;
-    left: 43%;
-    top: 71.9%;
-    position: absolute;
-    background-repeat: no-repeat;
-    background-size: contain;
-    transform-origin: 100% 0%;
-}
-
-#s3TubeBody {
-    width: 100%;
-    height: 100%;
-    left: 0%;
-    top: 0%;
-    position: absolute;
-    background-image: url(img/s3Tube.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-#s3Cap {
-    width: 100%;
-    height: 20%;
-    left: -2%;
-    top: 0%;
-    position: absolute;
-    background-image: url(img/s3Cap.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    transform-origin: 4% 21%;
-}
-
-#s4Tube {
-    width: 2.5%;
-    height: 7.75%;
-    left: 45.5%;
-    top: 71.9%;
-    position: absolute;
-    background-repeat: no-repeat;
-    background-size: contain;
-    transform-origin: left;
-    transform-origin: 100% 0%;
-}
-
-#s4TubeBody {
-    width: 100%;
-    height: 100%;
-    left: 0%;
-    top: 0%;
-    position: absolute;
-    background-image: url(img/s4Tube.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-#s4Cap {
-    width: 100%;
-    height: 20%;
-    left: -2%;
-    top: 0%;
-    position: absolute;
-    background-image: url(img/s4Cap.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    transform-origin: 2% 17%;
-}
-
-#s5Tube {
-    width: 2.5%;
-    height: 7.75%;
-    left: 48%;
-    top: 71.9%;
-    position: absolute;
-    background-repeat: no-repeat;
-    background-size: contain;
-    transform-origin: 100% 0%;
-}
-
-#s5TubeBody {
-    width: 100%;
-    height: 100%;
-    left: 0%;
-    top: 0%;
-    position: absolute;
-    background-image: url(img/s5Tube.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-#s5Cap {
-    width: 100%;
-    height: 20%;
-    left: -2%;
-    top: 0%;
-    position: absolute;
-    background-image: url(img/s5Cap.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    transform-origin: 5% 20%;
 }
 
 #loadDye {
@@ -850,13 +801,17 @@
 }
 
 #timer {
-    width: 2%;
-    height: 1.2%;
+    width: 2.2%;
+    height: 2.0%;
     left: 61.3%;
     top: 36.4%;
     position: absolute;
     background-repeat: no-repeat;
     background-size: contain;
+    margin:0;
+    padding:0;
+    border:20rem;
+    font-size: .35rem;
     z-index: 0; /*z-index: 5;*/
 }
 
@@ -865,8 +820,12 @@
     height: 2.8%;
     left: 64%;
     top: 36%;
+    padding:0;
+    border:20rem;
+    font-size: .25rem;
     position: absolute;
     background-repeat: no-repeat;
+    background-image: url(img/check.svg);
     background-size: contain;
     z-index: 0; /*z-index: 5;*/
 }

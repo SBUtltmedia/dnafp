@@ -158,6 +158,7 @@ function startStep(step) {
     $("#headerText").text(s.longText);
     $("#footerText").text(s.bottomText);
     var composite = function (evt) {
+        evt.preventDefault();
         s.logic.eventFunction(evt)
 
         if (testMode && s.logic && s.logic.criteria) {
@@ -167,9 +168,10 @@ function startStep(step) {
         if (s.logic.criteria) console.log(state[s.logic.criteria.variable],s.logic.criteria.value)
         
         if ((s.logic.criteria && isEqual(state[s.logic.criteria.variable], s.logic.criteria.value)) || !s.logic.criteria) {
-            console.log("moving to next step", testMode)
+            console.log("moving to next step", testMode,s.logic)
             $(s.logic.eventSelector).off()
             if (s.logic.postEventFunction) {
+                console.log("calling "+s.logic)
                 s.logic.postEventFunction()
             }
             game.nextStep()

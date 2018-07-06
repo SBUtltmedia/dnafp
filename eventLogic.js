@@ -542,12 +542,7 @@ function continueLoading() {
     $("#micropipet0").click(function () {
         $("#micropipet0").addClass("anim_movePipet");
     });
-    $("#zoomOutButton").click(function () {
-        zoom(50, 50, 1, 1000)
-        $("#zoomOutButton").animate({
-            opacity: '0.0'
-        });
-    });
+
    ['#pressButton_0',
    '#pressButton_1',
    '#pressButton_2',
@@ -568,6 +563,8 @@ function continueLoading() {
    '#tubeContentMixing2',
    '#tubeContentMixing3',
    '.side',
+   '#timerButton',
+   '#timer',
    '#powerSupply',
    '#powerSupplyUp',
    '#powerSupplyDown',
@@ -599,6 +596,7 @@ function continueLoading() {
    '#answerButton',
    '#answerInput',
    '#tubeContentMixing4',
+   '#volumeButton2',
    '#zoomOutButton1a',
    '.holderTop',
    '.day2'].forEach(function(item){
