@@ -591,7 +591,7 @@ $.keyframe.define([{ name:'moveLoadingDye',
         left: '22%',
 },
     '100%':{
-        top: '28%',
+        top: '30%',
         left: '22%',
 },
 },])
@@ -1614,7 +1614,7 @@ $.keyframe.define([{ name:'hideTip1',
         opacity: 1,
  
 },
-    '80%':{
+    '47%':{
         opacity: 1,
 
 },

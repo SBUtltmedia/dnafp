@@ -301,13 +301,7 @@ function continueLoading() {
     for (var i = 1; i <= 3; i++) {
         itemHover(i);
     }
-    // Prep challenges
-    //    if (gameStarted = true) {
-    //        $("#indicatorArrow1").addClass("anim_oscillate");
-    //        $("#indicatorArrow1").delay(delayFactor*950).animate({
-    //            opacity: '1.0'
-    //        });
-    //    };
+
     $("#headerText").bind("DOMSubtreeModified", function () {
         $("#headerText").animate({
             opacity: '0.3'
@@ -317,26 +311,13 @@ function continueLoading() {
         });
         animate("#headerText", 50, "removeClass", "opClass")
     });
-    //    $(".tip").click(function () {
-    //        var tipNum = betterParseInt(evt.target.id);
-    //        var tipLeft = tips[tipNum];
-    //        return tipLeft;
-    //
-    //    });
+
     var volumeButton = document.getElementById("volumeButton");
-    //Step 0
-    //    $("#enzTube").hover(function () {
-    //        $("#enzTube").addClass("anim_moveEnz");
-    //        //        $("#indicatorArrow1").delay(delayFactor * 50).animate({
-    //        //            opacity: '0.0'
-    //        //        });
-    //        animate("#indicatorArrow1", 50, "addClass", "opClass")
-    //    });
-    $(".tip").on("click",function (evt) {
+/*    $(".tip").on("click",function (evt) {
         var tipNum = betterParseInt(evt.target.id);
         var tipLeft = tips[(tipNum - 1)];
         makePipetteTipAnimation(tipLeft);
-    });
+    });*/
 
     //
     //Back button in progress
@@ -358,83 +339,10 @@ function continueLoading() {
         document.location.reload();
 
     });
-    //Step 1
-    //Step 2
-    //Step 3
-    //Step 5
-    //$("#micropipet2").click();
-    //Step 6
-    //$("#mixContentsButton").click();
-    //Step 7
-    //$("#ejectButton").click();
-    //    $(".microTube").click(function (evt) {
-    //
-    //        //Step 4, 7, 8, 9, 10, 11
-    //        if ((game.getCurrentStep().id == "openTube") || (game.getCurrentStep().id == "closeTube") || (game.getCurrentStep().id == "flickTube") || (game.getCurrentStep().id == "tapTube") || (game.getCurrentStep().id == "tubeRack")) {
-    //            var tubeIdName = evt.target.id.split("TubeBody")[0]
-    //            var tubeNum = parseInt(tubeIdName.split('')[1])
-    //            var currentAnimation = microtubeAnimation[microtubeState[tubeNum]]
-    //
-    //            var selector = "#" + tubeIdName + currentAnimation.target;
-    //            $.each(microtubeAnimation, function (index, value) {
-    //                $(selector).removeClass(value.name)
-    //            })
-    //
-    //            $(selector).addClass(currentAnimation.name)
-    //            //$("#s0Cap1").addClass("anim_rotateCap");
-    //            microtubeState[tubeNum]++
-    //                microtubeState[tubeNum] %= microtubeAnimation.length;
-    //
-    //            if (microtubeState[tubeNum] != 1) {
-    //                //game.nextStep();
-    //                updateScore(10);
-    //
-    //            }
-    //        }
-    //    });
-    //
-    //
-    //
-    //    $(".microTube").click(function (evt) {
-    //        //Step 4, 7, 8, 9, 10, 11
-    //        if ((game.getCurrentStep().id == "openTube1") || (game.getCurrentStep().id == "closeTube1") || (game.getCurrentStep().id == "flickTube1") || (game.getCurrentStep().id == "tapTube1") || (game.getCurrentStep().id == "tubeRack1")) {
-    //            var tubeIdName = evt.target.id.split("TubeBody")[0]
-    //            var tubeNum = parseInt(tubeIdName.split('')[1])
-    //            var currentAnimation = microtubeAnimation[microtubeState[tubeNum]]
-    //            var selector = "#" + tubeIdName + currentAnimation.target + "1";
-    //            $.each(microtubeAnimation, function (index, value) {
-    //                $(selector).removeClass(value.name)
-    //            })
-    //            $(selector).addClass(currentAnimation.name)
-    //            //$("#s0Cap1").addClass("anim_rotateCap");
-    //            microtubeState[tubeNum]++
-    //                microtubeState[tubeNum] %= microtubeAnimation.length;
-    //
-    //            if (microtubeState[tubeNum] != 1) {
-    //                // game.nextStep();
-    //                updateScore(10);
-    //
-    //            }
-    //        }
-    //    });
-    //Step12
-    //#tubeBlock
-    
-    //Step 13
-    // $(".pressButton").click();
-    //Step14
-    //$("#waterBathLid").click();
-    //Step 15
-    //$("#waterBathNoLid").click();
-    //Step 16
-    //$("#tubeBlock").click();
     //Step 17
     //$("#waterBathLid").click();
     //Step 18
     var timerButton = document.getElementById("timerButton");
-    //$(timerButton).click(helperFunctions.timerClicked)
-    //Step19
-    //$(".loadingDye").click();
     //Step 20
     //$(".tip").click();
     //Step 21
@@ -697,44 +605,74 @@ function enableClicks(bool) {
         $("body").css("pointer-events", "none");
     }
 }
-//makePipetteTipAnimation((target.position.left));
-//makePipetteTipAnimation(Event.target.position.left);
-function makePipetteTipAnimation(tipLocation) {
-    var keyframeString =
-        `
-@keyframes addTip1 {
-    0% {
-        left: 14.5%;
-        top: 52%;
-    }
-    8% {
-        left: 14.5%;
-        top: 44%;
-    }
-    14% {
-        left: ${tipLocation}%;
-        top: 44%;
-    }
-    20% {
-        left: ${tipLocation}%;
-        top: 47.6%;
-    }
-    25% {
-        left: ${tipLocation}%;
-        top: 42%;
-    }
-    90% {
-        left: 83%;
-        top: 28%;
-    }
-    100% {
-        left: 86.4%;
-        top: 28%;
-    }
-}
 
-    `
-    $('#dynamic-style').html(keyframeString)
+
+function makePipetteTipAnimation(tipLocation) {
+        
+$.keyframe.define([{ name:'addTip1',        
+     '0%':{
+        left: '14.5%',
+        top: '52%',
+},
+    '8%':{
+        left: '14.5%',
+        top: '44%',
+},
+    '14%':{
+        left:tipLocation+"%",
+        top: '44%',
+},
+    '20%':{
+        left: tipLocation+"%",
+        top: '47.6%',
+},
+    '25%':{
+        left: tipLocation+"%",
+        top: '42%',
+},                
+    '90%':{
+        left: '86.4%',
+        top: '28%',
+},
+    '100%':{
+        left: '86.4%',
+        top: '28%',
+},
+},])
+}
+function makePipetteTippAnimation(tipLocation) {
+        
+$.keyframe.define([{ name:'addTipp1',        
+     '0%':{
+        left: '14.5%',
+        top: '52%',
+},
+    '8%':{
+        left: '14.5%',
+        top: '44%',
+},
+    '14%':{
+        left:tipLocation+"%",
+        top: '44%',
+},
+    '20%':{
+        left: tipLocation+"%",
+        top: '47.6%',
+},
+    '25%':{
+        left: tipLocation+"%",
+        top: '42%',
+},                
+    '90%':{
+        left: '20.9%',
+        top: '1%',
+        transform: "scale(0.8)"
+},
+    '100%':{
+        left: '20.9%',
+        top: '5.4%',
+},
+},])
 }
 
 //function findTipLeft(evt) {

@@ -315,8 +315,8 @@ function loadSteps() {
                     , "longText": "Enter the correct volume (in microliters)"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#volumeButton2"
-                        , "eventType": "click"
+                        "eventSelector": "#volumeInput1Form"
+                        , "eventType": "submit"
                         , "eventFunction": helperFunctions.setDyeVolume
                         , "postEventFunction": helperFunctions.setDyeVolumePost
                         , "criteria": {

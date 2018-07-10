@@ -173,10 +173,14 @@ var helperFunctions = {
     }, //step 2
     "takeEnzyme": function (evt) {
         console.log(game.getCurrentStep().id)
+        var tipNum = betterParseInt(evt.target.id);
+        var tipLeft = tips[(tipNum - 1)];
+        // in event
+        makePipetteTipAnimation(tipLeft);
         $("#indicatorArrow0").addClass("opClass")
         animate("#micropipet2", 0, "keyframe", animdefs["anim_addTip1"])
         animate("#" + evt.target.id, 0, "keyframe", animdefs["anim_hideTip1"])
-        animate("#tip1", 0, "keyframe", animdefs["anim_mooveTip"])
+        //animate("#tip1", 0, "keyframe", animdefs["anim_mooveTip"])
         animate("#pipetteTip1", 0, "keyframe", animdefs["anim_showTip1"])
 
 
@@ -199,14 +203,6 @@ var helperFunctions = {
         animate("#volumeButton,#volumeInput", 1, "animate", [{
             opacity: '0.0'
         }]);
-        /*
-                $("#volumeButton").delay(1).animate({
-                    opacity: '0.0'
-                });
-                $("#volumeInput").delay(1).animate({
-                    opacity: '0.0'
-                });
-        */
         animate("#view", 0, zoom, [50, 50, 1, 1000])
         //zoom(50, 50, 1, 1000)
         animate("#micropipet2", 1100, "keyframe", animdefs["anim_lowerPipet"])
@@ -214,15 +210,6 @@ var helperFunctions = {
             opacity: '1.0'
         }])
         animate("#indicatorArrow6", 0, "keyframe", animdefs["anim_oscillate4"])
-        //$("micropipet2").addClass(animdefs["anim_lowerPipet"])
-        //        $("#micropipet2").animate({
-        //            top: -7%
-        //        });
-        //animate("#pipetteTip1", 1100, "keyframe", animdefs["anim_lowerTip1"])
-        //        setTimeout(function () {
-        //            $("#micropipet2").addClass(animdefs["anim_lowerPipet"]);
-        //            $("#tip1").addClass(animdefs["anim_lowerTip1"]);
-        //        }, 1100);
     }, //step 4
     "openTube": function (evt) {
         //        var tubeIdName = evt.target.id.split("TubeBody")[0]
@@ -347,7 +334,7 @@ var helperFunctions = {
         //animate("#tip1", 0, zoom, [39, 67, 12, 1250])
         animate("#tip1", 0, "keyframe", animdefs["anim_tipToBin"]);
         //  $("#tip1").attr("keyframe", animdefs["anim_tipToBin"]);
-        animate("#pipetteTip1", 1700, "keyframe", animdefs["anim_hideTip1"]);
+        animate("#pipetteTip1", 2300, "keyframe", animdefs["anim_hideTip1"]);
         animate("#micropipet2", 0, "keyframe", animdefs["anim_pipetToBin"])
         //$("#micropipet2").attr("class", "micropipet anim_pipetToBin");
 
@@ -542,166 +529,83 @@ var helperFunctions = {
             // game.nextStep();
             updateScore(10);
             console.log(game.getCurrentStep().id)
-        }, 100);
+        }, 100);    
     }, //step 19
-    "takeDye": function () {
+    
+     
+    "takeDye": function (evt) {
         console.log("1234")
+        var tippNum = betterParseInt(evt.target.id);
+        var tippLeft = tips[(tippNum - 1)];
+
+        // in event
+        makePipetteTippAnimation(tippLeft);        
+        console.log(evt.target.id)
+        animate("#micropipet3", 0, "keyframe", animdefs["anim_addTipp1"])
+        animate("#" + evt.target.id, 0, "keyframe", animdefs["anim_hideTip1"])
+        animate("#pipetteTip2", 0, "keyframe", animdefs["anim_showTip1"])        
+        
+        
+        
+//        $("#micropipet3").animate({
+//            top: '-=6%'
+//        });
+        $("#holder").css('z-index', '3');
+//        $(".tip").css('z-index', '3');
+//
+//        
+//        animate("#micropipet3", 200, "animate", [{
+//            left: '+=5.5%'
+//        }]);
+//
+//        animate("#micropipet3", 600, "animate", [{
+//            top: '+=3.3%'
+//        }]);
+//
+//        animate("#micropipet3", 1500, "animate", [{
+//            top: '1%',
+//            left: '+=0.9%',
+//            transform: "scale(0.8)"
+//        }]);
+//
+//        animate("#tip", 1500, "animate", [{
+//            opacity: '1.0',
+//            top: '22.3%',
+//            left: '+=1%',
+//            transform: "scale(0.8)"
+//        }]);
+//
+//        animate("#micropipet3,#tip", 2100, "animate", [{
+//            top: '+=4.4%'
+//        }]);
         
         animate("#volumeButton1,#volumeInput1", 5000, "removeClass", "opClass")
         animate("#volumeButton1,#volumeInput1", 5000, "animate", [{
             opacity: '1.0'
         }]);
-
-        $("#micropipet3").animate({
-            top: '-=6%'
-        });
-        $("#holder").css('z-index', '3');
-        $(".tip").css('z-index', '3');
-        //
-        //
-        //Figure out
-        //
-        //
-
-        //HAVE TO BE CONFIRMED
-        animate("#micropipet3", 200, "animate", [{
-            left: '+=5.5%'
-        }]);
-        /*
-                $("#micropipet3").delay(200).animate({
-                    left: '+=5.5%'
-                });
-        */
-      //  $("#micropipet3").delay(200).css('z-index', '1');
-        //        setTimeout(function () {
-        ////            $("#micropipet3").animate({
-        ////                left: '+=5.5%'
-        ////            });
-        //            $("#micropipet3").css('z-index', '1');
-        //        }, 200);
-
-        //HAVE TO BE CONFIRMED
-        animate("#micropipet3", 600, "animate", [{
-            top: '+=3.3%'
-        }]);
-        /*
-                $("#micropipet3").delay(600).animate({
-                    top: '+=3.3%'
-                });
-        */
-
-        //        setTimeout(function () {
-        //            $("#micropipet3").animate({
-        //                top: '+=3.3%'
-        //            });
-        //        }, 600);
-
-        //HAVE TO BE CONFIRMED
-        animate("#micropipet3", 1500, "animate", [{
-            top: '1%',
-            left: '+=0.9%',
-            transform: "scale(0.8)"
-        }]);
-        /*
-                $("#micropipet3").delay(1500).animate({
-                    top: '1%',
-                    left: '+=0.9%',
-                    transform: "scale(0.8)"
-                });
-        */
-        //        setTimeout(function () {
-        //            $("#micropipet3").animate({
-        //                top: '1%',
-        //                left: '+=0.9%',
-        //                transform: "scale(0.8)"
-        //            });
-        //        }, 1500);
-
-        //HAVE TO BE CONFIRMED
-        animate("#tip", 1500, "animate", [{
-            opacity: '1.0',
-            top: '22.3%',
-            left: '+=1%',
-            transform: "scale(0.8)"
-        }]);
-        /*
-                $("#tip").delay(1500).animate({
-                    opacity: '1.0',
-                    top: '22.3%',
-                    left: '+=0.9%',
-                    transform: "scale(0.8)"
-                });
-        */
-        //        setTimeout(function () {
-        //            $("#tip").animate({
-        //                opacity: '1.0',
-        //                top: '22.3%',
-        //                left: '+=0.9%',
-        //                transform: "scale(0.8)"
-        //            });
-        //        }, 1500);
-
-        //HAVE TO BE CONFIRMED
-        animate("#micropipet3,#tip", 2100, "animate", [{
-            top: '+=4.4%'
-        }]);
-        /*
-                $("#micropipet3").delay(2100).animate({
-                    top: '+=4.4%'
-                });
-                $("#tip").delay(2100).animate({
-                    top: '+=4.4%'
-                });
-
-        */
-        //        setTimeout(function () {
-        //            $("#micropipet3").animate({
-        //                top: '+=4.4%'
-        //            });
-        //        }, 2100);
-
-        //        setTimeout(function () {
-        //            $("#tip").animate({
-        //                top: '+=4.4%'
-        //            });
-        //        }, 2100);
         animate("#view", 3000, zoom, [23, 12, 7, 1400])
+        
         setTimeout(function () {
             // game.nextStep();
             updateScore(10);
             //zoom(23, 12, 7, 1400)
             console.log(game.getCurrentStep().id)
         }, 3000);
+        
+        
     }, //step 20
     "setDyeVolume": function () {
         console.log(game.getCurrentStep().id)
-        var volume1 = $("#volumeInput1").val();
-        if (volume != 5) {
-            alert("Incorrect. Please enter the appropriate volume")
-            updateScore(-10);
-            console.log("wrong volume")
-        }
-        if (volume1 == 5) {
-            // game.nextStep();
-            updateScore(10);
-            console.log(game.getCurrentStep().id)
-            console.log("correct volume")
-
-            //HAVE TO BE CONFIRMED
-            animate("#button,#volumeInput1", 1, "animate", [{
-                opacity: '0.0'
-            }]);
-            /*
-                        $("button").delay(1).animate({
-                            opacity: '0.0'
-                        });
-                        $("#volumeInput1").delay(1).animate({
-                            opacity: '0.0'
-                        });
-            */
-            animate("#view", 0, zoom, [50, 50, 1, 1000])
-            //zoom(50, 50, 1, 1000)
-        }
+        state["volume1"] = $("#volumeInput1").val();
+    },
+    "setDyeVolumePost": function () {
+        updateScore(10);
+        console.log(game.getCurrentStep().id)
+        console.log("correct volume")
+        animate("#volumeButton1,#volumeInput1", 1, "animate", [{
+            opacity: '0.0'
+        }]);
+        animate("#view", 0, zoom, [50, 50, 1, 1000])        
     }, //step 21
     "openTube1": function () {
 

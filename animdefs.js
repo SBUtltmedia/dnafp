@@ -51,6 +51,8 @@ var animdefs = {
     "anim_insertTube5": "insertTube5 1.8s linear 0s 1 normal forwards",
 
     "anim_addTip1": "addTip1 5s linear 0s 1 normal forwards",
+    "anim_addTipp1": "addTipp1 3s linear 0s 1 normal forwards",
+    
     "anim_toFrontView": "toFrontView 1s 0s 1 linear normal reverse",
     "anim_tubeDown": "tubeDown 0.5s linear 0s 1 reverse forwards",
     "anim_toTopView1": "toTopView1 1s 0s 1 linear normal forwards",
