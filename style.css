@@ -16,7 +16,19 @@ button, input[type="submit"], input[type="reset"] {
     visibility: visible;
     z-index: 0; /*z-index: 0;*/
     font-family: "Helvetica", sans-serif;
+    pointer-events: none;
 }
+
+#day1 *,#day2 *,#bothDays *{
+    
+    pointer-events: initial; 
+    
+}
+.itemLabel{
+   pointer-events: none!important;
+    
+}
+
 
 #iceBucket {
     width: 20%;
@@ -41,6 +53,7 @@ button, input[type="submit"], input[type="reset"] {
     background-image: url(img/labBench2.svg);
     background-repeat: no-repeat;
     background-size: cover;
+    pointer-events: none!important;
 }
 
 #micropipet0 {
@@ -92,8 +105,8 @@ button, input[type="submit"], input[type="reset"] {
 #holder {
     width: 10%;
     height: 7.5%;
-    left: 20.5%;
-    top: 42.5%;
+    left: 20.4%;
+    top: 71.9%;
     position: absolute;
     background-image: url(img/holder.svg);
     background-repeat: no-repeat;

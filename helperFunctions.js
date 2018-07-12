@@ -212,14 +212,8 @@ var helperFunctions = {
         animate("#indicatorArrow6", 0, "keyframe", animdefs["anim_oscillate4"])
     }, //step 4
     "openTube": function (evt) {
-        //        var tubeIdName = evt.target.id.split("TubeBody")[0]
-        //        var tubeNum = parseInt(tubeIdName.split('')[1])
-        //        var currentAnimation = microtubeAnimation[microtubeState[tubeNum]]
-        //        console.log(currentAnimation)
-        //        var selector = "#" + tubeIdName + currentAnimation.target;
-        //        $.each(microtubeAnimation, function (index, value) {
-        //            $(selector).removeClass(value.name)
-        //        })
+
+        
         state["microtubeState"][0] = 1;
         console.log(state["microtubeState"])
         if (state["microtubeState"][0] == 1) {
@@ -230,7 +224,7 @@ var helperFunctions = {
             }])
             state["microtubeState"][0]++;
         }
-        //state["microtubeState"][0]++
+        
         console.log(state["microtubeState"])
         //console.log(selector, currentAnimation.name)
         //$(selector).addClass(currentAnimation.name)
@@ -239,7 +233,7 @@ var helperFunctions = {
         //console.log(microtubeState)
     }, //step 5
     "addEnzyme": function () {
-        animate("#tip1", 0, "keyframe", animdefs["anim_tipToTube1"])
+        //animate("#tip1", 0, "keyframe", animdefs["anim_tipToTube1"])
         //$("#tip1").addClass(animdefs["anim_tipToTube1"]);
         //animate("#micropipet2", 0, "keyframe", animdefs["anim_pipetToTube1"])
         //
@@ -282,8 +276,7 @@ var helperFunctions = {
                     opacity: '1.0'
                 });
         */
-        $("s0Tube").addClass("opClass")
-        $("#tip1").addClass("opClass")
+//        $("s0Tube").addClass("opClass")
         animate("#s0TubeBody", 0, "keyframe", animdefs["anim_mixs0TubeBody"])
         animate("#tubeContentMixing3", 0, "keyframe", animdefs["anim_mixTubeContent"])
 
@@ -314,10 +307,6 @@ var helperFunctions = {
 
         }
 
-        //        zoom(50, 50, 1, 1000)
-        //        $("#zoomOutButton1").animate({
-        //            opacity: '0.0'
-        //        });
     }, //step 7
     //
     //
@@ -332,9 +321,10 @@ var helperFunctions = {
         console.log("replaceTip");
         //$("#tip1").attr("class",animdefs["anim_ejectTip"]);
         //animate("#tip1", 0, zoom, [39, 67, 12, 1250])
-        animate("#tip1", 0, "keyframe", animdefs["anim_tipToBin"]);
+        //animate("#tip1", 0, "keyframe", animdefs["anim_tipToBin"]);
         //  $("#tip1").attr("keyframe", animdefs["anim_tipToBin"]);
-        animate("#pipetteTip1", 2300, "keyframe", animdefs["anim_hideTip1"]);
+        animate("#pitetteTip1", 0, "keyframe", animdefs["anim_tipToBin"])
+//        animate("#pipetteTip1", 2300, "keyframe", animdefs["anim_hideTip1"]);
         animate("#micropipet2", 0, "keyframe", animdefs["anim_pipetToBin"])
         //$("#micropipet2").attr("class", "micropipet anim_pipetToBin");
 
@@ -514,11 +504,13 @@ var helperFunctions = {
        animate("#day2", 0, "removeClass", "opClass")
         animate("#day2", 1, "animate", [{ opacity: '1.0'}])
         animate("#day2", 1, "keyframe", animdefs["anim_changeDay2"])
+
         animate("#powerSupply", 1, "animate", [{ opacity: '1.0'}])
         animate("#powerSupplyUp", 1, "animate", [{ opacity: '1.0'}])
         animate("#powerSupplyDown", 1, "animate", [{ opacity: '1.0'}])
         animate("#voltage", 1, "animate", [{ opacity: '1.0'}])
         animate("#gelSideView", 1, "animate", [{ opacity: '1.0'}]) 
+        $("#tubeBlock, .microTube").resetKeyframe(function(){})        
 
     }, //step 18
     "openDye": function (evt) {
@@ -832,8 +824,10 @@ var helperFunctions = {
     }, //step 24
     "replaceTip1": function () {
         //$("#tip1").attr("class",animdefs["anim_ejectTip"]);
-        $("#tip").attr("keyframe", animdefs["anim_tipToBin"]);
-        $("#micropipet3").attr("class", "micropipet anim_pipetToBin");
+        animate("#pitetteTip2", 0, "keyframe", animdefs["anim_tipToBin"])
+        animate("#micropipet3", 0, "keyframe", animdefs["anim_pipetToBin"])
+//        $("#pipetteTip1").attr("keyframe", animdefs["anim_tipToBin"]);
+//        $("#micropipet3").attr("class", "micropipet anim_pipetToBin");
         $("#indicatorArrow3").delay(50).animate({
             opacity: '0.0'
         });

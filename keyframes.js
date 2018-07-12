@@ -541,20 +541,21 @@ $.keyframe.define([{ name:'moveTip4',
 
 $.keyframe.define([{ name:'tipToBin',
     '0%':{
-        left: '36.6%',
-        top: '61.5%',
+        left: '55%',
+        top: '96%',
 },
     '10.9091%':{
-        left: '36.6%',
-        top: '53.5%',
+        left: '55%',
+        top: '96%',
 },
     '72.72727%':{
-        left: '55.3%',
-        top: '56.9%',
+         left: '55%',
+        top: '96%',
 },
     '100%':{
-        left: '55.3%',
-        top: '65%',
+        left: '55%', 
+        top: '200%',
+        opacity: 0,
 },
 },])
 
