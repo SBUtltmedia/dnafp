@@ -63,7 +63,6 @@ function loadSteps() {
                     , "longText": "Click on any tip to place it on the pipette"
                     , "feedbackText": "complete the second step"
                     , "logic": {
-                        //"eventSelector": "#tip1",
                         "eventSelector": ".tip"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.takeEnzyme
@@ -97,7 +96,7 @@ function loadSteps() {
                         , "eventFunction": helperFunctions.openTube
                         , "criteria": {
                             "variable": "microtubeState"
-                            , "value": [2, 0, 0, 0, 0, 0]
+                            , "value": [microTubeEnum[1], microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0]]
                         }
                     }
                 }
@@ -155,7 +154,7 @@ function loadSteps() {
                         , "eventFunction": helperFunctions.closeTube
                         , "criteria": {
                             "variable": "microtubeState"
-                            , "value": [4, 0, 0, 0, 0, 0]
+                            ,  "value": [microTubeEnum[2], microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0]]
                         }
                     }
                 }
@@ -170,7 +169,7 @@ function loadSteps() {
                         , "eventFunction": helperFunctions.flickTube
                         , "criteria": {
                             "variable": "microtubeState"
-                            , "value": [6, 0, 0, 0, 0, 0]
+                            , "value": [microTubeEnum[3], microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0]]
                         }
                     }
                 }
@@ -186,7 +185,7 @@ function loadSteps() {
                          "postEventFunction": helperFunctions.afterTapTube
                         , "criteria": {
                             "variable": "microtubeState"
-                            , "value": [8, 0, 0, 0, 0, 0]
+                            , "value": [microTubeEnum[4], microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0]]
                         }
                     }
                 }
@@ -206,7 +205,7 @@ function loadSteps() {
                         , "eventFunction": helperFunctions.tubeRack
                         , "criteria": {
                             "variable": "microtubeState"
-                            , "value": [10, 0, 0, 0, 0, 0]
+                            ,  "value": [microTubeEnum[5], microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0]]
                         }
                     }
                 }
@@ -220,8 +219,8 @@ function loadSteps() {
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.pressTube
                         , "criteria": {
-                            "variable": "buttonPress"
-                            , "value": [1, 1, 1, 1, 1, 1]
+                            "variable": "microtubeState"
+                            , "value": [microTubeEnum[6],microTubeEnum[6],microTubeEnum[6],microTubeEnum[6],microTubeEnum[6],microTubeEnum[6]]
                         }
                     }
                 }
@@ -331,13 +330,12 @@ function loadSteps() {
                     , "longText": "Click on the reaction tube to open it"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#s0TubeBody1"
+                        "eventSelector": "#s0TubeBody"
                         , "eventType": "click"
-                        , "eventFunction":function (){}
+                        , "eventFunction":helperFunctions.openTube1
                         , "criteria": {
                             "variable": "microtubeState"
-                            , "value": [12, 0, 0, 0, 0, 0]
-                        }
+                            ,  "value": [microTubeEnum[1], microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0]]                        }
                     }
                 }
                 , {
@@ -346,7 +344,7 @@ function loadSteps() {
                     , "longText": "Click on the micropipette to add the loading dye to the reaction tube"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#micropipet3"
+                        "eventSelector": "#micropipet2"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.addDye
                     }
@@ -356,9 +354,10 @@ function loadSteps() {
                     , "longText": "Pipette rapidly up and down to mix contents"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#mixContentsButton1"
+                        "eventSelector": "#mixContentsButton"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.mixContents1
+                        , "postEventFunction": helperFunctions.mixContents1Post
                     }
                 }, {
                     "id": "replaceTip1"
@@ -366,7 +365,7 @@ function loadSteps() {
                     , "longText": "Zoom out and discard the tip"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#ejectButton1"
+                        "eventSelector": "#ejectButton"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.replaceTip1
                     }
@@ -377,12 +376,12 @@ function loadSteps() {
                     , "longText": "Click on the reaction tube to close the cap"
                     , "feedbackText": "complete the first step"
                     , "logic": {
-                        "eventSelector": "#s0Tube1"
+                        "eventSelector": "#s0Tube"
                         , "eventType": "click"
-                        , "eventFunction":  function(){}//helperFunctions.closeTube1
+                        , "eventFunction": helperFunctions.closeTube1
                         , "criteria": {
                             "variable": "microtubeState"
-                            , "value": [14, 0, 0, 0, 0, 0]
+                            ,  "value": [microTubeEnum[2], microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0]]
                         }
                     }
                 }
@@ -394,10 +393,10 @@ function loadSteps() {
                     , "logic": {
                         "eventSelector": "#s0TubeBody"
                         , "eventType": "click"
-                        , "eventFunction": function(){}
+                        , "eventFunction": helperFunctions.flickTube1
                         , "criteria": {
                             "variable": "microtubeState"
-                            , "value": [16, 0, 0, 0, 0, 0]
+                            ,  "value": [microTubeEnum[3], microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0]]
                         }
                     }
                 }
@@ -409,25 +408,40 @@ function loadSteps() {
                     , "logic": {
                         "eventSelector": "#s0TubeBody"
                         , "eventType": "click"
-                        , "eventFunction": helperFunctions.openTube
+                        , "eventFunction": helperFunctions.tapTube1
                         , "criteria": {
                             "variable": "microtubeState"
-                            , "value": [18, 0, 0, 0, 0, 0]
+                            ,  "value": [microTubeEnum[4], microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0]]
                         }
                     }
                 }
                 , {
                     "id": "tubeRack1"
                     , "shortText": "Tubes in floating rack"
-                    , "longText": "Click on each tube to place it in the floating rack"
+                    , "longText": "Click on the tube to place it in the floating rack"
                     , "feedbackText": "complete the first step"
                     , "logic": {
                         "eventSelector": "#s0TubeBody"
                         , "eventType": "click"
-                        , "eventFunction": helperFunctions.openTube
+                        , "eventFunction": helperFunctions.tubeRack1
                         , "criteria": {
                             "variable": "microtubeState"
-                            , "value": [20, 0, 0, 0, 0, 0]
+                            ,  "value": [microTubeEnum[5], microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0]]
+                        }
+                    }
+                }
+                , {
+                    "id": "pressTube1"
+                    , "shortText": "Expose tube bottoms"
+                    , "longText": "Click on the floating rack and push each tube down to expose bottoms to the water"
+                    , "feedbackText": "complete the second step"
+                    , "logic": {
+                        "eventSelector": ".pressButton"
+                        , "eventType": "click"
+                        , "eventFunction": helperFunctions.pressTube1
+                        , "criteria": {
+                            "variable": "microtubeState"
+                            , "value": [microTubeEnum[6],microTubeEnum[6],microTubeEnum[6],microTubeEnum[6],microTubeEnum[6],microTubeEnum[6]]
                         }
                     }
                 }

@@ -1,4 +1,6 @@
-var microtubeState = [0, 0, 0, 0, 0, 0];
+
+var microTubeEnum=["untouched","opened","closed","flicked","tapped","returned","exposed"]
+state["microtubeState"] = Array(6).fill(microTubeEnum[0])
 var criteriaPassed;
 var microtubeAnimation = [{
     target: "Tube",
@@ -27,7 +29,7 @@ var mix = 0;
 
 function updateVoltage(amount) {
     voltage += amount;
-    console.log(score)
+    
 }
 
 function zeroTime(def) {
@@ -39,13 +41,20 @@ function zeroTime(def) {
 
 function animate(selector, delay, method, param) {
 
-    if ($(selector + ':visible').length == 0) {
-        $(selector).show();
-    }
+
     var animateDur = 400;
     if (testMode) {
         delay = 0
         animateDur = .001;
+    }
+    
+    
+    if ($(selector + ':visible').length == 0) {
+        setTimeout(function() {
+            $(selector).show();
+            $(selector).removeClass("opClass");
+            $(selector).css("visibility","visible");
+        }, delay)
     }
     
      if (method == "css")
@@ -76,6 +85,13 @@ function animate(selector, delay, method, param) {
         //$(selector).delay(delay).playKeyframe(param, function () {});
     }
     
+    if (method == "addClass")
+
+    {
+        setTimeout(function () {
+            $(selector).addClass(param);
+        }, delay)
+    }
     if (method == "removeClass")
 
     {
@@ -114,70 +130,30 @@ function animate(selector, delay, method, param) {
 
 
     }
-
-    //        else if (typeof (method) == "string") {  //e.g "removeClass"
-    //        setTimeout(function () {
-    //            $(selector)[method](param, animateDur)
-    //        }, delay);
-    //    }
-    //    
-    //    } else if (typeof (param) == "object") {
-    //        console.log(selector, delay, method, param)
-    //        setTimeout(function () {
-    //            $(selector)[method](...param, animateDur)
-    //        }, delay);
-    //
-    //    } else if (typeof (method) == "string") {
-    //        setTimeout(function () {
-    //            $(selector)[method](param, animateDur)
-    //        }, delay);
-    //    }
 }
 var helperFunctions = {
     //step 0
     "liftEnzyme": function () {
 
         animate("#enzTube", 0, "keyframe", animdefs["anim_moveEnz"])
-        //$("#enzTube").playKeyframe(animdefs[animdefs["anim_moveEnz"]]);
-
-        //animate("#indicatorArrow1", 0, "addClass", "opClass")
         $("#indicatorArrow1").remove();
     }, //step 1
     "openEnzyme": function () {
         animate("#enzCap", 0, "keyframe", animdefs["anim_rotateCap"])
-        //$("#enzCap").addClass(animdefs["anim_rotateCap"]);
-        //$("#indicatorArrow0").addClass(animdefs["anim_oscillate"]);
-        //        $("#indicatorArrow0").delay(950).animate({
-        //            opacity: '1.0'
-        //        });
-        //animate("#indicatorArrow0", 0, "removeClass", "opClass")
-        //        setTimeout(function () {
-        //            // game.nextStep();
-        //            updateScore(10);
-        //            console.log(game.getCurrentStep().id)
-        //        }, 500);
         state["firstStep"] = 45;
     },
     "openEnzymePost": function () {
-        //        $("#indicatorArrow0").delay(50).animate({
-        //            opacity: '0.0'
-        //        });
-        console.log("post function")
+        animate("#indicatorArrow0", 0, "removeClass", "opClass")        
         animate("#indicatorArrow0", 0, "keyframe", animdefs["anim_oscillate"])
-
-
-        //animate("#indicatorArrow0", 0, "removeClass", "opClass")
-        $("#indicatorArrow0").removeClass("opClass")
         updateScore(10);
-        console.log(game.getCurrentStep().id)
     }, //step 2
     "takeEnzyme": function (evt) {
-        console.log(game.getCurrentStep().id)
+        
         var tipNum = betterParseInt(evt.target.id);
         var tipLeft = tips[(tipNum - 1)];
         // in event
         makePipetteTipAnimation(tipLeft);
-        $("#indicatorArrow0").addClass("opClass")
+        animate("#indicatorArrow0", 0, "addClass", "opClass")
         animate("#micropipet2", 0, "keyframe", animdefs["anim_addTip1"])
         animate("#" + evt.target.id, 0, "keyframe", animdefs["anim_hideTip1"])
         //animate("#tip1", 0, "keyframe", animdefs["anim_mooveTip"])
@@ -192,14 +168,14 @@ var helperFunctions = {
 
     }, //step 3
     "setVolume": function () {
-        console.log(game.getCurrentStep().id)
+        
         state["volume"] = $("#volumeInput").val();
     },
     "setVolumePost": function () {
         // game.nextStep();
         updateScore(10);
-        console.log(game.getCurrentStep().id)
-        console.log("correct volume")
+        
+        
         animate("#volumeButton,#volumeInput", 1, "animate", [{
             opacity: '0.0'
         }]);
@@ -214,69 +190,32 @@ var helperFunctions = {
     "openTube": function (evt) {
 
         
-        state["microtubeState"][0] = 1;
-        console.log(state["microtubeState"])
-        if (state["microtubeState"][0] == 1) {
+        state["microtubeState"][0] = microTubeEnum[1];
+      
+     
             animate("#s0Tube", 0, "keyframe", animdefs["anim_moveTube"])
             animate("#s0Cap", 0, "keyframe", animdefs["anim_rotateCap"])
             animate("#indicatorArrow6", 0, "animate", [{
                 opacity: '0.0'
             }])
-            state["microtubeState"][0]++;
-        }
-        
-        console.log(state["microtubeState"])
-        //console.log(selector, currentAnimation.name)
-        //$(selector).addClass(currentAnimation.name)
-        //microtubeState[tubeNum]++
-        //microtubeState[tubeNum] %= microtubeAnimation.length;
-        //console.log(microtubeState)
+                      
     }, //step 5
     "addEnzyme": function () {
-        //animate("#tip1", 0, "keyframe", animdefs["anim_tipToTube1"])
-        //$("#tip1").addClass(animdefs["anim_tipToTube1"]);
-        //animate("#micropipet2", 0, "keyframe", animdefs["anim_pipetToTube1"])
-        //
-        //
-        //THIS IS A PROBLEM AND I DONT KNOW WHY
-        //
-        //
+
         //$("#micropipet2").removeClass(animdefs["anim_addTip1"]);
         animate("#micropipet2", 0, "keyframe", animdefs["anim_pipetToTube1"])
         animate("#indicatorArrow2", 0, "keyframe", animdefs["anim_oscillate2"])
         animate("#indicatorArrow2", 1800, "animate", [{
             opacity: '1.0'
         }]);
-        /*
-                $("#indicatorArrow2").delay(1800).animate({
-                    opacity: '1.0'
-                });
-        */
 
-
-
-        //            setTimeout(function () {
-        //                zoom(80, 60, 8, 6000)
-        //            }, 1900);
-        //        setTimeout(function () {
-        //            // game.nextStep();
-        //            updateScore(10);
-        //            console.log(game.getCurrentStep().id)
-        //        }, 2500);
+        
     }, //step 6
     "mixContents": function () {
         animate("#view", 0, zoom, [39, 67, 12, 1050])
-        //zoom(39, 67, 12, 1250)
-
         animate("#zoomOutButton1", 4000, "animate", [{
             opacity: '1.0'
         }]);
-        /*
-                $("#zoomOutButton1").delay(4000).animate({
-                    opacity: '1.0'
-                });
-        */
-//        $("s0Tube").addClass("opClass")
         animate("#s0TubeBody", 0, "keyframe", animdefs["anim_mixs0TubeBody"])
         animate("#tubeContentMixing3", 0, "keyframe", animdefs["anim_mixTubeContent"])
 
@@ -308,71 +247,34 @@ var helperFunctions = {
         }
 
     }, //step 7
-    //
-    //
-    //
-    //
-    //
-    // How will the animate function deal with .attr?
-    //
-    //
-    //
-    "replaceTip": function () {
-        console.log("replaceTip");
-        //$("#tip1").attr("class",animdefs["anim_ejectTip"]);
-        //animate("#tip1", 0, zoom, [39, 67, 12, 1250])
-        //animate("#tip1", 0, "keyframe", animdefs["anim_tipToBin"]);
-        //  $("#tip1").attr("keyframe", animdefs["anim_tipToBin"]);
-        animate("#pitetteTip1", 0, "keyframe", animdefs["anim_tipToBin"])
-//        animate("#pipetteTip1", 2300, "keyframe", animdefs["anim_hideTip1"]);
-        animate("#micropipet2", 0, "keyframe", animdefs["anim_pipetToBin"])
-        //$("#micropipet2").attr("class", "micropipet anim_pipetToBin");
 
-        //HAVE TO BE CONFIRMED
+    "replaceTip": function () {
+        animate("#pipetteTip1", 2300, "keyframe", animdefs["anim_tipToBin"])
+        //animate("#pipetteTip1", 3300, "keyframe", animdefs["anim_hideTip1"]);
+        animate("#micropipet2", 0, "keyframe", animdefs["anim_pipetToBin"])
+
         animate("#indicatorArrow3", 50, "animate", [{
             opacity: '0.0'
         }]);
-        /*
-                $("#indicatorArrow3").delay(50).animate({
-                    opacity: '0.0'
-                });
-        */
 
     },
     "closeTube": function (evt) {
-        state["microtubeState"][0] = 3;
-
-
         animate("#s0Cap", 0, "keyframe", animdefs["anim_closeCap"])
-        state["microtubeState"][0]++;
-        console.log(state["microtubeState"])
-
-        //state["microtubeState"][0]++
+        state["microtubeState"][0] = microTubeEnum[2];
     },
     "flickTube": function (evt) {
-        state["microtubeState"][0] = 5;
-        console.log(state["microtubeState"])
-        if (state["microtubeState"][0] == 5) {
-            animate("#s0Tube", 0, "keyframe", animdefs["anim_flickTube"])
-            state["microtubeState"][0]++;
-        }
-        //state["microtubeState"][0]++
-        console.log(state["microtubeState"])
+         
+        animate("#s0Tube", 0, "keyframe", animdefs["anim_flickTube"]);
+        state["microtubeState"][0] = microTubeEnum[3];
     },
     "tapTube": function () {
-        state["microtubeState"][0] = 7;
-        console.log(state["microtubeState"])
-        if (state["microtubeState"][0] == 7) {
+    
             animate("#s0Tube", 0, "keyframe", animdefs["anim_tapTube"])
-            state["microtubeState"][0]++;
-        }
-        //state["microtubeState"][0]++
-        console.log(state["microtubeState"])
+               state["microtubeState"][0] = microTubeEnum[4];
     },
     "tubeRack": function () {
-        state["microtubeState"][0] = 9;
-        console.log(state["microtubeState"])
-        if (state["microtubeState"][0] == 9) {
+   
+     
             animate("#s0Tube", 0, "keyframe", animdefs["anim_tubeDown"])
             for (i = 0; i <= 5; i++) {
                 animate("#s" + i + "Tube", 1000, "keyframe", animdefs["anim_tube" + i + "ToBath"]);
@@ -382,17 +284,12 @@ var helperFunctions = {
             animate(".pressButton", 2000, "animate", [{
                 opacity: '1.0'
             }])
-            state["microtubeState"][0]++;
-        }
-        //state["microtubeState"][0]++
-        console.log(state["microtubeState"])
+                state["microtubeState"][0] = microTubeEnum[5];
+
     }, //step 12
     "pressTube": function (evt) {
-        console.log("fds")
-        var criteriaVariable = game.getCurrentStep().logic.criteria.variable
-
         var tubeId = evt.target.id.split("_")[1];
-        console.log(tubeId)
+        
         if (testMode) {
             animate(".pressButton", 0, "animate", [{
                 opacity: '0.0'
@@ -405,35 +302,22 @@ var helperFunctions = {
         animate("#pressButton_" + tubeId, 50, "animate", [{
             opacity: '0.0'
         }])
-        state[criteriaVariable][tubeId] = 1;
-        console.log(state[criteriaVariable])
+        state["microtubeState"][tubeId] = microTubeEnum[6]
 
     }, //step 13
     "removeLid": function (evt) {
         var top1 = document.getElementsByClassName("topView")
-
-        //        if (top1[9].classList[1] == "opClass") {
-        //            console.log("foo")
-        //            $("#stainingTray").animate({
-        //                opacity: '1.0'
-        //            });
-        //        }
-
         animate("#waterBathLid", 0, "keyframe", animdefs["anim_removeLid"])
-        setTimeout(function () {
-            // game.nextStep();
-            updateScore(10);
-            console.log(game.getCurrentStep().id)
-        }, 300);
+
     }, //step 14
     "checkTemp": function () {
-        criteriaPassed = true;
+//        criteriaPassed = true;
         animate("#view", 0, zoom, [65, 21, 10, 1000])
         animate("#zoomOutButton", 1600, "animate", [{
             opacity: '1.0'
         }]);
         $("#zoomOutButton").on("click", function () {
-            console.log("clicked")
+            
             animate("#view", 0, zoom, [50, 50, 1, 1000]);
             animate("#zoomOutButton", 0, "animate", [{
                 opacity: '0.0'
@@ -444,12 +328,6 @@ var helperFunctions = {
         if (testMode) {
             $("#zoomOutButton").trigger("click");
         }
-
-        //        setTimeout(function () {
-        //            // game.nextStep();
-        //            updateScore(10);
-        //            console.log(game.getCurrentStep().id)
-        //        }, 300);
     },//step 15
     "insertRack": function () {
         animate("#tubeBlock", 0, "keyframe", animdefs["anim_insertRack"])
@@ -458,118 +336,74 @@ var helperFunctions = {
             animate("#s" + i + "Tube", 0, "keyframe", animdefs["anim_insertTube" + i]);
         }
         setTimeout(function () {
-            // game.nextStep();
             updateScore(10);
-            console.log(game.getCurrentStep().id)
+            
         }, 300);
     },//step 16
     "closeLid": function () {
         animate("#waterBathLid", 0, "keyframe", animdefs["anim_replaceLid"])
-        setTimeout(function () {
-            // game.nextStep();
-            updateScore(10);
-            console.log(game.getCurrentStep().id)
-        }, 500);
         animate("#view", 1000, zoom, [65, 36, 5, 1500])
-        //$("#timerButton,#timer").removeClass("opClass"),1600;
         animate("#timerButton,#timer", 1000, "removeClass", "opClass");
         
         // Joochan doesn't understand what #button do.
         animate("#button", 1000, "animate", [{
             opacity: '1.0'
         }]);
-
         
         
-        //        setTimeout(function () {
-        //            zoom(65, 36, 5, 1500)
-        //            $("button").delay(1).animate({
-        //                opacity: '1.0'
-        //            });
-        //        }, 1000);
     }, //step 17
     "setTimer": function () {
         //if ((game.getCurrentStep().id == "setTimer")){
         state["time"] =  $("#timer").val();
     },
     "setTimerPost": function () {
-        console.log("setTimerPost")
+        
         animate("#button,#timer,#timerButton", 1, "animate", [{
             opacity: '0.0'
         }]);
         animate("#view", 0, zoom, [50, 50, 1, 1000]);
         animate("#day1", 1000, "animate", [{ opacity: '0.0'}]);
-//        animate("#topView", 0, "removeClass", "opClass")
-//        animate("#topView", 0, "animate", [{ opacity: '1.0'}])
-       animate("#day2", 0, "removeClass", "opClass")
-        animate("#day2", 1, "animate", [{ opacity: '1.0'}])
-        animate("#day2", 1, "keyframe", animdefs["anim_changeDay2"])
+        animate("#day2", 2000, "removeClass", "opClass")
+        animate("#day2", 2000, "animate", [{ opacity: '1.0'}])
+        animate("#day2", 2000, "keyframe", animdefs["anim_changeDay2"])
+        animate("#powerSupply", 2000, "animate", [{ opacity: '1.0'}])
+        animate("#powerSupplyUp", 2000, "animate", [{ opacity: '1.0'}])
+        animate("#powerSupplyDown", 2000, "animate", [{ opacity: '1.0'}])
+        animate("#voltage", 2000, "animate", [{ opacity: '1.0'}])
+        animate("#gelSideView", 2000, "animate", [{ opacity: '1.0'}])
+        
+        state["microtubeState"] = Array(6).fill(microTubeEnum[0])
 
-        animate("#powerSupply", 1, "animate", [{ opacity: '1.0'}])
-        animate("#powerSupplyUp", 1, "animate", [{ opacity: '1.0'}])
-        animate("#powerSupplyDown", 1, "animate", [{ opacity: '1.0'}])
-        animate("#voltage", 1, "animate", [{ opacity: '1.0'}])
-        animate("#gelSideView", 1, "animate", [{ opacity: '1.0'}]) 
-        $("#tubeBlock, .microTube").resetKeyframe(function(){})        
+        setTimeout(function(){
+            $("#bothDays *").resetKeyframe(function(){});
+            animate("#pipetteTip1", 0, "css", [{
+            visibility: "hidden"
+            }])
+            },0);
 
     }, //step 18
     "openDye": function (evt) {
         animate("#loadDye", 0, "keyframe", animdefs["anim_moveLoadingDye"])
         animate("#loadDyeCap", 0, "keyframe", animdefs["anim_rotateCap"])
-        console.log(game.getCurrentStep().id)
-        setTimeout(function () {
-            // game.nextStep();
-            updateScore(10);
-            console.log(game.getCurrentStep().id)
-        }, 100);    
+        
     }, //step 19
-    
+    "openDyePost": function () {
+        animate("#indicatorArrow0", 0, "removeClass", "opClass")
+        animate("#indicatorArrow0", 0, "keyframe", animdefs["anim_oscillate"])
+    },    
      
     "takeDye": function (evt) {
-        console.log("1234")
+        
         var tippNum = betterParseInt(evt.target.id);
         var tippLeft = tips[(tippNum - 1)];
 
         // in event
         makePipetteTippAnimation(tippLeft);        
-        console.log(evt.target.id)
-        animate("#micropipet3", 0, "keyframe", animdefs["anim_addTipp1"])
-        animate("#" + evt.target.id, 0, "keyframe", animdefs["anim_hideTip1"])
-        animate("#pipetteTip2", 0, "keyframe", animdefs["anim_showTip1"])        
-        
-        
-        
-//        $("#micropipet3").animate({
-//            top: '-=6%'
-//        });
+        animate("#micropipet2", 0, "keyframe", animdefs["anim_addTipp1"])
+        animate("#" + evt.target.id, 0, "keyframe", animdefs["anim_hideTipp1"])
+        animate("#pipetteTip1", 0, "keyframe", animdefs["anim_showTipp1"])        
+
         $("#holder").css('z-index', '3');
-//        $(".tip").css('z-index', '3');
-//
-//        
-//        animate("#micropipet3", 200, "animate", [{
-//            left: '+=5.5%'
-//        }]);
-//
-//        animate("#micropipet3", 600, "animate", [{
-//            top: '+=3.3%'
-//        }]);
-//
-//        animate("#micropipet3", 1500, "animate", [{
-//            top: '1%',
-//            left: '+=0.9%',
-//            transform: "scale(0.8)"
-//        }]);
-//
-//        animate("#tip", 1500, "animate", [{
-//            opacity: '1.0',
-//            top: '22.3%',
-//            left: '+=1%',
-//            transform: "scale(0.8)"
-//        }]);
-//
-//        animate("#micropipet3,#tip", 2100, "animate", [{
-//            top: '+=4.4%'
-//        }]);
         
         animate("#volumeButton1,#volumeInput1", 5000, "removeClass", "opClass")
         animate("#volumeButton1,#volumeInput1", 5000, "animate", [{
@@ -577,267 +411,62 @@ var helperFunctions = {
         }]);
         animate("#view", 3000, zoom, [23, 12, 7, 1400])
         
-        setTimeout(function () {
-            // game.nextStep();
-            updateScore(10);
-            //zoom(23, 12, 7, 1400)
-            console.log(game.getCurrentStep().id)
-        }, 3000);
         
         
     }, //step 20
     "setDyeVolume": function () {
-        console.log(game.getCurrentStep().id)
+        
         state["volume1"] = $("#volumeInput1").val();
     },
     "setDyeVolumePost": function () {
         updateScore(10);
-        console.log(game.getCurrentStep().id)
-        console.log("correct volume")
         animate("#volumeButton1,#volumeInput1", 1, "animate", [{
             opacity: '0.0'
         }]);
-        animate("#view", 0, zoom, [50, 50, 1, 1000])        
+        animate("#view", 0, zoom, [50, 50, 1, 1000]) 
+        animate("#indicatorArrow6", 0, "animate", [{
+            opacity: '1.0'
+        }])
+        animate("#indicatorArrow6", 0, "keyframe", animdefs["anim_oscillate4"])
     }, //step 21
-    "openTube1": function () {
-
+    
+    "openTube1": function (evt) {
+        helperFunctions.openTube(evt)
     }, //step 22
     "addDye": function () {
-
-        //HAVE TO BE CONFIRMED
-        animate("#micropipet3,#tip", 0, "animate", [{
-            top: '-=4.4%'
+        animate("#micropipet2", 0, "keyframe", animdefs["anim_addDyeToTube"])
+        animate("#indicatorArrow2", 0, "keyframe", animdefs["anim_oscillate2"])
+        animate("#indicatorArrow2", 1800, "animate", [{
+            opacity: '1.0'
         }]);
-        /*
-                $("#micropipet3").animate({
-                    top: '-=4.4%'
-                });
-                $("#tip").animate({
-                    top: '-=4.4%'
-                });
-        */
-        //HAVE TO BE CONFIRMED
-        animate("#micropipet3,#tip", 400, "animate", [{
-            left: '+=13.3%',
-            top: '+=38%'
-        }]);
-        /*
-                $("#micropipet3").delay(400).animate({
-                    left: '+=13.2%',
-                    top: '+=38%'
-                });
-                $("#tip").delay(400).animate({
-                    left: '+=13.3%',
-                    top: '+=38.8%'
-                });
-        */
 
-        //        setTimeout(function () {
-        //            $("#micropipet3").animate({
-        //                left: '+=13.2%',
-        //                top: '+=38%'
-        //            });
-        //        }, 400);
-        //        setTimeout(function () {
-        //            $("#tip").animate({
-        //                left: '+=13.3%',
-        //                top: '+=38.8%'
-        //            });
-        //        }, 400);
-        setTimeout(function () {
-            // game.nextStep();
-            updateScore(10);
-            console.log(game.getCurrentStep().id)
-        }, 600);
     }, //step 23
     "mixContents1": function () {
-        animate("#view", 0, zoom, [39, 67, 12, 1250])
-        //zoom(39, 67, 12, 1250)
-
-        //HAVE TO BE CONFIRMED
-        animate("#zoomOutButton1", 4000, "animate", [{
-            opacity: '1.0'
-        }]);
-        /*
-                $("#zoomOutButton1").delay(4000).animate({
-                    opacity: '1.0'
-                });
-        */
-        //HAVE TO BE CONFIRMED
-        animate("#s0Tube1", 1250, "animate", [{
-            opacity: '0.0'
-        }]);
-        /*
-                $("#s0Tube1").delay(1250).animate({
-                    opacity: '0.0'
-                });
-        */
-        //            $("#tubeContentMixing2").delay(1250).animate({
-        //                opacity: '0.0'
-        //            });
-        //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4", 1250, "animate", [{
-            opacity: '1.0'
-        }]);
-        /*
-                $("#tubeContentMixing4").delay(1250).animate({
-                    opacity: '1.0'
-                });
-        */
-        //HAVE TO BE CONFIRMED
-        animate("#s0Tube1", 12, "animate", [{
-            opacity: '1.0'
-        }]);
-        /*
-                $("#s0Tube1").delay(12).animate({
-                    opacity: '1.0'
-                });
-        */
-        //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1", 12, "animate", [{
-            opacity: '0.0'
-        }]);
-        /*
-                $("#tubeContentMixing4").delay(12).animate({
-                    opacity: '0.0'
-                });
-                $("#s0Tube1").delay(12).animate({
-                    opacity: '0.0'
-                });
-        */
-        //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1", 12, "animate", [{
-            opacity: '1.0'
-        }]);
-        /*
-                $("#tubeContentMixing4").delay(12).animate({
-                    opacity: '1.0'
-                });
-                $("#s0Tube1").delay(12).animate({
-                    opacity: '1.0'
-                });
-        */
-        //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1", 12, "animate", [{
-            opacity: '0.0'
-        }]);
-        /*
-                $("#tubeContentMixing4").delay(12).animate({
-                    opacity: '0.0'
-                });
-                $("#s0Tube1").delay(12).animate({
-                    opacity: '0.0'
-                });
-        */
-        //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1", 12, "animate", [{
-            opacity: '1.0'
-        }]);
-        /*
-                $("#tubeContentMixing4").delay(12).animate({
-                    opacity: '1.0'
-                });
-                $("#s0Tube1").delay(12).animate({
-                    opacity: '1.0'
-                });
-        */
-        //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1", 12, "animate", [{
-            opacity: '0.0'
-        }]);
-        /*
-                $("#tubeContentMixing4").delay(12).animate({
-                    opacity: '0.0'
-                });
-                $("#s0Tube1").delay(12).animate({
-                    opacity: '0.0'
-                });
-        */
-        //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1", 12, "animate", [{
-            opacity: '1.0'
-        }]);
-        /*
-                $("#tubeContentMixing4").delay(12).animate({
-                    opacity: '1.0'
-                });
-                $("#s0Tube1").delay(12).animate({
-                    opacity: '1.0'
-                });
-        */
-        //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1", 12, "animate", [{
-            opacity: '0.0'
-        }]);
-        /*
-                $("#tubeContentMixing4").delay(12).animate({
-                    opacity: '0.0'
-                });
-                $("#s0Tube1").delay(12).animate({
-                    opacity: '0.0'
-                });
-        */
-        //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4,#s0Tube1", 12, "animate", [{
-            opacity: '1.0'
-        }]);
-        /*
-                $("#tubeContentMixing4").delay(12).animate({
-                    opacity: '1.0'
-                });
-                $("#s0Tube1").delay(12).animate({
-                    opacity: '1.0'
-                });
-        */
-        //HAVE TO BE CONFIRMED
-        animate("#tubeContentMixing4", 12, "animate", [{
-            opacity: '0.0'
-        }]);
-        /*
-                $("#tubeContentMixing4").delay(12).animate({
-                    opacity: '0.0'
-                });
-        */
-        //HAVE TO BE CONFIRMED
-        animate("#zoomOutButton1a", 3800, "animate", [{
-            opacity: '1.0'
-        }]);
-        /*
-                $("#zoomOutButton1a").delay(3800).animate({
-                    opacity: '1.0'
-                });
-        */
-        //HAVE TO BE CONFIRMED
-        animate("#indicatorArrow2", 80, "animate", [{
-            opacity: '0.0'
-        }]);
-        /*
-                $("#indicatorArrow2").delay(80).animate({
-                    opacity: '0.0'
-                });
-        */
-        setTimeout(function () {
-            // game.nextStep();
-            updateScore(10);
-            console.log(game.getCurrentStep().id)
-        }, 1500);
+        helperFunctions.mixContents()
+        console.log("hellllooooo")
+    },
+    "mixContents1Post": function () {
+        helperFunctions.mixContentsPost()
     }, //step 24
     "replaceTip1": function () {
-        //$("#tip1").attr("class",animdefs["anim_ejectTip"]);
-        animate("#pitetteTip2", 0, "keyframe", animdefs["anim_tipToBin"])
-        animate("#micropipet3", 0, "keyframe", animdefs["anim_pipetToBin"])
-//        $("#pipetteTip1").attr("keyframe", animdefs["anim_tipToBin"]);
-//        $("#micropipet3").attr("class", "micropipet anim_pipetToBin");
-        $("#indicatorArrow3").delay(50).animate({
-            opacity: '0.0'
-        });
-        setTimeout(function () {
-            // game.nextStep();
-            updateScore(10);
-            //game.setCurrentStep(takeEnzyme)
-            console.log(game.getCurrentStep().id)
-        }, 1700);
+        helperFunctions.replaceTip()
+    }, //step 25
+    "closeTube1": function (evt) {
+        helperFunctions.closeTube(evt)
+    }, //step 26
+    "flickTube1": function (evt) {
+        helperFunctions.flickTube(evt)
+    }, //step 27
+    "tapTube1": function () {
+        helperFunctions.tapTube()
+    }, //step 28
+    "tubeRack1": function () {
+        helperFunctions.tubeRack()
+    }, //step 29    
+    "pressTube1": function (evt) {
+        helperFunctions.pressTube(evt)
     }, //step 29
+    
     "removeComb": function () {
         $("#gelComb").delay(50).animate({
             top: '-=5%'
@@ -849,7 +478,7 @@ var helperFunctions = {
             // game.nextStep();
             updateScore(10);
             //game.setCurrentStep(takeEnzyme)
-            console.log(game.getCurrentStep().id)
+            
         }, 300);
     }, //step 30
     "toTop": function () {
@@ -926,7 +555,7 @@ var helperFunctions = {
         setTimeout(function () {
             // game.nextStep();
             updateScore(10);
-            console.log(game.getCurrentStep().id)
+            
         }, 300);
     }, //step 31
     "orientGel": function () {
@@ -958,7 +587,7 @@ var helperFunctions = {
         setTimeout(function () {
             // game.nextStep();
             updateScore(10);
-            console.log(game.getCurrentStep().id)
+            
         }, 300);
     }, //step 32, 37, 42
     "addTipTop": function () {
@@ -977,14 +606,14 @@ var helperFunctions = {
     }, //step 33
     "takeHind": function (evt) {
         i
-        console.log(evt.target.id)
+        
         $("#micropipetTopView").animate({
             "left": '36.5%',
             "top": '15.5%'
         });
         // game.nextStep();
         updateScore(10);
-        console.log(game.getCurrentStep().id)
+        
     }, //step 34
     "toLane1": function (evt) {
         var key = evt.keycode;
@@ -992,7 +621,7 @@ var helperFunctions = {
         var checkLane = (betterParseInt((game.getCurrentStep().id)));
         //var newTop = wellTop[topIndex];
         var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-        console.log(newLeft)
+        
         if (checkLane != leftIndex) {
             updateScore(-10);
             alert("Incorrect. Please select the correct lane.")
@@ -1002,7 +631,7 @@ var helperFunctions = {
                 "left": newLeft + '%',
                 "top": '71.6%',
             });
-            console.log("foo")
+            
             // game.nextStep();
             updateScore(10);
         };
@@ -1021,17 +650,17 @@ var helperFunctions = {
         $('#tipSide').css("top", "0" + "%")
         // game.nextStep();
         updateScore(10);
-        console.log(game.getCurrentStep().id)
+        
     }, //step 38
     "takeCS": function (evt) {
-        console.log(evt.target.id)
+        
         $("#micropipetTopView").animate({
             "left": '36.5%',
             "top": '15.5%'
         });
         // game.nextStep();
         updateScore(10);
-        console.log(game.getCurrentStep().id)
+        
     }, //step 39
     "toLane2": function (evt) {
         var key = evt.keycode;
@@ -1039,7 +668,7 @@ var helperFunctions = {
         var checkLane = (betterParseInt((game.getCurrentStep().id)));
         //var newTop = wellTop[topIndex];
         var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-        console.log(newLeft)
+        
         if (checkLane != leftIndex) {
             updateScore(-10);
             alert("Incorrect. Please select the correct lane.")
@@ -1049,7 +678,7 @@ var helperFunctions = {
                 "left": newLeft + '%',
                 "top": '71.6%',
             });
-            console.log("foo")
+            
             // game.nextStep();
             updateScore(10);
         };
@@ -1064,17 +693,17 @@ var helperFunctions = {
         $('#tipSide').css("top", "0" + "%")
         // game.nextStep();
         updateScore(10);
-        console.log(game.getCurrentStep().id)
+        
     }, //step 43
     "takeS1": function (evt) {
-        console.log(evt.target.id)
+        
         $("#micropipetTopView").animate({
             "left": '36.5%',
             "top": '15.5%'
         });
         // game.nextStep();
         updateScore(10);
-        console.log(game.getCurrentStep().id)
+        
     }, //step 44
     "toLane3": function (evt) {
         var key = evt.keycode;
@@ -1082,7 +711,7 @@ var helperFunctions = {
         var checkLane = (betterParseInt((game.getCurrentStep().id)));
         //var newTop = wellTop[topIndex];
         var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-        console.log(newLeft)
+        
         if (checkLane != leftIndex) {
             updateScore(-10);
             alert("Incorrect. Please select the correct lane.")
@@ -1092,7 +721,7 @@ var helperFunctions = {
                 "left": newLeft + '%',
                 "top": '71.6%',
             });
-            console.log("foo")
+            
             // game.nextStep();
             updateScore(10);
         };
@@ -1107,17 +736,17 @@ var helperFunctions = {
         $('#tipSide').css("top", "0" + "%")
         // game.nextStep();
         updateScore(10);
-        console.log(game.getCurrentStep().id)
+        
     }, //step 48
     "takeS2": function (evt) {
-        console.log(evt.target.id)
+        
         $("#micropipetTopView").animate({
             "left": '36.5%',
             "top": '15.5%'
         });
         // game.nextStep();
         updateScore(10);
-        console.log(game.getCurrentStep().id)
+        
     }, //step 49
     "toLane4": function (evt) {
         var key = evt.keycode;
@@ -1125,7 +754,7 @@ var helperFunctions = {
         var checkLane = (betterParseInt((game.getCurrentStep().id)));
         //var newTop = wellTop[topIndex];
         var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-        console.log(newLeft)
+        
         if (checkLane != leftIndex) {
             updateScore(-10);
             alert("Incorrect. Please select the correct lane.")
@@ -1135,7 +764,7 @@ var helperFunctions = {
                 "left": newLeft + '%',
                 "top": '71.6%',
             });
-            console.log("foo")
+            
             // game.nextStep();
             updateScore(10);
         };
@@ -1150,17 +779,17 @@ var helperFunctions = {
         $('#tipSide').css("top", "0" + "%")
         // game.nextStep();
         updateScore(10);
-        console.log(game.getCurrentStep().id)
+        
     }, //step 53
     "takeS2": function (evt) {
-        console.log(evt.target.id)
+        
         $("#micropipetTopView").animate({
             "left": '36.5%',
             "top": '15.5%'
         });
         // game.nextStep();
         updateScore(10);
-        console.log(game.getCurrentStep().id)
+        
     }, //step 54
     "toLane4": function (evt) {
         var key = evt.keycode;
@@ -1168,7 +797,7 @@ var helperFunctions = {
         var checkLane = (betterParseInt((game.getCurrentStep().id)));
         //var newTop = wellTop[topIndex];
         var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-        console.log(newLeft)
+        
         if (checkLane != leftIndex) {
             updateScore(-10);
             alert("Incorrect. Please select the correct lane.")
@@ -1178,7 +807,7 @@ var helperFunctions = {
                 "left": newLeft + '%',
                 "top": '71.6%',
             });
-            console.log("foo")
+            
             // game.nextStep();
             updateScore(10);
         };
@@ -1193,17 +822,17 @@ var helperFunctions = {
         $('#tipSide').css("top", "0" + "%")
         // game.nextStep();
         updateScore(10);
-        console.log(game.getCurrentStep().id)
+        
     }, //step 58
     "takeS3": function (evt) {
-        console.log(evt.target.id)
+        
         $("#micropipetTopView").animate({
             "left": '36.5%',
             "top": '15.5%'
         });
         // game.nextStep();
         updateScore(10);
-        console.log(game.getCurrentStep().id)
+        
     }, //step 59
     "toLane5": function (evt) {
         var key = evt.keycode;
@@ -1211,7 +840,7 @@ var helperFunctions = {
         var checkLane = (betterParseInt((game.getCurrentStep().id)));
         //var newTop = wellTop[topIndex];
         var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-        console.log(newLeft)
+        
         if (checkLane != leftIndex) {
             updateScore(-10);
             alert("Incorrect. Please select the correct lane.")
@@ -1221,7 +850,7 @@ var helperFunctions = {
                 "left": newLeft + '%',
                 "top": '71.6%',
             });
-            console.log("foo")
+            
             // game.nextStep();
             updateScore(10);
         };
@@ -1236,17 +865,17 @@ var helperFunctions = {
         $('#tipSide').css("top", "0" + "%")
         // game.nextStep();
         updateScore(10);
-        console.log(game.getCurrentStep().id)
+        
     }, //step 63
     "takeS4": function (evt) {
-        console.log(evt.target.id)
+        
         $("#micropipetTopView").animate({
             "left": '36.5%',
             "top": '15.5%'
         });
         // game.nextStep();
         updateScore(10);
-        console.log(game.getCurrentStep().id)
+        
     }, //step 64
     "toLane6": function (evt) {
         var key = evt.keycode;
@@ -1254,7 +883,7 @@ var helperFunctions = {
         var checkLane = (betterParseInt((game.getCurrentStep().id)));
         //var newTop = wellTop[topIndex];
         var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-        console.log(newLeft)
+        
         if (checkLane != leftIndex) {
             updateScore(-10);
             alert("Incorrect. Please select the correct lane.")
@@ -1264,7 +893,7 @@ var helperFunctions = {
                 "left": newLeft + '%',
                 "top": '71.6%',
             });
-            console.log("foo")
+            
             // game.nextStep();
             updateScore(10);
         };
@@ -1279,17 +908,17 @@ var helperFunctions = {
         $('#tipSide').css("top", "0" + "%")
         // game.nextStep();
         updateScore(10);
-        console.log(game.getCurrentStep().id)
+        
     }, //step 68
     "takeS5": function (evt) {
-        console.log(evt.target.id)
+        
         $("#micropipetTopView").animate({
             "left": '36.5%',
             "top": '15.5%'
         });
         // game.nextStep();
         updateScore(10);
-        console.log(game.getCurrentStep().id)
+        
     }, //step 69
     "toLane7": function (evt) {
         var key = evt.keycode;
@@ -1297,7 +926,7 @@ var helperFunctions = {
         var checkLane = (betterParseInt((game.getCurrentStep().id)));
         //var newTop = wellTop[topIndex];
         var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-        console.log(newLeft)
+        
         if (checkLane != leftIndex) {
             updateScore(-10);
             alert("Incorrect. Please select the correct lane.")
@@ -1307,7 +936,7 @@ var helperFunctions = {
                 "left": newLeft + '%',
                 "top": '71.6%',
             });
-            console.log("foo")
+            
             // game.nextStep();
             updateScore(10);
         };
@@ -1322,7 +951,7 @@ var helperFunctions = {
         $('#tipSide').css("top", "0" + "%")
         // game.nextStep();
         updateScore(10);
-        console.log(game.getCurrentStep().id)
+        
     }, //step 72
     "clickLid": function () {
         $("#lidSide").animate({
@@ -1353,7 +982,7 @@ var helperFunctions = {
         //            $("#gelVoltageCover").css('zIndex', '5000');
         //            // game.nextStep();
         //            updateScore(10);
-        //            console.log(game.getCurrentStep().id)
+        //            
         //        }, 1500);
     }, //step 73
     "setVoltage": function () {
@@ -1363,12 +992,12 @@ var helperFunctions = {
         }
         $("#powerSupplyUp").click(function () {
             updateVoltage(10);
-            console.log(voltage);
+            ;
             $("#voltage").val(voltage);
         });
         $("#powerSupplyDown").click(function () {
             updateVoltage(-10);
-            console.log(voltage);
+            ;
             $("#voltage").val(voltage);
         });
         if (voltage == 100 || testMode) {
@@ -1386,7 +1015,7 @@ var helperFunctions = {
         //        }
         $("#powerSupplyUp").click(function () {
             updateVoltage(10);
-            console.log(voltage);
+            ;
             $("#voltage").val(voltage);
             if (voltage == 100) {
                 // game.nextStep();
@@ -1400,7 +1029,7 @@ var helperFunctions = {
         });
         $("#powerSupplyDown").click(function () {
             updateVoltage(-10);
-            console.log(voltage);
+            ;
             $("#voltage").val(voltage);
             if (voltage == 100) {
                 // game.nextStep();
@@ -1474,20 +1103,20 @@ var helperFunctions = {
         $("#answerInput").delay(1).animate({
             opacity: '1.0'
         });
-        console.log(answer)
+        
     }, //step 79
     "pickLane": function () {
         var studentAnswer = $("#answerInput").val();
         if (studentAnswer != (answer - 2)) {
             alert("Incorrect. Please select the correct lane")
             updateScore(-50);
-            console.log("wrong lane")
+            
         }
         if (studentAnswer == (answer - 2)) {
             // game.nextStep();
             updateScore(10);
-            console.log(game.getCurrentStep().id)
-            console.log("correct lane")
+            
+            
             endGame("win");
         }
     },
@@ -1495,12 +1124,12 @@ var helperFunctions = {
     "timerClicked": function () {
         //if ((game.getCurrentStep().id == "setTimer")){
         var time = $("#timer").val();
-        console.log(time)
+        
         if (time != 45) {
             updateScore(-10);
         }
         if (time == 45) {
-            console.log(game.getCurrentStep().id)
+            
             $("button").delay(1).animate({
                 opacity: '0.0'
             });
@@ -1538,7 +1167,7 @@ var helperFunctions = {
             setTimeout(function () {
                 // game.nextStep();
                 updateScore(10);
-                console.log(game.getCurrentStep().id)
+                
             }, 2700);
         };
     },
@@ -1598,7 +1227,7 @@ var helperFunctions = {
         setTimeout(function () {
             // game.nextStep();
             updateScore(10);
-            console.log(game.getCurrentStep().id)
+            
         }, 300);
     }
 }

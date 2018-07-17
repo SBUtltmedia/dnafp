@@ -542,19 +542,23 @@ $.keyframe.define([{ name:'moveTip4',
 $.keyframe.define([{ name:'tipToBin',
     '0%':{
         left: '55%',
-        top: '96%',
+        top: '100%',
 },
     '10.9091%':{
         left: '55%',
-        top: '96%',
+        top: '105%',
 },
     '72.72727%':{
-         left: '55%',
-        top: '96%',
+        left: '55%',
+        top: '120%',
+},
+    '90%':{
+        left: '55%',
+        top: '130%',
 },
     '100%':{
         left: '55%', 
-        top: '200%',
+        top: '170%',
         opacity: 0,
 },
 },])
@@ -597,6 +601,25 @@ $.keyframe.define([{ name:'moveLoadingDye',
 },
 },])
 
+
+$.keyframe.define([{ name:'addDyeToTube',
+    '0%':{
+        left: '20.9%',
+        top: '5.4%',
+},
+    '20%':{
+        left: '20.9%',
+        top: '0%',
+},
+    '60%':{
+        left: '34%',
+        top: '15%',
+},
+    '100%':{
+        left: '34%',
+        top: '39%',
+},
+},])
 
 
 $.keyframe.define([{ name:'returnLoadingDye1',

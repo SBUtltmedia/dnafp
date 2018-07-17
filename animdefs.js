@@ -7,7 +7,7 @@ var animdefs = {
     "anim_moveTip4": "moveTip4 5s linear 0s 1 normal forwards",
     "anim_toTopView2": "toTopView2 1s 0s 1 linear normal forwards",
     "anim_moveLoadingDye2": "moveLoadingDye2 2s linear 0s 1 normal forwards",
-    "anim_tipToBin": "tipToBin 2.2s linear 0s 1 normal forwards",
+    "anim_tipToBin": "tipToBin .5s linear 0s 1 normal forwards",
     "anim_moveBlock": "moveBlock 1s linear 0s 1 normal forwards",
     "anim_flickTube": "flickTube 0.6s linear 0s 1 normal forwards",
     "anim_quickFadeIn": "quickFadeIn .125s 0s 1 linear normal forwards",
@@ -17,6 +17,9 @@ var animdefs = {
     "anim_tipVisible": "tipVisible 0.1s linear 0s normal forwards",
     "anim_pressTube3": "pressTube3 0.3s linear 0s 1 normal forwards",
     "anim_hideTip1": "hideTip1 2s linear 0s 1 normal forwards",
+    
+    "anim_hideTipp1": "hideTip1 .9s linear 0s 1 normal forwards",
+    
     "anim_tube2ToBath": "tube2ToBath 1s linear 0s 1 normal forwards",
     "anim_closeCap": "closeCap 0.5s linear reverse forwards",
     "anim_moveTube": "moveTube 0.5s linear 0s 1 normal forwards",
@@ -40,9 +43,9 @@ var animdefs = {
     "anim_stain2": "stain2 1s 0s 1 linear normal forwards",
     "anim_rotateCap": "rotateCap 0.5s linear forwards",
     "anim_showTip1": "showTip1 1s linear 0s 1 normal forwards",
+    "anim_showTipp1": "showTip1 .3s linear 0s 1 normal forwards",
+
     "anim_lowerTip1": "lowerTip1 0.4s linear 0s 1 normal forwards",
-
-
     "anim_insertTube0": "insertTube0 1.8s linear 0s 1 normal forwards",
     "anim_insertTube1": "insertTube1 1.8s linear 0s 1 normal forwards",
     "anim_insertTube2": "insertTube2 1.8s linear 0s 1 normal forwards",
@@ -53,10 +56,11 @@ var animdefs = {
     "anim_addTip1": "addTip1 5s linear 0s 1 normal forwards",
     "anim_addTipp1": "addTipp1 3s linear 0s 1 normal forwards",
     
+    "anim_addDyeToTube": "addDyeToTube 3s linear 0s 1 normal forwards",
+    
     "anim_toFrontView": "toFrontView 1s 0s 1 linear normal reverse",
     "anim_tubeDown": "tubeDown 0.5s linear 0s 1 reverse forwards",
     "anim_toTopView1": "toTopView1 1s 0s 1 linear normal forwards",
-
     "anim_tipToTube4": "tipToTube4 3.4s linear 0s 1 normal forwards",
     "anim_oscillate3": "oscillate3 0.75s linear 0s infinite normal forwards",
     "anim_oscillate2": "oscillate2 0.75s linear 0s infinite normal forwards",
