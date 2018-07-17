@@ -248,7 +248,7 @@ function tipSelect(number) {
 //    if (arrayIndex > -1 && arrayIndex < 4) moveTipSide(directionsForSideTipMovement[arrayIndex])
 //})
 function moveTipSide(direction) {
-    if (game.getCurrentStep().id == "insertTip") {
+   
         breach = false;
         var sideViewWidth = parseFloat($('#sideView').css("width"));
         var sideViewHeight = parseFloat($('#sideView').css("height"));
@@ -279,7 +279,7 @@ function moveTipSide(direction) {
                 //
                 timeInWell = null;
                 message("Make sure the tip stays within the well!")
-            }
+       
         }
     }
 }

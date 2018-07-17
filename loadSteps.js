@@ -295,6 +295,7 @@ function loadSteps() {
                         "eventSelector": ".loadingDye"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.openDye
+                        , "postEventFunction": helperFunctions.openDyePost
                     }
                 }
                 , {
@@ -456,7 +457,7 @@ function loadSteps() {
                     , "longText": "Click on the gel comb to remove it"
                     , "feedbackText": "complete the first step"
                     , "logic": {
-                        "eventSelector": "#gelComb"
+                        "eventSelector": "#gelCombHitBox"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.removeComb
                     }
@@ -539,6 +540,10 @@ function loadSteps() {
                         "eventSelector": "html"
                         , "eventType": "keydown"
                         , "eventFunction": helperFunctions.insertTip
+                        , "criteria": {
+                            "variable": "TipPosition",
+                            "value": 1000
+                        }
                     }
                 }
                 , {

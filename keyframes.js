@@ -1488,13 +1488,14 @@ $.keyframe.define([{ name:'quickFadeOut',
 $.keyframe.define([{ name:'removeComb',
     '0%':{
         top: '71%',
-        opacity: 1
 },
     '90%':{
-        top: '73.5%'
+        top: '66%',
+        opacity: 1       
 },
     '100%':{
-            opacity: 0
+        top: '66%',
+        opacity: 0
 }
 },])
 

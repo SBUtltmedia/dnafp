@@ -155,6 +155,14 @@ function startStep(step) {
 //        animate("#indicatorArrow1", 50, "removeClass", "opClass")
 //    }
     var s = jQuery.extend(true, {}, step);
+    if (s.logic.criteria && !(s.logic.criteria.variable in state)) 
+        {
+        state[s.logic.criteria.variable] ="";   
+            
+        }
+    
+    
+    
     $("#headerText").text(s.longText);
     $("#footerText").text(s.bottomText);
     var composite = function (evt) {
@@ -165,7 +173,7 @@ function startStep(step) {
             state[s.logic.criteria.variable] = s.logic.criteria.value
         }
 
-        if (s.logic.criteria) console.log(state[s.logic.criteria.variable],s.logic.criteria.value)
+
         
         if ((s.logic.criteria && isEqual(state[s.logic.criteria.variable], s.logic.criteria.value)) || !s.logic.criteria) {
             console.log("moving to next step", testMode,s.logic)

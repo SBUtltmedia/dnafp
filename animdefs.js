@@ -28,7 +28,7 @@ var animdefs = {
     "anim_pipetToTube6": "pipetToTube6 3.4s linear 0s 1 normal forwards",
     "anim_pipetToBin": "pipetToBin 1.6s linear 0s 1 normal forwards",
     "anim_pipetToTube1": "pipetToTube1 3.4s linear 0s 1 normal forwards",
-
+    
 
     "anim_mixTubeContent": "mixTubeContent .9s linear 0s 5 normal forwards",
     "anim_mixs0TubeBody": "mixs0TubeBody .9s linear 0s 5 normal forwards",

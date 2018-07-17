@@ -1,5 +1,4 @@
-
-var microTubeEnum=["untouched","opened","closed","flicked","tapped","returned","exposed"]
+var microTubeEnum = ["untouched", "opened", "closed", "flicked", "tapped", "returned", "exposed"]
 state["microtubeState"] = Array(6).fill(microTubeEnum[0])
 var criteriaPassed;
 var microtubeAnimation = [{
@@ -29,7 +28,7 @@ var mix = 0;
 
 function updateVoltage(amount) {
     voltage += amount;
-    
+
 }
 
 function zeroTime(def) {
@@ -47,20 +46,20 @@ function animate(selector, delay, method, param) {
         delay = 0
         animateDur = .001;
     }
-    
-    
+
+
     if ($(selector + ':visible').length == 0) {
-        setTimeout(function() {
+        setTimeout(function () {
             $(selector).show();
             $(selector).removeClass("opClass");
-            $(selector).css("visibility","visible");
+            $(selector).css("visibility", "visible");
         }, delay)
     }
-    
-     if (method == "css")
+
+    if (method == "css")
 
     {
-        
+
         setTimeout(function () {
             $(selector).css(...param);
         }, delay)
@@ -68,7 +67,7 @@ function animate(selector, delay, method, param) {
         //$(selector).delay(delay).playKeyframe(param, function () {});
     }
 
-    
+
     if (method == "keyframe")
 
     {
@@ -84,7 +83,7 @@ function animate(selector, delay, method, param) {
 
         //$(selector).delay(delay).playKeyframe(param, function () {});
     }
-    
+
     if (method == "addClass")
 
     {
@@ -99,7 +98,7 @@ function animate(selector, delay, method, param) {
             $(selector).removeClass(param);
         }, delay)
     }
-    
+
     if (method == "animate")
 
     {
@@ -143,12 +142,12 @@ var helperFunctions = {
         state["firstStep"] = 45;
     },
     "openEnzymePost": function () {
-        animate("#indicatorArrow0", 0, "removeClass", "opClass")        
+        animate("#indicatorArrow0", 0, "removeClass", "opClass")
         animate("#indicatorArrow0", 0, "keyframe", animdefs["anim_oscillate"])
         updateScore(10);
     }, //step 2
     "takeEnzyme": function (evt) {
-        
+
         var tipNum = betterParseInt(evt.target.id);
         var tipLeft = tips[(tipNum - 1)];
         // in event
@@ -168,19 +167,16 @@ var helperFunctions = {
 
     }, //step 3
     "setVolume": function () {
-        
+
         state["volume"] = $("#volumeInput").val();
     },
     "setVolumePost": function () {
         // game.nextStep();
         updateScore(10);
-        
-        
         animate("#volumeButton,#volumeInput", 1, "animate", [{
             opacity: '0.0'
         }]);
         animate("#view", 0, zoom, [50, 50, 1, 1000])
-        //zoom(50, 50, 1, 1000)
         animate("#micropipet2", 1100, "keyframe", animdefs["anim_lowerPipet"])
         animate("#indicatorArrow6", 0, "animate", [{
             opacity: '1.0'
@@ -189,16 +185,16 @@ var helperFunctions = {
     }, //step 4
     "openTube": function (evt) {
 
-        
+
         state["microtubeState"][0] = microTubeEnum[1];
-      
-     
-            animate("#s0Tube", 0, "keyframe", animdefs["anim_moveTube"])
-            animate("#s0Cap", 0, "keyframe", animdefs["anim_rotateCap"])
-            animate("#indicatorArrow6", 0, "animate", [{
-                opacity: '0.0'
+
+
+        animate("#s0Tube", 0, "keyframe", animdefs["anim_moveTube"])
+        animate("#s0Cap", 0, "keyframe", animdefs["anim_rotateCap"])
+        animate("#indicatorArrow6", 0, "animate", [{
+            opacity: '0.0'
             }])
-                      
+
     }, //step 5
     "addEnzyme": function () {
 
@@ -209,7 +205,7 @@ var helperFunctions = {
             opacity: '1.0'
         }]);
 
-        
+
     }, //step 6
     "mixContents": function () {
         animate("#view", 0, zoom, [39, 67, 12, 1050])
@@ -229,8 +225,6 @@ var helperFunctions = {
             opacity: '1.0'
         }]);
         animate("#indicatorArrow3", 0, "keyframe", animdefs["anim_oscillate3"]);
-
-
     },
 
     "mixContentsPost": function () {
@@ -242,10 +236,7 @@ var helperFunctions = {
         });
         if (testMode) {
             $("#zoomOutButton1").trigger("click")
-
-
         }
-
     }, //step 7
 
     "replaceTip": function () {
@@ -256,40 +247,34 @@ var helperFunctions = {
         animate("#indicatorArrow3", 50, "animate", [{
             opacity: '0.0'
         }]);
-
     },
     "closeTube": function (evt) {
         animate("#s0Cap", 0, "keyframe", animdefs["anim_closeCap"])
         state["microtubeState"][0] = microTubeEnum[2];
     },
     "flickTube": function (evt) {
-         
         animate("#s0Tube", 0, "keyframe", animdefs["anim_flickTube"]);
         state["microtubeState"][0] = microTubeEnum[3];
     },
     "tapTube": function () {
-    
-            animate("#s0Tube", 0, "keyframe", animdefs["anim_tapTube"])
-               state["microtubeState"][0] = microTubeEnum[4];
+        animate("#s0Tube", 0, "keyframe", animdefs["anim_tapTube"])
+        state["microtubeState"][0] = microTubeEnum[4];
     },
     "tubeRack": function () {
-   
-     
-            animate("#s0Tube", 0, "keyframe", animdefs["anim_tubeDown"])
-            for (i = 0; i <= 5; i++) {
-                animate("#s" + i + "Tube", 1000, "keyframe", animdefs["anim_tube" + i + "ToBath"]);
-            }
-
-            animate("#tubeBlock", 1000, "keyframe", animdefs["anim_moveBlock"]);
-            animate(".pressButton", 2000, "animate", [{
-                opacity: '1.0'
+        animate("#s0Tube", 0, "keyframe", animdefs["anim_tubeDown"])
+        for (i = 0; i <= 5; i++) {
+            animate("#s" + i + "Tube", 1000, "keyframe", animdefs["anim_tube" + i + "ToBath"]);
+        }
+        animate("#tubeBlock", 1000, "keyframe", animdefs["anim_moveBlock"]);
+        animate(".pressButton", 2000, "animate", [{
+            opacity: '1.0'
             }])
-                state["microtubeState"][0] = microTubeEnum[5];
+        state["microtubeState"][0] = microTubeEnum[5];
 
     }, //step 12
     "pressTube": function (evt) {
         var tubeId = evt.target.id.split("_")[1];
-        
+
         if (testMode) {
             animate(".pressButton", 0, "animate", [{
                 opacity: '0.0'
@@ -303,21 +288,21 @@ var helperFunctions = {
             opacity: '0.0'
         }])
         state["microtubeState"][tubeId] = microTubeEnum[6]
-
     }, //step 13
+    
     "removeLid": function (evt) {
         var top1 = document.getElementsByClassName("topView")
         animate("#waterBathLid", 0, "keyframe", animdefs["anim_removeLid"])
 
     }, //step 14
     "checkTemp": function () {
-//        criteriaPassed = true;
+        //        criteriaPassed = true;
         animate("#view", 0, zoom, [65, 21, 10, 1000])
         animate("#zoomOutButton", 1600, "animate", [{
             opacity: '1.0'
         }]);
         $("#zoomOutButton").on("click", function () {
-            
+
             animate("#view", 0, zoom, [50, 50, 1, 1000]);
             animate("#zoomOutButton", 0, "animate", [{
                 opacity: '0.0'
@@ -328,7 +313,7 @@ var helperFunctions = {
         if (testMode) {
             $("#zoomOutButton").trigger("click");
         }
-    },//step 15
+    }, //step 15
     "insertRack": function () {
         animate("#tubeBlock", 0, "keyframe", animdefs["anim_insertRack"])
         for (i = 0; i <= 5; i++) {
@@ -337,85 +322,97 @@ var helperFunctions = {
         }
         setTimeout(function () {
             updateScore(10);
-            
+
         }, 300);
-    },//step 16
+    }, //step 16
     "closeLid": function () {
         animate("#waterBathLid", 0, "keyframe", animdefs["anim_replaceLid"])
         animate("#view", 1000, zoom, [65, 36, 5, 1500])
         animate("#timerButton,#timer", 1000, "removeClass", "opClass");
-        
+
         // Joochan doesn't understand what #button do.
         animate("#button", 1000, "animate", [{
             opacity: '1.0'
         }]);
-        
-        
+
+
     }, //step 17
     "setTimer": function () {
         //if ((game.getCurrentStep().id == "setTimer")){
-        state["time"] =  $("#timer").val();
+        state["time"] = $("#timer").val();
     },
     "setTimerPost": function () {
-        
+
         animate("#button,#timer,#timerButton", 1, "animate", [{
             opacity: '0.0'
         }]);
         animate("#view", 0, zoom, [50, 50, 1, 1000]);
-        animate("#day1", 1000, "animate", [{ opacity: '0.0'}]);
+        animate("#day1", 1000, "animate", [{
+            opacity: '0.0'
+        }]);
         animate("#day2", 2000, "removeClass", "opClass")
-        animate("#day2", 2000, "animate", [{ opacity: '1.0'}])
+        animate("#day2", 2000, "animate", [{
+            opacity: '1.0'
+        }])
         animate("#day2", 2000, "keyframe", animdefs["anim_changeDay2"])
-        animate("#powerSupply", 2000, "animate", [{ opacity: '1.0'}])
-        animate("#powerSupplyUp", 2000, "animate", [{ opacity: '1.0'}])
-        animate("#powerSupplyDown", 2000, "animate", [{ opacity: '1.0'}])
-        animate("#voltage", 2000, "animate", [{ opacity: '1.0'}])
-        animate("#gelSideView", 2000, "animate", [{ opacity: '1.0'}])
-        
+//        animate("#powerSupply", 2000, "animate", [{
+//            opacity: '1.0'
+//        }])
+//        animate("#powerSupplyUp", 2000, "animate", [{
+//            opacity: '1.0'
+//        }])
+//        animate("#powerSupplyDown", 2000, "animate", [{
+//            opacity: '1.0'
+//        }])
+//        animate("#voltage", 2000, "animate", [{
+//            opacity: '1.0'
+//        }])
+
         state["microtubeState"] = Array(6).fill(microTubeEnum[0])
 
-        setTimeout(function(){
-            $("#bothDays *").resetKeyframe(function(){});
+        setTimeout(function () {
+            $("#bothDays *").resetKeyframe(function () {});
             animate("#pipetteTip1", 0, "css", [{
-            visibility: "hidden"
+                visibility: "hidden"
             }])
-            },0);
+        }, 0);
 
     }, //step 18
     "openDye": function (evt) {
         animate("#loadDye", 0, "keyframe", animdefs["anim_moveLoadingDye"])
         animate("#loadDyeCap", 0, "keyframe", animdefs["anim_rotateCap"])
-        
+
     }, //step 19
     "openDyePost": function () {
         animate("#indicatorArrow0", 0, "removeClass", "opClass")
         animate("#indicatorArrow0", 0, "keyframe", animdefs["anim_oscillate"])
-    },    
-     
+    },
+
     "takeDye": function (evt) {
-        
+
         var tippNum = betterParseInt(evt.target.id);
         var tippLeft = tips[(tippNum - 1)];
+        animate("#indicatorArrow0", 0, "addClass", "opClass")
 
         // in event
-        makePipetteTippAnimation(tippLeft);        
+        makePipetteTippAnimation(tippLeft);
         animate("#micropipet2", 0, "keyframe", animdefs["anim_addTipp1"])
         animate("#" + evt.target.id, 0, "keyframe", animdefs["anim_hideTipp1"])
-        animate("#pipetteTip1", 0, "keyframe", animdefs["anim_showTipp1"])        
+        animate("#pipetteTip1", 0, "keyframe", animdefs["anim_showTipp1"])
 
         $("#holder").css('z-index', '3');
-        
+
         animate("#volumeButton1,#volumeInput1", 5000, "removeClass", "opClass")
         animate("#volumeButton1,#volumeInput1", 5000, "animate", [{
             opacity: '1.0'
         }]);
         animate("#view", 3000, zoom, [23, 12, 7, 1400])
-        
-        
-        
+
+
+
     }, //step 20
     "setDyeVolume": function () {
-        
+
         state["volume1"] = $("#volumeInput1").val();
     },
     "setDyeVolumePost": function () {
@@ -423,13 +420,13 @@ var helperFunctions = {
         animate("#volumeButton1,#volumeInput1", 1, "animate", [{
             opacity: '0.0'
         }]);
-        animate("#view", 0, zoom, [50, 50, 1, 1000]) 
+        animate("#view", 0, zoom, [50, 50, 1, 1000])
         animate("#indicatorArrow6", 0, "animate", [{
             opacity: '1.0'
         }])
         animate("#indicatorArrow6", 0, "keyframe", animdefs["anim_oscillate4"])
     }, //step 21
-    
+
     "openTube1": function (evt) {
         helperFunctions.openTube(evt)
     }, //step 22
@@ -443,7 +440,6 @@ var helperFunctions = {
     }, //step 23
     "mixContents1": function () {
         helperFunctions.mixContents()
-        console.log("hellllooooo")
     },
     "mixContents1Post": function () {
         helperFunctions.mixContentsPost()
@@ -466,97 +462,28 @@ var helperFunctions = {
     "pressTube1": function (evt) {
         helperFunctions.pressTube(evt)
     }, //step 29
-    
+
     "removeComb": function () {
-        $("#gelComb").delay(50).animate({
-            top: '-=5%'
-        });
-        $("#gelComb").delay(150).animate({
-            opacity: '0.0'
-        });
-        setTimeout(function () {
-            // game.nextStep();
-            updateScore(10);
-            //game.setCurrentStep(takeEnzyme)
-            
-        }, 300);
+        animate("#gelComb", 0, "keyframe", animdefs["anim_removeComb"])
+        animate("#gelSideView", 1000, "keyframe", animdefs["anim_toTopView1"])
     }, //step 30
+    
     "toTop": function () {
-        animate("#topView", 0, "keyframe", animdefs["anim_toTopView1"])
-        animate("#day2", 0, "keyframe", animdefs["anim_toTopView2"])
-        animate("#day1", 0, "keyframe", animdefs["anim_toTopView2"])
-        animate("#gelTopView", 0, "keyframe", animdefs["anim_toTopView1"])
-        animate("#labBenchTop", 0, "keyframe", animdefs["anim_toTopView1"])
-        //$("#tipBoxTop").addClass(animdefs["anim_tipVisible"])
+        $("#day2, #day2 *, #loadDyeCap, #gelSideView").hide();
+        $("#day1").hide();
+        $("#bothDays").hide();
+        $("#topView").show();
 
-        //HAVE TO BE CONFIRMED
-        animate("#tipBoxTop", 0, "animate", [{
-            opacity: '1.0'
-        }]);
-        /*
-                $("#tipBoxTop").animate({
-                    opacity: '1.0'
-                });
-        */
-        //HAVE TO BE CONFIRMED
-        animate("#arrowDown,#arrowUp,#labBenchTop,#gelTopView,#lidSide,#powerSupplyTop,.holderTop,.tipBoxTop,#wasteBinTop,#zoomOutButton2", 1, "animate", [{
-            opacity: '1.0'
-        }]);
-        /*        $("#arrowDown").delay(1).animate({
-                    opacity: '1.0'
-                });
-                $("#arrowUp").delay(1).animate({
-                    opacity: '1.0'
-                });
-                $("#labBenchTop").delay(1).animate({
-                    opacity: '1.0'
-                });
-                $("#gelTopView").delay(1).animate({
-                    opacity: '1.0'
-                });
-                $("#lidSide").delay(1).animate({
-                    opacity: '1.0'
-                });
-                $("#powerSupplyTop").delay(1).animate({
-                    opacity: '1.0'
-                });
-                $('.holderTop').delay(1).animate({
-                    opacity: '1.0'
-                });
-                $(".tipBoxTop").delay(1).animate({
-                    opacity: '1.0'
-                });
-                $("#wasteBinTop").delay(1).animate({
-                    opacity: '1.0'
-                });
-                $("#zoomOutButton2").delay(1).animate({
-                    opacity: '1.0'
-                });
-        */
-        //HAVE TO BE CONFIRMED
-        animate("#zoomOutButton3,#powerSupplyUp,#powerSupplyDown,#tip", 1, "animate", [{
-            opacity: '0.0'
-        }]);
-        /*
-                $("#zoomOutButton3").delay(1).animate({
-                    opacity: '0.0'
-                });
-                $("#powerSupplyUp").delay(1).animate({
-                    opacity: '0.0'
-                });
-                $("#powerSupplyDown").delay(1).animate({
-                    opacity: '0.0'
-                });
-                $("#tip").delay(1).animate({
-                    opacity: '0.0'
-                });
-        */
+        $("#gelTopView").show();
+        $("#labBenchTop").show();
+        $("#labBenchTop").show();
 
-        setTimeout(function () {
-            // game.nextStep();
-            updateScore(10);
-            
-        }, 300);
+        //$("#tipBoxTop").addClass("anim_tipVisible")
+
+        animate("#tipBoxTop",0,"animate",[{opacity: '1.0'}]);        
+       $("#arrowDown,#arrowUp,#labBenchTop,#gelTopView,#lidSide,#powerSupplyTop,.holderTop,.tipBoxTop,#wasteBinTop,#zoomOutButton2").css({opacity: '1.0'}).removeClass("opClass");
+
+       $("#zoomOutButton3,#powerSupplyUp,#powerSupplyDown,#tip").hide();      
     }, //step 31
     "orientGel": function () {
 
@@ -587,7 +514,7 @@ var helperFunctions = {
         setTimeout(function () {
             // game.nextStep();
             updateScore(10);
-            
+
         }, 300);
     }, //step 32, 37, 42
     "addTipTop": function () {
@@ -606,14 +533,14 @@ var helperFunctions = {
     }, //step 33
     "takeHind": function (evt) {
         i
-        
+
         $("#micropipetTopView").animate({
             "left": '36.5%',
             "top": '15.5%'
         });
         // game.nextStep();
         updateScore(10);
-        
+
     }, //step 34
     "toLane1": function (evt) {
         var key = evt.keycode;
@@ -621,7 +548,7 @@ var helperFunctions = {
         var checkLane = (betterParseInt((game.getCurrentStep().id)));
         //var newTop = wellTop[topIndex];
         var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-        
+        console.log(newLeft)
         if (checkLane != leftIndex) {
             updateScore(-10);
             alert("Incorrect. Please select the correct lane.")
@@ -631,7 +558,7 @@ var helperFunctions = {
                 "left": newLeft + '%',
                 "top": '71.6%',
             });
-            
+
             // game.nextStep();
             updateScore(10);
         };
@@ -640,6 +567,7 @@ var helperFunctions = {
     }, //step 35,40
     "insertTip": function (evt) {
         var arrayIndex = evt.keyCode - 37;
+          console.log(arrayIndex)
         if (arrayIndex > -1 && arrayIndex < 4) moveTipSide(directionsForSideTipMovement[arrayIndex])
     }, //step 36
     "disposeTip": function () {
@@ -650,17 +578,17 @@ var helperFunctions = {
         $('#tipSide').css("top", "0" + "%")
         // game.nextStep();
         updateScore(10);
-        
+
     }, //step 38
     "takeCS": function (evt) {
-        
+
         $("#micropipetTopView").animate({
             "left": '36.5%',
             "top": '15.5%'
         });
         // game.nextStep();
         updateScore(10);
-        
+
     }, //step 39
     "toLane2": function (evt) {
         var key = evt.keycode;
@@ -668,7 +596,7 @@ var helperFunctions = {
         var checkLane = (betterParseInt((game.getCurrentStep().id)));
         //var newTop = wellTop[topIndex];
         var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-        
+
         if (checkLane != leftIndex) {
             updateScore(-10);
             alert("Incorrect. Please select the correct lane.")
@@ -678,7 +606,7 @@ var helperFunctions = {
                 "left": newLeft + '%',
                 "top": '71.6%',
             });
-            
+
             // game.nextStep();
             updateScore(10);
         };
@@ -693,17 +621,17 @@ var helperFunctions = {
         $('#tipSide').css("top", "0" + "%")
         // game.nextStep();
         updateScore(10);
-        
+
     }, //step 43
     "takeS1": function (evt) {
-        
+
         $("#micropipetTopView").animate({
             "left": '36.5%',
             "top": '15.5%'
         });
         // game.nextStep();
         updateScore(10);
-        
+
     }, //step 44
     "toLane3": function (evt) {
         var key = evt.keycode;
@@ -711,7 +639,7 @@ var helperFunctions = {
         var checkLane = (betterParseInt((game.getCurrentStep().id)));
         //var newTop = wellTop[topIndex];
         var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-        
+
         if (checkLane != leftIndex) {
             updateScore(-10);
             alert("Incorrect. Please select the correct lane.")
@@ -721,7 +649,7 @@ var helperFunctions = {
                 "left": newLeft + '%',
                 "top": '71.6%',
             });
-            
+
             // game.nextStep();
             updateScore(10);
         };
@@ -736,17 +664,17 @@ var helperFunctions = {
         $('#tipSide').css("top", "0" + "%")
         // game.nextStep();
         updateScore(10);
-        
+
     }, //step 48
     "takeS2": function (evt) {
-        
+
         $("#micropipetTopView").animate({
             "left": '36.5%',
             "top": '15.5%'
         });
         // game.nextStep();
         updateScore(10);
-        
+
     }, //step 49
     "toLane4": function (evt) {
         var key = evt.keycode;
@@ -754,7 +682,7 @@ var helperFunctions = {
         var checkLane = (betterParseInt((game.getCurrentStep().id)));
         //var newTop = wellTop[topIndex];
         var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-        
+
         if (checkLane != leftIndex) {
             updateScore(-10);
             alert("Incorrect. Please select the correct lane.")
@@ -764,7 +692,7 @@ var helperFunctions = {
                 "left": newLeft + '%',
                 "top": '71.6%',
             });
-            
+
             // game.nextStep();
             updateScore(10);
         };
@@ -779,17 +707,17 @@ var helperFunctions = {
         $('#tipSide').css("top", "0" + "%")
         // game.nextStep();
         updateScore(10);
-        
+
     }, //step 53
     "takeS2": function (evt) {
-        
+
         $("#micropipetTopView").animate({
             "left": '36.5%',
             "top": '15.5%'
         });
         // game.nextStep();
         updateScore(10);
-        
+
     }, //step 54
     "toLane4": function (evt) {
         var key = evt.keycode;
@@ -797,7 +725,7 @@ var helperFunctions = {
         var checkLane = (betterParseInt((game.getCurrentStep().id)));
         //var newTop = wellTop[topIndex];
         var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-        
+
         if (checkLane != leftIndex) {
             updateScore(-10);
             alert("Incorrect. Please select the correct lane.")
@@ -807,7 +735,7 @@ var helperFunctions = {
                 "left": newLeft + '%',
                 "top": '71.6%',
             });
-            
+
             // game.nextStep();
             updateScore(10);
         };
@@ -822,17 +750,17 @@ var helperFunctions = {
         $('#tipSide').css("top", "0" + "%")
         // game.nextStep();
         updateScore(10);
-        
+
     }, //step 58
     "takeS3": function (evt) {
-        
+
         $("#micropipetTopView").animate({
             "left": '36.5%',
             "top": '15.5%'
         });
         // game.nextStep();
         updateScore(10);
-        
+
     }, //step 59
     "toLane5": function (evt) {
         var key = evt.keycode;
@@ -840,7 +768,7 @@ var helperFunctions = {
         var checkLane = (betterParseInt((game.getCurrentStep().id)));
         //var newTop = wellTop[topIndex];
         var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-        
+
         if (checkLane != leftIndex) {
             updateScore(-10);
             alert("Incorrect. Please select the correct lane.")
@@ -850,7 +778,7 @@ var helperFunctions = {
                 "left": newLeft + '%',
                 "top": '71.6%',
             });
-            
+
             // game.nextStep();
             updateScore(10);
         };
@@ -865,17 +793,17 @@ var helperFunctions = {
         $('#tipSide').css("top", "0" + "%")
         // game.nextStep();
         updateScore(10);
-        
+
     }, //step 63
     "takeS4": function (evt) {
-        
+
         $("#micropipetTopView").animate({
             "left": '36.5%',
             "top": '15.5%'
         });
         // game.nextStep();
         updateScore(10);
-        
+
     }, //step 64
     "toLane6": function (evt) {
         var key = evt.keycode;
@@ -883,7 +811,7 @@ var helperFunctions = {
         var checkLane = (betterParseInt((game.getCurrentStep().id)));
         //var newTop = wellTop[topIndex];
         var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-        
+
         if (checkLane != leftIndex) {
             updateScore(-10);
             alert("Incorrect. Please select the correct lane.")
@@ -893,7 +821,7 @@ var helperFunctions = {
                 "left": newLeft + '%',
                 "top": '71.6%',
             });
-            
+
             // game.nextStep();
             updateScore(10);
         };
@@ -908,17 +836,17 @@ var helperFunctions = {
         $('#tipSide').css("top", "0" + "%")
         // game.nextStep();
         updateScore(10);
-        
+
     }, //step 68
     "takeS5": function (evt) {
-        
+
         $("#micropipetTopView").animate({
             "left": '36.5%',
             "top": '15.5%'
         });
         // game.nextStep();
         updateScore(10);
-        
+
     }, //step 69
     "toLane7": function (evt) {
         var key = evt.keycode;
@@ -926,7 +854,7 @@ var helperFunctions = {
         var checkLane = (betterParseInt((game.getCurrentStep().id)));
         //var newTop = wellTop[topIndex];
         var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-        
+
         if (checkLane != leftIndex) {
             updateScore(-10);
             alert("Incorrect. Please select the correct lane.")
@@ -936,7 +864,7 @@ var helperFunctions = {
                 "left": newLeft + '%',
                 "top": '71.6%',
             });
-            
+
             // game.nextStep();
             updateScore(10);
         };
@@ -951,7 +879,7 @@ var helperFunctions = {
         $('#tipSide').css("top", "0" + "%")
         // game.nextStep();
         updateScore(10);
-        
+
     }, //step 72
     "clickLid": function () {
         $("#lidSide").animate({
@@ -991,13 +919,11 @@ var helperFunctions = {
             criteriaPassed = true;
         }
         $("#powerSupplyUp").click(function () {
-            updateVoltage(10);
-            ;
+            updateVoltage(10);;
             $("#voltage").val(voltage);
         });
         $("#powerSupplyDown").click(function () {
-            updateVoltage(-10);
-            ;
+            updateVoltage(-10);;
             $("#voltage").val(voltage);
         });
         if (voltage == 100 || testMode) {
@@ -1014,8 +940,7 @@ var helperFunctions = {
         //            }, 500);
         //        }
         $("#powerSupplyUp").click(function () {
-            updateVoltage(10);
-            ;
+            updateVoltage(10);;
             $("#voltage").val(voltage);
             if (voltage == 100) {
                 // game.nextStep();
@@ -1028,8 +953,7 @@ var helperFunctions = {
             }
         });
         $("#powerSupplyDown").click(function () {
-            updateVoltage(-10);
-            ;
+            updateVoltage(-10);;
             $("#voltage").val(voltage);
             if (voltage == 100) {
                 // game.nextStep();
@@ -1103,20 +1027,20 @@ var helperFunctions = {
         $("#answerInput").delay(1).animate({
             opacity: '1.0'
         });
-        
+
     }, //step 79
     "pickLane": function () {
         var studentAnswer = $("#answerInput").val();
         if (studentAnswer != (answer - 2)) {
             alert("Incorrect. Please select the correct lane")
             updateScore(-50);
-            
+
         }
         if (studentAnswer == (answer - 2)) {
             // game.nextStep();
             updateScore(10);
-            
-            
+
+
             endGame("win");
         }
     },
@@ -1124,12 +1048,12 @@ var helperFunctions = {
     "timerClicked": function () {
         //if ((game.getCurrentStep().id == "setTimer")){
         var time = $("#timer").val();
-        
+
         if (time != 45) {
             updateScore(-10);
         }
         if (time == 45) {
-            
+
             $("button").delay(1).animate({
                 opacity: '0.0'
             });
@@ -1167,7 +1091,7 @@ var helperFunctions = {
             setTimeout(function () {
                 // game.nextStep();
                 updateScore(10);
-                
+
             }, 2700);
         };
     },
@@ -1227,7 +1151,7 @@ var helperFunctions = {
         setTimeout(function () {
             // game.nextStep();
             updateScore(10);
-            
+
         }, 300);
     }
 }
