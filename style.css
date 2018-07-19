@@ -1159,21 +1159,6 @@ button, input[type="submit"], input[type="reset"] {
     z-index: 0; /*z-index: 2000;*/
 }
 
-.gelFinalTopLaneHitBox {
-    width: 10%;
-    height: 10%;
-    position: absolute;
-    z-index: 0; /*z-index: 100;*/
-}
-
-#gelFinalTopLaneHitBox1 {
-    left: 50%;
-    top: 50%;
-    position: absolute;
-    z-index: 0; /*z-index: 100;*/
-}
-
-
 #micropipetTopView {
     width: 5%;
     height: 7%;

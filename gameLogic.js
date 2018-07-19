@@ -107,9 +107,9 @@ function jumpToStep(stepName) {
     }
 console.log(game.getCurrentStep())
       testMode = false;
- loadCSS().then(function(){
+
     startStep(game.getCurrentStep())
- })
+ 
 //     setTimeout(function(){
 //
 //     testMode = false;

@@ -563,9 +563,6 @@ var helperFunctions = {
                 "left": newLeft + '%',
                 "top": '71.6%',
             });
-
-            // game.nextStep();
-            updateScore(10);
         };
         
 // Micropipet Position   left: 10.615%; top: 71.6%;"
@@ -575,10 +572,9 @@ var helperFunctions = {
         
         
         
-   //     animate("html", 1000, zoom, [10, 74, 1, 2700])
+        animate("html", 1000, zoom, [10, 74, 1, 2700])
 
-        //movePipetTop(wellTop[arrayIndex])
-        //     $("#micropipetTopView").animate({top: '${newTop}%;'});
+
     }, //step 35,40
     "insertTip": function (evt) {
         var arrayIndex = evt.keyCode - 37;
