@@ -9,18 +9,13 @@ function loadSVG() {
         $(deferred.resolve);
     })).done(function () {
         loadSVGLogic();
-        enableOptionButtons();
+
     });
 }
 
 function loadSVGLogic() {
     //Make helper function!!
-    $(".tipTop").click(function (evt) {
-        var selector = "#" + this.id + " ellipse,#" + this.id + " circle";
-        console.log(selector)
-        $(selector).attr("class", ".st3")
-            //game.nextStep();
-    })
+
     $("#gel svg #Lane0 #weight1").attr('transform', 'translate(0 30) scale(1, 1) ');
     var lanes = [
                     [
@@ -95,6 +90,7 @@ function loadSVGLogic() {
                     ]
 
                 ]
+//     var answer=3; 
     lanes[answer - 1] = lanes[1];
     lanes.forEach(function (val, idx) {
         setLane(idx, val)

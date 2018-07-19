@@ -501,7 +501,7 @@ function loadSteps() {
                     , "longText": "Click on any tip in the tip box to add it to the pipette"
                     , "feedbackText": "complete the first step"
                     , "logic": {
-                        "eventSelector": "#tipBoxTop"
+                        "eventSelector": ".tipTop"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.addTipTop
                     }

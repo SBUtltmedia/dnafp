@@ -91,11 +91,19 @@ function animate(selector, delay, method, param) {
             $(selector).addClass(param);
         }, delay)
     }
-    if (method == "removeClass")
 
+    if (method == "removeClass")
     {
         setTimeout(function () {
             $(selector).removeClass(param);
+        }, delay)
+    }
+
+    if (method == "attr")
+
+    {
+        setTimeout(function () {
+            $(selector).attr(param[0],param[1]);
         }, delay)
     }
 
@@ -465,64 +473,58 @@ var helperFunctions = {
 
     "removeComb": function () {
         animate("#gelComb", 0, "keyframe", animdefs["anim_removeComb"])
-        animate("#gelSideView", 1000, "keyframe", animdefs["anim_toTopView1"])
+        animate("#gelSideView", 1000, "removeClass", "opClass")
     }, //step 30
     
     "toTop": function () {
-        $("#day2, #day2 *, #loadDyeCap, #gelSideView").hide();
+        $("#day2, #day2 *").hide();
+        animate("#gelSideView", 1000, "addClass", "opClass")
+
         $("#day1").hide();
         $("#bothDays").hide();
         $("#topView").show();
 
-        $("#gelTopView").show();
-        $("#labBenchTop").show();
-        $("#labBenchTop").show();
 
         //$("#tipBoxTop").addClass("anim_tipVisible")
 
         animate("#tipBoxTop",0,"animate",[{opacity: '1.0'}]);        
-       $("#arrowDown,#arrowUp,#labBenchTop,#gelTopView,#lidSide,#powerSupplyTop,.holderTop,.tipBoxTop,#wasteBinTop,#zoomOutButton2").css({opacity: '1.0'}).removeClass("opClass");
+       $("#arrowDown,#arrowUp,#labBenchTop,#gelTopView,#lidSide,#powerSupplyTop,.holderTop,.tipBoxTop,#wasteBinTop,#gelFinalTop").css({opacity: '1.0',visibility:"visible"}).removeClass("opClass");
 
-       $("#zoomOutButton3,#powerSupplyUp,#powerSupplyDown,#tip").hide();      
+//       $("#zoomOutButton3,#powerSupplyUp,#powerSupplyDown,#tip").hide();      
     }, //step 31
     "orientGel": function () {
 
-        //HAVE TO BE CONFIRMED
         animate("#gelTrayTop,#micropipetTopView,.side", 1, "animate", [{
             opacity: '1.0'
         }]);
         animate("#arrowDown,#arrowUp", 1, "animate", [{
-            opacity: '1.0'
+            opacity: '0.0'
         }]);
-        /*
-                $("#gelTrayTop").delay(1).animate({
-                    opacity: '1.0'
-                });
-                $("#arrowDown").delay(1).animate({
-                    opacity: '0.0'
-                });
-                $("#arrowUp").delay(1).animate({
-                    opacity: '0.0'
-                });
-                $("#micropipetTopView").delay(1).animate({
-                    opacity: '1.0'
-                });
-                $(".side").delay(1).animate({
-                    opacity: '1.0'
-                });
-        */
-        setTimeout(function () {
-            // game.nextStep();
-            updateScore(10);
 
-        }, 300);
     }, //step 32, 37, 42
-    "addTipTop": function () {
+    "addTipTop": function (evt) {
+        
+        var columnrow= evt.currentTarget.id.split("tip")[1]
+        var column= parseFloat(columnrow.split("_")[0]) //column -1
+        var row= parseFloat(columnrow.split("_")[1]) //row -1
 
-        //HAVE TO BE CONFIRMED
-        animate("#micropipetTopView", 0, "animate", [{
-            "left": '31.5%',
-            "top": '64%'
+        console.log(column+"&"+row)
+
+        var selector = "#" + evt.currentTarget.id + " ellipse,#" + evt.currentTarget.id + " circle";
+        console.log(selector)
+        
+        animate(selector, 500, "attr", ["class", ".st3"])
+//        setTimeout(function () {
+//            $(selector).attr("class", ".st3")
+//        }, 500)
+        
+        console.log(column+row)
+        var microPipetTopViewLeft = 31.2 + (.78 * column)
+        var microPipetTopViewTop = 56.6 + (1.1 * row)
+        
+        animate("#micropipetTopView", 0, "animate", [{ //TopMost left:31.2%, 56.6% left= +=.78%,, top= +=1.1%
+            "left": microPipetTopViewLeft +'%',
+            "top": microPipetTopViewTop + '%'
         }]);
         /*
                 $("#micropipetTopView").animate({
@@ -531,23 +533,26 @@ var helperFunctions = {
                 });
         */
     }, //step 33
+    
     "takeHind": function (evt) {
-        i
-
+        
         $("#micropipetTopView").animate({
-            "left": '36.5%',
+            "left": '36.6%',
             "top": '15.5%'
         });
-        // game.nextStep();
-        updateScore(10);
-
+        
+//    left: 6%;
+//    top: 65.4%;
+        animate("html", 1000, zoom, [10, 74, 6, 2700])
     }, //step 34
+    
     "toLane1": function (evt) {
         var key = evt.keycode;
         var leftIndex = evt.keyCode - 48;
         var checkLane = (betterParseInt((game.getCurrentStep().id)));
         //var newTop = wellTop[topIndex];
         var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
+        
         console.log(newLeft)
         if (checkLane != leftIndex) {
             updateScore(-10);
@@ -562,6 +567,16 @@ var helperFunctions = {
             // game.nextStep();
             updateScore(10);
         };
+        
+// Micropipet Position   left: 10.615%; top: 71.6%;"
+        
+        
+        
+        
+        
+        
+   //     animate("html", 1000, zoom, [10, 74, 1, 2700])
+
         //movePipetTop(wellTop[arrayIndex])
         //     $("#micropipetTopView").animate({top: '${newTop}%;'});
     }, //step 35,40

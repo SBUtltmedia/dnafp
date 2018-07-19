@@ -106,6 +106,7 @@ var breach = false;
 $(function () {
     loadSVG();
      loadCSS().then(function(){
+                 enableOptionButtons();
     // Resize window on page load to ensure proper sizing of elements
     resizeWindow();
     //makePipetteTipAnimation();
