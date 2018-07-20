@@ -1,7 +1,8 @@
 function loadSVG() {
     $.when($.get("img/gelWithLane.svg", function (data) {
         console.log(data)
-        $("#gel").html(new XMLSerializer().serializeToString(data.documentElement));
+//        $("#gel").html(new XMLSerializer().serializeToString(data.documentElement));
+         $("#gelFinalTop").html(new XMLSerializer().serializeToString(data.documentElement));
     }), $.get("img/topEdit.svg", function (data) {
         console.log(data)
         $("#tipBoxTop").html(new XMLSerializer().serializeToString(data.documentElement));

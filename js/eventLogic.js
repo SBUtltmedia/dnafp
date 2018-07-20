@@ -105,6 +105,14 @@ var tips = [18.2, 19, 19.8, 20.6, 21.4, 22.2, 23, 24.8, 25.6, 26.4, 26.8, 27.3]
 var breach = false;
 $(function () {
     loadSVG();
+    $('#tipSide').draggable();
+    $('#gelWellBoundary').droppable({tolerance: "touch"}).on("drop",function(evt){console.log(evt)});
+    
+//    
+//    $.get("img/gelWithLane.svg", function (data) {
+//        console.log(data)
+//        $("#gelFinalTop").html(new XMLSerializer().serializeToString(data.documentElement));
+//    })
 
                  enableOptionButtons();
     // Resize window on page load to ensure proper sizing of elements

@@ -504,9 +504,9 @@ var helperFunctions = {
     }, //step 32, 37, 42
     "addTipTop": function (evt) {
         
-        var columnrow= evt.currentTarget.id.split("tip")[1]
-        var column= parseFloat(columnrow.split("_")[0]) //column -1
-        var row= parseFloat(columnrow.split("_")[1]) //row -1
+        var [column,row]= evt.currentTarget.id.split("tip")[1].split("_")
+//        var column= columnrow[0]
+//        var row= columnrow[1] //row -1
 
         console.log(column+"&"+row)
 
@@ -514,24 +514,16 @@ var helperFunctions = {
         console.log(selector)
         
         animate(selector, 500, "attr", ["class", ".st3"])
-//        setTimeout(function () {
-//            $(selector).attr("class", ".st3")
-//        }, 500)
-        
+        var topMost= 56.6,leftMost= 31.2, rowHeight=1.1,colWidth=.78
         console.log(column+row)
-        var microPipetTopViewLeft = 31.2 + (.78 * column)
-        var microPipetTopViewTop = 56.6 + (1.1 * row)
+        var microPipetTopViewLeft = leftMost + (colWidth * column)
+        var microPipetTopViewTop = topMost + (rowHeight * row)
         
         animate("#micropipetTopView", 0, "animate", [{ //TopMost left:31.2%, 56.6% left= +=.78%,, top= +=1.1%
             "left": microPipetTopViewLeft +'%',
             "top": microPipetTopViewTop + '%'
         }]);
-        /*
-                $("#micropipetTopView").animate({
-                    "left": '31.5%',
-                    "top": '64%'
-                });
-        */
+     
     }, //step 33
     
     "takeHind": function (evt) {
@@ -546,35 +538,18 @@ var helperFunctions = {
         animate("html", 1000, zoom, [10, 74, 6, 2700])
     }, //step 34
     
+
     "toLane1": function (evt) {
-        var key = evt.keycode;
-        var leftIndex = evt.keyCode - 48;
-        var checkLane = (betterParseInt((game.getCurrentStep().id)));
-        //var newTop = wellTop[topIndex];
-        var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-        
-        console.log(newLeft)
-        if (checkLane != leftIndex) {
-            updateScore(-10);
-            alert("Incorrect. Please select the correct lane.")
-        }
-        if (checkLane == leftIndex) {
+        console.log(evt.currentTarget.id.split("_")[1])
+        state["lanePicked"] = parseInt(evt.currentTarget.id.split("_")[1]);
+        },
+    "toLane1Post": function () {
             $("#micropipetTopView").animate({
-                "left": newLeft + '%',
+                "left": '10.3%', //+=1.4%
                 "top": '71.6%',
             });
-        };
-        
-// Micropipet Position   left: 10.615%; top: 71.6%;"
-        
-        
-        
-        
-        
-        
-        animate("html", 1000, zoom, [10, 74, 1, 2700])
-
-
+        animate("html", 1000, zoom, [10, 74, 1, 2700]) //zoomout
+        animate(".side", 1200, "removeClass", "opClass")
     }, //step 35,40
     "insertTip": function (evt) {
         var arrayIndex = evt.keyCode - 37;

@@ -520,15 +520,18 @@ function loadSteps() {
                 , {
                     "id": "toLane1"
                     , "shortText": "Put in Lane 1"
-                    , "longText": "Press the number key of the corresponding lane to move the pipette. The leftmost lane is lane 1"
+                    , "longText": "Click on the correct well to move the pipette."
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "html"
-                        , "eventType": "keypress"
-                        , "eventFunction": helperFunctions.toLane1, //                        "criteria": {
-                        //                            "variable": "checkLane",
-                        //                            "value": leftIndex
-                        //                        }
+                        "eventSelector": ".wells" //"#well_0"
+                        , "eventType": "click" //"click"
+                        , "eventFunction": helperFunctions.toLane1
+                        , "postEventFunction" : helperFunctions.toLane1Post
+                        , "criteria": {
+                            "variable": "lanePicked",
+                            "value": 0,
+                            "messageWrong": "Incorrect. Please select the correct well."
+                            }
                     }
                 }
                 , {

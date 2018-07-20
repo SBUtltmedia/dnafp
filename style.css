@@ -1110,7 +1110,7 @@ button, input[type="submit"], input[type="reset"] {
     left: 7%;
     top: 55%;
     position: absolute;
-    background-image: url(img/gelTopView.svg);
+    background-image: url(img/gelTopView.svg); 
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
@@ -1146,12 +1146,12 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 #gelFinalTop {
-    width: 22%;
+    width: 9.9%;
     height: 11%;
-    left: 6%;
-    top: 65.4%;
+    left: 12%;
+    top: 65.5%;
     position: absolute;
-    background-image: url(img/gelFinalTop.svg);
+/*    background-image: url(img/gelWithLane.svg);*/
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
@@ -1255,11 +1255,12 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 #sideView {
-    width: 36%;
-    height: 49%;
-    left: 51%;
-    top: 50.5%;
+    width: 45%;
+    height: 60%;
+    left: 55%;
+    top: 25%;
     position: absolute;
+    overflow: hidden;
     background-image: url(img/sideBackground.svg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -1268,13 +1269,23 @@ button, input[type="submit"], input[type="reset"] {
     z-index: 0; /*z-index: -9;*/
 }
 
-#gelWell {
-    width: 70%;
-    height: 40%;
-    left: 2%;
-    top: 57%;
+#sideViewOverFlow {
+    width: 100%;
+    height: 65%;
+    left: 0%;
+    top: 35%;
     position: absolute;
-    background-image: url(img/gelWell.svg);
+    overflow: hidden;
+}
+
+
+#gelWell {
+    width: 100%;
+    height: 53%;
+    left: 0%;
+    top: 46%;
+    position: absolute;
+    background:red;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
@@ -1282,19 +1293,23 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 #gelWellBoundary {
-    width: 48%;
-    height: 24%;
-    left: 26%;
+    width: 60%;
+    height: 80%;
+    left: 20%;
     top: 0%;
+    background:purple;
     position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
     visibility: visible;
 }
 
 #tipSide {
-    width: 10%;
-    height: 50%;
+    width: 40%;
+    height: 95%;
     left: 35%;
-    top: 0%;
+    top: -60%;
     position: absolute;
     background-image: url(img/tip.svg);
     background-repeat: no-repeat;

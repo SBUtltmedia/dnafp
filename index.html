@@ -7,19 +7,22 @@
     <title>Gel Electrophoresis</title>
     <script src="//code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="gameStep.js"></script>
-    <script src="resize.js"></script>
-    <script src="challenges.js"></script>
-    <script src="loadSteps.js"></script>
-    <script src="eventLogic.js"></script>
-    <script src="animdefs.js"></script>
+    <script src="js/gameStep.js"></script>
+    <script src="js/resize.js"></script>
+    <script src="js/challenges.js"></script>
+    <script src="js/loadSteps.js"></script>
+    <script src="js/eventLogic.js"></script>
+    <script src="js/animdefs.js"></script>
+    <script src="js/helperFunctions.js"></script>
+    <script src="js/gameLogic.js"></script>
+    <script src="js/loadSVG.js"></script>
+    <script src="js/zoom.js"></script>
+    <script src="js/jquery.keyframes.js"></script>
+    <script src="js/keyframes.js"></script>
 
-    <script src="helperFunctions.js"></script>
-    <script src="gameLogic.js"></script>
-    <script src="loadSVG.js"></script>
-    <script src="zoom.js"></script>
-    <script src="jquery.keyframes.js"></script>
-    <script src="keyframes.js"></script>
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
+
+
     <link rel="stylesheet" type="text/css" href="../resources/css/menuStyle.css">
     <link rel="stylesheet" type="text/css" href="generalStyle.css">
     <link rel="stylesheet" type="text/css" href="challengeStyle.css">
@@ -31,17 +34,16 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> </head>
 <style id="dynamic-style">
 </style>
-<style id="mainStyle">
-</style>
+
 
 
 <body class="stripes">
     <div id="stage" class="screen">
         <div id="view">
-            
-            
+
+
             <div id="bothDays">
-                
+
                 <div id="pipetHolder"></div>
                 <div id="micropipet1" class="micropipet" class="item">
                     <div id="itemLabel2" class="itemLabel">
@@ -86,7 +88,7 @@
                     <div id="tubeContentMixing3"></div>
                     <div id="s0TubeBody" class="microTubeBody"></div>
 
-                </div>                
+                </div>
                 <div id="s1Tube" class="microTube" class="item">
                     <div id="s1Cap" class="microTubeCap"></div>
                     <div id="s1TubeBody" class="microTubeBody"></div>
@@ -118,13 +120,13 @@
                     <div id="itemLabelText9" class="itemLabelText"> </div>
                 </div>
                 <div id="tubeBlock"></div>
-                
-<!--                I dont know when this is being used-->
+
+                <!--                I dont know when this is being used-->
                 <div id="s1loadingDyeTube" class="loadingDye">
                     <div id="s1loadingDyeCap" class="loadingDye"></div>
                     <div id="s1loadingDyeTubeBody" class="loadingDye"></div>
                 </div>
-                
+
                 <div id="zoomOutButton"></div>
                 <div id="zoomOutButton1"></div>
                 <div id="pressButton_0" class="pressButton"></div>
@@ -151,9 +153,9 @@
                 <div id="labBench2"></div>
 
             </div>
-            
-            
-            
+
+
+
             <div id="day1">
                 <div id="enzTube" class="item">
                     <div id="enzCap" class="microTubeCap"></div>
@@ -162,8 +164,8 @@
                     <div id="itemLabelText3" class="itemLabelText"></div>
                 </div>
                 <div id="iceBucket"></div>
-                
-<!--                I dont know when this is being used-->
+
+                <!--                I dont know when this is being used-->
                 <div id="s0loadingDyeTube" class="loadingDye">
                     <div id="s0loadingDyeCap"></div>
                     <div id="s0loadingDyeTubeBody"></div>
@@ -176,22 +178,22 @@
                 <form id="timerForm">
                     <input id="timer" type="text" name="volume" value="">
                     <input type="submit" name="timerButton" value="" id="timerButton" class="fs-10">
-                </form>                
+                </form>
             </div>
-            
-            
-            
-            
+
+
+
+
             <div id="day2" class="day2">
                 <div id="powerSupply" class="day2"></div>
-                
+
                 <!-- I didnt touch this one
                 <div id="powerSupplyUp" class="day2"></div>
                 <div id="powerSupplyDown" class="day2"></div>
                 <input id="voltage" type="text" name="voltage" value="">
                     I DID NOT TOUCH THIS ONE
                 -->
-                
+
                 <div id="zoomOutButton3" class="day2"></div>
                 <div id="tubeRack" class="item">
                     <div id="itemLabel12" class="itemLabel">
@@ -204,10 +206,10 @@
                     <div id="loadDyeBody"></div>
                 </div>
                 <form id="volumeInput1Form">
-                <input id="volumeInput1" type="text" name="volume" value="">
+                    <input id="volumeInput1" type="text" name="volume" value="">
                     <input type="submit" name="volumeButton1" value="" id="volumeButton1">
                 </form>
-                
+
                 <div id="volumeButton2"></div>
                 <div id="tubeContentMixing4"></div>
                 <div id="gelLid" class="day2"></div>
@@ -222,10 +224,10 @@
                 <div id="stainedGelContainer"></div>
                 <div id="gel"></div>
                 <button name="answerEntry" id="answerButton">Enter</button>
-                <input id="answerInput" type="text" name="answerEntry" value=""> 
+                <input id="answerInput" type="text" name="answerEntry" value="">
             </div>
-            
-            
+
+
 
             <div id="topView" class="topView">
                 <div id="labBenchTop" class="topView"> </div>
@@ -254,17 +256,18 @@
                 <div id="gelVoltageCover" class="topView">
                     <div id="powerSupplyUp"></div>
                     <div id="powerSupplyDown"></div>
-                    <input id="voltage" type="text" name="voltage" value=""> 
+                    <input id="voltage" type="text" name="voltage" value="">
                 </div>
                 <div id="micropipetTopView" class="topView"></div>
                 <div id="sideView" class="side">
+                    <div class="side"></div>
                     <div id="gelWell" class="side">
                         <div id="gelWellBoundary" class="side"></div>
                     </div>
                     <div id="tipSide" class="side"></div>
                 </div>
             </div>
-            
+
         </div>
 
         <div id="header" class="text fs-32">
