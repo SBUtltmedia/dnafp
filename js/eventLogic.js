@@ -17,6 +17,7 @@ var tip = 0;
 var timeInWell;
 var wellTop = [55, 57.9, 60.3, 62.6, 65, 67.1, 69.3]
 var tipBoxTop = [1, 2, 3, 4, 5, 6, 7]
+
 var microtubeAnimation = [{
     target: "Tube",
     name: "anim_moveTube"
@@ -95,7 +96,8 @@ var destinationTube = [{
 var state = {
     firstStep: 23,
     buttonPress: [0, 0, 0, 0, 0, 0],
-    microtubeState: [0, 0, 0, 0, 0, 0]
+    microtubeState: [0, 0, 0, 0, 0, 0],
+    TipPosition: false
 };
 var tubeClicks = [0, 0, 0, 0, 0, 0];
 //var loadingDyeState = [0];
@@ -106,7 +108,7 @@ var breach = false;
 $(function () {
     loadSVG();
     $('#tipSide').draggable();
-    $('#gelWellBoundary').droppable({tolerance: "touch"}).on("drop",function(evt){console.log(evt)});
+    $('#gelWellBoundary').droppable({tolerance: "touch"});
     
 //    
 //    $.get("img/gelWithLane.svg", function (data) {
@@ -220,52 +222,52 @@ function tipSelect(number) {
 //    var arrayIndex = evt.keyCode - 37;
 //    if (arrayIndex > -1 && arrayIndex < 4) moveTipSide(directionsForSideTipMovement[arrayIndex])
 //})
-function moveTipSide(direction) {
-   
-        breach = false;
-        var sideViewWidth = parseFloat($('#sideView').css("width"));
-        var sideViewHeight = parseFloat($('#sideView').css("height"));
-        //
-        var currentTop = parseFloat($('#tipSide').css("top")) / sideViewHeight * 100;
-        var currentLeft = parseFloat($('#tipSide').css("left")) / sideViewWidth * 100;
-        //var currentTop=parseFloat($('#tipSide').css("top"))/100
-        //var currentLeft=parseFloat($('#tipSide').css("left"))
-        var newLeft = Math.min(90, Math.max(0, (currentLeft - direction[0] * sideTipMoveSpeed)))
-        var newTop = Math.min(60, Math.max(0, (currentTop - direction[1] * sideTipMoveSpeed)))
-        var checkTop = betterParseInt(newTop);
-        var checkLeft = betterParseInt(newLeft);
-        $('#tipSide').css("left", newLeft + "%")
-        $('#tipSide').css("top", newTop + "%")
-        //return [newLeft,newTop]
-        var wellDepth = parseFloat($('#gelWellBoundary').css("height"));
-        var wellWidth = parseFloat($('#gelWellBoundary').css("width"));
-        var date = new Date();
-        if (checkTop > 7) {
-            if (!timeInWell) {
-                timeInWell = Date.now();
-                pollTip()
-            }
-            //
-            if (checkTop > 18 || checkLeft > 43 || checkLeft < 23.5) {
-                breach = true;
-                $('#tipSide').css("top", "0" + "%")
-                //
-                timeInWell = null;
-                message("Make sure the tip stays within the well!")
-       
-        }
-    }
-}
-
-function pollTip() {
-    if (Date.now() - timeInWell < 2500) {
-        if (!breach) window.requestAnimationFrame(pollTip);
-    } else if (!breach) {
-        // game.nextStep();
-        updateScore(10);
-        timeInWell = null;
-    }
-}
+//function moveTipSide(direction) {
+//   
+//        breach = false;
+//        var sideViewWidth = parseFloat($('#sideView').css("width"));
+//        var sideViewHeight = parseFloat($('#sideView').css("height"));
+//        //
+//        var currentTop = parseFloat($('#tipSide').css("top")) / sideViewHeight * 100;
+//        var currentLeft = parseFloat($('#tipSide').css("left")) / sideViewWidth * 100;
+//        //var currentTop=parseFloat($('#tipSide').css("top"))/100
+//        //var currentLeft=parseFloat($('#tipSide').css("left"))
+//        var newLeft = Math.min(90, Math.max(0, (currentLeft - direction[0] * sideTipMoveSpeed)))
+//        var newTop = Math.min(60, Math.max(0, (currentTop - direction[1] * sideTipMoveSpeed)))
+//        var checkTop = betterParseInt(newTop);
+//        var checkLeft = betterParseInt(newLeft);
+//        $('#tipSide').css("left", newLeft + "%")
+//        $('#tipSide').css("top", newTop + "%")
+//        //return [newLeft,newTop]
+//        var wellDepth = parseFloat($('#gelWellBoundary').css("height"));
+//        var wellWidth = parseFloat($('#gelWellBoundary').css("width"));
+//        var date = new Date();
+//        if (checkTop > 7) {
+//            if (!timeInWell) {
+//                timeInWell = Date.now();
+//                pollTip()
+//            }
+//            //
+//            if (checkTop > 18 || checkLeft > 43 || checkLeft < 23.5) {
+//                breach = true;
+//                $('#tipSide').css("top", "0" + "%")
+//                //
+//                timeInWell = null;
+//                message("Make sure the tip stays within the well!")
+//       
+//        }
+//    }
+//}
+//
+//function pollTip() {
+//    if (Date.now() - timeInWell < 2500) {
+//        if (!breach) window.requestAnimationFrame(pollTip);
+//    } else if (!breach) {
+//        // game.nextStep();
+//        updateScore(10);
+//        timeInWell = null;
+//    }
+//}
 
 function continueLoading() {
     for (var i = 1; i <= 3; i++) {
@@ -613,6 +615,7 @@ $.keyframe.define([{ name:'addTip1',
 },
 },])
 }
+
 function makePipetteTippAnimation(tipLocation) {
         
 $.keyframe.define([{ name:'addTipp1',        
@@ -647,6 +650,45 @@ $.keyframe.define([{ name:'addTipp1',
 },
 },])
 }
+
+//===============TRYING TO MAKE SOME KEYFRAMES
+/*
+function makeArrowOscillatingUp(objectLeft,obejectTop) {
+
+$.keyframe.define([{ name:'oscillateUp',
+     '0%':{
+        left: objectLeft+"%",
+        top: (objectTop + 4) + "%",
+},
+    '50%':{
+        left: objectLeft+"%",
+        top: (objectTop + 9) + "%",
+},
+    '100%':{
+        left: objectLeft+"%",
+        top: (objectTop + 4) + "%",
+},
+},])
+}
+
+function makeArrowOscillatingDown(objectLeft,obejectTop) {
+
+$.keyframe.define([{ name:'oscillateUp',
+     '0%':{
+        left: objectLeft+"%",
+        top: (objectTop - 4) + "%",
+},
+    '50%':{
+        left: objectLeft+"%",
+        top: (objectTop - 9) + "%",
+},
+    '100%':{
+        left: objectLeft+"%",
+        top: (objectTop - 4) + "%",
+},
+},])
+}
+=====================================*/
 
 //function findTipLeft(evt) {
 //    var tipNum = betterParseInt(evt.target.id);

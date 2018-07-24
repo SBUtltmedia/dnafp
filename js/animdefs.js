@@ -1,4 +1,5 @@
 var animdefs = {
+//    "anim_pulse":"pulse 1s 0s infinite linear normal forwards",
     "anim_placeItem": "placeTray 1s 0s 1 linear normal forwards",
     "anim_quickFadeOut": "quickFadeOut .125s 0s 1 linear normal forwards",
     "anim_tube4ToBath": "tube4ToBath 1s linear 0s 1 normal forwards",

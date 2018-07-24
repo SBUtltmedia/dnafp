@@ -26,6 +26,16 @@ $.keyframe.define([{ name: mooveTip,
     $('#dynamic-style').html(keyframeString)
 }*/
 
+//$.keyframe.define([{ name:'pulse',
+//    from: {
+// 	"box-shadow":  "0 0 0rem 0rem red"
+//    }
+//                    ,
+//    to: {
+//      "box-shadow":  "0 0 .3rem .3rem red"
+//}}])
+                    
+                    
 
 
 $.keyframe.define([{ name:'moveTube',

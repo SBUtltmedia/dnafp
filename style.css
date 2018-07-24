@@ -1280,12 +1280,12 @@ button, input[type="submit"], input[type="reset"] {
 
 
 #gelWell {
-    width: 100%;
+    width: 98%;
     height: 53%;
-    left: 0%;
+    left: 1%;
     top: 46%;
     position: absolute;
-    background:red;
+    background:rgba(59,128,194,.46);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
@@ -1297,7 +1297,7 @@ button, input[type="submit"], input[type="reset"] {
     height: 80%;
     left: 20%;
     top: 0%;
-    background:purple;
+    background:rgba(59,128,194,.86);
     position: absolute;
     background-repeat: no-repeat;
     background-size: contain;
@@ -1641,6 +1641,23 @@ button, input[type="submit"], input[type="reset"] {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+}
+
+.indicatorArrowClass {
+    width: 0.7%;
+    height: 7%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;   
+}
+
+#indicatorArrowPointingUp {
+    background-image: url(img/indicatorArrow.svg);
+}
+
+#indicatorArrowPointingDown {
+    background-image: url(img/indicatorArrowUp.svg);
 }
 
 #pipetteTip1 {

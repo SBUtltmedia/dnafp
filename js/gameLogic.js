@@ -154,14 +154,25 @@ function startStep(step) {
 //    if (game.getCurrentStep().id == "liftEnzyme") {
 //        animate("#indicatorArrow1", 50, "removeClass", "opClass")
 //    }
+    
+    
     var s = jQuery.extend(true, {}, step);
-    if (s.logic.criteria && !(s.logic.criteria.variable in state)) 
-        {
-        state[s.logic.criteria.variable] ="";   
-            
-        }
+    //WORK FROM HERE
+//    var arrowSelector = s.indicatorSelector || s.logic.eventSelector;
+//    var $sl=  $(arrowSelector)
+//    var forIndiArrowLeft = $sl.offsetLeft + $sl.width/2
+//    var forIndiArrowTop = $sl.offsetTop
+//    var forIndiArrowBot = $sl.offsetTop + $sl.height
+//    if (s.logic.criteria && !(s.logic.criteria.variable in state)) 
+//        {
+//        state[s.logic.criteria.variable] ="";   
+//            
+//        }
     
     
+//      animate(s.indicatorSelector||s.logic.eventSelector, 0, "keyframe", animdefs["anim_"])
+//     $(s.pulseSelector||s.logic.eventSelector).playKeyframe(animdefs["anim_pulse"])
+    //WORK UPTO THIS POINT
     
     $("#headerText").text(s.longText);
     $("#footerText").text(s.bottomText);
@@ -217,7 +228,11 @@ function isEqual(a, b) {
     this is the "clean-up" phase for a particular step
     specify code that should be executed when a step ends (animations, etc)
 */
-function endStep(step) {}
+function endStep(step) {
+    
+      // $(step.logic.eventSelector).resetKeyframe(function(){})
+    
+}
 /*
     loadStartMenu: this function shows the menu at the start of the game
 */

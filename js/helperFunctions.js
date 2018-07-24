@@ -1,5 +1,6 @@
 var microTubeEnum = ["untouched", "opened", "closed", "flicked", "tapped", "returned", "exposed"]
 state["microtubeState"] = Array(6).fill(microTubeEnum[0])
+state["TipPosition"] = false
 var criteriaPassed;
 var microtubeAnimation = [{
     target: "Tube",
@@ -519,22 +520,17 @@ var helperFunctions = {
         var microPipetTopViewLeft = leftMost + (colWidth * column)
         var microPipetTopViewTop = topMost + (rowHeight * row)
         
-        animate("#micropipetTopView", 0, "animate", [{ //TopMost left:31.2%, 56.6% left= +=.78%,, top= +=1.1%
+            animate("#micropipetTopView", 0, "animate", [{ //TopMost left:31.2%, 56.6% left= +=.78%,, top= +=1.1%
             "left": microPipetTopViewLeft +'%',
             "top": microPipetTopViewTop + '%'
-        }]);
-     
+            }]);
+        
     }, //step 33
     
     "takeHind": function (evt) {
-        
-        $("#micropipetTopView").animate({
-            "left": '36.6%',
+        animate("#micropipetTopView", 0, "animate", [{         "left": '36.6%',
             "top": '15.5%'
-        });
-        
-//    left: 6%;
-//    top: 65.4%;
+            }]);
         animate("html", 1000, zoom, [10, 74, 6, 2700])
     }, //step 34
     
@@ -544,17 +540,34 @@ var helperFunctions = {
         state["lanePicked"] = parseInt(evt.currentTarget.id.split("_")[1]);
         },
     "toLane1Post": function () {
-            $("#micropipetTopView").animate({
-                "left": '10.3%', //+=1.4%
-                "top": '71.6%',
-            });
+        animate("#micropipetTopView", 0, "animate", [{         "left": '10.3%', //+=1.4%
+            "top": '71.6%',
+            }]);
         animate("html", 1000, zoom, [10, 74, 1, 2700]) //zoomout
         animate(".side", 1200, "removeClass", "opClass")
     }, //step 35,40
-    "insertTip": function (evt) {
-        var arrayIndex = evt.keyCode - 37;
-          console.log(arrayIndex)
-        if (arrayIndex > -1 && arrayIndex < 4) moveTipSide(directionsForSideTipMovement[arrayIndex])
+    "insertTip1": function (evt) {
+      
+        var sideViewWidth = parseFloat($('#sideView').css("width"));
+        var sideViewHeight = parseFloat($('#sideView').css("height"));
+        var currentBot = parseFloat($('#tipSide').css("bottom")) / sideViewHeight * 100;
+        var currentLeft = parseFloat($('#tipSide').css("left")) / sideViewWidth * 100;
+
+        if (currentBot < 52) {
+            if (currentBot < 10 || currentLeft > 56.5 || currentLeft < 4) {
+                $('#tipSide').css("top", "-50%")
+                $('#tipSide').css("left", "25%")
+                message("Make sure the tip stays within the well!")
+            }
+            else if (currentBot > 47){
+                message("Make sure the tip stays deep enough within the well!")                
+            }
+            else {
+                state["TipPosition"] = true
+            }
+            
+        }
+
     }, //step 36
     "disposeTip": function () {
         $("#micropipetTopView").animate({

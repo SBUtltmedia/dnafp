@@ -70,6 +70,7 @@ function loadSteps() {
                 }
                  , {
                     "id": "setVolume"
+                     
                     , "shortText": "Enter volume"
                     , "longText": "Enter the correct volume (in microliters) of fluid to remove"
                     , "feedbackText": "complete the second step"
@@ -535,17 +536,17 @@ function loadSteps() {
                     }
                 }
                 , {
-                    "id": "insertTip"
+                    "id": "insertTip1"
                     , "shortText": "Insert tip"
                     , "longText": "Use the arrow keys to control the position of the tip in the well. Be sure not to breach the walls!"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "html"
-                        , "eventType": "keydown"
-                        , "eventFunction": helperFunctions.insertTip
+                        "eventSelector": "#gelWellBoundary"
+                        , "eventType": "drop"
+                        , "eventFunction": helperFunctions.insertTip1
                         , "criteria": {
                             "variable": "TipPosition",
-                            "value": 1000
+                            "value": true
                         }
                     }
                 }
