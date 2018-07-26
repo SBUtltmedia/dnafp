@@ -1,6 +1,7 @@
 var microTubeEnum = ["untouched", "opened", "closed", "flicked", "tapped", "returned", "exposed"]
 state["microtubeState"] = Array(6).fill(microTubeEnum[0])
 state["TipPosition"] = false
+state["lanePosition"] = [0,0,0,0,0,0,0]
 var criteriaPassed;
 var microtubeAnimation = [{
     target: "Tube",
@@ -60,7 +61,6 @@ function animate(selector, delay, method, param) {
     if (method == "css")
 
     {
-
         setTimeout(function () {
             $(selector).css(...param);
         }, delay)
@@ -381,8 +381,11 @@ var helperFunctions = {
 
         setTimeout(function () {
             $("#bothDays *").resetKeyframe(function () {});
-            animate("#pipetteTip1", 0, "css", [{
-                visibility: "hidden"
+            animate("#pipetteTip1", 0, "animate", [{
+                opacity: '0.0'
+            }])
+            animate(".openButton", 0, "animate", [{
+            opacity: '0.0'
             }])
         }, 0);
 
@@ -408,6 +411,11 @@ var helperFunctions = {
         animate("#micropipet2", 0, "keyframe", animdefs["anim_addTipp1"])
         animate("#" + evt.target.id, 0, "keyframe", animdefs["anim_hideTipp1"])
         animate("#pipetteTip1", 0, "keyframe", animdefs["anim_showTipp1"])
+        setTimeout(function () {
+        animate("#pipetteTip1", 0, "animate", [{
+                opacity: '1.0'
+            }])
+        },0)
 
         $("#holder").css('z-index', '3');
 
@@ -466,10 +474,36 @@ var helperFunctions = {
         helperFunctions.tapTube()
     }, //step 28
     "tubeRack1": function () {
-        helperFunctions.tubeRack()
+        animate("#s0Tube", 0, "keyframe", animdefs["anim_tubeDown"])
+        for (i = 0; i <= 5; i++) {
+            animate("#s" + i + "Tube", 1000, "keyframe", animdefs["anim_tube" + i + "ToBath"]);
+        }
+        animate("#tubeBlock", 1000, "keyframe", animdefs["anim_moveBlock"]);
+//        animate(".pressButton",2000, "css", [{
+//              background-image: 'url(img/openButton.svg)'
+//        }])
+        animate(".pressButton", 2000, "animate", [{
+            opacity: '1.0'
+            }])
+        state["microtubeState"][0] = microTubeEnum[5];    
     }, //step 29    
     "pressTube1": function (evt) {
-        helperFunctions.pressTube(evt)
+        var tubeId = evt.target.id.split("_")[1];
+
+        if (testMode) {
+            animate(".pressButton", 0, "animate", [{
+                opacity: '0.0'
+            }]);
+            for (i = 0; i <= 5; i++) {
+                animate("#s" + i + "Tube", 0, "keyframe", animdefs["anim_rotateCap"]);
+            }
+        }
+        animate("#s" + tubeId + "Cap", 100, "keyframe", animdefs["anim_rotateCap"]);
+        animate("#pressButton_" + tubeId, 0, "animate", [{
+            opacity: '0.0'
+            }])
+        console.log($("#pressButton_" + tubeId))
+        state["microtubeState"][tubeId] = microTubeEnum[6]    
     }, //step 29
 
     "removeComb": function () {
@@ -509,14 +543,10 @@ var helperFunctions = {
 //        var column= columnrow[0]
 //        var row= columnrow[1] //row -1
 
-        console.log(column+"&"+row)
 
         var selector = "#" + evt.currentTarget.id + " ellipse,#" + evt.currentTarget.id + " circle";
-        console.log(selector)
-        
         animate(selector, 500, "attr", ["class", ".st3"])
         var topMost= 56.6,leftMost= 31.2, rowHeight=1.1,colWidth=.78
-        console.log(column+row)
         var microPipetTopViewLeft = leftMost + (colWidth * column)
         var microPipetTopViewTop = topMost + (rowHeight * row)
         
@@ -535,18 +565,32 @@ var helperFunctions = {
     }, //step 34
     
 
-    "toLane1": function (evt) {
-        console.log(evt.currentTarget.id.split("_")[1])
+    "toLane": function (evt) {
         state["lanePicked"] = parseInt(evt.currentTarget.id.split("_")[1]);
         },
-    "toLane1Post": function () {
-        animate("#micropipetTopView", 0, "animate", [{         "left": '10.3%', //+=1.4%
-            "top": '71.6%',
-            }]);
+    "toLanePost": function () {
+        for (var laneIndex = 0; laneIndex <7; laneIndex++) {
+            if (state["lanePosition"][laneIndex] == 0) {
+                var laneLeftPosition = 10.3
+                var laneTopPosition = 71.6
+                var laneLeftAdd = 1.4
+                var laneLeft = laneLeftPosition + laneLeftAdd * laneIndex
+                animate("#micropipetTopView", 0, "animate", [{
+                    "left": laneLeft+'%', //+=1.4%
+                    "top": '71.6%',
+                }]);
+                state["lanePosition"][laneIndex]++
+                break
+            }
+        }
         animate("html", 1000, zoom, [10, 74, 1, 2700]) //zoomout
         animate(".side", 1200, "removeClass", "opClass")
-    }, //step 35,40
-    "insertTip1": function (evt) {
+        animate(".side", 1000, "css", [{
+            opacity: '1'
+        }])
+        console.log(state["lanePosition"])
+    }, //step 35,40 
+    "insertTip": function (evt) {
       
         var sideViewWidth = parseFloat($('#sideView').css("width"));
         var sideViewHeight = parseFloat($('#sideView').css("height"));
@@ -569,59 +613,36 @@ var helperFunctions = {
         }
 
     }, //step 36
+    
+    "insertTipPost": function () {
+
+        animate(".side", 1000, "css", [{
+            opacity: '0'
+        }])
+        setTimeout (function () {
+            $('#tipSide').css("top", "-50%")
+            $('#tipSide').css("left", "25%")
+        },1000)
+    },
+    
     "disposeTip": function () {
-        $("#micropipetTopView").animate({
+//        $(".side").css("opacity", "0")
+        animate("#micropipetTopView", 0, "animate", [{
             "left": '35%',
             "top": '76%'
-        });
-        $('#tipSide').css("top", "0" + "%")
-        // game.nextStep();
-        updateScore(10);
-
+            }]);
+    }, 
+    "addTipTop1": function (evt) {
+        helperFunctions.addTipTop(evt)
     }, //step 38
     "takeCS": function (evt) {
-
         $("#micropipetTopView").animate({
-            "left": '36.5%',
-            "top": '15.5%'
+            "left": '36.7%',
+            "top": '21.4%'
         });
-        // game.nextStep();
-        updateScore(10);
+        animate("html", 1000, zoom, [10, 74, 6, 2700])
 
-    }, //step 39
-    "toLane2": function (evt) {
-        var key = evt.keycode;
-        var leftIndex = evt.keyCode - 48;
-        var checkLane = (betterParseInt((game.getCurrentStep().id)));
-        //var newTop = wellTop[topIndex];
-        var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-
-        if (checkLane != leftIndex) {
-            updateScore(-10);
-            alert("Incorrect. Please select the correct lane.")
-        }
-        if (checkLane == leftIndex) {
-            $("#micropipetTopView").animate({
-                "left": newLeft + '%',
-                "top": '71.6%',
-            });
-
-            // game.nextStep();
-            updateScore(10);
-        };
-        //movePipetTop(wellTop[arrayIndex])
-        //     $("#micropipetTopView").animate({top: '${newTop}%;'});
     }, //step 41
-    "disposeTip1": function () {
-        $("#micropipetTopView").animate({
-            "left": '35%',
-            "top": '76%'
-        });
-        $('#tipSide').css("top", "0" + "%")
-        // game.nextStep();
-        updateScore(10);
-
-    }, //step 43
     "takeS1": function (evt) {
 
         $("#micropipetTopView").animate({
@@ -630,30 +651,6 @@ var helperFunctions = {
         });
         // game.nextStep();
         updateScore(10);
-
-    }, //step 44
-    "toLane3": function (evt) {
-        var key = evt.keycode;
-        var leftIndex = evt.keyCode - 48;
-        var checkLane = (betterParseInt((game.getCurrentStep().id)));
-        //var newTop = wellTop[topIndex];
-        var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-
-        if (checkLane != leftIndex) {
-            updateScore(-10);
-            alert("Incorrect. Please select the correct lane.")
-        }
-        if (checkLane == leftIndex) {
-            $("#micropipetTopView").animate({
-                "left": newLeft + '%',
-                "top": '71.6%',
-            });
-
-            // game.nextStep();
-            updateScore(10);
-        };
-        //movePipetTop(wellTop[arrayIndex])
-        //     $("#micropipetTopView").animate({top: '${newTop}%;'});
     }, //step 46
     "disposeTip2": function () {
         $("#micropipetTopView").animate({
@@ -665,7 +662,7 @@ var helperFunctions = {
         updateScore(10);
 
     }, //step 48
-    "takeS2": function (evt) {
+    "takeS1": function (evt) {
 
         $("#micropipetTopView").animate({
             "left": '36.5%',
@@ -673,40 +670,6 @@ var helperFunctions = {
         });
         // game.nextStep();
         updateScore(10);
-
-    }, //step 49
-    "toLane4": function (evt) {
-        var key = evt.keycode;
-        var leftIndex = evt.keyCode - 48;
-        var checkLane = (betterParseInt((game.getCurrentStep().id)));
-        //var newTop = wellTop[topIndex];
-        var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-
-        if (checkLane != leftIndex) {
-            updateScore(-10);
-            alert("Incorrect. Please select the correct lane.")
-        }
-        if (checkLane == leftIndex) {
-            $("#micropipetTopView").animate({
-                "left": newLeft + '%',
-                "top": '71.6%',
-            });
-
-            // game.nextStep();
-            updateScore(10);
-        };
-        //movePipetTop(wellTop[arrayIndex])
-        //     $("#micropipetTopView").animate({top: '${newTop}%;'});
-    }, //step 51
-    "disposeTip3": function () {
-        $("#micropipetTopView").animate({
-            "left": '35%',
-            "top": '76%'
-        });
-        $('#tipSide').css("top", "0" + "%")
-        // game.nextStep();
-        updateScore(10);
-
     }, //step 53
     "takeS2": function (evt) {
 
@@ -714,42 +677,6 @@ var helperFunctions = {
             "left": '36.5%',
             "top": '15.5%'
         });
-        // game.nextStep();
-        updateScore(10);
-
-    }, //step 54
-    "toLane4": function (evt) {
-        var key = evt.keycode;
-        var leftIndex = evt.keyCode - 48;
-        var checkLane = (betterParseInt((game.getCurrentStep().id)));
-        //var newTop = wellTop[topIndex];
-        var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-
-        if (checkLane != leftIndex) {
-            updateScore(-10);
-            alert("Incorrect. Please select the correct lane.")
-        }
-        if (checkLane == leftIndex) {
-            $("#micropipetTopView").animate({
-                "left": newLeft + '%',
-                "top": '71.6%',
-            });
-
-            // game.nextStep();
-            updateScore(10);
-        };
-        //movePipetTop(wellTop[arrayIndex])
-        //     $("#micropipetTopView").animate({top: '${newTop}%;'});
-    }, //step 56
-    "disposeTip3": function () {
-        $("#micropipetTopView").animate({
-            "left": '35%',
-            "top": '76%'
-        });
-        $('#tipSide').css("top", "0" + "%")
-        // game.nextStep();
-        updateScore(10);
-
     }, //step 58
     "takeS3": function (evt) {
 
@@ -757,42 +684,6 @@ var helperFunctions = {
             "left": '36.5%',
             "top": '15.5%'
         });
-        // game.nextStep();
-        updateScore(10);
-
-    }, //step 59
-    "toLane5": function (evt) {
-        var key = evt.keycode;
-        var leftIndex = evt.keyCode - 48;
-        var checkLane = (betterParseInt((game.getCurrentStep().id)));
-        //var newTop = wellTop[topIndex];
-        var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-
-        if (checkLane != leftIndex) {
-            updateScore(-10);
-            alert("Incorrect. Please select the correct lane.")
-        }
-        if (checkLane == leftIndex) {
-            $("#micropipetTopView").animate({
-                "left": newLeft + '%',
-                "top": '71.6%',
-            });
-
-            // game.nextStep();
-            updateScore(10);
-        };
-        //movePipetTop(wellTop[arrayIndex])
-        //     $("#micropipetTopView").animate({top: '${newTop}%;'});
-    }, //step 61
-    "disposeTip4": function () {
-        $("#micropipetTopView").animate({
-            "left": '35%',
-            "top": '76%'
-        });
-        $('#tipSide').css("top", "0" + "%")
-        // game.nextStep();
-        updateScore(10);
-
     }, //step 63
     "takeS4": function (evt) {
 
@@ -802,40 +693,6 @@ var helperFunctions = {
         });
         // game.nextStep();
         updateScore(10);
-
-    }, //step 64
-    "toLane6": function (evt) {
-        var key = evt.keycode;
-        var leftIndex = evt.keyCode - 48;
-        var checkLane = (betterParseInt((game.getCurrentStep().id)));
-        //var newTop = wellTop[topIndex];
-        var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-
-        if (checkLane != leftIndex) {
-            updateScore(-10);
-            alert("Incorrect. Please select the correct lane.")
-        }
-        if (checkLane == leftIndex) {
-            $("#micropipetTopView").animate({
-                "left": newLeft + '%',
-                "top": '71.6%',
-            });
-
-            // game.nextStep();
-            updateScore(10);
-        };
-        //movePipetTop(wellTop[arrayIndex])
-        //     $("#micropipetTopView").animate({top: '${newTop}%;'});
-    }, //step 66
-    "disposeTip5": function () {
-        $("#micropipetTopView").animate({
-            "left": '35%',
-            "top": '76%'
-        });
-        $('#tipSide').css("top", "0" + "%")
-        // game.nextStep();
-        updateScore(10);
-
     }, //step 68
     "takeS5": function (evt) {
 
@@ -845,40 +702,6 @@ var helperFunctions = {
         });
         // game.nextStep();
         updateScore(10);
-
-    }, //step 69
-    "toLane7": function (evt) {
-        var key = evt.keycode;
-        var leftIndex = evt.keyCode - 48;
-        var checkLane = (betterParseInt((game.getCurrentStep().id)));
-        //var newTop = wellTop[topIndex];
-        var newLeft = (8 + (2.5 * (leftIndex - (0.46 * (leftIndex - 1.1)))))
-
-        if (checkLane != leftIndex) {
-            updateScore(-10);
-            alert("Incorrect. Please select the correct lane.")
-        }
-        if (checkLane == leftIndex) {
-            $("#micropipetTopView").animate({
-                "left": newLeft + '%',
-                "top": '71.6%',
-            });
-
-            // game.nextStep();
-            updateScore(10);
-        };
-        //movePipetTop(wellTop[arrayIndex])
-        //     $("#micropipetTopView").animate({top: '${newTop}%;'});
-    }, //step 71
-    "disposeTip6": function () {
-        $("#micropipetTopView").animate({
-            "left": '35%',
-            "top": '76%'
-        });
-        $('#tipSide').css("top", "0" + "%")
-        // game.nextStep();
-        updateScore(10);
-
     }, //step 72
     "clickLid": function () {
         $("#lidSide").animate({

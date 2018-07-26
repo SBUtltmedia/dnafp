@@ -435,7 +435,7 @@ function loadSteps() {
                 , {
                     "id": "pressTube1"
                     , "shortText": "Expose tube bottoms"
-                    , "longText": "Click on the floating rack and push each tube down to expose bottoms to the water"
+                    , "longText": "Click on the floating tube and open each tube up."
                     , "feedbackText": "complete the second step"
                     , "logic": {
                         "eventSelector": ".pressButton"
@@ -497,7 +497,7 @@ function loadSteps() {
             , "shortText": "Load HindIII into gel"
             , "steps": [
                 {
-                    "id": "addTipTop"
+                    "id": "addTipTop1"
                     , "shortText": "Place tip"
                     , "longText": "Click on any tip in the tip box to add it to the pipette"
                     , "feedbackText": "complete the first step"
@@ -526,8 +526,8 @@ function loadSteps() {
                     , "logic": {
                         "eventSelector": ".wells" //"#well_0"
                         , "eventType": "click" //"click"
-                        , "eventFunction": helperFunctions.toLane1
-                        , "postEventFunction" : helperFunctions.toLane1Post
+                        , "eventFunction": helperFunctions.toLane
+                        , "postEventFunction" : helperFunctions.toLanePost
                         , "criteria": {
                             "variable": "lanePicked",
                             "value": 0,
@@ -543,7 +543,8 @@ function loadSteps() {
                     , "logic": {
                         "eventSelector": "#gelWellBoundary"
                         , "eventType": "drop"
-                        , "eventFunction": helperFunctions.insertTip1
+                        , "eventFunction": helperFunctions.insertTip
+                        , "postEventFunction": helperFunctions.insertTipPost
                         , "criteria": {
                             "variable": "TipPosition",
                             "value": true
@@ -551,7 +552,7 @@ function loadSteps() {
                     }
                 }
                 , {
-                    "id": "disposeTip"
+                    "id": "disposeTip1"
                     , "shortText": "Dispose of tip"
                     , "longText": "Click on the waste bin to dispose of the tip"
                     , "feedbackText": "complete the third step"
@@ -568,14 +569,14 @@ function loadSteps() {
             , "shortText": "Load CS DNA into gel"
             , "steps": [
                 {
-                    "id": "addTipTop1"
+                    "id": "addTipTop2"
                     , "shortText": "Place tip"
                     , "longText": "Click on a tip in the tip box to add it to the pipette"
                     , "feedbackText": "complete the first step"
                     , "logic": {
-                        "eventSelector": "#tipBoxTop"
+                        "eventSelector": ".tipTop"
                         , "eventType": "click"
-                        , "eventFunction": helperFunctions.addTipTop
+                        , "eventFunction": helperFunctions.addTipTop1
                     }
                 }
                 , {
@@ -592,34 +593,45 @@ function loadSteps() {
                 , {
                     "id": "toLane2"
                     , "shortText": "Put in Lane 2"
-                    , "longText": "Press the number key of the appropriate lane. The leftmost lane is lane 1"
+                    , "longText": "Click on the correct well to move the pipette."
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "html"
-                        , "eventType": "keypress"
-                        , "eventFunction": helperFunctions.toLane2
+                        "eventSelector": ".wells" //"#well_0"
+                        , "eventType": "click" //"click"
+                        , "eventFunction": helperFunctions.toLane
+                        , "postEventFunction" : helperFunctions.toLanePost
+                        , "criteria": {
+                            "variable": "lanePicked",
+                            "value": 1,
+                            "messageWrong": "Incorrect. Please select the correct well."
+                            }
                     }
                 }
                 , {
-                    "id": "insertTip"
+                    "id": "insertTip2"
                     , "shortText": "Insert tip"
-                    , "longText": "Use the arrow keys to insert the tip into the well. Be sure not to breach the walls!"
+                    , "longText": "Use the arrow keys to control the position of the tip in the well. Be sure not to breach the walls!"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "html"
-                        , "eventType": "keydown"
+                        "eventSelector": "#gelWellBoundary"
+                        , "eventType": "drop"
                         , "eventFunction": helperFunctions.insertTip
+                        , "postEventFunction": helperFunctions.insertTipPost
+                        , "criteria": {
+                            "variable": "TipPosition",
+                            "value": true
+                        }
                     }
                 }
                 , {
-                    "id": "disposeTip1"
+                    "id": "disposeTip2"
                     , "shortText": "Dispose of tip"
                     , "longText": "Click on the waste bin to dispose of the tip"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#wasteBinTop"
                         , "eventType": "click"
-                        , "eventFunction": helperFunctions.disposeTip1
+                        , "eventFunction": helperFunctions.disposeTip
                     }
                 }
             ]
@@ -628,7 +640,7 @@ function loadSteps() {
             , "shortText": "Load S1 DNA into gel"
             , "steps": [
                 {
-                    "id": "addTipTop2"
+                    "id": "addTipTop3"
                     , "shortText": "Place tip"
                     , "longText": "Click on a tip in the tip box to add it to the pipette"
                     , "feedbackText": "complete the first step"
@@ -652,34 +664,45 @@ function loadSteps() {
                 , {
                     "id": "toLane3"
                     , "shortText": "Put in Lane 3"
-                    , "longText": "Press the number key of the appropriate lane. The leftmost lane is lane 1"
+                    , "longText": "Click on the correct well to move the pipette."
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "html"
-                        , "eventType": "keypress"
-                        , "eventFunction": helperFunctions.toLane3
+                        "eventSelector": ".wells" //"#well_0"
+                        , "eventType": "click" //"click"
+                        , "eventFunction": helperFunctions.toLane
+                        , "postEventFunction" : helperFunctions.toLanePost
+                        , "criteria": {
+                            "variable": "lanePicked",
+                            "value": 2,
+                            "messageWrong": "Incorrect. Please select the correct well."
+                            }
                     }
                 }
                 , {
-                    "id": "insertTip"
+                    "id": "insertTip3"
                     , "shortText": "Insert tip"
-                    , "longText": "Use the arrow keys to insert the tip into the well. Be sure not to breach the walls!"
+                    , "longText": "Use the arrow keys to control the position of the tip in the well. Be sure not to breach the walls!"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "html"
-                        , "eventType": "keydown"
+                        "eventSelector": "#gelWellBoundary"
+                        , "eventType": "drop"
                         , "eventFunction": helperFunctions.insertTip
+                        , "postEventFunction": helperFunctions.insertTipPost
+                        , "criteria": {
+                            "variable": "TipPosition",
+                            "value": true
+                        }
                     }
                 }
                 , {
-                    "id": "disposeTip2"
+                    "id": "disposeTip3"
                     , "shortText": "Dispose of tip"
                     , "longText": "Click on the waste bin to dispose of the tip"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#wasteBinTop"
                         , "eventType": "click"
-                        , "eventFunction": helperFunctions.disposeTip2
+                        , "eventFunction": helperFunctions.disposeTip
                     }
                 }
             ]
@@ -688,7 +711,7 @@ function loadSteps() {
             , "shortText": "Load S2 DNA into gel"
             , "steps": [
                 {
-                    "id": "addTipTop3"
+                    "id": "addTipTop4"
                     , "shortText": "Place tip"
                     , "longText": "Click on a tip in the tip box to add it to the pipette"
                     , "feedbackText": "complete the first step"
@@ -712,34 +735,45 @@ function loadSteps() {
                 , {
                     "id": "toLane4"
                     , "shortText": "Put in Lane 4"
-                    , "longText": "Press the number key of the appropriate lane. The leftmost lane is lane 1"
+                    , "longText": "Click on the correct well to move the pipette."
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "html"
-                        , "eventType": "keypress"
-                        , "eventFunction": helperFunctions.toLane4
+                        "eventSelector": ".wells" //"#well_0"
+                        , "eventType": "click" //"click"
+                        , "eventFunction": helperFunctions.toLane
+                        , "postEventFunction" : helperFunctions.toLanePost
+                        , "criteria": {
+                            "variable": "lanePicked",
+                            "value": 3,
+                            "messageWrong": "Incorrect. Please select the correct well."
+                            }
                     }
                 }
                 , {
-                    "id": "insertTip"
+                    "id": "insertTip4"
                     , "shortText": "Insert tip"
-                    , "longText": "Use the arrow keys to insert the tip into the well. Be sure not to breach the walls!"
+                    , "longText": "Use the arrow keys to control the position of the tip in the well. Be sure not to breach the walls!"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "html"
-                        , "eventType": "keydown"
+                        "eventSelector": "#gelWellBoundary"
+                        , "eventType": "drop"
                         , "eventFunction": helperFunctions.insertTip
+                        , "postEventFunction": helperFunctions.insertTipPost
+                        , "criteria": {
+                            "variable": "TipPosition",
+                            "value": true
+                        }
                     }
                 }
                 , {
-                    "id": "disposeTip3"
+                    "id": "disposeTip4"
                     , "shortText": "Dispose of tip"
                     , "longText": "Click on the waste bin to dispose of the tip"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#wasteBinTop"
                         , "eventType": "click"
-                        , "eventFunction": helperFunctions.disposeTip3
+                        , "eventFunction": helperFunctions.disposeTip
                     }
                 }
             ]
@@ -748,7 +782,7 @@ function loadSteps() {
             , "shortText": "Load S3 DNA into gel"
             , "steps": [
                 {
-                    "id": "addTipTop4"
+                    "id": "addTipTop5"
                     , "shortText": "Place tip"
                     , "longText": "Click on a tip in the tip box to add it to the pipette"
                     , "feedbackText": "complete the first step"
@@ -772,34 +806,45 @@ function loadSteps() {
                 , {
                     "id": "toLane5"
                     , "shortText": "Put in Lane 5"
-                    , "longText": "Press the number key of the appropriate lane. The leftmost lane is lane 1"
+                    , "longText": "Click on the correct well to move the pipette."
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "html"
-                        , "eventType": "keypress"
-                        , "eventFunction": helperFunctions.toLane5
+                        "eventSelector": ".wells" //"#well_0"
+                        , "eventType": "click" //"click"
+                        , "eventFunction": helperFunctions.toLane
+                        , "postEventFunction" : helperFunctions.toLanePost
+                        , "criteria": {
+                            "variable": "lanePicked",
+                            "value": 4,
+                            "messageWrong": "Incorrect. Please select the correct well."
+                            }
                     }
                 }
                 , {
-                    "id": "insertTip"
+                    "id": "insertTip5"
                     , "shortText": "Insert tip"
-                    , "longText": "Use the arrow keys to insert the tip into the well. Be sure not to breach the walls!"
+                    , "longText": "Use the arrow keys to control the position of the tip in the well. Be sure not to breach the walls!"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "html"
-                        , "eventType": "keydown"
+                        "eventSelector": "#gelWellBoundary"
+                        , "eventType": "drop"
                         , "eventFunction": helperFunctions.insertTip
+                        , "postEventFunction": helperFunctions.insertTipPost
+                        , "criteria": {
+                            "variable": "TipPosition",
+                            "value": true
+                        }
                     }
                 }
                 , {
-                    "id": "disposeTip4"
+                    "id": "disposeTip5"
                     , "shortText": "Dispose of tip"
                     , "longText": "Click on the waste bin to dispose of the tip"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#wasteBinTop"
                         , "eventType": "click"
-                        , "eventFunction": helperFunctions.disposeTip4
+                        , "eventFunction": helperFunctions.disposeTip
                     }
                 }
             ]
@@ -808,7 +853,7 @@ function loadSteps() {
             , "shortText": "Load S4 DNA into gel"
             , "steps": [
                 {
-                    "id": "addTipTop5"
+                    "id": "addTipTop6"
                     , "shortText": "Place tip"
                     , "longText": "Click on a tip in the tip box to add it to the pipette"
                     , "feedbackText": "complete the first step"
@@ -832,34 +877,45 @@ function loadSteps() {
                 , {
                     "id": "toLane6"
                     , "shortText": "Put in Lane 6"
-                    , "longText": "Press the number key of the appropriate lane. The leftmost lane is lane 1"
+                    , "longText": "Click on the correct well to move the pipette."
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "html"
-                        , "eventType": "keypress"
-                        , "eventFunction": helperFunctions.toLane6
+                        "eventSelector": ".wells" //"#well_0"
+                        , "eventType": "click" //"click"
+                        , "eventFunction": helperFunctions.toLane
+                        , "postEventFunction" : helperFunctions.toLanePost
+                        , "criteria": {
+                            "variable": "lanePicked",
+                            "value": 5,
+                            "messageWrong": "Incorrect. Please select the correct well."
+                            }
                     }
                 }
                 , {
-                    "id": "insertTip"
+                    "id": "insertTip6"
                     , "shortText": "Insert tip"
-                    , "longText": "Use the arrow keys to insert the tip into the well. Be sure not to breach the walls!"
+                    , "longText": "Use the arrow keys to control the position of the tip in the well. Be sure not to breach the walls!"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "html"
-                        , "eventType": "keydown"
+                        "eventSelector": "#gelWellBoundary"
+                        , "eventType": "drop"
                         , "eventFunction": helperFunctions.insertTip
+                        , "postEventFunction": helperFunctions.insertTipPost
+                        , "criteria": {
+                            "variable": "TipPosition",
+                            "value": true
+                        }
                     }
                 }
                 , {
-                    "id": "disposeTip5"
+                    "id": "disposeTip6"
                     , "shortText": "Dispose of tip"
                     , "longText": "Click on the waste bin to dispose of the tip"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#wasteBinTop"
                         , "eventType": "click"
-                        , "eventFunction": helperFunctions.disposeTip5
+                        , "eventFunction": helperFunctions.disposeTip
                     }
                 }
             ]
@@ -892,34 +948,45 @@ function loadSteps() {
                 , {
                     "id": "toLane7"
                     , "shortText": "Put in Lane 7"
-                    , "longText": "Press the number key of the appropriate lane. The leftmost lane is lane 1"
+                    , "longText": "Click on the correct well to move the pipette."
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "html"
-                        , "eventType": "keypress"
-                        , "eventFunction": helperFunctions.toLane7
+                        "eventSelector": ".wells" //"#well_0"
+                        , "eventType": "click" //"click"
+                        , "eventFunction": helperFunctions.toLane
+                        , "postEventFunction" : helperFunctions.toLanePost
+                        , "criteria": {
+                            "variable": "lanePicked",
+                            "value": 5,
+                            "messageWrong": "Incorrect. Please select the correct well."
+                            }
                     }
                 }
                 , {
-                    "id": "insertTip"
+                    "id": "insertTip7"
                     , "shortText": "Insert tip"
-                    , "longText": "Use the arrow keys to insert the tip into the well. Be sure not to breach the walls!"
+                    , "longText": "Use the arrow keys to control the position of the tip in the well. Be sure not to breach the walls!"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "html"
-                        , "eventType": "keydown"
+                        "eventSelector": "#gelWellBoundary"
+                        , "eventType": "drop"
                         , "eventFunction": helperFunctions.insertTip
+                        , "postEventFunction": helperFunctions.insertTipPost
+                        , "criteria": {
+                            "variable": "TipPosition",
+                            "value": true
+                        }
                     }
                 }
                 , {
-                    "id": "disposeTip6"
+                    "id": "disposeTip7"
                     , "shortText": "Dispose of tip"
                     , "longText": "Click on the waste bin to dispose of the tip"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#wasteBinTop"
                         , "eventType": "click"
-                        , "eventFunction": helperFunctions.disposeTip6
+                        , "eventFunction": helperFunctions.disposeTip
                     }
                 }
             ]

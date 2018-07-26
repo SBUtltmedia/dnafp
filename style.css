@@ -595,6 +595,15 @@ button, input[type="submit"], input[type="reset"] {
     background-size: contain;
 }
 
+.openButton{
+    width: 4%;
+    height: 4%; 
+    position: absolute;
+    top: 52%;
+    background-image: url(img/openButton.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
 
 
 
