@@ -583,29 +583,24 @@ button, input[type="submit"], input[type="reset"] {
 
 
 
+.pressButton button{
+    position:absolute;   
+    font-size:.19rem;    
+    border:.015rem solid black;
+    background:lightgrey;
+    padding:.075rem;
 
+}
 
 .pressButton{
     width: 4%;
     height: 4%; 
     position: absolute;
     top: 52%;
-    background-image: url(img/pressButton.svg);
+ 
     background-repeat: no-repeat;
     background-size: contain;
 }
-
-.openButton{
-    width: 4%;
-    height: 4%; 
-    position: absolute;
-    top: 52%;
-    background-image: url(img/openButton.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-
 
 #pressButton_0 {
   
@@ -918,6 +913,7 @@ button, input[type="submit"], input[type="reset"] {
     background-position: center center;
     visibility: visible;
     z-index: 0; /*z-index: inherit;*/
+    pointer-events: initial
 }
 
 #powerSupplyDown {
@@ -931,7 +927,8 @@ button, input[type="submit"], input[type="reset"] {
     background-size: contain;
     background-position: center center;
     visibility: visible;
-    z-index: 0; /*z-index: inherit;*/
+    z-index: 0;
+    pointer-events: initial
 }
 
 #voltage {
@@ -939,6 +936,7 @@ button, input[type="submit"], input[type="reset"] {
     height: 4%;
     left: 40%;
     top: 40%;
+    border: .1rem solid black;
     position: absolute;
     background-repeat: no-repeat;
     background-size: contain;
@@ -1353,95 +1351,53 @@ button, input[type="submit"], input[type="reset"] {
     visibility: visible;
 }
 
-#ladderTop {
+.tubeTopp {
     width: 7%;
     height: 7%;
     left: 33.5%;
-    top: 16%;
     position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    visibility: visible;
+}
+
+#tubeTop_0 {
+/*    ladderTop*/
+    top: 17.5%;
     background-image: url(img/ladderTop.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
-    visibility: visible;
+    
 }
 
-#csTop {
-    width: 7%;
-    height: 7%;
-    left: 33.5%;
+#tubeTop_1 {
+/*    csTop*/
     top: 22%;
-    position: absolute;
     background-image: url(img/csTop.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
-    visibility: visible;
 }
 
-#s1Top {
-    width: 7%;
-    height: 7%;
-    left: 33.5%;
+#tubeTop_2 {
     top: 26.5%;
-    position: absolute;
     background-image: url(img/s1Top.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
-    visibility: visible;
 }
 
-#s2Top {
-    width: 7%;
-    height: 7%;
-    left: 33.5%;
+#tubeTop_3 {
     top: 31%;
-    position: absolute;
     background-image: url(img/s2Top.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
-    visibility: visible;
 }
 
-#s3Top {
-    width: 7%;
-    height: 7%;
-    left: 33.5%;
+#tubeTop_4 {
     top: 35.5%;
-    position: absolute;
     background-image: url(img/s3Top.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
-    visibility: visible;
 }
 
-#s4Top {
-    width: 7%;
-    height: 7%;
-    left: 33.5%;
+#tubeTop_5 {
     top: 40%;
-    position: absolute;
     background-image: url(img/s4Top.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
-    visibility: visible;
 }
 
-#s5Top {
-    width: 7%;
-    height: 7%;
-    left: 33.5%;
+#tubeTop_6 {
     top: 44.5%;
-    position: absolute;
     background-image: url(img/s5Top.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
-    visibility: visible;
 }
 
 #zoomOutButton2 {

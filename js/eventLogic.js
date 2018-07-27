@@ -98,7 +98,6 @@ var state = {
     buttonPress: [0, 0, 0, 0, 0, 0],
     microtubeState: [0, 0, 0, 0, 0, 0],
     TipPosition: false,
-    lanePosition: [0,0,0,0,0,0,0]
 };
 var tubeClicks = [0, 0, 0, 0, 0, 0];
 //var loadingDyeState = [0];

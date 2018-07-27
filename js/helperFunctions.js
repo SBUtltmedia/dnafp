@@ -1,7 +1,9 @@
 var microTubeEnum = ["untouched", "opened", "closed", "flicked", "tapped", "returned", "exposed"]
+var tipTrayRows = 8,
+    tipTrayCols = 12;
 state["microtubeState"] = Array(6).fill(microTubeEnum[0])
+state["tipTray"] = Array(tipTrayRows * tipTrayCols).fill(0)
 state["TipPosition"] = false
-state["lanePosition"] = [0,0,0,0,0,0,0]
 var criteriaPassed;
 var microtubeAnimation = [{
     target: "Tube",
@@ -93,8 +95,7 @@ function animate(selector, delay, method, param) {
         }, delay)
     }
 
-    if (method == "removeClass")
-    {
+    if (method == "removeClass") {
         setTimeout(function () {
             $(selector).removeClass(param);
         }, delay)
@@ -104,27 +105,29 @@ function animate(selector, delay, method, param) {
 
     {
         setTimeout(function () {
-            $(selector).attr(param[0],param[1]);
+            $(selector).attr(param[0], param[1]);
         }, delay)
     }
 
     if (method == "animate")
 
     {
+        if (testMode) {
+            $(selector).css(...param)
+        } else {
+            setTimeout(function () {
+                $(selector).animate(...param, function () {
 
-        //$(selector).attr("style","")
 
-        setTimeout(function () {
-            $(selector).animate(...param, function () {
 
-                if ($(selector).css("opacity") == 0) {
-                    $(selector).css("display", "none")
+                    if ($(selector).css("opacity") == 0) {
+                        $(selector).css("display", "none")
 
-                }
+                    }
 
-            });
-        }, delay)
-
+                });
+            }, delay)
+        }
         //$(selector).delay(delay).playKeyframe(param, function () {});
     } else if (typeof (method) == "function") {
         if (method.name == "zoom" && testMode) {
@@ -298,7 +301,7 @@ var helperFunctions = {
         }])
         state["microtubeState"][tubeId] = microTubeEnum[6]
     }, //step 13
-    
+
     "removeLid": function (evt) {
         var top1 = document.getElementsByClassName("topView")
         animate("#waterBathLid", 0, "keyframe", animdefs["anim_removeLid"])
@@ -364,18 +367,18 @@ var helperFunctions = {
             opacity: '1.0'
         }])
         animate("#day2", 2000, "keyframe", animdefs["anim_changeDay2"])
-//        animate("#powerSupply", 2000, "animate", [{
-//            opacity: '1.0'
-//        }])
-//        animate("#powerSupplyUp", 2000, "animate", [{
-//            opacity: '1.0'
-//        }])
-//        animate("#powerSupplyDown", 2000, "animate", [{
-//            opacity: '1.0'
-//        }])
-//        animate("#voltage", 2000, "animate", [{
-//            opacity: '1.0'
-//        }])
+        //        animate("#powerSupply", 2000, "animate", [{
+        //            opacity: '1.0'
+        //        }])
+        //        animate("#powerSupplyUp", 2000, "animate", [{
+        //            opacity: '1.0'
+        //        }])
+        //        animate("#powerSupplyDown", 2000, "animate", [{
+        //            opacity: '1.0'
+        //        }])
+        //        animate("#voltage", 2000, "animate", [{
+        //            opacity: '1.0'
+        //        }])
 
         state["microtubeState"] = Array(6).fill(microTubeEnum[0])
 
@@ -385,7 +388,7 @@ var helperFunctions = {
                 opacity: '0.0'
             }])
             animate(".openButton", 0, "animate", [{
-            opacity: '0.0'
+                opacity: '0.0'
             }])
         }, 0);
 
@@ -412,10 +415,10 @@ var helperFunctions = {
         animate("#" + evt.target.id, 0, "keyframe", animdefs["anim_hideTipp1"])
         animate("#pipetteTip1", 0, "keyframe", animdefs["anim_showTipp1"])
         setTimeout(function () {
-        animate("#pipetteTip1", 0, "animate", [{
+            animate("#pipetteTip1", 0, "animate", [{
                 opacity: '1.0'
             }])
-        },0)
+        }, 0)
 
         $("#holder").css('z-index', '3');
 
@@ -479,16 +482,18 @@ var helperFunctions = {
             animate("#s" + i + "Tube", 1000, "keyframe", animdefs["anim_tube" + i + "ToBath"]);
         }
         animate("#tubeBlock", 1000, "keyframe", animdefs["anim_moveBlock"]);
-//        animate(".pressButton",2000, "css", [{
-//              background-image: 'url(img/openButton.svg)'
-//        }])
+        $('.pressButton button').html("Open")
+        //        animate(".pressButton",2000, "css", [{
+        //              background-image: 'url(img/openButton.svg)'
+        //        }])
         animate(".pressButton", 2000, "animate", [{
-            opacity: '1.0'
+            opacity: '1.0',
+            display: "block"
             }])
-        state["microtubeState"][0] = microTubeEnum[5];    
+        state["microtubeState"][0] = microTubeEnum[5];
     }, //step 29    
     "pressTube1": function (evt) {
-        var tubeId = evt.target.id.split("_")[1];
+        var tubeId = evt.currentTarget.id.split("_")[1];
 
         if (testMode) {
             animate(".pressButton", 0, "animate", [{
@@ -502,15 +507,15 @@ var helperFunctions = {
         animate("#pressButton_" + tubeId, 0, "animate", [{
             opacity: '0.0'
             }])
-        console.log($("#pressButton_" + tubeId))
-        state["microtubeState"][tubeId] = microTubeEnum[6]    
+        console.log(evt.currentTarget.id)
+        state["microtubeState"][tubeId] = microTubeEnum[6]
     }, //step 29
 
     "removeComb": function () {
         animate("#gelComb", 0, "keyframe", animdefs["anim_removeComb"])
         animate("#gelSideView", 1000, "removeClass", "opClass")
     }, //step 30
-    
+
     "toTop": function () {
         $("#day2, #day2 *").hide();
         animate("#gelSideView", 1000, "addClass", "opClass")
@@ -522,10 +527,15 @@ var helperFunctions = {
 
         //$("#tipBoxTop").addClass("anim_tipVisible")
 
-        animate("#tipBoxTop",0,"animate",[{opacity: '1.0'}]);        
-       $("#arrowDown,#arrowUp,#labBenchTop,#gelTopView,#lidSide,#powerSupplyTop,.holderTop,.tipBoxTop,#wasteBinTop,#gelFinalTop").css({opacity: '1.0',visibility:"visible"}).removeClass("opClass");
+        animate("#tipBoxTop", 0, "animate", [{
+            opacity: '1.0'
+        }]);
+        $("#arrowDown,#arrowUp,#labBenchTop,#gelTopView,#lidSide,#powerSupplyTop,.holderTop,.tipBoxTop,#wasteBinTop,#gelFinalTop").css({
+            opacity: '1.0',
+            visibility: "visible"
+        }).removeClass("opClass");
 
-//       $("#zoomOutButton3,#powerSupplyUp,#powerSupplyDown,#tip").hide();      
+        //       $("#zoomOutButton3,#powerSupplyUp,#powerSupplyDown,#tip").hide();      
     }, //step 31
     "orientGel": function () {
 
@@ -538,60 +548,70 @@ var helperFunctions = {
 
     }, //step 32, 37, 42
     "addTipTop": function (evt) {
-        
-        var [column,row]= evt.currentTarget.id.split("tip")[1].split("_")
-//        var column= columnrow[0]
-//        var row= columnrow[1] //row -1
-
-
-        var selector = "#" + evt.currentTarget.id + " ellipse,#" + evt.currentTarget.id + " circle";
+        var totalRows = 8;
+        var totalCols = 16;
+        if (testMode) {
+            var tip = state["tipTray"].indexOf(0)
+            var column = tip % tipTrayCols
+            var row = Math.floor(tip / tipTrayCols);
+            var currentSelector = "tip" + column + "_" + row
+        } else {
+            var currentSelector = evt.currentTarget.id;
+            var [column, row] = currentSelector.split("tip")[1].split("_")
+        }
+        console.log(row, column, state["tipTray"], currentSelector)
+        var selector = "#" + currentSelector + " ellipse,#" + currentSelector + " circle";
         animate(selector, 500, "attr", ["class", ".st3"])
-        var topMost= 56.6,leftMost= 31.2, rowHeight=1.1,colWidth=.78
+        var topMost = 56.6,
+            leftMost = 31.2,
+            rowHeight = 1.1,
+            colWidth = .78
         var microPipetTopViewLeft = leftMost + (colWidth * column)
         var microPipetTopViewTop = topMost + (rowHeight * row)
-        
-            animate("#micropipetTopView", 0, "animate", [{ //TopMost left:31.2%, 56.6% left= +=.78%,, top= +=1.1%
-            "left": microPipetTopViewLeft +'%',
+        animate("#micropipetTopView", 0, "animate", [{ //TopMost left:31.2%, 56.6% left= +=.78%,, top= +=1.1%
+            "left": microPipetTopViewLeft + '%',
             "top": microPipetTopViewTop + '%'
-            }]);
-        
+        }]);
+        state["tipTray"][column + (row * tipTrayRows)] = 1;;
     }, //step 33
-    
-    "takeHind": function (evt) {
-        animate("#micropipetTopView", 0, "animate", [{         "left": '36.6%',
-            "top": '15.5%'
+
+    "takeMicTube": function (evt) {
+        state["tubePicked"] = parseInt(evt.currentTarget.id.split("_")[1]);
+    }, //step 34
+    "takeMicTubePost": function () {
+        var tubePickedIndex = state["tubePicked"]
+        var tubeTopPosition = 17
+        var tubeTopAdd = 4.5
+        var tubeTop = tubeTopPosition + tubeTopAdd * tubePickedIndex
+
+        animate("#micropipetTopView", 0, "animate", [{
+            "left": '36.7%',
+            "top": tubeTop + '%'
             }]);
         animate("html", 1000, zoom, [10, 74, 6, 2700])
-    }, //step 34
-    
+    }, //step 34    
 
     "toLane": function (evt) {
         state["lanePicked"] = parseInt(evt.currentTarget.id.split("_")[1]);
-        },
+    },
     "toLanePost": function () {
-        for (var laneIndex = 0; laneIndex <7; laneIndex++) {
-            if (state["lanePosition"][laneIndex] == 0) {
-                var laneLeftPosition = 10.3
-                var laneTopPosition = 71.6
-                var laneLeftAdd = 1.4
-                var laneLeft = laneLeftPosition + laneLeftAdd * laneIndex
-                animate("#micropipetTopView", 0, "animate", [{
-                    "left": laneLeft+'%', //+=1.4%
-                    "top": '71.6%',
-                }]);
-                state["lanePosition"][laneIndex]++
-                break
-            }
-        }
+        var laneIndex = state["lanePicked"]
+        var laneLeftPosition = 10.3
+        var laneLeftAdd = 1.4
+        var laneLeft = laneLeftPosition + laneLeftAdd * laneIndex
+        animate("#micropipetTopView", 0, "animate", [{
+            "left": laneLeft + '%', //+=1.4%
+            "top": '71.6%',
+        }]);
+
         animate("html", 1000, zoom, [10, 74, 1, 2700]) //zoomout
         animate(".side", 1200, "removeClass", "opClass")
         animate(".side", 1000, "css", [{
             opacity: '1'
         }])
-        console.log(state["lanePosition"])
     }, //step 35,40 
     "insertTip": function (evt) {
-      
+
         var sideViewWidth = parseFloat($('#sideView').css("width"));
         var sideViewHeight = parseFloat($('#sideView').css("height"));
         var currentBot = parseFloat($('#tipSide').css("bottom")) / sideViewHeight * 100;
@@ -602,222 +622,85 @@ var helperFunctions = {
                 $('#tipSide').css("top", "-50%")
                 $('#tipSide').css("left", "25%")
                 message("Make sure the tip stays within the well!")
-            }
-            else if (currentBot > 47){
-                message("Make sure the tip stays deep enough within the well!")                
-            }
-            else {
+            } else if (currentBot > 47) {
+                $('#tipSide').css("top", "-50%")
+                $('#tipSide').css("left", "25%")
+                message("Make sure the tip stays deep enough within the well!")
+            } else {
                 state["TipPosition"] = true
             }
-            
         }
-
     }, //step 36
-    
-    "insertTipPost": function () {
 
+    "insertTipPost": function () {
         animate(".side", 1000, "css", [{
             opacity: '0'
         }])
-        setTimeout (function () {
+        setTimeout(function () {
             $('#tipSide').css("top", "-50%")
             $('#tipSide').css("left", "25%")
-        },1000)
+        }, 1000)
     },
-    
+
     "disposeTip": function () {
-//        $(".side").css("opacity", "0")
         animate("#micropipetTopView", 0, "animate", [{
             "left": '35%',
             "top": '76%'
             }]);
-    }, 
-    "addTipTop1": function (evt) {
-        helperFunctions.addTipTop(evt)
-    }, //step 38
-    "takeCS": function (evt) {
-        $("#micropipetTopView").animate({
-            "left": '36.7%',
-            "top": '21.4%'
-        });
-        animate("html", 1000, zoom, [10, 74, 6, 2700])
-
-    }, //step 41
-    "takeS1": function (evt) {
-
-        $("#micropipetTopView").animate({
-            "left": '36.5%',
-            "top": '15.5%'
-        });
-        // game.nextStep();
-        updateScore(10);
-    }, //step 46
-    "disposeTip2": function () {
-        $("#micropipetTopView").animate({
-            "left": '35%',
-            "top": '76%'
-        });
-        $('#tipSide').css("top", "0" + "%")
-        // game.nextStep();
-        updateScore(10);
-
-    }, //step 48
-    "takeS1": function (evt) {
-
-        $("#micropipetTopView").animate({
-            "left": '36.5%',
-            "top": '15.5%'
-        });
-        // game.nextStep();
-        updateScore(10);
-    }, //step 53
-    "takeS2": function (evt) {
-
-        $("#micropipetTopView").animate({
-            "left": '36.5%',
-            "top": '15.5%'
-        });
-    }, //step 58
-    "takeS3": function (evt) {
-
-        $("#micropipetTopView").animate({
-            "left": '36.5%',
-            "top": '15.5%'
-        });
-    }, //step 63
-    "takeS4": function (evt) {
-
-        $("#micropipetTopView").animate({
-            "left": '36.5%',
-            "top": '15.5%'
-        });
-        // game.nextStep();
-        updateScore(10);
-    }, //step 68
-    "takeS5": function (evt) {
-
-        $("#micropipetTopView").animate({
-            "left": '36.5%',
-            "top": '15.5%'
-        });
-        // game.nextStep();
-        updateScore(10);
     }, //step 72
+    
     "clickLid": function () {
-        $("#lidSide").animate({
-            opacity: '0.0'
-        });
-        $("#lidBox").animate({
-            opacity: '1.0'
-        });
-        $("#micropipetTopView").animate({
+        animate("#lidSide, #micropipetTopView", 0, "animate", [{
             opacity: '0.0',
-            zindex: -1
-        });
-        //$("#gelVoltageCover").show()
-        $('#lidSide').delay(2000).queue(function () {
-            changeDay();
-            $(this).dequeue();
-        });
-        //        setTimeout(function () {
-        //            $("#gelVoltageCover").animate({
-        //                opacity: '1.0'
-        //            });
-        //            $("#powerSupplyUp").animate({
-        //                opacity: '1.0'
-        //            });
-        //            $("#powerSupplyDown").animate({
-        //                opacity: '1.0'
-        //            });
-        //            $("#gelVoltageCover").css('zIndex', '5000');
-        //            // game.nextStep();
-        //            updateScore(10);
-        //            
-        //        }, 1500);
-    }, //step 73
-    "setVoltage": function () {
-        if (voltage == 100 || testMode) {
+            display: "none"
+        }])
+        animate("#lidBox, .gelVoltage", 0, "removeClass", "opClass")
+        animate("#lidBox, #gelVoltageCover, #powerSupplyUp, #powerSupplyDown, #voltage", 0, "animate", [{
+            opacity: '1.0',
+            display: "block"
+            }])
 
-            criteriaPassed = true;
-        }
-        $("#powerSupplyUp").click(function () {
+        $("#gelVoltageCover, #powerSupplyUp, #powerSupplyDown, #voltage").show()
+
+    }, //step 73
+    "setVoltage": function (evt) {
+        console.log(evt.currentTarget.id)
+        
+        if ("powerSupplyUp" == evt.currentTarget.id){
             updateVoltage(10);;
-            $("#voltage").val(voltage);
-        });
-        $("#powerSupplyDown").click(function () {
+            $("#voltage").html(voltage);
+        } else{
             updateVoltage(-10);;
-            $("#voltage").val(voltage);
-        });
-        if (voltage == 100 || testMode) {
-            criteriaPassed = true;
+            $("#voltage").html(voltage);
         }
+        state["voltage"] = voltage            
+
     },
     "setVoltagePost": function () {
-        $("#gelVoltageCover").animate({
-            opacity: '0.0'
-        });
-        $("#gelVoltageCover").delay(500).hide();
-        //            setTimeout(function () {
-        //                $("#gelVoltageCover").hide();
-        //            }, 500);
-        //        }
-        $("#powerSupplyUp").click(function () {
-            updateVoltage(10);;
-            $("#voltage").val(voltage);
-            if (voltage == 100) {
-                // game.nextStep();
-                $("#gelVoltageCover").animate({
-                    opacity: '0.0'
-                });
-                setTimeout(function () {
-                    $("#gelVoltageCover").hide();
-                }, 500);
-            }
-        });
-        $("#powerSupplyDown").click(function () {
-            updateVoltage(-10);;
-            $("#voltage").val(voltage);
-            if (voltage == 100) {
-                // game.nextStep();
-                $("#gelVoltageCover").animate({
-                    opacity: '0.0'
-                });
-                setTimeout(function () {
-                    $("#gelVoltageCover").hide();
-                }, 500);
-            }
-        });
-    }, //step 74
-    "removeLidAgain": function () {
-        $("#lidSide").animate({
-            opacity: '1.0'
-        });
-        $("#lidBox").animate({
-            opacity: '0.0'
-        });
-        $("#tipBoxTop").animate({
+        animate("#gelVoltageCover", 1000, "animate", [{
             opacity: '0.0',
-        });
-        $("#tipBoxTop").hide();
-        $("#stainingTray").animate({
-            opacity: '1.0'
-        });
-        $("#gelFinalTop").animate({
-            opacity: '1.0'
-        });
-        $("#lidBox").delay(1).animate({
-            zindex: -2
-        });
+            display: "none" 
+        }])
+//        $("#gelVoltageCover").animate({
+//            opacity: '0.0'
+//        });
+    }, //step 74
+    "removeGelLid": function () {
+        animate("#stainingTray", 0, "removeClass", "opClass")
+        animate("#lidSide, #stainingTray", 0, "animate", [{
+            opacity: '1.0',
+            display: "block"
+        }])
+        animate("#lidBox, #tipBoxTop, #wasteBinTop", 0, "animate", [{
+            opacity: '0.0'
+        }])
+
     }, //step 75
     "removeGel": function () {
-        $("#gelTrayTop").delay(1).animate({
+        animate("gelFinalTop", 0, "animate", [{
             top: '+=8%',
             left: '+=18%',
-        });
-        $("#gelFinalTop").delay(1).animate({
-            top: '+=8%',
-            left: '+=18%',
-        });
+        }])
     }, //step 76
     "nudgeGel": function () {
         $("#gelFinalTop").delay(1).animate({

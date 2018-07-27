@@ -513,9 +513,15 @@ function loadSteps() {
                     , "longText": "Remove 10 uL of HindIII DNA size marker (grey tube)"
                     , "feedbackText": "complete the second step"
                     , "logic": {
-                        "eventSelector": "#ladderTop"
+                        "eventSelector": "#tubeTop_0"
                         , "eventType": "click"
-                        , "eventFunction": helperFunctions.takeHind
+                        , "eventFunction": helperFunctions.takeMicTube
+                        , "postEventFunction" : helperFunctions.takeMicTubePost
+                        , "criteria": {
+                            "variable": "tubePicked",
+                            "value": 0,
+                            "messageWrong": "Incorrect. Please select the correct tube."
+                            }
                     }
                 }
                 , {
@@ -576,7 +582,7 @@ function loadSteps() {
                     , "logic": {
                         "eventSelector": ".tipTop"
                         , "eventType": "click"
-                        , "eventFunction": helperFunctions.addTipTop1
+                        , "eventFunction": helperFunctions.addTipTop
                     }
                 }
                 , {
@@ -585,9 +591,15 @@ function loadSteps() {
                     , "longText": "Remove 10 uL of crime suspect DNA"
                     , "feedbackText": "complete the second step"
                     , "logic": {
-                        "eventSelector": "#csTop"
+                        "eventSelector": "#tubeTop_1"
                         , "eventType": "click"
-                        , "eventFunction": helperFunctions.takeCS
+                        , "eventFunction": helperFunctions.takeMicTube
+                        , "postEventFunction" : helperFunctions.takeMicTubePost
+                        , "criteria": {
+                            "variable": "tubePicked",
+                            "value": 1,
+                            "messageWrong": "Incorrect. Please select the correct tube."
+                            }
                     }
                 }
                 , {
@@ -642,10 +654,10 @@ function loadSteps() {
                 {
                     "id": "addTipTop3"
                     , "shortText": "Place tip"
-                    , "longText": "Click on a tip in the tip box to add it to the pipette"
+                    , "longText": "Click on any tip in the tip box to add it to the pipette"
                     , "feedbackText": "complete the first step"
                     , "logic": {
-                        "eventSelector": "#tipBoxTop"
+                        "eventSelector": ".tipTop"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.addTipTop
                     }
@@ -656,9 +668,15 @@ function loadSteps() {
                     , "longText": "Remove 10 uL of suspect 1 DNA"
                     , "feedbackText": "complete the second step"
                     , "logic": {
-                        "eventSelector": "#s1Top"
+                        "eventSelector": "#tubeTop_2"
                         , "eventType": "click"
-                        , "eventFunction": helperFunctions.takeS1
+                        , "eventFunction": helperFunctions.takeMicTube
+                        , "postEventFunction" : helperFunctions.takeMicTubePost
+                        , "criteria": {
+                            "variable": "tubePicked",
+                            "value": 2,
+                            "messageWrong": "Incorrect. Please select the correct tube."
+                            }
                     }
                 }
                 , {
@@ -713,10 +731,10 @@ function loadSteps() {
                 {
                     "id": "addTipTop4"
                     , "shortText": "Place tip"
-                    , "longText": "Click on a tip in the tip box to add it to the pipette"
+                    , "longText": "Click on any tip in the tip box to add it to the pipette"
                     , "feedbackText": "complete the first step"
                     , "logic": {
-                        "eventSelector": "#tipBoxTop"
+                        "eventSelector": ".tipTop"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.addTipTop
                     }
@@ -727,9 +745,15 @@ function loadSteps() {
                     , "longText": "Remove 10 uL of suspect 2 DNA"
                     , "feedbackText": "complete the second step"
                     , "logic": {
-                        "eventSelector": "#s2Top"
+                        "eventSelector": "#tubeTop_3"
                         , "eventType": "click"
-                        , "eventFunction": helperFunctions.takeS2
+                        , "eventFunction": helperFunctions.takeMicTube
+                        , "postEventFunction" : helperFunctions.takeMicTubePost
+                        , "criteria": {
+                            "variable": "tubePicked",
+                            "value": 3,
+                            "messageWrong": "Incorrect. Please select the correct tube."
+                            }
                     }
                 }
                 , {
@@ -784,10 +808,10 @@ function loadSteps() {
                 {
                     "id": "addTipTop5"
                     , "shortText": "Place tip"
-                    , "longText": "Click on a tip in the tip box to add it to the pipette"
+                    , "longText": "Click on any tip in the tip box to add it to the pipette"
                     , "feedbackText": "complete the first step"
                     , "logic": {
-                        "eventSelector": "#tipBoxTop"
+                        "eventSelector": ".tipTop"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.addTipTop
                     }
@@ -798,9 +822,15 @@ function loadSteps() {
                     , "longText": "Remove 10 uL of suspect 3 DNA"
                     , "feedbackText": "complete the second step"
                     , "logic": {
-                        "eventSelector": "#s3Top"
+                        "eventSelector": "#tubeTop_4"
                         , "eventType": "click"
-                        , "eventFunction": function (){}
+                        , "eventFunction": helperFunctions.takeMicTube
+                        , "postEventFunction" : helperFunctions.takeMicTubePost
+                        , "criteria": {
+                            "variable": "tubePicked",
+                            "value": 4,
+                            "messageWrong": "Incorrect. Please select the correct tube."
+                            }
                     }
                 }
                 , {
@@ -855,10 +885,10 @@ function loadSteps() {
                 {
                     "id": "addTipTop6"
                     , "shortText": "Place tip"
-                    , "longText": "Click on a tip in the tip box to add it to the pipette"
+                    , "longText": "Click on any tip in the tip box to add it to the pipette"
                     , "feedbackText": "complete the first step"
                     , "logic": {
-                        "eventSelector": "#tipBoxTop"
+                        "eventSelector": ".tipTop"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.addTipTop
                     }
@@ -869,9 +899,15 @@ function loadSteps() {
                     , "longText": "Remove 10 uL of suspect 4 DNA"
                     , "feedbackText": "complete the second step"
                     , "logic": {
-                        "eventSelector": "#s4Top"
+                        "eventSelector": "#tubeTop_5"
                         , "eventType": "click"
-                        , "eventFunction": function(){} //helperFunctions.takesS4
+                        , "eventFunction": helperFunctions.takeMicTube
+                        , "postEventFunction" : helperFunctions.takeMicTubePost
+                        , "criteria": {
+                            "variable": "tubePicked",
+                            "value": 5,
+                            "messageWrong": "Incorrect. Please select the correct tube."
+                            }
                     }
                 }
                 , {
@@ -924,12 +960,12 @@ function loadSteps() {
             , "shortText": "Load S5 DNA into gel"
             , "steps": [
                 {
-                    "id": "addTipTop6"
+                    "id": "addTipTop7"
                     , "shortText": "Place tip"
-                    , "longText": "Click on a tip in the tip box to add it to the pipette"
+                    , "longText": "Click on any tip in the tip box to add it to the pipette"
                     , "feedbackText": "complete the first step"
                     , "logic": {
-                        "eventSelector": "#tipBoxTop"
+                        "eventSelector": ".tipTop"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.addTipTop
                     }
@@ -940,9 +976,15 @@ function loadSteps() {
                     , "longText": "Remove 10 uL of suspect 5 DNA"
                     , "feedbackText": "complete the second step"
                     , "logic": {
-                        "eventSelector": "#s5Top"
+                        "eventSelector": "#tubeTop_6"
                         , "eventType": "click"
-                        , "eventFunction": function() {}//helperFunctions.takesS5
+                        , "eventFunction": helperFunctions.takeMicTube
+                        , "postEventFunction" : helperFunctions.takeMicTubePost
+                        , "criteria": {
+                            "variable": "tubePicked",
+                            "value": 6,
+                            "messageWrong": "Incorrect. Please select the correct tube."
+                            }
                     }
                 }
                 , {
@@ -957,7 +999,7 @@ function loadSteps() {
                         , "postEventFunction" : helperFunctions.toLanePost
                         , "criteria": {
                             "variable": "lanePicked",
-                            "value": 5,
+                            "value": 6,
                             "messageWrong": "Incorrect. Please select the correct well."
                             }
                     }
@@ -1011,7 +1053,7 @@ function loadSteps() {
                     , "longText": "Click on the arrows to set the power to 100 volts. Allow the gel to run for 30-40 minutes."
                     , "feedbackText": "complete the second step"
                     , "logic": {
-                        "eventSelector": "#powerSupplyUp #powerSupplyDown"
+                        "eventSelector": ".btnUpAndDown"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.setVoltage
                         , "postEventFunction": helperFunctions.setVoltagePost

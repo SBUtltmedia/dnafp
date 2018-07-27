@@ -16,7 +16,7 @@ var stats = {
 };
 
 function message(text) {
-    console.log("error")
+    
     showOverlay()
     $('#results div,p').css({
         visibility: "hidden"
@@ -68,7 +68,7 @@ function newGame(props) {
     game.start();
     updateSteps();
     hideMenu();
-    console.log("hit")
+    
     animate("#indicatorArrow1", 50, "removeClass", "opClass");
     animate("#indicatorArrow1",0,"keyframe", animdefs["anim_oscillate1"])
     //
@@ -83,20 +83,20 @@ function jumpToStep(stepName) {
     var whileCount = 0
     var stepList=[];
     var currentStep = game.getCurrentStep();
-    //console.log(stopId, testMode, game.getCurrentStep().id, stopId)
+    //
     while (game.getCurrentStep().id != stepName && whileCount < 100) {
-        console.log(testMode)
-        console.log(game.getCurrentStep().id, stepName);
+        
+        
         criteriaPassed = true;
         currentStep = game.getCurrentStep();
 //        if (game.getCurrentStep().id == "setVolume") {
-//            console.log("foo")
+//            
 //            animate("#view", 0, zoom, [50, 50, 1, 100])
 //            $("#volumeInput").remove();
 //            $("#volumeButton").remove();
 //            game.nextStep();
 //        }
-        console.log(currentStep)
+        
         startStep(currentStep)
         endStep(currentStep)
         whileCount++;
@@ -105,11 +105,11 @@ function jumpToStep(stepName) {
         //game.nextStep();
         stepList.push(game.getCurrentStep().id)
     }
-console.log(game.getCurrentStep())
+
       testMode = false;
 
-    startStep(game.getCurrentStep())
- 
+   startStep(game.getCurrentStep())
+
 //     setTimeout(function(){
 //
 //     testMode = false;
@@ -187,10 +187,10 @@ function startStep(step) {
 
         
         if ((s.logic.criteria && isEqual(state[s.logic.criteria.variable], s.logic.criteria.value)) || !s.logic.criteria) {
-            console.log("moving to next step", testMode,s.logic)
+            
             $(s.logic.eventSelector).off()
             if (s.logic.postEventFunction) {
-                console.log("calling "+s.logic)
+                
                 s.logic.postEventFunction()
             }
             game.nextStep()
