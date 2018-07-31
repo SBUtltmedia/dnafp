@@ -1601,35 +1601,14 @@ $.keyframe.define([{ name:'pourStain',
     '60%':{
         transform:'rotate(105deg)'
 },
+    '95%':{
+        opacity: 1
+},                  
     '100%':{
         opacity: 0,
         transform:'rotate(105deg)'
 },
 },])
-
-
-
-$.keyframe.define([{ name:'stain1',
-    from: {
-        opacity: 1
-},
-    to:{
-        opacity: 0
-},
-},])
-
-
-
-$.keyframe.define([{ name:'stain2',
-    '0%':{
-        opacity: 0
-},
-    '100%':{
-        opacity: 1
-},
-},])
-
-
 
 /*Step 1 & 2*/
 $.keyframe.define([{ name:'moveEnz',

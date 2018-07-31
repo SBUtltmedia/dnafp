@@ -1,7 +1,6 @@
 var animdefs = {
 //    "anim_pulse":"pulse 1s 0s infinite linear normal forwards",
     "anim_placeItem": "placeTray 1s 0s 1 linear normal forwards",
-    "anim_quickFadeOut": "quickFadeOut .125s 0s 1 linear normal forwards",
     "anim_tube4ToBath": "tube4ToBath 1s linear 0s 1 normal forwards",
     "anim_tube1ToBath": "tube1ToBath 1s linear 0s 1 normal forwards",
     "anim_insertRack": "insertRack 1.8s linear 0s 1 normal forwards",
@@ -11,7 +10,12 @@ var animdefs = {
     "anim_tipToBin": "tipToBin .5s linear 0s 1 normal forwards",
     "anim_moveBlock": "moveBlock 1s linear 0s 1 normal forwards",
     "anim_flickTube": "flickTube 0.6s linear 0s 1 normal forwards",
+
     "anim_quickFadeIn": "quickFadeIn .125s 0s 1 linear normal forwards",
+    "anim_quickFadeOut": "quickFadeOut .125s 0s 1 linear normal forwards",
+    "anim_slowFadeIn": "quickFadeIn 2s 0s 1 linear normal forwards",
+    "anim_slowFadeOut": "quickFadeOut 2s 0s 1 linear normal forwards",
+    
     "anim_changeDay1": "changeDay1 1s linear 0s normal forwards",
     "anim_pipetToTube3": "pipetToTube3 3.4s linear 0s 1 normal forwards",
     "anim_tipHidden": "tipHidden 0.1s linear 0s normal forwards",
@@ -40,8 +44,7 @@ var animdefs = {
     "anim_moveEnz": "moveEnz 0.5s linear 0s 1 normal forwards",
     "anim_removeComb": "removeComb 1s 0s 1 linear normal forwards",
     "anim_replaceLid": "replaceLid 0.9s linear 0s 1 reverse forwards",
-    "anim_stain1": "stain1 0.1s 0s 1 linear normal forwards",
-    "anim_stain2": "stain2 1s 0s 1 linear normal forwards",
+    "anim_pourStain": "pourStain 2s 0s 1 linear normal forwards",
     "anim_rotateCap": "rotateCap 0.5s linear forwards",
     "anim_showTip1": "showTip1 1s linear 0s 1 normal forwards",
     "anim_showTipp1": "showTip1 .3s linear 0s 1 normal forwards",
@@ -84,7 +87,6 @@ var animdefs = {
     "anim_tipToTube1": "tipToTube1 3.4s linear 0s 1 normal forwards",
 
     "anim_toFrontView1": "toFrontView1 1s 0s 1 linear normal reverse",
-    "anim_pourStain": "pourStain 0.6s 0s 1 linear normal forwards",
     "anim_movePipet": "movePipet 8s linear 0s 1 normal forwards",
     "anim_ejectTip": "ejectTip 0.8s linear 0s 1 normal forwards",
     "anim_oscillate4": "oscillate4 0.75s linear 0s infinite normal forwards",

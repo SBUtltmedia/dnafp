@@ -1118,7 +1118,7 @@ function loadSteps() {
                     , "longText": "Click on the stained gel to examine it"
                     , "feedbackText": "complete the second step"
                     , "logic": {
-                        "eventSelector": "#stainingTraySide"
+                        "eventSelector": "#stainedGel"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.examineGel
                     }

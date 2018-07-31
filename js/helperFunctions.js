@@ -538,10 +538,6 @@ var helperFunctions = {
         //       $("#zoomOutButton3,#powerSupplyUp,#powerSupplyDown,#tip").hide();      
     }, //step 31
     "orientGel": function () {
-
-        animate("#gelTrayTop,#micropipetTopView,.side", 1, "animate", [{
-            opacity: '1.0'
-        }]);
         animate("#arrowDown,#arrowUp", 1, "animate", [{
             opacity: '0.0'
         }]);
@@ -616,16 +612,17 @@ var helperFunctions = {
         var sideViewHeight = parseFloat($('#sideView').css("height"));
         var currentBot = parseFloat($('#tipSide').css("bottom")) / sideViewHeight * 100;
         var currentLeft = parseFloat($('#tipSide').css("left")) / sideViewWidth * 100;
-
+        state["TipPosition"] = false
         if (currentBot < 52) {
             if (currentBot < 10 || currentLeft > 56.5 || currentLeft < 4) {
                 $('#tipSide').css("top", "-50%")
                 $('#tipSide').css("left", "25%")
-                message("Make sure the tip stays within the well!")
+                message("Make sure the tip is not breaching the wall!")
             } else if (currentBot > 47) {
                 $('#tipSide').css("top", "-50%")
                 $('#tipSide').css("left", "25%")
                 message("Make sure the tip stays deep enough within the well!")
+                
             } else {
                 state["TipPosition"] = true
             }
@@ -651,15 +648,15 @@ var helperFunctions = {
     
     "clickLid": function () {
         animate("#lidSide, #micropipetTopView", 0, "animate", [{
-            opacity: '0.0',
+            opacity: '0.0'
+        }])
+        animate("#lidSide, #micropipetTopView", 0, "css", [{
             display: "none"
         }])
         animate("#lidBox, .gelVoltage", 0, "removeClass", "opClass")
         animate("#lidBox, #gelVoltageCover, #powerSupplyUp, #powerSupplyDown, #voltage", 0, "animate", [{
             opacity: '1.0',
-            display: "block"
             }])
-
         $("#gelVoltageCover, #powerSupplyUp, #powerSupplyDown, #voltage").show()
 
     }, //step 73
@@ -681,42 +678,73 @@ var helperFunctions = {
             opacity: '0.0',
             display: "none" 
         }])
-//        $("#gelVoltageCover").animate({
-//            opacity: '0.0'
-//        });
     }, //step 74
     "removeGelLid": function () {
-        animate("#stainingTray", 0, "removeClass", "opClass")
+        animate("#lidSide, #stainingTray", 0, "removeClass", "opClass")
         animate("#lidSide, #stainingTray", 0, "animate", [{
+            display: "show",
             opacity: '1.0',
-            display: "block"
+           
         }])
+     $("#lidSide, #stainingTray").css({display:"block"});
         animate("#lidBox, #tipBoxTop, #wasteBinTop", 0, "animate", [{
-            opacity: '0.0'
+            opacity: '0.0',
         }])
-
+        animate("#lidBox, #tipBoxTop, #wasteBinTop", 0, "addClass", "opClass")
     }, //step 75
     "removeGel": function () {
-        animate("gelFinalTop", 0, "animate", [{
-            top: '+=8%',
-            left: '+=18%',
+        animate("#gelFinalTop", 0, "animate", [{
+            top: '73.5%',
+            left: '30.1%',
         }])
     }, //step 76
     "nudgeGel": function () {
-        $("#gelFinalTop").delay(1).animate({
-            top: '-=14%',
-            left: '+=0.5%',
-        });
-        $("#gelTrayTop").delay(1).animate({
+        animate("#gelFinalTop", 0, "animate", [{
+            top: '58.5%',
+            left: '30.6%',
+        }])
+        
+        animate("#topView, #topView *", 0, "animate", [{
             opacity: '0.0'
-        });
+        }])
+        animate("#topView, #topView *", 0, "addClass", "opClass")
+        $("#day2 *, #day2, #bothDays, #bothDays *").resetKeyframe(function () {});
+        animate("#graduatedCylinder, #stainingTraySide", 0, "removeClass", "opClass")
+        $("#day2, #bothDays, #graduatedCylinder, #stainingTraySide").show()
+        animate("#waterBathNoLid, #waterBathLid, #gelComb, #wasteBasket, #shelf1, #loadDyeCap", 0, "addClass", "opClass")
+
+        
+//        animate("#day2, #day2 *, #bothDays, #bothDays *", 0, "removeClass", "opClass")
+//        animate("#day2, #day2 *, #bothDays, #bothDays *", 0, "animate", [{
+//            opacity: '1.0',
+//        }])
+//        animate("#day2, #day2 *, #bothDays, #bothDays *", 0, "css", [{
+//            display: "block",
+//        }])
+
+        
     }, //step 77
     "stainGel": function () {
-        $("#graduatedCylinder").attr("class", " anim_pourStain");
-        $("#emptyGraduatedCylinder").attr("class", " anim_stain2");
-        $("#stainingTraySide").attr("class", " anim_stain1");
+        animate("#graduatedCylinder", 0, "keyframe", animdefs["anim_pourStain"])
+        animate("#emptyGraduatedCylinder", 3000, "css", [{
+         opacity: '1.0'   
+        }])
+        animate("#emptyGraduatedCylinder,#stainedGel", 0, "removeClass", "opClass")
+        animate("#emptyGraduatedCylinder,#stainedGel", 0, "css", [{
+            opacity: '0.0'
+        }])
+        animate("#stainingTraySide", 3000, "addClass", "opClass")
+        animate("#stainedGel", 1000, "keyframe", animdefs["anim_slowFadeIn"])
+        
+        
+//
+//        $("#graduatedCylinder").attr("class", " anim_pourStain");
+//        $("#emptyGraduatedCylinder").attr("class", " anim_stain2");
+//        $("#stainingTraySide").attr("class", " anim_stain1");
     }, //step 78
     "examineGel": function () {
+        
+        
         $("#gel").delay(50).animate({
             opacity: '1.0'
         });

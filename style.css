@@ -1004,7 +1004,7 @@ button, input[type="submit"], input[type="reset"] {
     width: 10%;
     height: 4%;
     left: 88%;
-    top: 78%;
+    top: 74.5%;
     position: absolute;
     background-image: url(img/stainingTraySide.svg);
     background-repeat: no-repeat;
@@ -1017,7 +1017,7 @@ button, input[type="submit"], input[type="reset"] {
     width: 10%;
     height: 4%;
     left: 88%;
-    top: 78%;
+    top: 74.5%;
     position: absolute;
     background-image: url(img/stainedGel.svg);
     background-repeat: no-repeat;
@@ -1030,7 +1030,7 @@ button, input[type="submit"], input[type="reset"] {
     width: 3%;
     height: 12%;
     left: 84%;
-    top: 70%;
+    top: 66.2%;
     position: absolute;
     background-image: url(img/graduatedCylinder.svg);
     background-repeat: no-repeat;
@@ -1043,7 +1043,7 @@ button, input[type="submit"], input[type="reset"] {
     width: 3%;
     height: 12%;
     left: 84%;
-    top: 70%;
+    top: 66.2%;
     position: absolute;
     background-image: url(img/emptyGraduatedCylinder.svg);
     background-repeat: no-repeat;
@@ -1070,7 +1070,7 @@ button, input[type="submit"], input[type="reset"] {
     left: 20%;
     top: 11%;
     position: absolute;
-    z-index: 0; /*z-index: 20000;*/
+    z-index: 0;
     visibility: hidden;
 }
 
