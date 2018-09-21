@@ -1104,7 +1104,7 @@ function loadSteps() {
                 {
                     "id": "stainGel"
                     , "shortText": "Stain the gel"
-                    , "longText": "Click on the graduated cylinder to stain the gel"
+                    , "longText": "Click on the zoom out button. Then click on the graduated cylinder to stain the gel"
                     , "feedbackText": "complete the first step"
                     , "logic": {
                         "eventSelector": "#graduatedCylinder"
@@ -1130,14 +1130,8 @@ function loadSteps() {
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#answerButton"
-                        , "eventType": "submit"
+                        , "eventType": "click"
                         , "eventFunction": helperFunctions.pickLane
-                        , "postEventFunction": helperFunctions.pickLanePost
-                        , "criteria": {
-                            "variable": "lanePickedNumber",
-                            "value": 4,
-                            "messageWrong": "Incorrect. Try again."
-                            }
                     }
                 }
             ]

@@ -187,7 +187,7 @@ var helperFunctions = {
         updateScore(10);
         animate("#volumeButton,#volumeInput", 1, "animate", [{
             opacity: '0.0'
-            }])
+        }]);
         animate("#view", 0, zoom, [50, 50, 1, 1000])
         animate("#micropipet2", 1100, "keyframe", animdefs["anim_lowerPipet"])
         animate("#indicatorArrow6", 0, "animate", [{
@@ -285,7 +285,8 @@ var helperFunctions = {
 
     }, //step 12
     "pressTube": function (evt) {
-        var tubeId = evt.currentTarget.id.split("_")[1];
+        var tubeId = evt.target.id.split("_")[1];
+        console.log(evt.target.id)
         if (testMode) {
             animate(".pressButton", 0, "animate", [{
                 opacity: '0.0'
@@ -407,6 +408,7 @@ var helperFunctions = {
         var tippNum = betterParseInt(evt.target.id);
         var tippLeft = tips[(tippNum - 1)];
         animate("#indicatorArrow0", 0, "addClass", "opClass")
+
         // in event
         makePipetteTippAnimation(tippLeft);
         animate("#micropipet2", 0, "keyframe", animdefs["anim_addTipp1"])
@@ -417,15 +419,20 @@ var helperFunctions = {
                 opacity: '1.0'
             }])
         }, 0)
+
         $("#holder").css('z-index', '3');
+
         animate("#volumeButton1,#volumeInput1", 5000, "removeClass", "opClass")
         animate("#volumeButton1,#volumeInput1", 5000, "animate", [{
             opacity: '1.0'
         }]);
         animate("#view", 3000, zoom, [23, 12, 7, 1400])
 
+
+
     }, //step 20
     "setDyeVolume": function () {
+
         state["volume1"] = $("#volumeInput1").val();
     },
     "setDyeVolumePost": function () {
@@ -729,18 +736,21 @@ var helperFunctions = {
         animate("#stainingTraySide", 3000, "addClass", "opClass")
         animate("#stainedGel", 1000, "keyframe", animdefs["anim_slowFadeIn"])
         
+        
+//
+//        $("#graduatedCylinder").attr("class", " anim_pourStain");
+//        $("#emptyGraduatedCylinder").attr("class", " anim_stain2");
+//        $("#stainingTraySide").attr("class", " anim_stain1");
     }, //step 78
     "examineGel": function () {
-        var contents = $("#gelFinalTop").contents();
-        $("#gelFinalTop").empty();
-        $("#gel").append(contents);
-         loadSVGLogic();
-        animate("#gel, #gel *", 0, "removeClass", "opClass")
-      
-        $("#gel, #gel *").css({
+        
+        
+        $("#gel").delay(50).animate({
+            opacity: '1.0'
+        });
+        $("#gel").css({
             opacity: 1.0,
-            visibility: "visible",
-            display:"block"
+            visibility: "visible"
         }).animate({
             opacity: 1
         }, 200)

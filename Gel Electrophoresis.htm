@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://127.0.0.1:49407/index.html#pressTube -->
+<html data-brackets-id="1" lang="en" style="font-size: 42.0375px;"><head data-brackets-id="2"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta data-brackets-id="4" name="viewport" content="width=device-width, height=device-height">
+    <title data-brackets-id="5">Gel Electrophoresis</title>
+    <script data-brackets-id="6" src="./Gel Electrophoresis_files/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script data-brackets-id="7" src="./Gel Electrophoresis_files/jquery-ui.js"></script>
+    <script data-brackets-id="8" src="./Gel Electrophoresis_files/gameStep.js"></script>
+    <script data-brackets-id="9" src="./Gel Electrophoresis_files/resize.js"></script>
+    <script data-brackets-id="10" src="./Gel Electrophoresis_files/challenges.js"></script>
+    <script data-brackets-id="11" src="./Gel Electrophoresis_files/loadSteps.js"></script>
+    <script data-brackets-id="12" src="./Gel Electrophoresis_files/eventLogic.js"></script>
+    <script data-brackets-id="13" src="./Gel Electrophoresis_files/animdefs.js"></script>
+    <script data-brackets-id="14" src="./Gel Electrophoresis_files/helperFunctions.js"></script>
+    <script data-brackets-id="15" src="./Gel Electrophoresis_files/gameLogic.js"></script>
+    <script data-brackets-id="16" src="./Gel Electrophoresis_files/loadSVG.js"></script>
+    <script data-brackets-id="17" src="./Gel Electrophoresis_files/zoom.js"></script>
+    <script data-brackets-id="18" src="./Gel Electrophoresis_files/jquery.keyframes.js"></script>
+    <script data-brackets-id="19" src="./Gel Electrophoresis_files/keyframes.js"></script><style class="keyframe-style" id="KeyframesmoveTube" type="text/css">@keyframes moveTube {from {top:71.9%;}to {top:63%;}</style><style class="keyframe-style" id="KeyframescloseCap" type="text/css">@keyframes closeCap {from {transform:rotate(0deg);}to {transform:rotate(-135deg);}</style><style class="keyframe-style" id="KeyframestubeDown" type="text/css">@keyframes tubeDown {from {top:71.9%;}to {top:63%;}</style><style class="keyframe-style" id="KeyframesmovePipet" type="text/css">@keyframes movePipet {0% {left:0.5%;top:52%;}10% {left:0.5%;top:35%;}40% {left:52%;top:35%;}50% {left:52%;top:41.6%;}80% {left:82.5%;top:47%;}90% {left:83%;top:32%;}100% {left:86.4%;top:40.8%;}</style><style class="keyframe-style" id="KeyframesremoveLid" type="text/css">@keyframes removeLid {0% {top:21.58%;left:59.88%;transform:rotate(0deg);}10% {top:18.5%;}25% {top:16.7%;transform:rotate(20deg);}100% {top:11.6%;left:70%;transform:rotate(86deg);}</style><style class="keyframe-style" id="KeyframesreplaceLid" type="text/css">@keyframes replaceLid {0% {top:21.58%;left:59.88%;transform:rotate(0deg);}10% {top:18.5%;}25% {top:16.7%;transform:rotate(20deg);}100% {top:11.6%;left:70%;transform:rotate(86deg);}</style><style class="keyframe-style" id="KeyframesflickTube" type="text/css">@keyframes flickTube {0% {top:63%;transform:rotate(0deg);}25% {top:63%;transform:rotate(90deg);}50% {top:63%;transform:rotate(0deg);}75% {top:63%;transform:rotate(90deg);}100% {top:63%;transform:rotate(0deg);}</style><style class="keyframe-style" id="KeyframestapTube" type="text/css">@keyframes tapTube {0% {top:63%;}35% {top:72.3%;left:32%;}45% {top:67%;left:32%;}55% {top:72.3%;left:32%;}65% {top:67%;left:32%;}75% {top:72.3%;left:32%;}85% {top:67%;left:32%;}100% {top:63%;}</style><style class="keyframe-style" id="KeyframesaddTip2" type="text/css">@keyframes addTip2 {0% {left:52.7%;top:34.7%;}20% {left:18.9%;top:47.6%;}25% {left:18.9%;top:42%;}90% {left:83%;top:28%;}95% {left:86.4%;top:28%;}100% {left:86.4%;top:35%;}</style><style class="keyframe-style" id="KeyframeslowerPipet" type="text/css">@keyframes lowerPipet {0% {left:86.4%;top:28%;}100% {left:86.4%;top:35%;}</style><style class="keyframe-style" id="KeyframesmoveTip1" type="text/css">@keyframes moveTip1 {0% {left:20.8%;top:70%;}20% {left:20.8%;top:70%;}25% {left:20.8%;top:64.6%;}90% {left:85.5%;top:50.6%;}100% {left:88.9%;top:50.6%;}</style><style class="keyframe-style" id="KeyframeslowerTip1" type="text/css">@keyframes lowerTip1 {0% {left:88.9%;top:50.6%;}100% {left:89.03%;top:57.1%;}</style><style class="keyframe-style" id="KeyframesmoveTip2" type="text/css">@keyframes moveTip2 {0% {left:21.6%;top:70.2%;}20% {left:21.6%;top:70.2%;}25% {left:21.6%;top:64.6%;}90% {left:85.5%;top:50.6%;}95% {left:88.9%;top:50.6%;}100% {left:89.03%;top:57.1%;}</style><style class="keyframe-style" id="KeyframesaddTip3" type="text/css">@keyframes addTip3 {0% {left:14.5%;top:52%;}8% {left:14.5%;top:44%;}14% {left:19.8%;top:44%;}20% {left:19.8%;top:47.6%;}25% {left:19.8%;top:42%;}50% {left:61%;top:42%;}58% {left:61%;top:47%;}80% {left:75%;top:47%;}90% {left:83%;top:28%;}95% {left:86.4%;top:28%;}100% {left:86.4%;top:35%;}</style><style class="keyframe-style" id="KeyframesmoveTip3" type="text/css">@keyframes moveTip3 {0% {left:22.4%;top:70.2%;}20% {left:22.4%;top:70.2%;}25% {left:22.4%;top:64.6%;}50% {left:63.5%;top:64.6%;}58% {left:63.5%;top:69.6%;}80% {left:77.5%;top:69.6%;}90% {left:85.5%;top:50.6%;}95% {left:89%;top:50.6%;}100% {left:89.03%;top:57.1%;}</style><style class="keyframe-style" id="KeyframesaddTip4" type="text/css">@keyframes addTip4 {0% {left:14.5%;top:52%;}8% {left:14.5%;top:44%;}14% {left:20.6%;top:44%;}20% {left:20.6%;top:47.6%;}25% {left:20.6%;top:42%;}50% {left:61%;top:42%;}58% {left:61%;top:47%;}80% {left:75%;top:47%;}90% {left:83%;top:28%;}95% {left:86.4%;top:28%;}100% {left:86.4%;top:35%;}</style><style class="keyframe-style" id="KeyframesmoveTip4" type="text/css">@keyframes moveTip4 {0% {left:23.2%;top:70.2%;}20% {left:23.2%;top:70.2%;}25% {left:23.2%;top:64.6%;}50% {left:63.5%;top:64.6%;}58% {left:63.5%;top:69.6%;}80% {left:77.5%;top:69.6%;}90% {left:85.5%;top:50.6%;}95% {left:89%;top:50.6%;}100% {left:89%;top:57.6%;}</style><style class="keyframe-style" id="KeyframestipToBin" type="text/css">@keyframes tipToBin {0% {left:55%;top:100%;}10.9091% {left:55%;top:105%;}72.72727% {left:55%;top:120%;}90% {left:55%;top:130%;}100% {left:55%;top:170%;opacity:0;}</style><style class="keyframe-style" id="KeyframespipetToBin" type="text/css">@keyframes pipetToBin {0% {left:34%;top:39%;}15% {left:34%;top:31%;}100% {left:52.7%;top:34.7%;}</style><style class="keyframe-style" id="KeyframesmoveLoadingDye" type="text/css">@keyframes moveLoadingDye {0% {top:23.2%;left:7.8%;}15% {top:16%;left:7.8%;}70% {top:16%;left:22%;}100% {top:30%;left:22%;}</style><style class="keyframe-style" id="KeyframesaddDyeToTube" type="text/css">@keyframes addDyeToTube {0% {left:20.9%;top:5.4%;}20% {left:20.9%;top:0%;}60% {left:34%;top:15%;}100% {left:34%;top:39%;}</style><style class="keyframe-style" id="KeyframesreturnLoadingDye1" type="text/css">@keyframes returnLoadingDye1 {0% {top:23.2%;left:7.8%;}15% {top:16%;left:7.8%;}70% {top:16%;left:22%;}100% {top:28%;left:22%;}</style><style class="keyframe-style" id="KeyframesmoveLoadingDye2" type="text/css">@keyframes moveLoadingDye2 {0% {left:11.7%;top:23.2%;}15% {top:16%;left:11.7%;}70% {top:16%;left:26%;}100% {top:28%;left:27%;}</style><style class="keyframe-style" id="KeyframesejectTip" type="text/css">@keyframes ejectTip {from {left:55.3%;top:56.9%;}to {left:55.3%;top:65%;}</style><style class="keyframe-style" id="KeyframestipToTube1" type="text/css">@keyframes tipToTube1 {0% {left:89%;top:57.6%;}25% {left:89%;top:50.6%;}85% {left:39.6%;top:57.6%;}90% {left:36.6%;top:54.2%;}100% {left:36.6%;top:61.5%;}</style><style class="keyframe-style" id="KeyframespipetToTube1" type="text/css">@keyframes pipetToTube1 {0% {left:86.4%;top:35%;}25% {left:86.4%;top:28%;}85% {left:37%;top:35%;}90% {left:34%;top:31.7%;}100% {left:34%;top:39%;}</style><style class="keyframe-style" id="KeyframestipToTube2" type="text/css">@keyframes tipToTube2 {0% {left:89%;top:57.6%;}10% {left:89%;top:50.6%;}85% {left:37.1%;top:57.6%;}90% {left:34.1%;top:54.2%;}100% {left:34.1%;top:61.5%;}</style><style class="keyframe-style" id="KeyframespipetToTube2" type="text/css">@keyframes pipetToTube2 {0% {left:86.4%;top:35%;}10% {left:86.4%;top:28%;}85% {left:34.5%;top:35%;}90% {left:31.5%;top:31.7%;}100% {left:31.5%;top:39%;}</style><style class="keyframe-style" id="KeyframestipToTube3" type="text/css">@keyframes tipToTube3 {0% {left:89%;top:57.6%;}10% {left:89%;top:50.6%;}85% {left:37.1%;top:57.6%;}90% {left:34.1%;top:54.2%;}100% {left:34.1%;top:61.5%;}</style><style class="keyframe-style" id="KeyframespipetToTube3" type="text/css">@keyframes pipetToTube3 {0% {left:86.4%;top:35%;}10% {left:86.4%;top:28%;}85% {left:34.5%;top:35%;}90% {left:31.5%;top:31.7%;}100% {left:31.5%;top:39%;}</style><style class="keyframe-style" id="KeyframestipToTube4" type="text/css">@keyframes tipToTube4 {0% {left:89%;top:57.6%;}10% {left:89%;top:50.6%;}85% {left:37.1%;top:57.6%;}90% {left:34.1%;top:54.2%;}100% {left:34.1%;top:61.5%;}</style><style class="keyframe-style" id="KeyframespipetToTube4" type="text/css">@keyframes pipetToTube4 {0% {left:86.4%;top:35%;}10% {left:86.4%;top:28%;}85% {left:34.5%;top:35%;}90% {left:31.5%;top:31.7%;}100% {left:31.5%;top:39%;}</style><style class="keyframe-style" id="KeyframestipToTube5" type="text/css">@keyframes tipToTube5 {0% {left:89%;top:57.6%;}10% {left:89%;top:50.6%;}85% {left:37.1%;top:57.6%;}90% {left:34.1%;top:54.2%;}100% {left:34.1%;top:61.5%;}</style><style class="keyframe-style" id="KeyframespipetToTube5" type="text/css">@keyframes pipetToTube5 {0% {left:86.4%;top:35%;}10% {left:86.4%;top:28%;}85% {left:34.5%;top:35%;}90% {left:31.5%;top:31.7%;}100% {left:31.5%;top:39%;}</style><style class="keyframe-style" id="KeyframestipToTube6" type="text/css">@keyframes tipToTube6 {0% {left:89%;top:57.6%;}10% {left:89%;top:50.6%;}85% {left:37.1%;top:57.6%;}90% {left:34.1%;top:54.2%;}100% {left:34.1%;top:61.5%;}</style><style class="keyframe-style" id="KeyframespipetToTube6" type="text/css">@keyframes pipetToTube6 {0% {left:86.4%;top:35%;}10% {left:86.4%;top:28%;}85% {left:34.5%;top:35%;}90% {left:31.5%;top:31.7%;}100% {left:31.5%;top:39%;}</style><style class="keyframe-style" id="KeyframesmoveBlock" type="text/css">@keyframes moveBlock {0% {left:35.72%;top:73.4%;}100% {left:30.72%;top:57%;}</style><style class="keyframe-style" id="Keyframestube0ToBath" type="text/css">@keyframes tube0ToBath {0% {left:35.72%;top:71.9%;}100% {left:30.72%;top:55%;}</style><style class="keyframe-style" id="Keyframestube1ToBath" type="text/css">@keyframes tube1ToBath {0% {left:38%;top:71.9%;}100% {left:33.5%;top:55%;}</style><style class="keyframe-style" id="Keyframestube2ToBath" type="text/css">@keyframes tube2ToBath {0% {left:40.5%;top:71.9%;}100% {left:36.3%;top:55%;}</style><style class="keyframe-style" id="Keyframestube3ToBath" type="text/css">@keyframes tube3ToBath {0% {left:43%;top:71.9%;}100% {left:39%;top:55%;}</style><style class="keyframe-style" id="Keyframestube4ToBath" type="text/css">@keyframes tube4ToBath {0% {left:45.5%;top:71.9%;}100% {left:41.7%;top:55%;}</style><style class="keyframe-style" id="Keyframestube5ToBath" type="text/css">@keyframes tube5ToBath {0% {left:48%;top:71.9%;}100% {left:44.4%;top:55%;}</style><style class="keyframe-style" id="Keyframesoscillate" type="text/css">@keyframes oscillate {0% {left:22%;top:58.7%;}50% {left:22%;top:57%;}100% {left:22%;top:58.7%;}</style><style class="keyframe-style" id="Keyframesoscillate1" type="text/css">@keyframes oscillate1 {0% {left:89%;top:52%;}50% {left:89%;top:54.5%;}100% {left:89%;top:52%;}</style><style class="keyframe-style" id="Keyframesoscillate2" type="text/css">@keyframes oscillate2 {0% {left:12%;top:12%;}50% {left:12%;top:14%;}100% {left:12%;top:12%;}</style><style class="keyframe-style" id="Keyframesoscillate3" type="text/css">@keyframes oscillate3 {0% {left:3.4%;top:12%;}50% {left:3.4%;top:14%;}100% {left:3.4%;top:12%;}</style><style class="keyframe-style" id="KeyframespressTube0" type="text/css">@keyframes pressTube0 {from {left:30.72%;top:55%;}to {left:30.72%;top:56.5%;}</style><style class="keyframe-style" id="KeyframespressTube1" type="text/css">@keyframes pressTube1 {from {left:33.5%;top:55%;}to {left:33.5%;top:56.5%;}</style><style class="keyframe-style" id="KeyframespressTube2" type="text/css">@keyframes pressTube2 {from {left:36.3%;top:55%;}to {left:36.3%;top:56.5%;}</style><style class="keyframe-style" id="KeyframespressTube3" type="text/css">@keyframes pressTube3 {from {left:39%;top:55%;}to {left:39%;top:56.5%;}</style><style class="keyframe-style" id="KeyframespressTube4" type="text/css">@keyframes pressTube4 {from {left:41.7%;top:55%;}to {left:41.7%;top:56.5%;}</style><style class="keyframe-style" id="KeyframespressTube5" type="text/css">@keyframes pressTube5 {from {left:44.4%;top:55%;}to {left:44.4%;top:56.5%;}</style><style class="keyframe-style" id="KeyframesinsertRack" type="text/css">@keyframes insertRack {0% {left:30.72%;top:57%;}70% {left:50%;top:15%;z-index:6;}80% {left:60%;top:15%;z-index:6;}100% {left:60%;top:30%;transform:scale(0.7);z-index:-1;}</style><style class="keyframe-style" id="KeyframesinsertTube0" type="text/css">@keyframes insertTube0 {0% {left:30.72%;top:56.5%;}70% {left:50%;top:17%;z-index:2;}80% {left:60%;top:17%;}100% {left:61%;top:28%;transform:scale(0.7);}</style><style class="keyframe-style" id="KeyframesinsertTube1" type="text/css">@keyframes insertTube1 {0% {left:33.5%;top:56.5%;}70% {left:52.78%;top:17%;z-index:2;}80% {left:62.78%;top:17%;}100% {left:63.78%;top:28%;transform:scale(0.7);}</style><style class="keyframe-style" id="KeyframesinsertTube2" type="text/css">@keyframes insertTube2 {0% {left:36.3%;top:56.5%;}70% {left:55.56%;top:17%;z-index:2;}80% {left:65.56%;top:17%;}100% {left:66.56%;top:30%;transform:scale(0.7);}</style><style class="keyframe-style" id="KeyframesinsertTube3" type="text/css">@keyframes insertTube3 {0% {left:38.8%;top:56.5%;}70% {left:58%;top:17%;z-index:2;}80% {left:68%;top:17%;}100% {left:69%;top:30%;transform:scale(0.7);}</style><style class="keyframe-style" id="KeyframesinsertTube4" type="text/css">@keyframes insertTube4 {0% {left:41.3%;top:56.5%;}70% {left:61.5%;top:17%;z-index:2;}80% {left:71.5%;top:17%;}100% {left:72.5%;top:30%;transform:scale(0.7);}</style><style class="keyframe-style" id="KeyframesinsertTube5" type="text/css">@keyframes insertTube5 {0% {left:44.4%;top:56.5%;}70% {left:63%;top:17%;z-index:2;}80% {left:73%;top:17%;}100% {left:74%;top:30%;transform:scale(0.7);}</style><style class="keyframe-style" id="KeyframestipVisible" type="text/css">@keyframes tipVisible {from {visibility:hidden;}to {visibility:visible;}</style><style class="keyframe-style" id="KeyframestipHidden" type="text/css">@keyframes tipHidden {from {visibility:visible;}to {visibility:hidden;}</style><style class="keyframe-style" id="Keyframesoscillate4" type="text/css">@keyframes oscillate4 {0% {left:36.6%;top:62%;}50% {left:36.6%;top:64%;}100% {left:36.6%;top:62%;}</style><style class="keyframe-style" id="Keyframesoscillate6" type="text/css">@keyframes oscillate6 {0% {left:36.6%;top:62%;}50% {left:36.6%;top:64%;}100% {left:36.6%;top:62%;}</style><style class="keyframe-style" id="KeyframesrotateCap" type="text/css">@keyframes rotateCap {from {transform:rotate(0deg);}to {transform:rotate(-135deg);}</style><style class="keyframe-style" id="Keyframesmixs0TubeBody" type="text/css">@keyframes mixs0TubeBody {0% {opacity:1;}50% {opacity:0;}100% {opacity:1;}</style><style class="keyframe-style" id="KeyframesmixTubeContent" type="text/css">@keyframes mixTubeContent {0% {opacity:0;}50% {opacity:1;}100% {opacity:0;}</style><style class="keyframe-style" id="KeyframesquickFadeIn" type="text/css">@keyframes quickFadeIn {0% {opacity:0;}100% {opacity:1;}</style><style class="keyframe-style" id="KeyframesquickFadeOut" type="text/css">@keyframes quickFadeOut {0% {opacity:1;}100% {opacity:0;}</style><style class="keyframe-style" id="KeyframesremoveComb" type="text/css">@keyframes removeComb {0% {top:71%;}90% {top:66%;opacity:1;}100% {top:66%;opacity:0;}</style><style class="keyframe-style" id="KeyframeschangeDay1" type="text/css">@keyframes changeDay1 {from {z-index:0;}to {z-index:-1;}</style><style class="keyframe-style" id="KeyframeschangeDay2" type="text/css">@keyframes changeDay2 {from {z-index:-1;}to {z-index:0;}</style><style class="keyframe-style" id="KeyframestoTopView1" type="text/css">@keyframes toTopView1 {0% {visibility:hidden;display:initial;}100% {visibility:visible;display:initial;z-index:-1;}</style><style class="keyframe-style" id="KeyframestoTopView2" type="text/css">@keyframes toTopView2 {0% {visibility:visible;display:initial;}100% {visibility:hidden;z-index:-3;}</style><style class="keyframe-style" id="KeyframestoFrontView" type="text/css">@keyframes toFrontView {0% {}100% {visibility:visible;z-index:10;}</style><style class="keyframe-style" id="KeyframestoFrontView1" type="text/css">@keyframes toFrontView1 {0% {visibility:visible;}100% {visibility:hidden;z-index:-3;}</style><style class="keyframe-style" id="KeyframesplaceItem" type="text/css">@keyframes placeItem {0% {visibility:hidden;}100% {visibility:visible;}</style><style class="keyframe-style" id="KeyframespourStain" type="text/css">@keyframes pourStain {0% {transform:rotate(0deg);opacity:1;}60% {transform:rotate(105deg);}95% {opacity:1;}100% {opacity:0;transform:rotate(105deg);}</style><style class="keyframe-style" id="KeyframesmoveEnz" type="text/css">@keyframes moveEnz {from {top:64.7%;}to {top:60%;}</style><style class="keyframe-style" id="KeyframeshideTip1" type="text/css">@keyframes hideTip1 {0% {opacity:1;}47% {opacity:1;}100% {opacity:0;}</style><style class="keyframe-style" id="KeyframesshowTip1" type="text/css">@keyframes showTip1 {0% {opacity:0;}80% {opacity:0;visibility:visible;}100% {opacity:1;visibility:visible;}</style>
+
+    <script data-brackets-id="20" src="./Gel Electrophoresis_files/jquery.ui.touch-punch.min.js"></script>
+
+
+    <link data-brackets-id="21" rel="stylesheet" type="text/css" href="./Gel Electrophoresis_files/menuStyle.css">
+    <link data-brackets-id="22" rel="stylesheet" type="text/css" href="./Gel Electrophoresis_files/generalStyle.css">
+    <link data-brackets-id="23" rel="stylesheet" type="text/css" href="./Gel Electrophoresis_files/challengeStyle.css">
+    <link data-brackets-id="24" rel="stylesheet" type="text/css" href="./Gel Electrophoresis_files/style.css">
+    <script data-brackets-id="25">
+        var testMode;
+    </script>
+    <!--    <link rel="stylesheet" type="text/css" href="style.css">-->
+    <link data-brackets-id="26" rel="stylesheet" href="./Gel Electrophoresis_files/jquery-ui.css"> <style data-brackets-id="27" id="dynamic-style">
+</style></head>
+
+
+
+
+<body data-brackets-id="28" class="stripes" style="background-size: 42.0375px; pointer-events: auto;">
+    <div data-brackets-id="29" id="stage" class="screen" style="width: 1121px; height: 840.75px; left: 0px; top: 37.125px;">
+        <div data-brackets-id="30" id="view">
+
+
+            <div data-brackets-id="31" id="bothDays">
+
+                <div data-brackets-id="32" id="pipetHolder"></div>
+                <div data-brackets-id="33" id="micropipet1" class="micropipet">
+                    <div data-brackets-id="34" id="itemLabel2" class="itemLabel">
+                        <div data-brackets-id="35" id="itemLabelText2" class="itemLabelText"> </div>
+                    </div>
+                </div>
+                <div data-brackets-id="36" id="micropipet0" class="micropipet">
+                    <div data-brackets-id="37" id="itemLabel1" class="itemLabel">
+                        <div data-brackets-id="38" id="itemLabelText1" class="itemLabelText"> </div>
+                    </div>
+                </div>
+                <div data-brackets-id="39" id="micropipet2" class="micropipet">
+                    <div data-brackets-id="40" id="pipetteTip1" class="tip opClass"></div>
+                    <div data-brackets-id="41" id="itemLabel0" class="itemLabel"></div>
+                    <div data-brackets-id="42" id="itemLabelText0" class="itemLabelText"> </div>
+                </div>
+                <div data-brackets-id="43" id="tip1" class="tip"></div>
+                <div data-brackets-id="44" id="tip2" class="tip"></div>
+                <div data-brackets-id="45" id="tip3" class="tip"></div>
+                <div data-brackets-id="46" id="tip4" class="tip"></div>
+                <div data-brackets-id="47" id="tip5" class="tip"></div>
+                <div data-brackets-id="48" id="tip6" class="tip"></div>
+                <div data-brackets-id="49" id="tip7" class="tip"></div>
+                <div data-brackets-id="50" id="tip8" class="tip"></div>
+                <div data-brackets-id="51" id="tip9" class="tip"></div>
+                <div data-brackets-id="52" id="tip10" class="tip"></div>
+                <div data-brackets-id="53" id="tip11" class="tip"></div>
+                <div data-brackets-id="54" id="tip12" class="tip"></div>
+                <div data-brackets-id="55" id="ejectButton" class="item">
+                    <div data-brackets-id="56" id="itemLabel11" class="itemLabel">
+                        <div data-brackets-id="57" id="itemLabelText11" class="itemLabelText"> </div>
+                    </div>
+                </div>
+                <div data-brackets-id="58" id="shelf1"></div>
+                <div data-brackets-id="59" id="microtubeRack"></div>
+                <div data-brackets-id="60" id="mixContentsButton" class="item">
+                    <div data-brackets-id="61" id="itemLabel10" class="itemLabel"></div>
+                </div>
+                <div data-brackets-id="62" id="holder"></div>
+                <div data-brackets-id="63" id="s0Tube" class="microTube">
+                    <div data-brackets-id="64" id="s0Cap" class="microTubeCap"></div>
+                    <div data-brackets-id="65" id="tubeContentMixing3" class="opClass"></div>
+                    <div data-brackets-id="66" id="s0TubeBody" class="microTubeBody"></div>
+
+                </div>
+                <div data-brackets-id="67" id="s1Tube" class="microTube">
+                    <div data-brackets-id="68" id="s1Cap" class="microTubeCap"></div>
+                    <div data-brackets-id="69" id="s1TubeBody" class="microTubeBody"></div>
+                    <div data-brackets-id="70" id="itemLabel5" class="itemLabel"></div>
+                    <div data-brackets-id="71" id="itemLabelText5" class="itemLabelText"></div>
+                </div>
+                <div data-brackets-id="72" id="s2Tube" class="microTube">
+                    <div data-brackets-id="73" id="s2Cap" class="microTubeCap"></div>
+                    <div data-brackets-id="74" id="s2TubeBody" class="microTubeBody"></div>
+                    <div data-brackets-id="75" id="itemLabel6" class="itemLabel"></div>
+                    <div data-brackets-id="76" id="itemLabelText6" class="itemLabelText"></div>
+                </div>
+                <div data-brackets-id="77" id="s3Tube" class="microTube">
+                    <div data-brackets-id="78" id="s3Cap" class="microTubeCap"></div>
+                    <div data-brackets-id="79" id="s3TubeBody" class="microTubeBody"></div>
+                    <div data-brackets-id="80" id="itemLabel7" class="itemLabel"></div>
+                    <div data-brackets-id="81" id="itemLabelText7" class="itemLabelText"> </div>
+                </div>
+                <div data-brackets-id="82" id="s4Tube" class="microTube">
+                    <div data-brackets-id="83" id="s4Cap" class="microTubeCap"></div>
+                    <div data-brackets-id="84" id="s4TubeBody" class="microTubeBody"></div>
+                    <div data-brackets-id="85" id="itemLabel8" class="itemLabel"></div>
+                    <div data-brackets-id="86" id="itemLabelText8" class="itemLabelText"> </div>
+                </div>
+                <div data-brackets-id="87" id="s5Tube" class="microTube">
+                    <div data-brackets-id="88" id="s5Cap" class="microTubeCap"></div>
+                    <div data-brackets-id="89" id="s5TubeBody" class="microTubeBody"></div>
+                    <div data-brackets-id="90" id="itemLabel9" class="itemLabel"></div>
+                    <div data-brackets-id="91" id="itemLabelText9" class="itemLabelText"> </div>
+                </div>
+                <div data-brackets-id="92" id="tubeBlock"></div>
+
+                <!--                I dont know when this is being used-->
+                <div data-brackets-id="93" id="s1loadingDyeTube" class="loadingDye">
+                    <div data-brackets-id="94" id="s1loadingDyeCap" class="loadingDye"></div>
+                    <div data-brackets-id="95" id="s1loadingDyeTubeBody" class="loadingDye"></div>
+                </div>
+
+                <div data-brackets-id="96" id="zoomOutButton" class="opClass"></div>
+                <div data-brackets-id="97" id="zoomOutButton1" class="opClass"></div>
+                <div data-brackets-id="98" id="pressButton_0" class="pressButton opClass"><button data-brackets-id="99">Press </button></div>
+                <div data-brackets-id="100" id="pressButton_1" class="pressButton opClass"><button data-brackets-id="101">Press </button></div>
+                <div data-brackets-id="102" id="pressButton_2" class="pressButton opClass"><button data-brackets-id="103">Press </button></div>
+                <div data-brackets-id="104" id="pressButton_3" class="pressButton opClass"><button data-brackets-id="105">Press </button></div>
+                <div data-brackets-id="106" id="pressButton_4" class="pressButton opClass"><button data-brackets-id="107">Press </button></div>
+                <div data-brackets-id="108" id="pressButton_5" class="pressButton opClass"><button data-brackets-id="109">Press </button></div>
+                <div data-brackets-id="110" id="indicatorArrow0" class="opClass"></div>
+                <div data-brackets-id="111" id="indicatorArrow1" class=""></div>
+                <div data-brackets-id="112" id="indicatorArrow2" class="opClass"></div>
+                <div data-brackets-id="113" id="indicatorArrow3" class="opClass"></div>
+                <div data-brackets-id="114" id="indicatorArrow4" class="opClass"></div>
+                <div data-brackets-id="115" id="indicatorArrow5" class="opClass"></div>
+                <div data-brackets-id="116" id="indicatorArrow6" class="opClass"></div>
+                <div data-brackets-id="117" id="waterBath"></div>
+                <div data-brackets-id="118" id="waterBathNoLid" class="item">
+                    <div data-brackets-id="119" id="itemLabel13" class="itemLabel"></div>
+                </div>
+                <div data-brackets-id="120" id="waterBathLid" class="item">
+                    <div data-brackets-id="121" id="itemLabel14" class="itemLabel"></div>
+                </div>
+                <div data-brackets-id="122" id="wasteBasket"></div>
+                <div data-brackets-id="123" id="labBench2"></div>
+
+            </div>
+
+
+
+            <div data-brackets-id="124" id="day1">
+                <div data-brackets-id="125" id="enzTube" class="item">
+                    <div data-brackets-id="126" id="enzCap" class="microTubeCap"></div>
+                    <div data-brackets-id="127" id="enzTubeBody" class="microTubeBody"></div>
+                    <div data-brackets-id="128" id="itemLabel3" class="itemLabel"></div>
+                    <div data-brackets-id="129" id="itemLabelText3" class="itemLabelText"></div>
+                </div>
+                <div data-brackets-id="130" id="iceBucket"></div>
+                <!--                I dont know when this is being used-->
+                <div data-brackets-id="131" id="s0loadingDyeTube" class="loadingDye">
+                    <div data-brackets-id="132" id="s0loadingDyeCap"></div>
+                    <div data-brackets-id="133" id="s0loadingDyeTubeBody"></div>
+                </div>
+                <div data-brackets-id="134" id="tubeContentMixing2" class="opClass"></div>
+                <form data-brackets-id="135" id="volumeInputForm">
+                    <input data-brackets-id="136" id="volumeInput" type="text" name="volume" value="" class="opClass">
+                    <input data-brackets-id="137" type="submit" name="volumeButton" value="" id="volumeButton" class="opClass">
+                </form>
+                <form data-brackets-id="138" id="timerForm">
+                    <input data-brackets-id="139" id="timer" type="text" name="volume" value="" class="opClass">
+                    <input data-brackets-id="140" type="submit" name="timerButton" value="" id="timerButton" class="fs-10 opClass" style="font-size: 8.4075px;">
+                </form>
+            </div>
+
+
+
+
+            <div data-brackets-id="141" id="day2" class="day2 opClass">
+                <div data-brackets-id="142" id="powerSupply" class="day2 opClass"></div>
+                <div data-brackets-id="143" id="zoomOutButton3" class="day2 opClass"></div>
+                <div data-brackets-id="144" id="tubeRack" class="item">
+                    <div data-brackets-id="145" id="itemLabel12" class="itemLabel">
+                        <div data-brackets-id="146" id="itemLabelText12" class="itemLabelText"></div>
+                    </div>
+                </div>
+                <div data-brackets-id="147" id="shelf2"></div>
+                <div data-brackets-id="148" id="loadDye" class="loadingDye">
+                    <div data-brackets-id="149" id="loadDyeCap"></div>
+                    <div data-brackets-id="150" id="loadDyeBody"></div>
+                </div>
+                <form data-brackets-id="151" id="volumeInput1Form">
+                    <input data-brackets-id="152" id="volumeInput1" type="text" name="volume" value="" class="opClass">
+                    <input data-brackets-id="153" type="submit" name="volumeButton1" value="" id="volumeButton1" class="opClass">
+                </form>
+                <div data-brackets-id="154" id="volumeButton2" class="opClass"></div>
+                <div data-brackets-id="155" id="tubeContentMixing4" class="opClass"></div>
+                <div data-brackets-id="156" id="gelLid" class="day2 opClass"></div>
+                <div data-brackets-id="157" id="gelComb"></div>
+                <div data-brackets-id="158" id="gelTray"></div>
+                <div data-brackets-id="159" id="gelCombHitBox"></div>
+                <div data-brackets-id="160" id="gelSideView" class="day2 opClass"></div>
+                <div data-brackets-id="161" id="stainingTraySide"></div>
+                <div data-brackets-id="162" id="stainedGel"></div>
+                <div data-brackets-id="163" id="graduatedCylinder"></div>
+                <div data-brackets-id="164" id="emptyGraduatedCylinder" class="opClass"></div>
+                <div data-brackets-id="165" id="stainedGelContainer" class="opClass"></div>
+                <div data-brackets-id="166" id="gel" class="opClass"></div>
+                <button data-brackets-id="167" name="answerEntry" id="answerButton" class="opClass">Enter</button>
+                <input data-brackets-id="168" id="answerInput" type="text" name="answerEntry" value="" class="opClass">
+            </div>
+
+
+
+            <div data-brackets-id="169" id="topView" class="topView">
+                <div data-brackets-id="170" id="labBenchTop" class="topView opClass"> </div>
+                <div data-brackets-id="171" id="gelTopView" class="topView opClass"></div>
+                <div data-brackets-id="172" id="gelChoiceLeft" class="topView"></div>
+                <div data-brackets-id="173" id="gelChoiceRight" class="topView"></div>
+                <div data-brackets-id="174" id="lidBox" class="topView opClass"></div>
+                <div data-brackets-id="175" id="lidSide" class="topView opClass"></div>
+                <div data-brackets-id="176" id="stainingTray" class="topView opClass"></div>
+                <div data-brackets-id="177" id="arrowDown" class="topView opClass"></div>
+                <div data-brackets-id="178" id="arrowUp" class="topView opClass"></div>
+                <div data-brackets-id="179" id="powerSupplyTop" class="topView opClass"></div>
+                <div data-brackets-id="180" id="microtubeHolderTop" class="holderTop opClass"></div>
+                <div data-brackets-id="181" id="tubeTop_0" class="holderTop tubeTopp topView opClass"></div>
+                <div data-brackets-id="182" id="tubeTop_1" class="holderTop tubeTopp topView opClass"></div>
+                <div data-brackets-id="183" id="tubeTop_2" class="holderTop tubeTopp topView opClass"></div>
+                <div data-brackets-id="184" id="tubeTop_3" class="holderTop tubeTopp topView opClass"></div>
+                <div data-brackets-id="185" id="tubeTop_4" class="holderTop tubeTopp topView opClass"></div>
+                <div data-brackets-id="186" id="tubeTop_5" class="holderTop tubeTopp topView opClass"></div>
+                <div data-brackets-id="187" id="tubeTop_6" class="holderTop tubeTopp topView opClass"></div>
+                <div data-brackets-id="188" id="tipBoxTop" class="topView tipBoxTop topView2 opClass"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 154.4 106.3" style="enable-background:new 0 0 154.4 106.3;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#4265B0;stroke:#000000;stroke-miterlimit:10;}
+	.st1{fill:#B3B1A2;}
+	.st2{fill:#D4D3CA;fill-opacity:0.8;enable-background:new    ;}
+    .st3{fill:#5A585A;}
+    .st4{opacity:0;}
+</style>
+<path class="st0" d="M142.4,105.1H12c-6.6,0-12-5.4-12-12V12C0,5.4,5.4,0,12,0h130.4c6.6,0,12,5.4,12,12v81.1  C154.4,99.7,149,105.1,142.4,105.1z"></path>
+<title>Layer 1</title>
+<g>
+
+        <g class="tipTop" id="tip0_0">
+
+	       <g>
+           <rect class="st4" x="3.950000" y="3.950000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="10.000000" cy="10.000000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="10.000000" cy="10.000000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip0_1">
+
+	       <g>
+           <rect class="st4" x="3.950000" y="16.050000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="10.000000" cy="22.100000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="10.000000" cy="22.100000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip0_2">
+
+	       <g>
+           <rect class="st4" x="3.950000" y="28.150000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="10.000000" cy="34.200000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="10.000000" cy="34.200000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip0_3">
+
+	       <g>
+           <rect class="st4" x="3.950000" y="40.250000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="10.000000" cy="46.300000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="10.000000" cy="46.300000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip0_4">
+
+	       <g>
+           <rect class="st4" x="3.950000" y="52.350000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="10.000000" cy="58.400000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="10.000000" cy="58.400000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip0_5">
+
+	       <g>
+           <rect class="st4" x="3.950000" y="64.450000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="10.000000" cy="70.500000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="10.000000" cy="70.500000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip0_6">
+
+	       <g>
+           <rect class="st4" x="3.950000" y="76.550000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="10.000000" cy="82.600000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="10.000000" cy="82.600000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip0_7">
+
+	       <g>
+           <rect class="st4" x="3.950000" y="88.650000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="10.000000" cy="94.700000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="10.000000" cy="94.700000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip1_0">
+
+	       <g>
+           <rect class="st4" x="16.050000" y="3.950000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="22.100000" cy="10.000000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="22.100000" cy="10.000000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip1_1">
+
+	       <g>
+           <rect class="st4" x="16.050000" y="16.050000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="22.100000" cy="22.100000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="22.100000" cy="22.100000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip1_2">
+
+	       <g>
+           <rect class="st4" x="16.050000" y="28.150000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="22.100000" cy="34.200000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="22.100000" cy="34.200000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip1_3">
+
+	       <g>
+           <rect class="st4" x="16.050000" y="40.250000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="22.100000" cy="46.300000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="22.100000" cy="46.300000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip1_4">
+
+	       <g>
+           <rect class="st4" x="16.050000" y="52.350000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="22.100000" cy="58.400000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="22.100000" cy="58.400000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip1_5">
+
+	       <g>
+           <rect class="st4" x="16.050000" y="64.450000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="22.100000" cy="70.500000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="22.100000" cy="70.500000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip1_6">
+
+	       <g>
+           <rect class="st4" x="16.050000" y="76.550000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="22.100000" cy="82.600000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="22.100000" cy="82.600000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip1_7">
+
+	       <g>
+           <rect class="st4" x="16.050000" y="88.650000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="22.100000" cy="94.700000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="22.100000" cy="94.700000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip2_0">
+
+	       <g>
+           <rect class="st4" x="28.150000" y="3.950000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="34.200000" cy="10.000000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="34.200000" cy="10.000000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip2_1">
+
+	       <g>
+           <rect class="st4" x="28.150000" y="16.050000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="34.200000" cy="22.100000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="34.200000" cy="22.100000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip2_2">
+
+	       <g>
+           <rect class="st4" x="28.150000" y="28.150000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="34.200000" cy="34.200000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="34.200000" cy="34.200000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip2_3">
+
+	       <g>
+           <rect class="st4" x="28.150000" y="40.250000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="34.200000" cy="46.300000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="34.200000" cy="46.300000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip2_4">
+
+	       <g>
+           <rect class="st4" x="28.150000" y="52.350000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="34.200000" cy="58.400000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="34.200000" cy="58.400000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip2_5">
+
+	       <g>
+           <rect class="st4" x="28.150000" y="64.450000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="34.200000" cy="70.500000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="34.200000" cy="70.500000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip2_6">
+
+	       <g>
+           <rect class="st4" x="28.150000" y="76.550000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="34.200000" cy="82.600000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="34.200000" cy="82.600000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip2_7">
+
+	       <g>
+           <rect class="st4" x="28.150000" y="88.650000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="34.200000" cy="94.700000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="34.200000" cy="94.700000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip3_0">
+
+	       <g>
+           <rect class="st4" x="40.250000" y="3.950000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="46.300000" cy="10.000000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="46.300000" cy="10.000000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip3_1">
+
+	       <g>
+           <rect class="st4" x="40.250000" y="16.050000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="46.300000" cy="22.100000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="46.300000" cy="22.100000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip3_2">
+
+	       <g>
+           <rect class="st4" x="40.250000" y="28.150000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="46.300000" cy="34.200000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="46.300000" cy="34.200000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip3_3">
+
+	       <g>
+           <rect class="st4" x="40.250000" y="40.250000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="46.300000" cy="46.300000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="46.300000" cy="46.300000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip3_4">
+
+	       <g>
+           <rect class="st4" x="40.250000" y="52.350000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="46.300000" cy="58.400000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="46.300000" cy="58.400000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip3_5">
+
+	       <g>
+           <rect class="st4" x="40.250000" y="64.450000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="46.300000" cy="70.500000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="46.300000" cy="70.500000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip3_6">
+
+	       <g>
+           <rect class="st4" x="40.250000" y="76.550000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="46.300000" cy="82.600000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="46.300000" cy="82.600000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip3_7">
+
+	       <g>
+           <rect class="st4" x="40.250000" y="88.650000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="46.300000" cy="94.700000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="46.300000" cy="94.700000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip4_0">
+
+	       <g>
+           <rect class="st4" x="52.350000" y="3.950000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="58.400000" cy="10.000000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="58.400000" cy="10.000000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip4_1">
+
+	       <g>
+           <rect class="st4" x="52.350000" y="16.050000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="58.400000" cy="22.100000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="58.400000" cy="22.100000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip4_2">
+
+	       <g>
+           <rect class="st4" x="52.350000" y="28.150000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="58.400000" cy="34.200000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="58.400000" cy="34.200000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip4_3">
+
+	       <g>
+           <rect class="st4" x="52.350000" y="40.250000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="58.400000" cy="46.300000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="58.400000" cy="46.300000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip4_4">
+
+	       <g>
+           <rect class="st4" x="52.350000" y="52.350000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="58.400000" cy="58.400000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="58.400000" cy="58.400000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip4_5">
+
+	       <g>
+           <rect class="st4" x="52.350000" y="64.450000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="58.400000" cy="70.500000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="58.400000" cy="70.500000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip4_6">
+
+	       <g>
+           <rect class="st4" x="52.350000" y="76.550000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="58.400000" cy="82.600000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="58.400000" cy="82.600000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip4_7">
+
+	       <g>
+           <rect class="st4" x="52.350000" y="88.650000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="58.400000" cy="94.700000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="58.400000" cy="94.700000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip5_0">
+
+	       <g>
+           <rect class="st4" x="64.450000" y="3.950000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="70.500000" cy="10.000000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="70.500000" cy="10.000000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip5_1">
+
+	       <g>
+           <rect class="st4" x="64.450000" y="16.050000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="70.500000" cy="22.100000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="70.500000" cy="22.100000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip5_2">
+
+	       <g>
+           <rect class="st4" x="64.450000" y="28.150000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="70.500000" cy="34.200000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="70.500000" cy="34.200000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip5_3">
+
+	       <g>
+           <rect class="st4" x="64.450000" y="40.250000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="70.500000" cy="46.300000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="70.500000" cy="46.300000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip5_4">
+
+	       <g>
+           <rect class="st4" x="64.450000" y="52.350000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="70.500000" cy="58.400000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="70.500000" cy="58.400000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip5_5">
+
+	       <g>
+           <rect class="st4" x="64.450000" y="64.450000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="70.500000" cy="70.500000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="70.500000" cy="70.500000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip5_6">
+
+	       <g>
+           <rect class="st4" x="64.450000" y="76.550000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="70.500000" cy="82.600000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="70.500000" cy="82.600000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip5_7">
+
+	       <g>
+           <rect class="st4" x="64.450000" y="88.650000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="70.500000" cy="94.700000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="70.500000" cy="94.700000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip6_0">
+
+	       <g>
+           <rect class="st4" x="76.550000" y="3.950000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="82.600000" cy="10.000000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="82.600000" cy="10.000000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip6_1">
+
+	       <g>
+           <rect class="st4" x="76.550000" y="16.050000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="82.600000" cy="22.100000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="82.600000" cy="22.100000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip6_2">
+
+	       <g>
+           <rect class="st4" x="76.550000" y="28.150000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="82.600000" cy="34.200000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="82.600000" cy="34.200000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip6_3">
+
+	       <g>
+           <rect class="st4" x="76.550000" y="40.250000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="82.600000" cy="46.300000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="82.600000" cy="46.300000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip6_4">
+
+	       <g>
+           <rect class="st4" x="76.550000" y="52.350000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="82.600000" cy="58.400000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="82.600000" cy="58.400000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip6_5">
+
+	       <g>
+           <rect class="st4" x="76.550000" y="64.450000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="82.600000" cy="70.500000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="82.600000" cy="70.500000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip6_6">
+
+	       <g>
+           <rect class="st4" x="76.550000" y="76.550000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="82.600000" cy="82.600000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="82.600000" cy="82.600000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip6_7">
+
+	       <g>
+           <rect class="st4" x="76.550000" y="88.650000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="82.600000" cy="94.700000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="82.600000" cy="94.700000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip7_0">
+
+	       <g>
+           <rect class="st4" x="88.650000" y="3.950000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="94.700000" cy="10.000000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="94.700000" cy="10.000000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip7_1">
+
+	       <g>
+           <rect class="st4" x="88.650000" y="16.050000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="94.700000" cy="22.100000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="94.700000" cy="22.100000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip7_2">
+
+	       <g>
+           <rect class="st4" x="88.650000" y="28.150000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="94.700000" cy="34.200000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="94.700000" cy="34.200000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip7_3">
+
+	       <g>
+           <rect class="st4" x="88.650000" y="40.250000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="94.700000" cy="46.300000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="94.700000" cy="46.300000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip7_4">
+
+	       <g>
+           <rect class="st4" x="88.650000" y="52.350000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="94.700000" cy="58.400000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="94.700000" cy="58.400000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip7_5">
+
+	       <g>
+           <rect class="st4" x="88.650000" y="64.450000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="94.700000" cy="70.500000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="94.700000" cy="70.500000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip7_6">
+
+	       <g>
+           <rect class="st4" x="88.650000" y="76.550000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="94.700000" cy="82.600000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="94.700000" cy="82.600000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip7_7">
+
+	       <g>
+           <rect class="st4" x="88.650000" y="88.650000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="94.700000" cy="94.700000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="94.700000" cy="94.700000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip8_0">
+
+	       <g>
+           <rect class="st4" x="100.750000" y="3.950000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="106.800000" cy="10.000000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="106.800000" cy="10.000000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip8_1">
+
+	       <g>
+           <rect class="st4" x="100.750000" y="16.050000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="106.800000" cy="22.100000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="106.800000" cy="22.100000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip8_2">
+
+	       <g>
+           <rect class="st4" x="100.750000" y="28.150000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="106.800000" cy="34.200000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="106.800000" cy="34.200000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip8_3">
+
+	       <g>
+           <rect class="st4" x="100.750000" y="40.250000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="106.800000" cy="46.300000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="106.800000" cy="46.300000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip8_4">
+
+	       <g>
+           <rect class="st4" x="100.750000" y="52.350000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="106.800000" cy="58.400000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="106.800000" cy="58.400000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip8_5">
+
+	       <g>
+           <rect class="st4" x="100.750000" y="64.450000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="106.800000" cy="70.500000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="106.800000" cy="70.500000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip8_6">
+
+	       <g>
+           <rect class="st4" x="100.750000" y="76.550000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="106.800000" cy="82.600000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="106.800000" cy="82.600000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip8_7">
+
+	       <g>
+           <rect class="st4" x="100.750000" y="88.650000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="106.800000" cy="94.700000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="106.800000" cy="94.700000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip9_0">
+
+	       <g>
+           <rect class="st4" x="112.850000" y="3.950000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="118.900000" cy="10.000000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="118.900000" cy="10.000000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip9_1">
+
+	       <g>
+           <rect class="st4" x="112.850000" y="16.050000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="118.900000" cy="22.100000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="118.900000" cy="22.100000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip9_2">
+
+	       <g>
+           <rect class="st4" x="112.850000" y="28.150000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="118.900000" cy="34.200000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="118.900000" cy="34.200000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip9_3">
+
+	       <g>
+           <rect class="st4" x="112.850000" y="40.250000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="118.900000" cy="46.300000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="118.900000" cy="46.300000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip9_4">
+
+	       <g>
+           <rect class="st4" x="112.850000" y="52.350000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="118.900000" cy="58.400000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="118.900000" cy="58.400000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip9_5">
+
+	       <g>
+           <rect class="st4" x="112.850000" y="64.450000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="118.900000" cy="70.500000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="118.900000" cy="70.500000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip9_6">
+
+	       <g>
+           <rect class="st4" x="112.850000" y="76.550000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="118.900000" cy="82.600000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="118.900000" cy="82.600000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip9_7">
+
+	       <g>
+           <rect class="st4" x="112.850000" y="88.650000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="118.900000" cy="94.700000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="118.900000" cy="94.700000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip10_0">
+
+	       <g>
+           <rect class="st4" x="124.950000" y="3.950000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="131.000000" cy="10.000000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="131.000000" cy="10.000000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip10_1">
+
+	       <g>
+           <rect class="st4" x="124.950000" y="16.050000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="131.000000" cy="22.100000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="131.000000" cy="22.100000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip10_2">
+
+	       <g>
+           <rect class="st4" x="124.950000" y="28.150000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="131.000000" cy="34.200000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="131.000000" cy="34.200000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip10_3">
+
+	       <g>
+           <rect class="st4" x="124.950000" y="40.250000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="131.000000" cy="46.300000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="131.000000" cy="46.300000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip10_4">
+
+	       <g>
+           <rect class="st4" x="124.950000" y="52.350000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="131.000000" cy="58.400000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="131.000000" cy="58.400000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip10_5">
+
+	       <g>
+           <rect class="st4" x="124.950000" y="64.450000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="131.000000" cy="70.500000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="131.000000" cy="70.500000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip10_6">
+
+	       <g>
+           <rect class="st4" x="124.950000" y="76.550000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="131.000000" cy="82.600000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="131.000000" cy="82.600000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip10_7">
+
+	       <g>
+           <rect class="st4" x="124.950000" y="88.650000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="131.000000" cy="94.700000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="131.000000" cy="94.700000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip11_0">
+
+	       <g>
+           <rect class="st4" x="137.050000" y="3.950000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="143.100000" cy="10.000000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="143.100000" cy="10.000000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip11_1">
+
+	       <g>
+           <rect class="st4" x="137.050000" y="16.050000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="143.100000" cy="22.100000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="143.100000" cy="22.100000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip11_2">
+
+	       <g>
+           <rect class="st4" x="137.050000" y="28.150000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="143.100000" cy="34.200000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="143.100000" cy="34.200000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip11_3">
+
+	       <g>
+           <rect class="st4" x="137.050000" y="40.250000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="143.100000" cy="46.300000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="143.100000" cy="46.300000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip11_4">
+
+	       <g>
+           <rect class="st4" x="137.050000" y="52.350000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="143.100000" cy="58.400000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="143.100000" cy="58.400000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip11_5">
+
+	       <g>
+           <rect class="st4" x="137.050000" y="64.450000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="143.100000" cy="70.500000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="143.100000" cy="70.500000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip11_6">
+
+	       <g>
+           <rect class="st4" x="137.050000" y="76.550000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="143.100000" cy="82.600000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="143.100000" cy="82.600000" r="4.1"></circle>
+           </g>
+        </g>
+        
+        <g class="tipTop" id="tip11_7">
+
+	       <g>
+           <rect class="st4" x="137.050000" y="88.650000" width="12.100000" height="12.100000"></rect>
+		  <ellipse class="st1" cx="143.100000" cy="94.700000" rx="5.3" ry="5.3"></ellipse>
+	       
+	       <circle class="st2" cx="143.100000" cy="94.700000" r="4.1"></circle>
+           </g>
+        </g>
+    </g>    
+</svg></div>
+                <div data-brackets-id="189" id="wasteBinTop" class="topView opClass"></div>
+                <div data-brackets-id="190" id="gelFinalTop" class="opClass"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 198.5 165.6" xml:space="preserve">
+<style type="text/css">
+	.bands{filter:url(#f1);}
+	.laneFill{fill:#70a5f4; filter:url(#f2);}
+    .bandFill{fill:#5391ed;}
+	.gelBase{fill:#93BCFF;stroke:#020202;stroke-miterlimit:10;}
+	.lanes{fill:#72A0EA;}
+	.wells{fill:#5D88CC;stroke:#020202;stroke-miterlimit:10;}
+	
+</style>
+<filter height="200%" id="f2" width="200%" x="-50%" y="-50%">
+	<fegaussianblur in="SourceGraphic" stdDeviation="2.8"></fegaussianblur>
+</filter>
+<filter height="200%" id="f1" width="200%" x="-50%" y="-50%">
+	<fegaussianblur in="SourceGraphic" stdDeviation=".9"></fegaussianblur>
+</filter>
+    	<rect x="0.3" y="0.1" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.1153 0.1387)" class="gelBase" width="198.3" height="165.3"></rect>
+    
+    <g id="dyeTrail6" class="laneFill">
+	<rect x="171.5" y="15.7" class="laneFill" width="20.1" height="129.6"></rect>
+</g>
+<g id="dyeTrail5" class="laneFill">
+	<rect x="144.5" y="15.7" class="laneFill" width="20.1" height="129.6"></rect>
+</g>
+<g id="dyeTrail4" class="laneFill">
+	<rect x="117.5" y="15.7" class="laneFill" width="20.1" height="129.6"></rect>
+</g>
+<g id="dyeTrail3" class="laneFill">
+	<rect x="90.5" y="15.7" class="laneFill" width="20.1" height="129.6"></rect>
+</g>
+<g id="dyeTrail2" class="laneFill">
+	<rect x="64.5" y="15.7" class="laneFill" width="20.1" height="129.6"></rect>
+</g>
+<g id="dyeTrail1" class="laneFill">
+	<rect x="37.5" y="15.7" class="laneFill" width="20.1" height="129.6"></rect>
+</g>
+<g id="dyeTrail0" class="laneFill">
+	<rect x="10.5" y="15.7" class="laneFill" width="20.1" height="129.6"></rect>
+</g>
+    
+<g id="Lane6">
+	<g id="weight8_6" class="bands">
+		<rect x="173.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight7_6" class="bands">
+		<rect x="173.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight6_6" class="bands">
+		<rect x="173.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight5_6" class="bands">
+		<rect x="173.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight4_6" class="bands">
+		<rect x="173.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight3_6" class="bands">
+		<rect x="173.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight2_6" class="bands">
+		<rect x="173.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight1_6" class="bands">
+		<rect x="173.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight0_6" class="bands">
+		<rect x="173.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+</g>
+<g id="Lane5">
+	<g id="weight8_5" class="bands">
+		<rect x="146.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight7_5" class="bands">
+		<rect x="146.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight6_5" class="bands">
+		<rect x="146.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight5_5" class="bands">
+		<rect x="146.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight4_5" class="bands">
+		<rect x="146.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight3_5" class="bands">
+		<rect x="146.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight2_5" class="bands">
+		<rect x="146.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight1_5" class="bands">
+		<rect x="146.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight0_5" class="bands">
+		<rect x="146.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+</g>
+<g id="Lane4">
+	<g id="weight8_4" class="bands">
+		<rect x="119.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight7_4" class="bands">
+		<rect x="119.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight6_4" class="bands">
+		<rect x="119.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight5_4" class="bands">
+		<rect x="119.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight4_4" class="bands">
+		<rect x="119.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight3_4" class="bands">
+		<rect x="119.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight2_4" class="bands">
+		<rect x="119.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight1_4" class="bands">
+		<rect x="119.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight0_4" class="bands">
+		<rect x="119.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+</g>
+<g id="Lane3">
+	<g id="weight8_3" class="bands">
+		<rect x="92.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight7_3" class="bands">
+		<rect x="92.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight6_3" class="bands">
+		<rect x="92.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight5_3" class="bands">
+		<rect x="92.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight4_3" class="bands">
+		<rect x="92.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight3_3" class="bands">
+		<rect x="92.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight2_3" class="bands">
+		<rect x="92.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight1_3" class="bands">
+		<rect x="92.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight0_3" class="bands">
+		<rect x="92.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+</g>
+<g id="Lane2">
+	<g id="weight8_2" class="bands">
+		<rect x="66.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight7_2" class="bands">
+		<rect x="66.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight6_2" class="bands">
+		<rect x="66.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight5_2" class="bands">
+		<rect x="66.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight4_2" class="bands">
+		<rect x="66.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight3_2" class="bands">
+		<rect x="66.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight2_2" class="bands">
+		<rect x="66.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight1_2" class="bands">
+		<rect x="66.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight0_2" class="bands">
+		<rect x="66.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+</g>
+<g id="Lane1">
+	<g id="weight8_1" class="bands">
+		<rect x="39.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight7_1" class="bands">
+		<rect x="39.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight6_1" class="bands">
+		<rect x="39.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight5_1" class="bands">
+		<rect x="39.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight4_1" class="bands">
+		<rect x="39.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight3_1" class="bands">
+		<rect x="39.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight2_1" class="bands">
+		<rect x="39.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight1_1" class="bands">
+		<rect x="39.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight0_1" class="bands">
+		<rect x="39.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+</g>
+<g id="Lane0">
+	<g id="weight8_0" class="bands">
+		<rect x="12.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight7_0" class="bands">
+		<rect x="12.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight6_0" class="bands">
+		<rect x="12.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight5_0" class="bands">
+		<rect x="12.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight4_0" class="bands">
+		<rect x="12.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight3_0" class="bands">
+		<rect x="12.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight2_0" class="bands">
+		<rect x="12.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight1_0" class="bands">
+		<rect x="12.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+	<g id="weight0_0" class="bands">
+		<rect x="12.1" y="8.7" class="bandFill" width="15.6" height="3.2"></rect>
+	</g>
+</g>
+<g>
+	
+	
+	<g class="lanes">
+		
+			<rect x="171.9" y="149.7" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.2121 0.2538)" id="well_6" class="wells" width="20.1" height="5.2"></rect>
+		
+			<rect x="145" y="149.7" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.2121 0.2163)" id="well_5" class="wells" width="20.1" height="5.2"></rect>
+		
+			<rect x="118.1" y="149.7" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.2122 0.1788)" id="well_4" class="wells" width="20.1" height="5.2"></rect>
+		
+			<rect x="91.2" y="149.7" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.2122 0.1413)" id="well_3" class="wells" width="20.1" height="5.2"></rect>
+		
+			<rect x="64.3" y="149.7" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.2122 0.1038)" id="well_2" class="wells" width="20.1" height="5.2"></rect>
+		
+			<rect x="37.4" y="149.7" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.2122 6.628948e-02)" id="well_1" class="wells" width="20.1" height="5.2"></rect>
+		
+			<rect x="10.5" y="149.7" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.2123 2.879296e-02)" id="well_0" class="wells" width="20.1" height="5.2"></rect>
+	</g>
+</g>
+
+</svg></div>
+                <div data-brackets-id="191" id="zoomOutButton2" class="topView opClass"></div>
+                <div data-brackets-id="192" id="gelVoltageCover" class="topView gelVoltage opClass">
+                    <div data-brackets-id="193" id="powerSupplyUp" class="gelVoltage btnUpAndDown opClass"></div>
+                    <div data-brackets-id="194" id="powerSupplyDown" class="gelVoltage btnUpAndDown opClass"></div>
+                    <div data-brackets-id="195" id="voltage" class="gelVoltage opClass"></div>       
+                </div>
+                <div data-brackets-id="196" id="micropipetTopView" class="topView opClass"></div>
+                <div data-brackets-id="197" id="sideView" class="side opClass">
+                    <div data-brackets-id="198" class="side opClass"></div>
+                    <div data-brackets-id="199" id="gelWell" class="side opClass">
+                        <div data-brackets-id="200" id="gelWellBoundary" class="side ui-droppable opClass"></div>
+                    </div>
+                    <div data-brackets-id="201" id="tipSide" class="side ui-draggable ui-draggable-handle opClass"></div>
+                </div>
+            </div>
+            
+            <div data-brackets-id="202" id="persistent">
+                <div data-brackets-id="203" id="indicatorArrowPointingUp" class="indicatorArrowClass"></div>
+                <div data-brackets-id="204" id="indicatorArrowPointingDown" class="indicatorArrowClass"></div>
+
+            </div>
+
+        </div>
+
+        <div data-brackets-id="205" id="header" class="text fs-32" style="font-size: 26.904px;">
+            <div data-brackets-id="206" id="headerText" class="text fs-32" style="font-size: 26.904px; opacity: 1;">DNA Fingerprinting</div>
+        </div>
+        <div data-brackets-id="207" id="backButton" class="item"></div>
+        <div data-brackets-id="208" id="footer" class="text fs-32" style="font-size: 26.904px;">
+            <div data-brackets-id="209" id="footerText" class="text fs-32" style="font-size: 26.904px;"></div>
+        </div>
+        <div data-brackets-id="210" id="steps"></div>
+
+        <div data-brackets-id="211" id="overlay" class="screen" draggable="false" style="width: 1121px; height: 840.75px; left: 0px; top: 37.125px; opacity: 1; z-index: 100;">
+            <div data-brackets-id="212" id="overlayBox">
+                <div data-brackets-id="213" id="overlayBG" class="anim_fadeInBG"></div>
+                <div data-brackets-id="214" id="results" class="rounded stripes anim_enterResults" draggable="false" style="background-size: 42.0375px;">
+                    <p data-brackets-id="215" id="endText" class="text fs-100" draggable="false" style="font-size: 84.075px;"></p>
+                    <p data-brackets-id="216" id="endSubText" class="text fs-50" draggable="false" style="font-size: 42.0375px; opacity: 1;">Select a game mode to begin.</p>
+                    <p data-brackets-id="217" id="endErrorText1" class="endErrorText text fs-50" draggable="false" style="font-size: 42.0375px; opacity: 0;"></p>
+                    <p data-brackets-id="218" id="endErrorText2" class="endErrorText text fs-35" draggable="false" style="font-size: 29.4263px; opacity: 0;">when you were supposed to</p>
+                    <p data-brackets-id="219" id="endErrorText3" class="endErrorText text fs-50" draggable="false" style="font-size: 42.0375px; opacity: 0;"></p>
+                    <div data-brackets-id="220" class="endOption rounded stripes endOptionUnlocked" id="endOption1" draggable="false" style="background-size: 42.0375px;">
+                        <div data-brackets-id="221" id="endOptionText1" class="endOptionText fs-42 text" style="font-size: 35.3115px;">Trial Mode</div>
+                    </div>
+                    <div data-brackets-id="222" class="endOption rounded stripes" id="endOption2" draggable="false" style="background-size: 42.0375px;">
+                        <div data-brackets-id="223" id="endOptionText2" class="endOptionText fs-42 text" style="font-size: 35.3115px;">Coming soon!</div>
+                    </div>
+                    <div data-brackets-id="224" class="endOption rounded stripes" id="endOption3" draggable="false" style="background-size: 42.0375px;">
+                        <div data-brackets-id="225" id="endOptionText3" class="endOptionText fs-42 text" style="font-size: 35.3115px;">Coming soon!</div>
+                    </div>
+                    <div data-brackets-id="226" class="endOptionDesc" id="endOptionDesc1">
+                        <div data-brackets-id="227" class="endOptionDescText darkText fs-20" id="endOptionDescText1" style="font-size: 16.815px;">Read the lab manual, then complete the game based on the guided steps.</div>
+                    </div>
+                    <div data-brackets-id="228" class="endOptionDesc" id="endOptionDesc2">
+                        <div data-brackets-id="229" class="endOptionDescText darkText fs-20" id="endOptionDescText2" style="font-size: 16.815px;"></div>
+                    </div>
+                    <div data-brackets-id="230" class="endOptionDesc" id="endOptionDesc3">
+                        <div data-brackets-id="231" class="endOptionDescText darkText fs-20" id="endOptionDescText3" style="font-size: 16.815px;"></div>
+                    </div>
+                    <div data-brackets-id="232" id="scoreBox1" class="scoreBox text fs-24" style="font-size: 20.178px;"></div>
+                    <div data-brackets-id="233" id="scoreBox2" class="scoreBox text fs-24" style="font-size: 20.178px;"></div>
+                    <div data-brackets-id="234" id="scoreBox3" class="scoreBox text fs-24" style="font-size: 20.178px;"></div>
+                </div>
+                <div data-brackets-id="235" id="challengeScreen" class="anim_enterChallenges">
+                    <div data-brackets-id="236" id="hexGrid"></div>
+                    <div data-brackets-id="237" id="viewLeaderboard">
+                        <div data-brackets-id="238" id="viewLeaderboardSelected" class="cellSelected"></div>
+                    </div>
+                    <div data-brackets-id="239" id="currentChallenge">
+                        <div data-brackets-id="240" id="currentTitle" class="text fs-50" style="font-size: 42.0375px;"></div>
+                        <div data-brackets-id="241" id="currentDesc" class="text fs-20" style="font-size: 16.815px;"></div>
+                        <div data-brackets-id="242" id="currentFlavor" class="fadeText fs-20" style="font-size: 16.815px;"></div>
+                        <div data-brackets-id="243" id="currentIcon">
+                            <div data-brackets-id="244" id="currentState" class="unknownIcon"></div>
+                        </div>
+                    </div>
+                    <div data-brackets-id="245" id="totalCompleteLabel" class="darkText fs-40" style="font-size: 33.63px;"></div>
+                    <div data-brackets-id="246" id="totalComplete">
+                        <div data-brackets-id="247" id="totalCompleteText" class="greenText fs-120" style="font-size: 100.89px;"></div>
+                    </div>
+                </div>
+                <div data-brackets-id="248" id="challengeButton" class="stripes rounded anim_enterChButton" style="background-size: 42.0375px;">
+                    <div data-brackets-id="249" id="challengeButtonText" class="text fs-50" style="font-size: 42.0375px;"> Challenges </div>
+                    <div data-brackets-id="250" id="backButtonText" class="text fs-50" style="font-size: 42.0375px;"> Play Game </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body></html>
