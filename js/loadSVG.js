@@ -95,6 +95,8 @@ function loadSVGLogic() {
     lanes[answer - 1] = lanes[1];
     lanes.forEach(function (val, idx) {
         setLane(idx, val)
+        
+        console.log(answer);
     })
 
     function setLane(laneNum, weightArray) {

@@ -38,19 +38,23 @@ function message(text) {
     });
 }
 var modes = [
-    {
-        "title": "Trial Mode"
+     {
+        "title": "Start"
         , "unlockedDescription": "Read the lab manual, then complete the game based on the guided steps."
         , "lockedDescription": "Locked, do something to unlock Mode 1."
     }
-    , {
-        "title": "Coming soon!"
-        , "lockedDescription": "Coming soon!"
-    }
-    , {
-        "title": "Coming soon!"
-        , "unlockedDescription": "Coming soon!"
-        , "lockedDescription": "Coming soon!"
+    
+    
+    
+    ,
+    {
+        "title": ""
+        , "lockedDescription": ""
+    },
+ {
+        "title": ""
+        , "unlockedDescription": ""
+        , "lockedDescription": ""
     }
 ];
 // Set this to true to enable step skipping: click the active step object to complete it
@@ -128,7 +132,7 @@ function endGame(result) {
     postData();
     refreshHighScores();
     // Show the menu
-    showMenu();
+    loadStartMenu(result);
 }
 
 function failGame(error, correct) {
@@ -236,13 +240,18 @@ function endStep(step) {
 /*
     loadStartMenu: this function shows the menu at the start of the game
 */
-function loadStartMenu() {
+function loadStartMenu(result) {
+    console.log(result)
+    if (!result){
+        result="Select a game mode to begin.";
+        
+    }
     // Set the header text
     $("#headerText").text("DNA Fingerprinting");
     // Set end text to welcome message
     //$("#endText").text(studentData.gameRecord.length > 0 ? "Welcome back!" : "Hello there!");
     // Set subtext to instructions
-    $("#endSubText").text("Select a game mode to begin.");
+    $("#endSubText").text(result);
     // Show subtext
     $("#endSubText").css({
         opacity: 1

@@ -20,25 +20,25 @@
     	<rect x="0.3" y="0.1" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.1153 0.1387)" class="gelBase" width="198.3" height="165.3"/>
     
     <g id="dyeTrail6" class="laneFill">
-	<rect x="171.5" y="15.7" class="laneFill" width="20.1" height="129.6"/>
+	<rect x="171.5" y="15.7" class="laneFills" width="20.1" height="129.6" id="ansLane_6"/>
 </g>
 <g id="dyeTrail5" class="laneFill">
-	<rect x="144.5" y="15.7" class="laneFill" width="20.1" height="129.6"/>
+	<rect x="144.5" y="15.7" class="laneFills" width="20.1" height="129.6" id="ansLane_5"/>
 </g>
 <g id="dyeTrail4" class="laneFill">
-	<rect x="117.5" y="15.7" class="laneFill" width="20.1" height="129.6"/>
+	<rect x="117.5" y="15.7" class="laneFills" width="20.1" height="129.6" id="ansLane_4"/>
 </g>
 <g id="dyeTrail3" class="laneFill">
-	<rect x="90.5" y="15.7" class="laneFill" width="20.1" height="129.6"/>
+	<rect x="90.5" y="15.7" class="laneFills" width="20.1" height="129.6" id="ansLane_3"/>
 </g>
 <g id="dyeTrail2" class="laneFill">
-	<rect x="64.5" y="15.7" class="laneFill" width="20.1" height="129.6"/>
+	<rect x="64.5" y="15.7" class="laneFills" width="20.1" height="129.6" id="ansLane_2"/>
 </g>
 <g id="dyeTrail1" class="laneFill">
-	<rect x="37.5" y="15.7" class="laneFill" width="20.1" height="129.6"/>
+	<rect x="37.5" y="15.7" class="laneFills" width="20.1" height="129.6" id="ansLane_1"/>
 </g>
 <g id="dyeTrail0" class="laneFill">
-	<rect x="10.5" y="15.7" class="laneFill" width="20.1" height="129.6"/>
+	<rect x="10.5" y="15.7" class="laneFills" width="20.1" height="129.6" id="ansLane_0"/>
 </g>
     
 <g id="Lane6">

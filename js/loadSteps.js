@@ -20,8 +20,6 @@ function loadSteps() {
         target: "Tube"
         , name: "anim_tubeDown"
 }]
-    var timerButton = document.getElementById("timerButton");
-    var volumeButton1 = document.getElementById("volumeButton1");
     var sideTipMoveSpeed = 0.6;
     var directionsForSideTipMovement = [[1, 0], [0, 1], [-1, 0], [0, -1]]
     var stepText = [
@@ -513,7 +511,7 @@ function loadSteps() {
                     , "longText": "Remove 10 uL of HindIII DNA size marker (grey tube)"
                     , "feedbackText": "complete the second step"
                     , "logic": {
-                        "eventSelector": "#tubeTop_0"
+                        "eventSelector": ".tubeTopp"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.takeMicTube
                         , "postEventFunction" : helperFunctions.takeMicTubePost
@@ -544,7 +542,7 @@ function loadSteps() {
                 , {
                     "id": "insertTip1"
                     , "shortText": "Insert tip"
-                    , "longText": "Use the arrow keys to control the position of the tip in the well. Be sure not to breach the walls!"
+                    , "longText": "Drag around the tip to position it in the well. Be sure not to breach the walls!"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#gelWellBoundary"
@@ -591,7 +589,7 @@ function loadSteps() {
                     , "longText": "Remove 10 uL of crime suspect DNA"
                     , "feedbackText": "complete the second step"
                     , "logic": {
-                        "eventSelector": "#tubeTop_1"
+                        "eventSelector": ".tubeTopp"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.takeMicTube
                         , "postEventFunction" : helperFunctions.takeMicTubePost
@@ -622,7 +620,7 @@ function loadSteps() {
                 , {
                     "id": "insertTip2"
                     , "shortText": "Insert tip"
-                    , "longText": "Use the arrow keys to control the position of the tip in the well. Be sure not to breach the walls!"
+                    , "longText": "Drag around the tip to position it in the well. Be sure not to breach the walls!"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#gelWellBoundary"
@@ -668,7 +666,7 @@ function loadSteps() {
                     , "longText": "Remove 10 uL of suspect 1 DNA"
                     , "feedbackText": "complete the second step"
                     , "logic": {
-                        "eventSelector": "#tubeTop_2"
+                        "eventSelector": ".tubeTopp"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.takeMicTube
                         , "postEventFunction" : helperFunctions.takeMicTubePost
@@ -699,7 +697,7 @@ function loadSteps() {
                 , {
                     "id": "insertTip3"
                     , "shortText": "Insert tip"
-                    , "longText": "Use the arrow keys to control the position of the tip in the well. Be sure not to breach the walls!"
+                    , "longText": "Drag around the tip to position it in the well. Be sure not to breach the walls!"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#gelWellBoundary"
@@ -745,7 +743,7 @@ function loadSteps() {
                     , "longText": "Remove 10 uL of suspect 2 DNA"
                     , "feedbackText": "complete the second step"
                     , "logic": {
-                        "eventSelector": "#tubeTop_3"
+                        "eventSelector": ".tubeTopp"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.takeMicTube
                         , "postEventFunction" : helperFunctions.takeMicTubePost
@@ -776,7 +774,7 @@ function loadSteps() {
                 , {
                     "id": "insertTip4"
                     , "shortText": "Insert tip"
-                    , "longText": "Use the arrow keys to control the position of the tip in the well. Be sure not to breach the walls!"
+                    , "longText": "Drag around the tip to position it in the well. Be sure not to breach the walls!"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#gelWellBoundary"
@@ -822,7 +820,7 @@ function loadSteps() {
                     , "longText": "Remove 10 uL of suspect 3 DNA"
                     , "feedbackText": "complete the second step"
                     , "logic": {
-                        "eventSelector": "#tubeTop_4"
+                        "eventSelector": ".tubeTopp"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.takeMicTube
                         , "postEventFunction" : helperFunctions.takeMicTubePost
@@ -853,7 +851,7 @@ function loadSteps() {
                 , {
                     "id": "insertTip5"
                     , "shortText": "Insert tip"
-                    , "longText": "Use the arrow keys to control the position of the tip in the well. Be sure not to breach the walls!"
+                    , "longText": "Drag around the tip to position it in the well. Be sure not to breach the walls!"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#gelWellBoundary"
@@ -899,7 +897,7 @@ function loadSteps() {
                     , "longText": "Remove 10 uL of suspect 4 DNA"
                     , "feedbackText": "complete the second step"
                     , "logic": {
-                        "eventSelector": "#tubeTop_5"
+                        "eventSelector": ".tubeTopp"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.takeMicTube
                         , "postEventFunction" : helperFunctions.takeMicTubePost
@@ -930,7 +928,7 @@ function loadSteps() {
                 , {
                     "id": "insertTip6"
                     , "shortText": "Insert tip"
-                    , "longText": "Use the arrow keys to control the position of the tip in the well. Be sure not to breach the walls!"
+                    , "longText": "Drag around the tip to position it in the well. Be sure not to breach the walls!"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#gelWellBoundary"
@@ -976,7 +974,7 @@ function loadSteps() {
                     , "longText": "Remove 10 uL of suspect 5 DNA"
                     , "feedbackText": "complete the second step"
                     , "logic": {
-                        "eventSelector": "#tubeTop_6"
+                        "eventSelector": ".tubeTopp"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.takeMicTube
                         , "postEventFunction" : helperFunctions.takeMicTubePost
@@ -1007,7 +1005,7 @@ function loadSteps() {
                 , {
                     "id": "insertTip7"
                     , "shortText": "Insert tip"
-                    , "longText": "Use the arrow keys to control the position of the tip in the well. Be sure not to breach the walls!"
+                    , "longText": "Drag around the tip to position it in the well. Be sure not to breach the walls!"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#gelWellBoundary"
@@ -1129,13 +1127,13 @@ function loadSteps() {
                     , "longText": "Which suspect's DNA matches the sample found at the crime scene? (Enter 1,2,3,4, or 5)"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#answerButton"
-                        , "eventType": "submit"
+                        "eventSelector": ".laneFills"
+                        , "eventType": "click"
                         , "eventFunction": helperFunctions.pickLane
                         , "postEventFunction": helperFunctions.pickLanePost
                         , "criteria": {
                             "variable": "lanePickedNumber",
-                            "value": 4,
+                            "value": answer-1,
                             "messageWrong": "Incorrect. Try again."
                             }
                     }

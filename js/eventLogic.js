@@ -12,7 +12,7 @@ var gameStarted = false;
 var start = new Date;
 var score = 0;
 var voltage = 0;
-var answer = Math.floor(Math.random() * 6 + 3);
+var answer = Math.floor(Math.random() * 5 + 3);
 var tip = 0;
 var timeInWell;
 var wellTop = [55, 57.9, 60.3, 62.6, 65, 67.1, 69.3]
@@ -22,7 +22,6 @@ var microtubeAnimation = [{
     target: "Tube",
     name: "anim_moveTube"
 }, {
-    target: "Cap",
     name: "anim_rotateCap"
 }, {
     target: "Cap",
@@ -218,56 +217,6 @@ function updateVoltage(amount) {
 function tipSelect(number) {
     tip += number;
 }
-//$("html").on("keydown", function (evt) {
-//    var arrayIndex = evt.keyCode - 37;
-//    if (arrayIndex > -1 && arrayIndex < 4) moveTipSide(directionsForSideTipMovement[arrayIndex])
-//})
-//function moveTipSide(direction) {
-//   
-//        breach = false;
-//        var sideViewWidth = parseFloat($('#sideView').css("width"));
-//        var sideViewHeight = parseFloat($('#sideView').css("height"));
-//        //
-//        var currentTop = parseFloat($('#tipSide').css("top")) / sideViewHeight * 100;
-//        var currentLeft = parseFloat($('#tipSide').css("left")) / sideViewWidth * 100;
-//        //var currentTop=parseFloat($('#tipSide').css("top"))/100
-//        //var currentLeft=parseFloat($('#tipSide').css("left"))
-//        var newLeft = Math.min(90, Math.max(0, (currentLeft - direction[0] * sideTipMoveSpeed)))
-//        var newTop = Math.min(60, Math.max(0, (currentTop - direction[1] * sideTipMoveSpeed)))
-//        var checkTop = betterParseInt(newTop);
-//        var checkLeft = betterParseInt(newLeft);
-//        $('#tipSide').css("left", newLeft + "%")
-//        $('#tipSide').css("top", newTop + "%")
-//        //return [newLeft,newTop]
-//        var wellDepth = parseFloat($('#gelWellBoundary').css("height"));
-//        var wellWidth = parseFloat($('#gelWellBoundary').css("width"));
-//        var date = new Date();
-//        if (checkTop > 7) {
-//            if (!timeInWell) {
-//                timeInWell = Date.now();
-//                pollTip()
-//            }
-//            //
-//            if (checkTop > 18 || checkLeft > 43 || checkLeft < 23.5) {
-//                breach = true;
-//                $('#tipSide').css("top", "0" + "%")
-//                //
-//                timeInWell = null;
-//                message("Make sure the tip stays within the well!")
-//       
-//        }
-//    }
-//}
-//
-//function pollTip() {
-//    if (Date.now() - timeInWell < 2500) {
-//        if (!breach) window.requestAnimationFrame(pollTip);
-//    } else if (!breach) {
-//        // game.nextStep();
-//        updateScore(10);
-//        timeInWell = null;
-//    }
-//}
 
 function continueLoading() {
     for (var i = 1; i <= 3; i++) {
@@ -299,34 +248,7 @@ function continueLoading() {
     //
     var goBack = localStorage.setItem("backCount", 0)
     var current = window.location.href.split("#")[0]
-    $("#backButton").click(function () {
-        var hash = "#"
-        var prevStep = game.getPreviousStep().id
-        var tag = hash + prevStep
-        var back = current + tag
-        console.log(game.getPreviousStep().id)
-        localStorage.setItem('url', back)
-        window.location.href = localStorage.getItem('url')
-        var backNum = parseInt(localStorage.getItem('backCount'))
-        backNum++;
-        console.log(backNum)
-        localStorage.setItem("backCount", backNum)
-        document.location.reload();
 
-    });
-    //Step 17
-    //$("#waterBathLid").click();
-    //Step 18
-    var timerButton = document.getElementById("timerButton");
-    //Step 20
-    //$(".tip").click();
-    //Step 21
-    var volumeButton1 = document.getElementById("volumeButton1");
-    //$("button").click();
-    //Step 22
-    //$("#micropipet3").click();
-    //Step 23
-    //$("#mixContentsButton1").click();
     $("#zoomOutButton1a").click(function () {
         zoom(50, 50, 1, 1000)
         $("#zoomOutButton1a").animate({
@@ -651,51 +573,6 @@ $.keyframe.define([{ name:'addTipp1',
 },])
 }
 
-//===============TRYING TO MAKE SOME KEYFRAMES
-/*
-function makeArrowOscillatingUp(objectLeft,obejectTop) {
-
-$.keyframe.define([{ name:'oscillateUp',
-     '0%':{
-        left: objectLeft+"%",
-        top: (objectTop + 4) + "%",
-},
-    '50%':{
-        left: objectLeft+"%",
-        top: (objectTop + 9) + "%",
-},
-    '100%':{
-        left: objectLeft+"%",
-        top: (objectTop + 4) + "%",
-},
-},])
-}
-
-function makeArrowOscillatingDown(objectLeft,obejectTop) {
-
-$.keyframe.define([{ name:'oscillateUp',
-     '0%':{
-        left: objectLeft+"%",
-        top: (objectTop - 4) + "%",
-},
-    '50%':{
-        left: objectLeft+"%",
-        top: (objectTop - 9) + "%",
-},
-    '100%':{
-        left: objectLeft+"%",
-        top: (objectTop - 4) + "%",
-},
-},])
-}
-=====================================*/
-
-//function findTipLeft(evt) {
-//    var tipNum = betterParseInt(evt.target.id);
-//    var tipLeft = tips[tipNum];
-//    return tipLeft;
-//
-//}
 function setLane(laneNum, weightArray) {
     weightArray.forEach(function (val, idx) {
         $("#gel svg #Lane" + laneNum + " #weight" + idx).attr('transform', 'translate(0 ' + val[0] + ') scale(1, ' + val[1] + ')');

@@ -577,7 +577,7 @@ var helperFunctions = {
             "left": '36.7%',
             "top": tubeTop + '%'
             }]);
-        animate("html", 1000, zoom, [10, 74, 6, 2700])
+        animate("html", 1000, zoom, [10, 74, 6, 1000])
     }, //step 34    
 
     "toLane": function (evt) {
@@ -593,7 +593,7 @@ var helperFunctions = {
             "top": '71.6%',
         }]);
 
-        animate("html", 1000, zoom, [10, 74, 1, 2700]) //zoomout
+        animate("html", 1000, zoom, [10, 74, 1, 500]) //zoomout
         animate(".side", 1200, "removeClass", "opClass")
         animate(".side", 1000, "css", [{
             opacity: '1'
@@ -654,8 +654,6 @@ var helperFunctions = {
 
     }, //step 73
     "setVoltage": function (evt) {
-        console.log(evt.currentTarget.id)
-        
         if ("powerSupplyUp" == evt.currentTarget.id){
             updateVoltage(10);;
             $("#voltage").html(voltage);
@@ -744,137 +742,30 @@ var helperFunctions = {
         }).animate({
             opacity: 1
         }, 200)
-        $("#answerButton").delay(1).animate({
-            opacity: '1.0'
-        });
-        $("#answerInput").delay(1).animate({
-            opacity: '1.0'
-        });
+//        $("#answerButton").delay(1).animate({
+//            opacity: '1.0'
+//        });
+//        $("#answerInput").delay(1).animate({
+//            opacity: '1.0'
+//        });
 
     }, //step 79
-    "pickLane": function () {
-        var studentAnswer = $("#answerInput").val();
-        if (studentAnswer != (answer - 2)) {
-            alert("Incorrect. Please select the correct lane")
-            updateScore(-50);
-
-        }
-        if (studentAnswer == (answer - 2)) {
-            // game.nextStep();
-            updateScore(10);
-
-
-            endGame("win");
-        }
+    "pickLane": function (evt) {
+        var studentAnswer = evt.currentTarget.id.split("_")[1];
+                console.log(evt.currentTarget.id);
+                        console.log(answer);
+        state["lanePickedNumber"] = studentAnswer
     },
-
-    "timerClicked": function () {
-        //if ((game.getCurrentStep().id == "setTimer")){
-        var time = $("#timer").val();
-
-        if (time != 45) {
-            updateScore(-10);
-        }
-        if (time == 45) {
-
-            $("button").delay(1).animate({
-                opacity: '0.0'
-            });
-            $("#timer").delay(1).animate({
-                opacity: '0.0'
-            });
-            zoom(50, 50, 1, 1000)
-            setTimeout(function () {
-                $("#day1").delay(1).animate({
-                    opacity: '0.0'
-                });
-            }, 1000);
-            setTimeout(function () {
-                $("#day2").delay(1).animate({
-                    opacity: '1.0'
-                });
-                animate("#day2", 0, "keyframe", animdefs["anim_changeDay2"])
-                animate("#day1", 0, "keyframe", animdefs["anim_changeDay1"])
-                $("#powerSupply").delay(1).animate({
-                    opacity: '1.0'
-                });
-                $("#powerSupplyUp").delay(1).animate({
-                    opacity: '1.0'
-                });
-                $("#powerSupplyDown").delay(1).animate({
-                    opacity: '1.0'
-                });
-                $("#voltage").delay(1).animate({
-                    opacity: '1.0'
-                });
-                $("#gelSideView").delay(1).animate({
-                    opacity: '1.0'
-                });
-            }, 2000);
-            setTimeout(function () {
-                // game.nextStep();
-                updateScore(10);
-
-            }, 2700);
-        };
-    },
-    "toTopView": function () {
-        animate("#topView", 0, "keyframe", animdefs["anim_toTopView1"])
-        animate("#day2", 0, "keyframe", animdefs["anim_toTopView2"])
-        animate("#day1", 0, "keyframe", animdefs["anim_toTopView2"])
-        animate("#gelTopView", 0, "keyframe", animdefs["anim_toTopView1"])
-        animate("#labBenchTop", 0, "keyframe", animdefs["anim_toTopView1"])
-        //$("#tipBoxTop").addClass(animdefs["anim_tipVisible"])
-
-        $("#tipBoxTop").animate({
-            opacity: '1.0'
-        });
-        $("#arrowDown").delay(1).animate({
-            opacity: '1.0'
-        });
-        $("#arrowUp").delay(1).animate({
-            opacity: '1.0'
-        });
-        $("#labBenchTop").delay(1).animate({
-            opacity: '1.0'
-        });
-        $("#gelTopView").delay(1).animate({
-            opacity: '1.0'
-        });
-        $("#lidSide").delay(1).animate({
-            opacity: '1.0'
-        });
-        $("#powerSupplyTop").delay(1).animate({
-            opacity: '1.0'
-        });
-        $('.holderTop').delay(1).animate({
-            opacity: '1.0'
-        });
-        $(".tipBoxTop").delay(1).animate({
-            opacity: '1.0'
-        });
-        $("#wasteBinTop").delay(1).animate({
-            opacity: '1.0'
-        });
-        $("#zoomOutButton2").delay(1).animate({
-            opacity: '1.0'
-        });
-        $("#zoomOutButton3").delay(1).animate({
+    "pickLanePost": function () {
+        animate("#day2, #day2 *", 1000, "animate", [{
             opacity: '0.0'
-        });
-        $("#powerSupplyUp").delay(1).animate({
-            opacity: '0.0'
-        });
-        $("#powerSupplyDown").delay(1).animate({
-            opacity: '0.0'
-        });
-        $("#tip").delay(1).animate({
-            opacity: '0.0'
-        });
-        setTimeout(function () {
-            // game.nextStep();
-            updateScore(10);
+        }]);
+        animate("#day2, #day2 *", 1000, "addClass", "opClass")
 
-        }, 300);
+        animate("#day1", 2000, "removeClass", "opClass")
+        animate("#day1", 2000, "animate", [{
+            opacity: '1.0'
+        }])
     }
+    
 }

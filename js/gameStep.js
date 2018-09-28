@@ -206,7 +206,8 @@ function Step(cur, div, iconDiv) {
                 this.successor.activate();
             }
             else {
-                endGame("win");
+                endGame("You Won! Click \"Start\" to Play Again.");
+//                steps = [0];
             }
             this.prepComplete();
             updateSteps();
