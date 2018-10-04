@@ -1,10 +1,8 @@
 function loadSVG() {
     $.when($.get("img/gelWithLane.svg", function (data) {
-        console.log(data)
 //        $("#gel").html(new XMLSerializer().serializeToString(data.documentElement));
          $("#gelFinalTop").html(new XMLSerializer().serializeToString(data.documentElement));
     }), $.get("img/topEdit.svg", function (data) {
-        console.log(data)
         $("#tipBoxTop").html(new XMLSerializer().serializeToString(data.documentElement));
     }), $.Deferred(function (deferred) {
         $(deferred.resolve);
@@ -91,12 +89,11 @@ function loadSVGLogic() {
                     ]
 
                 ]
-//     var answer=3; 
+//     var answer=3;
     lanes[answer - 1] = lanes[1];
     lanes.forEach(function (val, idx) {
         setLane(idx, val)
-        
-        console.log(answer);
+
     })
 
     function setLane(laneNum, weightArray) {

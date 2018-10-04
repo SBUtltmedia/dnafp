@@ -145,7 +145,6 @@ function animate(selector, delay, method, param) {
 var helperFunctions = {
     //step 0
     "liftEnzyme": function () {
-
         animate("#enzTube", 0, "keyframe", animdefs["anim_moveEnz"])
         $("#indicatorArrow1").remove();
     }, //step 1
@@ -154,16 +153,43 @@ var helperFunctions = {
         state["firstStep"] = 45;
     },
     "openEnzymePost": function () {
-        animate("#indicatorArrow0", 0, "removeClass", "opClass")
-        animate("#indicatorArrow0", 0, "keyframe", animdefs["anim_oscillate"])
-        updateScore(10);
+      console.log("foofoo")
+      animate("#micropipet2", 1000, "keyframe", animdefs["anim_PrepPipet"])
+      animate("html", 3000, zoom, [25, 46, 9.5, 1000])
+      animate("#volumeButton,#volumeInput", 4000, "removeClass", "opClass")
+      animate("#volumeButton,#volumeInput", 4000, "css", [{
+          display: "block",
+          opacity: 1
+      }]);
     }, //step 2
+
+    "setVolume": function () {
+      console.log("what is going on")
+        state["volume"] = $("#volumeInput").val();
+    },
+    "setVolumePost": function () {
+        animate("#volumeButton,#volumeInput", 1, "animate", [{
+            opacity: '0.0'
+            }])
+        animate("#view", 0, zoom, [25, 46, 1, 1000])
+        animate("#micropipet2", 1100, "keyframe", animdefs["anim_lowerPipet"])
+
+        animate("#indicatorArrow0", 2000, "removeClass", "opClass")
+        animate("#indicatorArrow0", 2000, "keyframe", animdefs["anim_oscillate"])
+    },
+
+
+
     "takeEnzyme": function (evt) {
 
         var tipNum = betterParseInt(evt.target.id);
         var tipLeft = tips[(tipNum - 1)];
         // in event
         makePipetteTipAnimation(tipLeft);
+        animate("#indicatorArrow6", 3000, "animate", [{
+            opacity: '1.0'
+        }])
+        animate("#indicatorArrow6", 3000, "keyframe", animdefs["anim_oscillate4"])
         animate("#indicatorArrow0", 0, "addClass", "opClass")
         animate("#micropipet2", 0, "keyframe", animdefs["anim_addTip1"])
         animate("#" + evt.target.id, 0, "keyframe", animdefs["anim_hideTip1"])
@@ -171,30 +197,8 @@ var helperFunctions = {
         animate("#pipetteTip1", 0, "keyframe", animdefs["anim_showTip1"])
 
 
-        animate("html", 5000, zoom, [95, 36, 9.5, 2700])
-        animate("#volumeButton,#volumeInput", 6000, "css", [{
-            display: "block",
-            opacity: 1
-        }]);
-
     }, //step 3
-    "setVolume": function () {
-
-        state["volume"] = $("#volumeInput").val();
-    },
-    "setVolumePost": function () {
-        // game.nextStep();
-        updateScore(10);
-        animate("#volumeButton,#volumeInput", 1, "animate", [{
-            opacity: '0.0'
-            }])
-        animate("#view", 0, zoom, [50, 50, 1, 1000])
-        animate("#micropipet2", 1100, "keyframe", animdefs["anim_lowerPipet"])
-        animate("#indicatorArrow6", 0, "animate", [{
-            opacity: '1.0'
-        }])
-        animate("#indicatorArrow6", 0, "keyframe", animdefs["anim_oscillate4"])
-    }, //step 4
+   //step 4
     "openTube": function (evt) {
 
 
@@ -484,7 +488,7 @@ var helperFunctions = {
             display: "block"
             }])
         state["microtubeState"][0] = microTubeEnum[5];
-    }, //step 29    
+    }, //step 29
     "pressTube1": function (evt) {
         var tubeId = evt.currentTarget.id.split("_")[1];
 
@@ -528,7 +532,7 @@ var helperFunctions = {
             visibility: "visible"
         }).removeClass("opClass");
 
-        //       $("#zoomOutButton3,#powerSupplyUp,#powerSupplyDown,#tip").hide();      
+        //       $("#zoomOutButton3,#powerSupplyUp,#powerSupplyDown,#tip").hide();
     }, //step 31
     "orientGel": function () {
         animate("#arrowDown,#arrowUp", 1, "animate", [{
@@ -578,7 +582,7 @@ var helperFunctions = {
             "top": tubeTop + '%'
             }]);
         animate("html", 1000, zoom, [10, 74, 6, 1000])
-    }, //step 34    
+    }, //step 34
 
     "toLane": function (evt) {
         state["lanePicked"] = parseInt(evt.currentTarget.id.split("_")[1]);
@@ -598,7 +602,7 @@ var helperFunctions = {
         animate(".side", 1000, "css", [{
             opacity: '1'
         }])
-    }, //step 35,40 
+    }, //step 35,40
     "insertTip": function (evt) {
 
         var sideViewWidth = parseFloat($('#sideView').css("width"));
@@ -615,7 +619,7 @@ var helperFunctions = {
                 $('#tipSide').css("top", "-50%")
                 $('#tipSide').css("left", "25%")
                 message("Make sure the tip stays deep enough within the well!")
-                
+
             } else {
                 state["TipPosition"] = true
             }
@@ -638,7 +642,7 @@ var helperFunctions = {
             "top": '76%'
             }]);
     }, //step 72
-    
+
     "clickLid": function () {
         animate("#lidSide, #micropipetTopView", 0, "animate", [{
             opacity: '0.0'
@@ -661,13 +665,13 @@ var helperFunctions = {
             updateVoltage(-10);;
             $("#voltage").html(voltage);
         }
-        state["voltage"] = voltage            
+        state["voltage"] = voltage
 
     },
     "setVoltagePost": function () {
         animate("#gelVoltageCover", 1000, "animate", [{
             opacity: '0.0',
-            display: "none" 
+            display: "none"
         }])
     }, //step 74
     "removeGelLid": function () {
@@ -675,7 +679,7 @@ var helperFunctions = {
         animate("#lidSide, #stainingTray", 0, "animate", [{
             display: "show",
             opacity: '1.0',
-           
+
         }])
      $("#lidSide, #stainingTray").css({display:"block"});
         animate("#lidBox, #tipBoxTop, #wasteBinTop", 0, "animate", [{
@@ -694,7 +698,7 @@ var helperFunctions = {
             top: '58.5%',
             left: '30.6%',
         }])
-        
+
         animate("#topView, #topView *", 0, "animate", [{
             opacity: '0.0'
         }])
@@ -704,7 +708,7 @@ var helperFunctions = {
         $("#day2, #bothDays, #graduatedCylinder, #stainingTraySide").show()
         animate("#waterBathNoLid, #waterBathLid, #gelComb, #wasteBasket, #shelf1, #loadDyeCap", 0, "addClass", "opClass")
 
-        
+
 //        animate("#day2, #day2 *, #bothDays, #bothDays *", 0, "removeClass", "opClass")
 //        animate("#day2, #day2 *, #bothDays, #bothDays *", 0, "animate", [{
 //            opacity: '1.0',
@@ -713,12 +717,12 @@ var helperFunctions = {
 //            display: "block",
 //        }])
 
-        
+
     }, //step 77
     "stainGel": function () {
         animate("#graduatedCylinder", 0, "keyframe", animdefs["anim_pourStain"])
         animate("#emptyGraduatedCylinder", 3000, "css", [{
-         opacity: '1.0'   
+         opacity: '1.0'
         }])
         animate("#emptyGraduatedCylinder,#stainedGel", 0, "removeClass", "opClass")
         animate("#emptyGraduatedCylinder,#stainedGel", 0, "css", [{
@@ -726,7 +730,7 @@ var helperFunctions = {
         }])
         animate("#stainingTraySide", 3000, "addClass", "opClass")
         animate("#stainedGel", 1000, "keyframe", animdefs["anim_slowFadeIn"])
-        
+
     }, //step 78
     "examineGel": function () {
         var contents = $("#gelFinalTop").contents();
@@ -734,7 +738,7 @@ var helperFunctions = {
         $("#gel").append(contents);
          loadSVGLogic();
         animate("#gel, #gel *", 0, "removeClass", "opClass")
-      
+
         $("#gel, #gel *").css({
             opacity: 1.0,
             visibility: "visible",
@@ -767,5 +771,5 @@ var helperFunctions = {
             opacity: '1.0'
         }])
     }
-    
+
 }

@@ -1,43 +1,3 @@
-/*function makeMoveTip(tipLocation){
-    var keyframeString = `
-$.keyframe.define([{ name: mooveTip,
-    '0%': {
-        left: '2.5%' + ${tipLocation}%';
-        top: '70%';
-    }
-    '20%': {
-        left: '${tipLocation}%';
-        top: 70%;
-    }
-    '25%': {
-        left: '${tipLocation}%';
-        top: '64.6%';
-    }
-    '90%': {
-        left: '85.5%';
-        top: '50.6%';
-    }
-    '100%': {
-        left: '88.9%';
-        top: '50.6%';
-    }
-}
-    `
-    $('#dynamic-style').html(keyframeString)
-}*/
-
-//$.keyframe.define([{ name:'pulse',
-//    from: {
-// 	"box-shadow":  "0 0 0rem 0rem red"
-//    }
-//                    ,
-//    to: {
-//      "box-shadow":  "0 0 .3rem .3rem red"
-//}}])
-                    
-                    
-
-
 $.keyframe.define([{ name:'moveTube',
     from: {
         top: '71.9%'
@@ -46,11 +6,6 @@ $.keyframe.define([{ name:'moveTube',
         top: '63%',
 },
 },])
-
-
-
-
-
 
 $.keyframe.define([{ name:'closeCap',
     from: {
@@ -61,9 +16,6 @@ $.keyframe.define([{ name:'closeCap',
 },
 },])
 
-
-
-
 $.keyframe.define([{ name:'tubeDown',
     from: {
         top: '71.9%'
@@ -72,8 +24,6 @@ $.keyframe.define([{ name:'tubeDown',
         top: '63%',
 },
 },])
-
-
 
 $.keyframe.define([{ name:'movePipet',
     '0%':{
@@ -211,38 +161,19 @@ $.keyframe.define([{ name:'tapTube',
 },])
 
 
+$.keyframe.define([{ name:'PrepPipet',
+'0%':{
+   left: '14.5%',
+   top: '52%',
+},
+'100%':{
+   left: '24.5%',
+   top: '38%',
+},
+},])
 
 
-
-//$.keyframe.define([{ name:'addTip1',
-//    '0%':{
-//        left: '14.5%',
-//        top: '52%',
-//},
-//    '20%':{
-//        left: '17%',
-//        top: '47.6%',
-//},
-//    '25%':{
-//        left: '17%',
-//        top: '42%',
-//},
-//    '90%':{
-//        left: '83%',
-//        top: '28%',
-//},
-//    '95%':{
-//        left: '86.4%',
-//        top: '28%',
-//},
-//    '100%':{
-//        left: '86.4%',
-//        top: '35%',
-//},
-//},])
-
-
-
+//addTip1 is in eventLogic
 $.keyframe.define([{ name:'addTip2',
     '0%':{
         left: '1.5%',
@@ -259,18 +190,16 @@ $.keyframe.define([{ name:'addTip2',
 },])
 
 
-
 $.keyframe.define([{ name:'lowerPipet',
     '0%':{
-        left: '86.4%',
-        top: '28%',
+        left: '24.5%',
+        top: '38%',
 },
     '100%':{
-        left: '86.4%',
-        top: '35%',
+        left: '27.5%',
+        top: '40%',
 },
 },])
-
 
 
 $.keyframe.define([{ name:'moveTip1',
@@ -297,7 +226,6 @@ $.keyframe.define([{ name:'moveTip1',
 },])
 
 
-
 $.keyframe.define([{ name:'lowerTip1',
     '0%':{
         left: '88.9%',
@@ -308,7 +236,6 @@ $.keyframe.define([{ name:'lowerTip1',
         top: '57.1%',
 },
 },])
-
 
 
 $.keyframe.define([{ name:'addTip2',
@@ -567,7 +494,7 @@ $.keyframe.define([{ name:'tipToBin',
         top: '130%',
 },
     '100%':{
-        left: '55%', 
+        left: '55%',
         top: '170%',
         opacity: 0,
 },
@@ -991,7 +918,7 @@ $.keyframe.define([{ name:'moveBlock',
     '0%':{
         left: '35.72%',
         top: '73.4%',
-      
+
 },
     '100%':{
         left: '30.72%',
@@ -1501,7 +1428,7 @@ $.keyframe.define([{ name:'removeComb',
 },
     '90%':{
         top: '66%',
-        opacity: 1       
+        opacity: 1
 },
     '100%':{
         top: '66%',
@@ -1603,7 +1530,7 @@ $.keyframe.define([{ name:'pourStain',
 },
     '95%':{
         opacity: 1
-},                  
+},
     '100%':{
         opacity: 0,
         transform:'rotate(105deg)'
@@ -1626,7 +1553,7 @@ $.keyframe.define([{ name:'moveEnz',
 $.keyframe.define([{ name:'hideTip1',
     '0%':{
         opacity: 1,
- 
+
 },
     '47%':{
         opacity: 1,
@@ -1634,7 +1561,7 @@ $.keyframe.define([{ name:'hideTip1',
 },
     '100%':{
         opacity: 0,
-     
+
 },
 },])
 

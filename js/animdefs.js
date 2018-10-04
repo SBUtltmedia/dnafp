@@ -15,16 +15,16 @@ var animdefs = {
     "anim_quickFadeOut": "quickFadeOut .125s 0s 1 linear normal forwards",
     "anim_slowFadeIn": "quickFadeIn 2s 0s 1 linear normal forwards",
     "anim_slowFadeOut": "quickFadeOut 2s 0s 1 linear normal forwards",
-    
+
     "anim_changeDay1": "changeDay1 1s linear 0s normal forwards",
     "anim_pipetToTube3": "pipetToTube3 3.4s linear 0s 1 normal forwards",
     "anim_tipHidden": "tipHidden 0.1s linear 0s normal forwards",
     "anim_tipVisible": "tipVisible 0.1s linear 0s normal forwards",
     "anim_pressTube3": "pressTube3 0.3s linear 0s 1 normal forwards",
     "anim_hideTip1": "hideTip1 2s linear 0s 1 normal forwards",
-    
+
     "anim_hideTipp1": "hideTip1 .9s linear 0s 1 normal forwards",
-    
+
     "anim_tube2ToBath": "tube2ToBath 1s linear 0s 1 normal forwards",
     "anim_closeCap": "closeCap 0.5s linear reverse forwards",
     "anim_moveTube": "moveTube 0.5s linear 0s 1 normal forwards",
@@ -33,7 +33,7 @@ var animdefs = {
     "anim_pipetToTube6": "pipetToTube6 3.4s linear 0s 1 normal forwards",
     "anim_pipetToBin": "pipetToBin 1.6s linear 0s 1 normal forwards",
     "anim_pipetToTube1": "pipetToTube1 3.4s linear 0s 1 normal forwards",
-    
+
 
     "anim_mixTubeContent": "mixTubeContent .9s linear 0s 5 normal forwards",
     "anim_mixs0TubeBody": "mixs0TubeBody .9s linear 0s 5 normal forwards",
@@ -57,11 +57,12 @@ var animdefs = {
     "anim_insertTube4": "insertTube4 1.8s linear 0s 1 normal forwards",
     "anim_insertTube5": "insertTube5 1.8s linear 0s 1 normal forwards",
 
-    "anim_addTip1": "addTip1 5s linear 0s 1 normal forwards",
+    "anim_addTip1": "addTip1 3s linear 0s 1 normal forwards",
+    "anim_PrepPipet": "PrepPipet 2s linear 0s 1 normal forwards",
     "anim_addTipp1": "addTipp1 3s linear 0s 1 normal forwards",
-    
+
     "anim_addDyeToTube": "addDyeToTube 3s linear 0s 1 normal forwards",
-    
+
     "anim_toFrontView": "toFrontView 1s 0s 1 linear normal reverse",
     "anim_tubeDown": "tubeDown 0.5s linear 0s 1 reverse forwards",
     "anim_toTopView1": "toTopView1 1s 0s 1 linear normal forwards",

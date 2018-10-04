@@ -56,6 +56,25 @@ function loadSteps() {
                 }
 
                 , {
+                   "id": "setVolume"
+
+                   , "shortText": "Enter volume"
+                   , "longText": "Enter the correct volume (in microliters) of fluid to remove"
+                   , "feedbackText": "complete the second step"
+                   , "logic": {
+                       "eventSelector": "#volumeInputForm"
+                       , "eventType": "submit"
+                       , "eventFunction": helperFunctions.setVolume
+                       , "postEventFunction": helperFunctions.setVolumePost
+                       , "criteria": {
+                           "variable": "volume"
+                           , "value": 10
+                           , "messageWrong": "Incorrect, please enter the approriate volume!"
+                       }
+                   }
+               }
+
+                , {
                     "id": "takeEnzyme"
                     , "shortText": "Use micropipette"
                     , "longText": "Click on any tip to place it on the pipette"
@@ -66,24 +85,7 @@ function loadSteps() {
                         , "eventFunction": helperFunctions.takeEnzyme
                     }
                 }
-                 , {
-                    "id": "setVolume"
-                     
-                    , "shortText": "Enter volume"
-                    , "longText": "Enter the correct volume (in microliters) of fluid to remove"
-                    , "feedbackText": "complete the second step"
-                    , "logic": {
-                        "eventSelector": "#volumeInputForm"
-                        , "eventType": "submit"
-                        , "eventFunction": helperFunctions.setVolume
-                        , "postEventFunction": helperFunctions.setVolumePost
-                        , "criteria": {
-                            "variable": "volume"
-                            , "value": 10
-                            , "messageWrong": "Incorrect, please enter the approriate volume!"
-                        }
-                    }
-                }
+
                 , {
                     "id": "openTube"
                     , "shortText": "Open reaction tube"

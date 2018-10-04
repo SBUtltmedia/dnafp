@@ -106,10 +106,10 @@ var tips = [18.2, 19, 19.8, 20.6, 21.4, 22.2, 23, 24.8, 25.6, 26.4, 26.8, 27.3]
 var breach = false;
 $(function () {
     loadSVG();
-    $('#tipSide').draggable();
+    $('#tipSide').load("img/tip.svg").draggable();
     $('#gelWellBoundary').droppable({tolerance: "touch"});
-    
-//    
+
+//
 //    $.get("img/gelWithLane.svg", function (data) {
 //        console.log(data)
 //        $("#gelFinalTop").html(new XMLSerializer().serializeToString(data.documentElement));
@@ -405,9 +405,9 @@ function continueLoading() {
    '#zoomOutButton1a',
    '.holderTop',
    '.day2'].forEach(function(item){
-       
+
        $(item).addClass("opClass")
-       
+
    })
     loadStartMenu();
 }
@@ -505,15 +505,11 @@ function enableClicks(bool) {
 
 
 function makePipetteTipAnimation(tipLocation) {
-        
-$.keyframe.define([{ name:'addTip1',        
+
+$.keyframe.define([{ name:'addTip1',
      '0%':{
-        left: '14.5%',
-        top: '52%',
-},
-    '8%':{
-        left: '14.5%',
-        top: '44%',
+        left: '27.5%',
+        top: '40%',
 },
     '14%':{
         left:tipLocation+"%",
@@ -526,7 +522,7 @@ $.keyframe.define([{ name:'addTip1',
     '25%':{
         left: tipLocation+"%",
         top: '42%',
-},                
+},
     '90%':{
         left: '86.4%',
         top: '28%',
@@ -539,8 +535,8 @@ $.keyframe.define([{ name:'addTip1',
 }
 
 function makePipetteTippAnimation(tipLocation) {
-        
-$.keyframe.define([{ name:'addTipp1',        
+
+$.keyframe.define([{ name:'addTipp1',
      '0%':{
         left: '14.5%',
         top: '52%',
@@ -560,7 +556,7 @@ $.keyframe.define([{ name:'addTipp1',
     '25%':{
         left: tipLocation+"%",
         top: '42%',
-},                
+},
     '90%':{
         left: '20.9%',
         top: '1%',
