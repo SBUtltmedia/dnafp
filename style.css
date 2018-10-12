@@ -1313,12 +1313,11 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 #tipSide {
-    width: 40%;
-    height: 95%;
-    left: 35%;
-    top: -60%;
+    width: 15%;
+    height: 121%;
+    left: 42%;
+    top: -80%;
     position: absolute;
-    background-image: url(img/tip.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;

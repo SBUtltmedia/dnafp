@@ -153,7 +153,6 @@ var helperFunctions = {
         state["firstStep"] = 45;
     },
     "openEnzymePost": function () {
-      console.log("foofoo")
       animate("#micropipet2", 1000, "keyframe", animdefs["anim_PrepPipet"])
       animate("html", 3000, zoom, [25, 46, 9.5, 1000])
       animate("#volumeButton,#volumeInput", 4000, "removeClass", "opClass")
@@ -164,7 +163,6 @@ var helperFunctions = {
     }, //step 2
 
     "setVolume": function () {
-      console.log("what is going on")
         state["volume"] = $("#volumeInput").val();
     },
     "setVolumePost": function () {
@@ -335,10 +333,7 @@ var helperFunctions = {
             animate("#s" + i + "Tube", 0, "addClass", "microTube");
             animate("#s" + i + "Tube", 0, "keyframe", animdefs["anim_insertTube" + i]);
         }
-        setTimeout(function () {
-            updateScore(10);
-
-        }, 300);
+   
     }, //step 16
     "closeLid": function () {
         animate("#waterBathLid", 0, "keyframe", animdefs["anim_replaceLid"])
@@ -346,9 +341,9 @@ var helperFunctions = {
         animate("#timerButton,#timer", 1000, "removeClass", "opClass");
 
         // Joochan doesn't understand what #button do.
-        animate("#button", 1000, "animate", [{
-            opacity: '1.0'
-        }]);
+//        animate("#button", 1000, "animate", [{
+//            opacity: '1.0'
+//        }]);
 
 
     }, //step 17
@@ -370,18 +365,6 @@ var helperFunctions = {
             opacity: '1.0'
         }])
         animate("#day2", 2000, "keyframe", animdefs["anim_changeDay2"])
-        //        animate("#powerSupply", 2000, "animate", [{
-        //            opacity: '1.0'
-        //        }])
-        //        animate("#powerSupplyUp", 2000, "animate", [{
-        //            opacity: '1.0'
-        //        }])
-        //        animate("#powerSupplyDown", 2000, "animate", [{
-        //            opacity: '1.0'
-        //        }])
-        //        animate("#voltage", 2000, "animate", [{
-        //            opacity: '1.0'
-        //        }])
 
         state["microtubeState"] = Array(6).fill(microTubeEnum[0])
 
@@ -480,9 +463,7 @@ var helperFunctions = {
         }
         animate("#tubeBlock", 1000, "keyframe", animdefs["anim_moveBlock"]);
         $('.pressButton button').html("Open")
-        //        animate(".pressButton",2000, "css", [{
-        //              background-image: 'url(img/openButton.svg)'
-        //        }])
+
         animate(".pressButton", 2000, "animate", [{
             opacity: '1.0',
             display: "block"
@@ -602,38 +583,57 @@ var helperFunctions = {
         animate(".side", 1000, "css", [{
             opacity: '1'
         }])
+              
+        
     }, //step 35,40
-    "insertTip": function (evt) {
-
+    "insertTip": function () {
+        console.log("wait what is happening.")
         var sideViewWidth = parseFloat($('#sideView').css("width"));
         var sideViewHeight = parseFloat($('#sideView').css("height"));
         var currentBot = parseFloat($('#tipSide').css("bottom")) / sideViewHeight * 100;
+        console.log(currentBot);
         var currentLeft = parseFloat($('#tipSide').css("left")) / sideViewWidth * 100;
+        console.log(currentLeft);
         state["TipPosition"] = false
         if (currentBot < 52) {
-            if (currentBot < 10 || currentLeft > 56.5 || currentLeft < 4) {
-                $('#tipSide').css("top", "-50%")
-                $('#tipSide').css("left", "25%")
+        
+            if (currentBot < 12 || currentLeft > 67.8 || currentLeft < 19.5) {
+                
                 message("Make sure the tip is not breaching the wall!")
-            } else if (currentBot > 47) {
-                $('#tipSide').css("top", "-50%")
-                $('#tipSide').css("left", "25%")
+            } else if (currentBot > 40) {
+               
                 message("Make sure the tip stays deep enough within the well!")
-
+            }
+                else if (currentBot < 15) {
+                
+                message("Your tip is going too deep into the well. Don't risk it to breach the wall!")
             } else {
                 state["TipPosition"] = true
+
+            }
+            if(state["TipPosition"] == false){
+            $('#tipSide').css("top", "-80%")
+                $('#tipSide').css("left", "42%")
             }
         }
     }, //step 36
 
     "insertTipPost": function () {
-        animate(".side", 1000, "css", [{
+        //$("#svgfluid").attr({y:86})
+        animate("#svgfluid", 0, "animate", [{
+            y: "83.6"
+        }])
+        animate("#gelWellBoundary", 400, "css", [{
+           "background-image": "radial-gradient(red, green, blue)"
+        }])
+
+        animate(".side", 5000, "css", [{
             opacity: '0'
         }])
         setTimeout(function () {
             $('#tipSide').css("top", "-50%")
             $('#tipSide').css("left", "25%")
-        }, 1000)
+        }, 5000)
     },
 
     "disposeTip": function () {

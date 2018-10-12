@@ -107,6 +107,7 @@ var breach = false;
 $(function () {
     loadSVG();
     $('#tipSide').load("img/tip.svg").draggable();
+
     $('#gelWellBoundary').droppable({tolerance: "touch"});
 
 //
@@ -166,30 +167,7 @@ function enableOptionButtons() {
             //            });
         }
     });
-    $("#endOption2").click(function () {
-        if (!gameStarted) {
-            // When menu button 2 is clicked
-            if (studentData.unlocks[0] || UNLOCK_EVERYTHING) {
-                gameStarted = true;
-                props = {
-                    "mode": 2
-                }
-                newGame(props);
-            }
-        }
-    });
-    $("#endOption3").click(function () {
-        if (!gameStarted) {
-            // When menu button 3 is clicked
-            if ((studentData.unlocks[1] || UNLOCK_EVERYTHING) && false) {
-                gameStarted = true;
-                props = {
-                    "mode": 3
-                }
-                newGame(props);
-            }
-        }
-    });
+
 }
 
 function getDate() {
@@ -219,12 +197,8 @@ function tipSelect(number) {
 }
 
 function continueLoading() {
-    for (var i = 1; i <= 3; i++) {
-        initEndOptionHover(i);
-    }
-    for (var i = 1; i <= 3; i++) {
-        itemHover(i);
-    }
+  initEndOptionHover(1);
+  itemHover(1);
 
     $("#headerText").bind("DOMSubtreeModified", function () {
         $("#headerText").animate({

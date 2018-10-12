@@ -58,7 +58,7 @@ var animdefs = {
     "anim_insertTube5": "insertTube5 1.8s linear 0s 1 normal forwards",
 
     "anim_addTip1": "addTip1 3s linear 0s 1 normal forwards",
-    "anim_PrepPipet": "PrepPipet 2s linear 0s 1 normal forwards",
+    "anim_PrepPipet": "PrepPipet 1s linear 0s 1 normal forwards",
     "anim_addTipp1": "addTipp1 3s linear 0s 1 normal forwards",
 
     "anim_addDyeToTube": "addDyeToTube 3s linear 0s 1 normal forwards",
