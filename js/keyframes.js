@@ -653,11 +653,11 @@ $.keyframe.define([{ name:'pipetToTube1',
         top: '35%'
 },
     '90%':{
-        left: '34%',
+        left: '34.25%',
         top: '31.7%',
 },
     '100%':{
-        left: '34%',
+        left: '34.25%',
         top: '39%',
 },
 },])
@@ -1376,30 +1376,30 @@ $.keyframe.define([{ name:'rotateCap',
 },])
 
 
-$.keyframe.define([{ name:'mixs0TubeBody',
-    '0%':{
-        opacity: 1
-},
-    '50%':{
-        opacity: 0
-},
-    '100%':{
-        opacity: 1
-},
-},])
+// $.keyframe.define([{ name:'mixs0TubeBody',
+//     '0%':{
+//         opacity: 1
+// },
+//     '50%':{
+//         opacity: 1
+// },
+//     '100%':{
+//         opacity: 1
+// },
+// },])
 
 
-$.keyframe.define([{ name:'mixTubeContent',
-    '0%':{
-        opacity: 0
-},
-    '50%':{
-        opacity: 1
-},
-    '100%':{
-        opacity: 0
-},
-},])
+// $.keyframe.define([{ name:'mixTubeContent',
+//     '0%':{
+//         opacity: 0
+// },
+//     '50%':{
+//         opacity: 1
+// },
+//     '100%':{
+//         opacity: 0
+// },
+// },])
 
 
 $.keyframe.define([{ name:'quickFadeIn',

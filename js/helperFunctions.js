@@ -228,8 +228,18 @@ var helperFunctions = {
         animate("#zoomOutButton1", 4000, "animate", [{
             opacity: '1.0'
         }]);
-        animate("#s0TubeBody", 0, "keyframe", animdefs["anim_mixs0TubeBody"])
-        animate("#tubeContentMixing3", 0, "keyframe", animdefs["anim_mixTubeContent"])
+        // $("#svgfluid").animate(
+        //   {y: 70 },
+        //   {duration: 1000,
+        //     step: function(now) { $(this).attr("y", now); }
+        // });
+        for(i=1; i < 4; i++){
+            animate("#svgfluid",1000*i+500,"animate",[{"y": 70 },{duration: 500,step: function(now) { $(this).attr("y", now); }}]);
+            animate("#svgfluid",1000*(i+1),"animate",[{"y": 35.6 },{duration: 500,step: function(now) { $(this).attr("y", now); }}]);
+        };
+
+        //animate("#s0TubeBody", 0, "keyframe", animdefs["anim_mixs0TubeBody"])
+        //animate("#tubeContentMixing3", 0, "keyframe", animdefs["anim_mixTubeContent"])
 
         animate("#zoomOut", 9500, "animate", [{
             opacity: '1.0'
@@ -586,8 +596,8 @@ var helperFunctions = {
     "insertTip": function (evt) {
         var sideViewWidth = parseFloat($('#sideView').css("width"));
         var sideViewHeight = parseFloat($('#sideView').css("height"));
-        var currentBot = parseFloat($('#tipSide').css("bottom")) / sideViewHeight * 100;
-        var currentLeft = parseFloat($('#tipSide').css("left")) / sideViewWidth * 100;
+        var currentBot = parseFloat($('#pipetteTip1').css("bottom")) / sideViewHeight * 100;
+        var currentLeft = parseFloat($('#pipetteTip1').css("left")) / sideViewWidth * 100;
         state["TipPosition"] = false
         if (currentBot < 52) {
             if (currentBot < 12 || currentLeft > 67.8 || currentLeft < 19.5) {
@@ -603,8 +613,8 @@ var helperFunctions = {
 
             }
             if(state["TipPosition"] == false){
-            $('#tipSide').css("top", "-80%")
-                $('#tipSide').css("left", "42%")
+            $('#pipetteTip1').css("top", "-80%")
+                $('#pipetteTip1').css("left", "42%")
             }
         }
     }, //step 36
@@ -622,8 +632,8 @@ var helperFunctions = {
             opacity: '0'
         }])
         setTimeout(function () {
-            $('#tipSide').css("top", "-80%")
-            $('#tipSide').css("left", "42%")
+            $('#pipetteTip1').css("top", "-80%")
+            $('#pipetteTip1').css("left", "42%")
         }, 5000)
     },
 

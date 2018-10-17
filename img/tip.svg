@@ -25,7 +25,7 @@
 
     <rect id= "svgtip" x="0.6" fill="rgba(192,192,180,.45)" y="21.7" width="9" height="70"
         mask="url(#myMask)"  />
-      <rect id= "svgfluid" x="0.6" fill="rgb(100,100,255)" y="35.6" width="9" height="70"
+      <rect id= "svgfluid" x="0.6" fill="rgba(46, 79, 163, 0.2)" y="35.6" width="9" height="70"
         mask="url(#myMask)"  />
 
 </g>
