@@ -507,7 +507,7 @@ var helperFunctions = {
         animate("#gelSideView", 1000, "addClass", "opClass")
 
         $("#day1").hide();
-        $("#bothDays").hide();
+        $("#bothDays *").hide();
         $("#topView").show();
 
 
@@ -518,7 +518,8 @@ var helperFunctions = {
         }]);
         $("#arrowDown,#arrowUp,#labBenchTop,#gelTopView,#lidSide,#powerSupplyTop,.holderTop,.tipBoxTop,#wasteBinTop,#gelFinalTop").css({
             opacity: '1.0',
-            visibility: "visible"
+            visibility: "visible",
+            display: "block"
         }).removeClass("opClass");
 
         //       $("#zoomOutButton3,#powerSupplyUp,#powerSupplyDown,#tip").hide();
@@ -529,6 +530,9 @@ var helperFunctions = {
         }]);
 
     }, //step 32, 37, 42
+    "orientGelPost": function () {
+
+    },
     "addTipTop": function (evt) {
         var totalRows = 8;
         var totalCols = 16;
@@ -565,12 +569,23 @@ var helperFunctions = {
         var tubeTopPosition = 17
         var tubeTopAdd = 4.5
         var tubeTop = tubeTopPosition + tubeTopAdd * tubePickedIndex
-
+      $("#topView").append($('#micropipet2'));
         animate("#micropipetTopView", 0, "animate", [{
             "left": '36.7%',
             "top": tubeTop + '%'
             }]);
         animate("html", 1000, zoom, [10, 74, 6, 1000])
+
+
+
+
+        // animate("#micropipet2,#pipetteTip1 *,#pipetteTip1", 5000, "css", [{
+        //     opacity: '1.0',
+        //     visibility: "visible",
+        //     display: "block"
+        // }])
+
+
     }, //step 34
 
     "toLane": function (evt) {
@@ -591,6 +606,28 @@ var helperFunctions = {
         animate(".side", 1000, "css", [{
             opacity: '1'
         }])
+
+
+
+        $("#micropipet2,#pipetteTip1 *").css({
+            opacity: '1.0',
+            visibility: "visible",
+            display: "block"
+        })
+        $("#pipetteTip1").css({
+            opacity: '1.0',
+            visibility: "visible",
+            display: "block"
+        })
+        animate("#micropipet2", 0, "css", [{
+            height: "200%",
+            width: "40%",
+            top: "-200%",
+            left: "50%",
+            "z-index": 100
+        }])
+        $('#micropipet2').draggable();
+        $("#micropipet2, #pipetteTip1").resetKeyframe(function () {});
 
     }, //step 35,40
     "insertTip": function (evt) {
@@ -625,7 +662,7 @@ var helperFunctions = {
             y: "83.6"
         }])
         animate("#gelWellBoundary", 400, "css", [{
-           "background-image": "radial-gradient(red, green, blue)"
+           "background-image": "radial-gradient(green, #33ccff, blue)"
         }])
 
         animate(".side", 5000, "css", [{

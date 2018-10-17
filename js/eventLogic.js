@@ -106,7 +106,7 @@ var tips = [18.2, 19, 19.8, 20.6, 21.4, 22.2, 23, 24.8, 25.6, 26.4, 26.8, 27.3]
 var breach = false;
 $(function () {
     loadSVG();
-    $('#pipetteTip1').load("img/tip.svg").draggable();
+    $('#pipetteTip1').load("img/tip.svg");
     $('#gelWellBoundary').droppable({tolerance: "touch"});
 
 //

@@ -484,6 +484,7 @@ function loadSteps() {
                         "eventSelector": "#arrowDown"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.orientGel
+                        //, "postEventFunction" : helperFunctions.orientGelPost
                     }
                 }
 //                , {

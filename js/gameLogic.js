@@ -154,7 +154,7 @@ function startStep(step) {
             message(s.logic.criteria.messageWrong)
         }
     }
-
+    console.log(s)
       $(s.logic.eventSelector).on(s.logic.eventType, composite);
 
     if (testMode) {

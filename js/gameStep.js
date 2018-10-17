@@ -32,25 +32,25 @@ function Game(props) {
             group.append(groupPanel)
             group.append(groupIconBG)
             group.append(groupIcon)
-            
+
                $("#steps").append(group)
         }
         // Make step objects
         for (var i = 0; i < this.steps.length; i++) {
-            
+
             var currentStep=$('<div/>', {id:'step' + i, class:"step" })
             var currentPanel = $('<div/>', {id:'panel' + i, class:"stepPanel" })
             var currentStepText = $('<div/>', {id:'stepText' + i, class:"stepText fs-18" })
             var iconBG = $('<div/>', {class:"icon_bg" })
             var currentIcon = $('<div/>', {id:'icon' + i, class:"icon clickToSpin" })
-            
+
             currentPanel.append(currentStepText)
             currentStep.append(currentPanel)
             currentStep.append(iconBG)
             currentStep.append(currentIcon)
-            
+
                 $("#steps").append(currentStep)
-            
+
 /*
             $("#steps").append("<div id='step" + i + "' class='step'></div>");
             $("#step" + i).append("<div id='panel" + i + "' class='stepPanel'></div>");
@@ -59,7 +59,7 @@ function Game(props) {
             $("#step" + i).append("<div id='icon" + i + "' class='icon clickToSpin'></div>");
 */
         }
-        
+
         $(".clickToSpin").click(function (event) {
             var id = "#" + $(this).attr("id");
             spinElement(id);
@@ -381,19 +381,20 @@ function updateSteps() {
 }
 
 function enterStepObjects() {
+  //animate("#waterBathLid", 0, "keyframe", animdefs["anim_removeLid"])
     for (var i = 0; i < game.groups.length; i++) {
         var cur = game.groups[i];
         setTimeout(function (cur) {
-            $(cur.div).removeClass("anim_exitStepObject");
+            //$(cur.div).removeClass("anim_exitStepObject");
             $(cur.div).addClass("anim_enterStepObject");
-        }, 40 * cur.position, cur);
+        }, 0 * cur.position, cur);
     }
     for (var i = 0; i < game.steps.length; i++) {
         var cur = game.steps[i];
         setTimeout(function (cur) {
             $(cur.div).removeClass("anim_exitStepObject");
             $(cur.div).addClass("anim_enterStepObject");
-        }, 40 * cur.position, cur);
+        }, 0 * cur.position, cur);
     }
 }
 
@@ -403,14 +404,14 @@ function exitStepObjects() {
         setTimeout(function (cur) {
             $(cur.div).removeClass("anim_enterStepObject");
             $(cur.div).addClass("anim_exitStepObject");
-        }, 40 * cur.position, cur);
+        }, 0 * cur.position, cur);
     }
     for (var i = game.steps.length - 1; i >= 0; i--) {
         var cur = game.steps[i];
         setTimeout(function (cur) {
             $(cur.div).removeClass("anim_enterStepObject");
             $(cur.div).addClass("anim_exitStepObject");
-        }, 40 * cur.position, cur);
+        }, 0 * cur.position, cur);
     }
 }
 
