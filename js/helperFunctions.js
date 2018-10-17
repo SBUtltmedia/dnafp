@@ -217,7 +217,9 @@ var helperFunctions = {
         animate("#indicatorArrow2", 0, "keyframe", animdefs["anim_oscillate2"])
         animate("#indicatorArrow2", 1800, "animate", [{
             opacity: '1.0'
-        }]);
+        }])
+        animate("#enzTube", 1500, "keyframe", animdefs["anim_moveEnzBack"])
+        animate("#enzCap", 1000, "keyframe", animdefs["anim_closeCap"])
 
 
     }, //step 6
@@ -333,7 +335,6 @@ var helperFunctions = {
             animate("#s" + i + "Tube", 0, "addClass", "microTube");
             animate("#s" + i + "Tube", 0, "keyframe", animdefs["anim_insertTube" + i]);
         }
-   
     }, //step 16
     "closeLid": function () {
         animate("#waterBathLid", 0, "keyframe", animdefs["anim_replaceLid"])
@@ -341,9 +342,6 @@ var helperFunctions = {
         animate("#timerButton,#timer", 1000, "removeClass", "opClass");
 
         // Joochan doesn't understand what #button do.
-//        animate("#button", 1000, "animate", [{
-//            opacity: '1.0'
-//        }]);
 
 
     }, //step 17
@@ -583,29 +581,22 @@ var helperFunctions = {
         animate(".side", 1000, "css", [{
             opacity: '1'
         }])
-              
-        
+
     }, //step 35,40
-    "insertTip": function () {
-        console.log("wait what is happening.")
+    "insertTip": function (evt) {
         var sideViewWidth = parseFloat($('#sideView').css("width"));
         var sideViewHeight = parseFloat($('#sideView').css("height"));
         var currentBot = parseFloat($('#tipSide').css("bottom")) / sideViewHeight * 100;
-        console.log(currentBot);
         var currentLeft = parseFloat($('#tipSide').css("left")) / sideViewWidth * 100;
-        console.log(currentLeft);
         state["TipPosition"] = false
         if (currentBot < 52) {
-        
             if (currentBot < 12 || currentLeft > 67.8 || currentLeft < 19.5) {
-                
                 message("Make sure the tip is not breaching the wall!")
             } else if (currentBot > 40) {
-               
                 message("Make sure the tip stays deep enough within the well!")
             }
                 else if (currentBot < 15) {
-                
+
                 message("Your tip is going too deep into the well. Don't risk it to breach the wall!")
             } else {
                 state["TipPosition"] = true
@@ -631,8 +622,8 @@ var helperFunctions = {
             opacity: '0'
         }])
         setTimeout(function () {
-            $('#tipSide').css("top", "-50%")
-            $('#tipSide').css("left", "25%")
+            $('#tipSide').css("top", "-80%")
+            $('#tipSide').css("left", "42%")
         }, 5000)
     },
 

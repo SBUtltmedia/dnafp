@@ -3,7 +3,6 @@ var game;
 var hash;
 var delayFactor = 1;
 var criteriaPassed = false;
-var UNLOCK_EVERYTHING = false;
 var userNetID = "";
 var firstName = "";
 var netID = "";
@@ -16,7 +15,7 @@ var stats = {
 };
 
 function message(text) {
-    
+
     showOverlay()
     $('#results div,p').css({
         visibility: "hidden"
@@ -43,19 +42,6 @@ var modes = [
         , "unlockedDescription": "Read the lab manual, then complete the game based on the guided steps."
         , "lockedDescription": "Locked, do something to unlock Mode 1."
     }
-    
-    
-    
-    ,
-    {
-        "title": ""
-        , "lockedDescription": ""
-    },
- {
-        "title": ""
-        , "unlockedDescription": ""
-        , "lockedDescription": ""
-    }
 ];
 // Set this to true to enable step skipping: click the active step object to complete it
 var skipEnabled = false;
@@ -72,7 +58,7 @@ function newGame(props) {
     game.start();
     updateSteps();
     hideMenu();
-    
+
     animate("#indicatorArrow1", 50, "removeClass", "opClass");
     animate("#indicatorArrow1",0,"keyframe", animdefs["anim_oscillate1"])
     //
@@ -86,43 +72,30 @@ function stepFunction() {
 function jumpToStep(stepName) {
     var whileCount = 0
     var stepList=[];
-    var currentStep = game.getCurrentStep();
-    //
+    var currentStep = ""
     while (game.getCurrentStep().id != stepName && whileCount < 100) {
-        
-        
+
+
         criteriaPassed = true;
         currentStep = game.getCurrentStep();
 //        if (game.getCurrentStep().id == "setVolume") {
-//            
+//
 //            animate("#view", 0, zoom, [50, 50, 1, 100])
 //            $("#volumeInput").remove();
 //            $("#volumeButton").remove();
 //            game.nextStep();
 //        }
-        
+
         startStep(currentStep)
         endStep(currentStep)
         whileCount++;
         $('#messageBox').remove();
-        //endStep(currentStep);
-        //game.nextStep();
         stepList.push(game.getCurrentStep().id)
     }
-
       testMode = false;
 
    startStep(game.getCurrentStep())
-
-//     setTimeout(function(){
-//
-//     testMode = false;
-//
-//},1000)
-   // animate("#view", 0, zoom, [50, 50, 1, 100])
-
 }
-
 /*
     endGame: the "result" parameter should take the value of "win" or "lose"
     when the player wins, call endGame("win"); when they lose, call endGame("lose")
@@ -155,29 +128,7 @@ function failGame(error, correct) {
     specify code that should be executed when a step starts (animations, etc)
 */
 function startStep(step) {
-//    if (game.getCurrentStep().id == "liftEnzyme") {
-//        animate("#indicatorArrow1", 50, "removeClass", "opClass")
-//    }
-    
-    
     var s = jQuery.extend(true, {}, step);
-    //WORK FROM HERE
-//    var arrowSelector = s.indicatorSelector || s.logic.eventSelector;
-//    var $sl=  $(arrowSelector)
-//    var forIndiArrowLeft = $sl.offsetLeft + $sl.width/2
-//    var forIndiArrowTop = $sl.offsetTop
-//    var forIndiArrowBot = $sl.offsetTop + $sl.height
-//    if (s.logic.criteria && !(s.logic.criteria.variable in state)) 
-//        {
-//        state[s.logic.criteria.variable] ="";   
-//            
-//        }
-    
-    
-//      animate(s.indicatorSelector||s.logic.eventSelector, 0, "keyframe", animdefs["anim_"])
-//     $(s.pulseSelector||s.logic.eventSelector).playKeyframe(animdefs["anim_pulse"])
-    //WORK UPTO THIS POINT
-    
     $("#headerText").text(s.longText);
     $("#footerText").text(s.bottomText);
     var composite = function (evt) {
@@ -185,16 +136,14 @@ function startStep(step) {
         s.logic.eventFunction(evt)
 
         if (testMode && s.logic && s.logic.criteria) {
-            state[s.logic.criteria.variable] = s.logic.criteria.value
+            state[s.logic.criteria.variable] = JSON.parse(JSON.stringify(s.logic.criteria.value)) //returns reference to value, don't touch
         }
 
-
-        
         if ((s.logic.criteria && isEqual(state[s.logic.criteria.variable], s.logic.criteria.value)) || !s.logic.criteria) {
-            
+
             $(s.logic.eventSelector).off()
             if (s.logic.postEventFunction) {
-                
+
                 s.logic.postEventFunction()
             }
             game.nextStep()
@@ -210,7 +159,6 @@ function startStep(step) {
 
     if (testMode) {
         $(s.logic.eventSelector).trigger(s.logic.eventType);
-        $(s.logic.eventSelector).off();
 
     }
 
@@ -233,9 +181,7 @@ function isEqual(a, b) {
     specify code that should be executed when a step ends (animations, etc)
 */
 function endStep(step) {
-    
-      // $(step.logic.eventSelector).resetKeyframe(function(){})
-    
+
 }
 /*
     loadStartMenu: this function shows the menu at the start of the game
@@ -244,12 +190,9 @@ function loadStartMenu(result) {
     console.log(result)
     if (!result){
         result="Select a game mode to begin.";
-        
     }
     // Set the header text
     $("#headerText").text("DNA Fingerprinting");
-    // Set end text to welcome message
-    //$("#endText").text(studentData.gameRecord.length > 0 ? "Welcome back!" : "Hello there!");
     // Set subtext to instructions
     $("#endSubText").text(result);
     // Show subtext
@@ -277,14 +220,7 @@ function loadStartMenu(result) {
 }
 
 function refreshHighScores() {
-    //    for (var i = 0; i < 3; i++) {
-    //        if (studentData.unlocks[i]) {
-    //            $("#scoreBox" + (i + 1)).text("Completed.");
-    //        }
-    //        else {
-    //            $("#scoreBox" + (i + 1)).text("");
-    //        }
-    //    }
+
 }
 
 function showMenu() {
@@ -337,30 +273,22 @@ function hideMenu() {
 }
 
 function lockModes() {
-    for (var i = 0; i < 3; i++) {
-        $("#endOptionText" + (i + 1)).text(modes[i].title);
-    }
-    unlockMode(0);
-    //    for (var i = 1; i < 3; i++) {
-    //        if (studentData.unlocks[i - 1] || UNLOCK_EVERYTHING) {
-    //            unlockMode(i);
-    //        }
-    //        else {
-    //            lockMode(i);
-    //        }
-    //    }
+    $("#endOptionText" + (1)).text(modes[0].title);
+    $("#endOptionDescText" + (1)).text(modes[0].unlockedDescription);
+    $("#endOption" + (1)).removeClass("endOptionLocked");
+    $("#endOption" + (1)).addClass("endOptionUnlocked");
 }
 
-function unlockMode(i) {
-    // Unlock
-    $("#endOptionDescText" + (i + 1)).text(modes[i].unlockedDescription);
-    $("#endOption" + (i + 1)).removeClass("endOptionLocked");
-    $("#endOption" + (i + 1)).addClass("endOptionUnlocked");
-}
+// function unlockMode(i) {
+//     // Unlock
+//     $("#endOptionDescText" + (i + 1)).text(modes[i].unlockedDescription);
+//     $("#endOption" + (i + 1)).removeClass("endOptionLocked");
+//     $("#endOption" + (i + 1)).addClass("endOptionUnlocked");
+// }
 
-function lockMode(i) {
-    // Lock
-    $("#endOptionDescText" + (i + 1)).text(modes[i].lockedDescription);
-    $("#endOption" + (i + 1)).removeClass("endOptionUnlocked");
-    $("#endOption" + (i + 1)).addClass("endOptionLocked");
-}
+// function lockMode(i) {
+//     // Lock
+//     $("#endOptionDescText" + (i + 1)).text(modes[i].lockedDescription);
+//     $("#endOption" + (i + 1)).removeClass("endOptionUnlocked");
+//     $("#endOption" + (i + 1)).addClass("endOptionLocked");
+// }

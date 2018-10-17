@@ -60,6 +60,7 @@ function loadSteps() {
 
                    , "shortText": "Enter volume"
                    , "longText": "Enter the correct volume (in microliters) of fluid to remove"
+                   , "bottomText": ""
                    , "feedbackText": "complete the second step"
                    , "logic": {
                        "eventSelector": "#volumeInputForm"
@@ -182,8 +183,8 @@ function loadSteps() {
                     , "logic": {
                         "eventSelector": "#s0TubeBody"
                         , "eventType": "click"
-                        , "eventFunction": helperFunctions.tapTube,
-                         "postEventFunction": helperFunctions.afterTapTube
+                        , "eventFunction": helperFunctions.tapTube
+                        //, "postEventFunction": helperFunctions.afterTapTube
                         , "criteria": {
                             "variable": "microtubeState"
                             , "value": [microTubeEnum[4], microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0]]
@@ -259,7 +260,7 @@ function loadSteps() {
                     "id": "closeLid"
                     , "shortText": "Close incubator"
                     , "longText": "Click on the lid to close the incubator"
-                    , "bottomText": "Hello Joochan"
+                    //, "bottomText": "Hello Joochan"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#waterBathLid"

@@ -20,13 +20,13 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 #day1 *,#day2 *,#bothDays *{
-    
-    pointer-events: initial; 
-    
+
+    pointer-events: initial;
+
 }
 .itemLabel{
    pointer-events: none!important;
-    
+
 }
 
 
@@ -118,7 +118,7 @@ button, input[type="submit"], input[type="reset"] {
 #tubeDiv {
     border: 1px solid blue;
     position:absolute;
-    
+
     width:100%;
     height:20%;
 }
@@ -257,7 +257,7 @@ button, input[type="submit"], input[type="reset"] {
 /*------------------------------------*/
 .microTube {
     width: 2.9%;
-    height: 7.75%;   
+    height: 7.75%;
     position: absolute;
     background-repeat: no-repeat;
     background-size: contain;
@@ -267,7 +267,7 @@ button, input[type="submit"], input[type="reset"] {
 
 #s0Tube {
     left: 35.5%;
-    top: 71.9%;  
+    top: 71.9%;
 }
 
 #s1Tube {
@@ -302,7 +302,7 @@ button, input[type="submit"], input[type="reset"] {
     width: 100%;
     height: 20%;
     background-repeat: no-repeat;
-    background-size: contain;    
+    background-size: contain;
     position: absolute;
     z-index: 0; /*z-index: 2;*/
 }
@@ -355,7 +355,7 @@ button, input[type="submit"], input[type="reset"] {
     position: absolute;
     background-repeat: no-repeat;
     background-size: contain;
-    z-index: 0; /*z-index: 2;*/    
+    z-index: 0; /*z-index: 2;*/
 }
 
 #s0TubeBody {
@@ -584,8 +584,8 @@ button, input[type="submit"], input[type="reset"] {
 
 
 .pressButton button{
-    position:absolute;   
-    font-size:.19rem;    
+    position:absolute;
+    font-size:.19rem;
     border:.015rem solid black;
     background:lightgrey;
     padding:.075rem;
@@ -594,16 +594,16 @@ button, input[type="submit"], input[type="reset"] {
 
 .pressButton{
     width: 4%;
-    height: 4%; 
+    height: 4%;
     position: absolute;
     top: 52%;
- 
+
     background-repeat: no-repeat;
     background-size: contain;
 }
 
 #pressButton_0 {
-  
+
     left: 30%;
 
 
@@ -612,31 +612,31 @@ button, input[type="submit"], input[type="reset"] {
 #pressButton_1 {
 
     left: 32.9%;
-    
+
 }
 
 #pressButton_2 {
 
     left: 35.8%;
-    
+
 }
 
 #pressButton_3 {
 
     left: 38.55%;
-   
+
 }
 
 #pressButton_4 {
 
     left: 41.3%;
-   
+
 }
 
 #pressButton_5 {
-  
+
     left: 44.1%;
-    
+
 }
 
 #checkVolume {
@@ -1117,7 +1117,7 @@ button, input[type="submit"], input[type="reset"] {
     left: 7%;
     top: 55%;
     position: absolute;
-    background-image: url(img/gelTopView.svg); 
+    background-image: url(img/gelTopView.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
@@ -1365,7 +1365,7 @@ button, input[type="submit"], input[type="reset"] {
 /*    ladderTop*/
     top: 17.5%;
     background-image: url(img/ladderTop.svg);
-    
+
 }
 
 #tubeTop_1 {
@@ -1613,7 +1613,7 @@ button, input[type="submit"], input[type="reset"] {
     position: absolute;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;   
+    background-position: center center;
 }
 
 #indicatorArrowPointingUp {

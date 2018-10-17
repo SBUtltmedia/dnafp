@@ -107,7 +107,6 @@ var breach = false;
 $(function () {
     loadSVG();
     $('#tipSide').load("img/tip.svg").draggable();
-
     $('#gelWellBoundary').droppable({tolerance: "touch"});
 
 //
@@ -121,11 +120,6 @@ $(function () {
     resizeWindow();
     //makePipetteTipAnimation();
     // Create event listeners for menu button clicks and start game
-    $(document).keydown(function (objEvent) {
-        if (objEvent.keyCode == 9) { //tab pressed
-            objEvent.preventDefault(); // stops its action
-        }
-    });
     $.ajax({
         url: "info.php",
         dataType: "json"

@@ -42,6 +42,7 @@ var animdefs = {
     "anim_returnLoadingDye1": "returnLoadingDye1 2s linear 0s 1 reverse forwards",
     "anim_moveLoadingDye": "moveLoadingDye 2s linear 0s 1 normal forwards",
     "anim_moveEnz": "moveEnz 0.5s linear 0s 1 normal forwards",
+    "anim_moveEnzBack": "moveEnz 1.5s linear 0s 1 reverse forwards",
     "anim_removeComb": "removeComb 1s 0s 1 linear normal forwards",
     "anim_replaceLid": "replaceLid 0.9s linear 0s 1 reverse forwards",
     "anim_pourStain": "pourStain 2s 0s 1 linear normal forwards",
