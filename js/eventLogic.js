@@ -472,7 +472,10 @@ function enableClicks(bool) {
 
 function makePipetteTipAnimation(tipLocation) {
 
-$.keyframe.define([{ name:'addTip1',
+
+
+
+$.keyframe.define({ name:'addTip1',
      '0%':{
         left: '27.5%',
         top: '40%',
@@ -497,7 +500,7 @@ $.keyframe.define([{ name:'addTip1',
         left: '86.4%',
         top: '28%',
 },
-},])
+})
 }
 
 function makePipetteTippAnimation(tipLocation) {

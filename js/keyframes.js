@@ -1,31 +1,30 @@
-$.keyframe.define([{ name:'moveTube',
-    from: {
+
+  var tipLocation=0;
+var keyframes =[{ name:'moveTube',
+    '0%': {
         top: '71.9%'
 },
-    to: {
+    '100%': {
         top: '63%',
-},
-},])
+}},
 
-$.keyframe.define([{ name:'closeCap',
-    from: {
+{ name:'closeCap',
+    '0%': {
         transform:'rotate(0deg)'
 },
-    to:{
+    '100%':{
         transform:'rotate(-135deg)'
-},
-},])
+}},
 
-$.keyframe.define([{ name:'tubeDown',
-    from: {
+{ name:'tubeDown',
+    '0%': {
         top: '71.9%'
 },
-    to:{
+    '100%':{
         top: '63%',
-},
-},])
+}},
 
-$.keyframe.define([{ name:'movePipet',
+{ name:'movePipet',
     '0%':{
         left: '0.5%',
         top: '52%',
@@ -53,12 +52,11 @@ $.keyframe.define([{ name:'movePipet',
     '100%':{
         left: '86.4%',
         top: '40.8%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'removeLid',
+{ name:'removeLid',
     '0%':{
         top: '21.58%',
         left: '59.88%',
@@ -75,12 +73,11 @@ $.keyframe.define([{ name:'removeLid',
         top: '11.6%',
         left: '70%',
         transform:'rotate(86deg)'
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'replaceLid',
+{ name:'replaceLid',
     '0%':{
         top: '21.58%',
         left: '59.88%',
@@ -97,12 +94,11 @@ $.keyframe.define([{ name:'replaceLid',
         top: '11.6%',
         left: '70%',
         transform:'rotate(86deg)'
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'flickTube',
+{ name:'flickTube',
     '0%':{
         top: '63%',
         transform:'rotate(0deg)'
@@ -122,12 +118,11 @@ $.keyframe.define([{ name:'flickTube',
     '100%':{
         top: '63%',
         transform:'rotate(0deg)'
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'tapTube',
+{ name:'tapTube',
     '0%':{
         top: '63%',
 },
@@ -157,11 +152,10 @@ $.keyframe.define([{ name:'tapTube',
 },
     '100%':{
         top: '63%',
-},
-},])
+}},
 
 
-$.keyframe.define([{ name:'PrepPipet',
+{ name:'PrepPipet',
 '0%':{
    left: '14.5%',
    top: '52%',
@@ -169,12 +163,21 @@ $.keyframe.define([{ name:'PrepPipet',
 '100%':{
    left: '24.5%',
    top: '38%',
-},
-},])
-
+}},
 
 //addTip1 is in eventLogic
-$.keyframe.define([{ name:'addTip2',
+{ name:'addTip1',
+    '100%':{
+        left: '86.4%',
+        top: '28%',
+}},
+{ name:'addTipp1',
+    '100%':{
+        left: '20.9%',
+        top: '5.4%',
+}},
+
+{ name:'addTip2',
     '0%':{
         left: '1.5%',
         top: '52%',
@@ -186,11 +189,10 @@ $.keyframe.define([{ name:'addTip2',
     '100%':{
         left: '17%',
         top: '42%',
-},
-},])
+}},
 
 
-$.keyframe.define([{ name:'lowerPipet',
+{ name:'lowerPipet',
     '0%':{
         left: '24.5%',
         top: '38%',
@@ -198,11 +200,10 @@ $.keyframe.define([{ name:'lowerPipet',
     '100%':{
         left: '27.5%',
         top: '40%',
-},
-},])
+}},
 
 
-$.keyframe.define([{ name:'moveTip1',
+{ name:'moveTip1',
     '0%':{
         left: '20.8%',
         top: '70%',
@@ -222,11 +223,10 @@ $.keyframe.define([{ name:'moveTip1',
     '100%':{
         left: '88.9%',
         top: '50.6%',
-},
-},])
+}},
 
 
-$.keyframe.define([{ name:'lowerTip1',
+{ name:'lowerTip1',
     '0%':{
         left: '88.9%',
         top: '50.6%',
@@ -234,11 +234,10 @@ $.keyframe.define([{ name:'lowerTip1',
     '100%':{
         left: '89.03%',
         top: '57.1%',
-},
-},])
+}},
 
 
-$.keyframe.define([{ name:'addTip2',
+{ name:'addTip2',
     '0%':{
         left: '52.7%',
         top: '34.7%',
@@ -262,12 +261,11 @@ $.keyframe.define([{ name:'addTip2',
     '100%':{
         left: '86.4%',
         top: '35%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'moveTip2',
+{ name:'moveTip2',
     '0%':{
         left: '21.6%',
         top: '70.2%',
@@ -291,12 +289,11 @@ $.keyframe.define([{ name:'moveTip2',
     '100%':{
         left: '89.03%',
         top: '57.1%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'addTip3',
+{ name:'addTip3',
     '0%':{
         left: '14.5%',
         top: '52%',
@@ -340,12 +337,11 @@ $.keyframe.define([{ name:'addTip3',
     '100%':{
         left: '86.4%',
         top: '35%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'moveTip3',
+{ name:'moveTip3',
     '0%':{
         left: '22.4%',
         top: '70.2%',
@@ -381,12 +377,11 @@ $.keyframe.define([{ name:'moveTip3',
     '100%':{
         left: '89.03%',
         top: '57.1%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'addTip4',
+{ name:'addTip4',
     '0%':{
         left: '14.5%',
         top: '52%',
@@ -430,12 +425,11 @@ $.keyframe.define([{ name:'addTip4',
     '100%':{
         left: '86.4%',
         top: '35%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'moveTip4',
+{ name:'moveTip4',
     '0%':{
         left: '23.2%',
         top: '70.2%',
@@ -471,12 +465,11 @@ $.keyframe.define([{ name:'moveTip4',
     '100%':{
         left: '89%',
         top: '57.6%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'tipToBin',
+{ name:'tipToBin',
     '0%':{
         left: '55%',
         top: '100%',
@@ -497,12 +490,11 @@ $.keyframe.define([{ name:'tipToBin',
         left: '55%',
         top: '170%',
         opacity: 0,
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'pipetToBin',
+{ name:'pipetToBin',
     '0%':{
         left: '34%',
         top: '39%',
@@ -514,12 +506,11 @@ $.keyframe.define([{ name:'pipetToBin',
     '100%':{
         left: '52.7%',
         top: '34.7%',
-}
-}])
+}},
 
 
 
-$.keyframe.define([{ name:'moveLoadingDye',
+{ name:'moveLoadingDye',
     '0%':{
         top: '23.2%',
         left: '7.8%',
@@ -535,11 +526,10 @@ $.keyframe.define([{ name:'moveLoadingDye',
     '100%':{
         top: '30%',
         left: '22%',
-},
-},])
+}},
 
 
-$.keyframe.define([{ name:'addDyeToTube',
+{ name:'addDyeToTube',
     '0%':{
         left: '20.9%',
         top: '5.4%',
@@ -555,11 +545,10 @@ $.keyframe.define([{ name:'addDyeToTube',
     '100%':{
         left: '34%',
         top: '39%',
-},
-},])
+}},
 
 
-$.keyframe.define([{ name:'returnLoadingDye1',
+{ name:'returnLoadingDye1',
     '0%':{
         top: '23.2%',
         left: '7.8%',
@@ -575,12 +564,11 @@ $.keyframe.define([{ name:'returnLoadingDye1',
     '100%':{
         top: '28%',
         left: '22%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'moveLoadingDye2',
+{ name:'moveLoadingDye2',
     '0%':{
         left: '11.7%',
         top: '23.2%',
@@ -596,25 +584,23 @@ $.keyframe.define([{ name:'moveLoadingDye2',
     '100%':{
         top: '28%',
         left: '27%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'ejectTip',
-    from: {
+{ name:'ejectTip',
+    '0%': {
         left: '55.3%',
         top: '56.9%',
 },
-    to:{
+    '100%':{
         left: '55.3%',
         top: '65%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'tipToTube1',
+{ name:'tipToTube1',
     '0%':{
         left: '89%',
         top: '57.6%',
@@ -634,12 +620,11 @@ $.keyframe.define([{ name:'tipToTube1',
     '100%':{
         left: '36.6%',
         top: '61.5%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'pipetToTube1',
+{ name:'pipetToTube1',
     '0%':{
         left: '86.4%',
         top: '35%',
@@ -659,12 +644,11 @@ $.keyframe.define([{ name:'pipetToTube1',
     '100%':{
         left: '34.25%',
         top: '39%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'tipToTube2',
+{ name:'tipToTube2',
     '0%':{
         left: '89%',
         top: '57.6%',
@@ -684,12 +668,11 @@ $.keyframe.define([{ name:'tipToTube2',
     '100%':{
         left: '34.1%',
         top: '61.5%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'pipetToTube2',
+{ name:'pipetToTube2',
     '0%':{
         left: '86.4%',
         top: '35%',
@@ -709,12 +692,11 @@ $.keyframe.define([{ name:'pipetToTube2',
     '100%':{
         left: '31.5%',
         top: '39%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'tipToTube3',
+{ name:'tipToTube3',
     '0%':{
         left: '89%',
         top: '57.6%',
@@ -734,12 +716,11 @@ $.keyframe.define([{ name:'tipToTube3',
     '100%':{
         left: '34.1%',
         top: '61.5%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'pipetToTube3',
+{ name:'pipetToTube3',
     '0%':{
         left: '86.4%',
         top: '35%',
@@ -759,12 +740,11 @@ $.keyframe.define([{ name:'pipetToTube3',
     '100%':{
         left: '31.5%',
         top: '39%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'tipToTube4',
+{ name:'tipToTube4',
     '0%':{
         left: '89%',
         top: '57.6%',
@@ -784,12 +764,11 @@ $.keyframe.define([{ name:'tipToTube4',
     '100%':{
         left: '34.1%',
         top: '61.5%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'pipetToTube4',
+{ name:'pipetToTube4',
     '0%':{
         left: '86.4%',
         top: '35%',
@@ -809,12 +788,11 @@ $.keyframe.define([{ name:'pipetToTube4',
     '100%':{
         left: '31.5%',
         top: '39%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'tipToTube5',
+{ name:'tipToTube5',
     '0%':{
         left: '89%',
         top: '57.6%',
@@ -834,12 +812,11 @@ $.keyframe.define([{ name:'tipToTube5',
     '100%':{
         left: '34.1%',
         top: '61.5%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'pipetToTube5',
+{ name:'pipetToTube5',
     '0%':{
         left: '86.4%',
         top: '35%',
@@ -859,12 +836,11 @@ $.keyframe.define([{ name:'pipetToTube5',
     '100%':{
         left: '31.5%',
         top: '39%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'tipToTube6',
+{ name:'tipToTube6',
     '0%':{
         left: '89%',
         top: '57.6%',
@@ -884,12 +860,11 @@ $.keyframe.define([{ name:'tipToTube6',
     '100%':{
         left: '34.1%',
         top: '61.5%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'pipetToTube6',
+{ name:'pipetToTube6',
     '0%':{
         left: '86.4%',
         top: '35%',
@@ -909,12 +884,11 @@ $.keyframe.define([{ name:'pipetToTube6',
     '100%':{
         left: '31.5%',
         top: '39%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'moveBlock',
+{ name:'moveBlock',
     '0%':{
         left: '35.72%',
         top: '73.4%',
@@ -923,12 +897,11 @@ $.keyframe.define([{ name:'moveBlock',
     '100%':{
         left: '30.72%',
         top: '57%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'tube0ToBath',
+{ name:'tube0ToBath',
     '0%':{
         left: '35.72%',
         top: '71.9%',
@@ -936,12 +909,11 @@ $.keyframe.define([{ name:'tube0ToBath',
     '100%':{
         left: '30.72%',
         top: '55%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'tube1ToBath',
+{ name:'tube1ToBath',
     '0%':{
         left: '38%',
         top: '71.9%',
@@ -949,12 +921,11 @@ $.keyframe.define([{ name:'tube1ToBath',
     '100%':{
         left: '33.5%',
         top: '55%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'tube2ToBath',
+{ name:'tube2ToBath',
     '0%':{
         left: '40.5%',
         top: '71.9%',
@@ -962,12 +933,11 @@ $.keyframe.define([{ name:'tube2ToBath',
     '100%':{
         left: '36.3%',
         top: '55%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'tube3ToBath',
+{ name:'tube3ToBath',
     '0%':{
         left: '43%',
         top: '71.9%',
@@ -975,12 +945,11 @@ $.keyframe.define([{ name:'tube3ToBath',
     '100%':{
         left: '39%',
         top: '55%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'tube4ToBath',
+{ name:'tube4ToBath',
     '0%':{
         left: '45.5%',
         top: '71.9%',
@@ -988,12 +957,11 @@ $.keyframe.define([{ name:'tube4ToBath',
     '100%':{
         left: '41.7%',
         top: '55%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'tube5ToBath',
+{ name:'tube5ToBath',
     '0%':{
         left: '48%',
         top: '71.9%',
@@ -1001,12 +969,11 @@ $.keyframe.define([{ name:'tube5ToBath',
     '100%':{
         left: '44.4%',
         top: '55%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'oscillate',
+{ name:'oscillate',
     '0%':{
         left: '22%',
         top: '58.7%',
@@ -1018,12 +985,11 @@ $.keyframe.define([{ name:'oscillate',
     '100%':{
         left: '22%',
         top: '58.7%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'oscillate1',
+{ name:'oscillate1',
     '0%':{
         left: '89%',
         top: '52%',
@@ -1035,12 +1001,11 @@ $.keyframe.define([{ name:'oscillate1',
     '100%':{
         left: '89%',
         top: '52%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'oscillate2',
+{ name:'oscillate2',
     '0%':{
         left: '12%',
         top: '12%',
@@ -1052,12 +1017,11 @@ $.keyframe.define([{ name:'oscillate2',
     '100%':{
         left: '12%',
         top: '12%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'oscillate3',
+{ name:'oscillate3',
     '0%':{
         left: '3.4%',
         top: '12%',
@@ -1069,90 +1033,83 @@ $.keyframe.define([{ name:'oscillate3',
     '100%':{
         left: '3.4%',
         top: '12%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'pressTube0',
-    from: {
+{ name:'pressTube0',
+    '0%': {
         left: '30.72%',
         top: '55%',
 },
-    to:{
+    '100%':{
         left: '30.72%',
         top: '56.5%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'pressTube1',
-    from: {
+{ name:'pressTube1',
+    '0%': {
         left: '33.5%',
         top: '55%',
 },
-    to:{
+    '100%':{
         left: '33.5%',
         top: '56.5%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'pressTube2',
-    from: {
+{ name:'pressTube2',
+    '0%': {
         left: '36.3%',
         top: '55%',
 },
-    to:{
+    '100%':{
         left: '36.3%',
         top: '56.5%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'pressTube3',
-    from: {
+{ name:'pressTube3',
+    '0%': {
         left: '39%',
         top: '55%',
 },
-    to:{
+    '100%':{
         left: '39%',
         top: '56.5%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'pressTube4',
-    from: {
+{ name:'pressTube4',
+    '0%': {
         left: '41.7%',
         top: '55%',
 },
-    to:{
+    '100%':{
         left: '41.7%',
         top: '56.5%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'pressTube5',
-    from: {
+{ name:'pressTube5',
+    '0%': {
         left: '44.4%',
         top: '55%',
 },
-    to:{
+    '100%':{
         left: '44.4%',
         top: '56.5%',
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'insertRack',
+{ name:'insertRack',
     '0%':{
         left: '30.72%',
         top: '57%',
@@ -1172,12 +1129,11 @@ $.keyframe.define([{ name:'insertRack',
         top: '30%',
         transform:'scale(0.7)',
             'z-index': -1
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'insertTube0',
+{ name:'insertTube0',
     '0%':{
         left: '30.72%',
         top: '56.5%',
@@ -1195,12 +1151,11 @@ $.keyframe.define([{ name:'insertTube0',
         left: '61%',
         top: '28%',
         transform:'scale(0.7)'
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'insertTube1',
+{ name:'insertTube1',
     '0%':{
         left: '33.5%',
         top: '56.5%',
@@ -1218,12 +1173,11 @@ $.keyframe.define([{ name:'insertTube1',
         left: '63.78%',
         top: '28%',
         transform:'scale(0.7)'
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'insertTube2',
+{ name:'insertTube2',
     '0%':{
         left: '36.3%',
         top: '56.5%',
@@ -1241,12 +1195,11 @@ $.keyframe.define([{ name:'insertTube2',
         left: '66.56%',
         top: '30%',
         transform:'scale(0.7)'
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'insertTube3',
+{ name:'insertTube3',
     '0%':{
         left: '38.8%',
         top: '56.5%',
@@ -1264,12 +1217,11 @@ $.keyframe.define([{ name:'insertTube3',
         left: '69%',
         top: '30%',
         transform:'scale(0.7)'
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'insertTube4',
+{ name:'insertTube4',
     '0%':{
         left: '41.3%',
         top: '56.5%',
@@ -1287,12 +1239,11 @@ $.keyframe.define([{ name:'insertTube4',
         left: '72.5%',
         top: '30%',
         transform:'scale(0.7)'
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'insertTube5',
+{ name:'insertTube5',
     '0%':{
         left: '44.4%',
         top: '56.5%',
@@ -1310,32 +1261,29 @@ $.keyframe.define([{ name:'insertTube5',
         left: '74%',
         top: '30%',
         transform:'scale(0.7)'
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'tipVisible',
-    from: {
+{ name:'tipVisible',
+    '0%': {
         visibility: 'hidden'
 },
-    to:{
+    '100%':{
+        visibility: 'visible'
+}},
+
+
+
+{ name:'tipHidden',
+    '0%': {
         visibility: 'visible'
 },
-},])
-
-
-
-$.keyframe.define([{ name:'tipHidden',
-    from: {
-        visibility: 'visible'
-},
-    to:{
+    '100%':{
         visibility: 'hidden'
-},
-},])
+}},
 
-$.keyframe.define([{ name:'oscillate4',
+{ name:'oscillate4',
     '0%':{
         left: '36.6%',
         top: '62%'
@@ -1347,10 +1295,9 @@ $.keyframe.define([{ name:'oscillate4',
     '100%':{
         left: '36.6%',
         top: '62%'
-},
-},])
+}},
 
-$.keyframe.define([{ name:'oscillate6',
+{ name:'oscillate6',
     '0%':{
         left: '36.6%',
         top: '62%'
@@ -1362,67 +1309,38 @@ $.keyframe.define([{ name:'oscillate6',
     '100%':{
         left: '36.6%',
         top: '62%'
-},
-},])
+}},
 
 
-$.keyframe.define([{ name:'rotateCap',
-    from: {
+{ name:'rotateCap',
+    '0%': {
         transform:'rotate(0deg)'
 },
-    to:{
+    '100%':{
         transform:'rotate(-135deg)'
-},
-},])
+}},
 
 
-// $.keyframe.define([{ name:'mixs0TubeBody',
-//     '0%':{
-//         opacity: 1
-// },
-//     '50%':{
-//         opacity: 1
-// },
-//     '100%':{
-//         opacity: 1
-// },
-// },])
 
-
-// $.keyframe.define([{ name:'mixTubeContent',
-//     '0%':{
-//         opacity: 0
-// },
-//     '50%':{
-//         opacity: 1
-// },
-//     '100%':{
-//         opacity: 0
-// },
-// },])
-
-
-$.keyframe.define([{ name:'quickFadeIn',
+{ name:'quickFadeIn',
     '0%':{
         opacity: 0
 },
     '100%':{
         opacity: 1
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'quickFadeOut',
+{ name:'quickFadeOut',
     '0%':{
         opacity: 1
 },
     '100%':{
         opacity: 0
-},
-},])
+}},
 
-$.keyframe.define([{ name:'removeComb',
+{ name:'removeComb',
     '0%':{
         top: '71%',
 },
@@ -1433,34 +1351,31 @@ $.keyframe.define([{ name:'removeComb',
     '100%':{
         top: '66%',
         opacity: 0
-}
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'changeDay1',
-    from: {
+{ name:'changeDay1',
+    '0%': {
         'z-index': 0
 },
-    to:{
+    '100%':{
+        'z-index': -1
+}},
+
+
+
+{ name:'changeDay2',
+    '0%': {
         'z-index': -1
 },
-},])
-
-
-
-$.keyframe.define([{ name:'changeDay2',
-    from: {
-        'z-index': -1
-},
-    to:{
+    '100%':{
         'z-index': 0
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'toTopView1',
+{ name:'toTopView1',
     '0%':{
         visibility: 'hidden',
        display:'initial',
@@ -1469,12 +1384,11 @@ $.keyframe.define([{ name:'toTopView1',
         visibility: 'visible',
         display:'initial',
         'z-index': -1
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'toTopView2',
+{ name:'toTopView2',
     '0%':{
         visibility: 'visible',
             display:'initial'
@@ -1482,45 +1396,41 @@ $.keyframe.define([{ name:'toTopView2',
     '100%':{
         visibility: 'hidden',
         'z-index': -3
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'toFrontView',
+{ name:'toFrontView',
     '0%':{},
     '100%':{
         visibility: 'visible',
         'z-index': 10
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'toFrontView1',
+{ name:'toFrontView1',
     '0%':{
         visibility: 'visible'
 },
     '100%':{
         visibility: 'hidden',
         'z-index': -3
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'placeItem',
+{ name:'placeItem',
     '0%':{
         visibility: 'hidden'
 },
     '100%':{
         visibility: 'visible'
-},
-},])
+}},
 
 
 
-$.keyframe.define([{ name:'pourStain',
+{ name:'pourStain',
     '0%':{
         transform:'rotate(0deg)',
         opacity: 1
@@ -1534,23 +1444,27 @@ $.keyframe.define([{ name:'pourStain',
     '100%':{
         opacity: 0,
         transform:'rotate(105deg)'
-},
-},])
+}},
 
 /*Step 1 & 2*/
-$.keyframe.define([{ name:'moveEnz',
-    from: {
+{ name:'moveEnz',
+    '0%': {
         top: '64.7%'
 },
-    to:{
+    '100%':{
         top: '60%'
+}},
+{ name:'moveEnzBack',
+    '100%': {
+        top: '64.7%'
 },
-},])
+    '0%':{
+        top: '60%'
+}},
 
 
 
-
-$.keyframe.define([{ name:'hideTip1',
+{ name:'hideTip1',
     '0%':{
         opacity: 1,
 
@@ -1562,12 +1476,23 @@ $.keyframe.define([{ name:'hideTip1',
     '100%':{
         opacity: 0,
 
+}},
+{ name:'hideTipp1',
+    '0%':{
+        opacity: 1,
+
 },
-},])
+    '47%':{
+        opacity: 1,
+
+},
+    '100%':{
+        opacity: 0,
+
+}},
 
 
-
-$.keyframe.define([{ name:'showTip1',
+{ name:'showTip1',
     '0%':{
         opacity: 0
 },
@@ -1578,5 +1503,32 @@ $.keyframe.define([{ name:'showTip1',
     '100%':{
         opacity: 1,
         visibility: 'visible'
+}},
+{ name:'showTipp1',
+    '0%':{
+        opacity: 0
 },
-},])
+    '80%':{
+        opacity: 0,
+        visibility: 'visible'
+},
+    '100%':{
+        opacity: 1,
+        visibility: 'visible'
+}}
+
+
+]
+for (i of keyframes){
+
+$.keyframe.define(i);
+
+}
+
+
+function findKeyFrameDef(defName){
+  console.log(defName)
+return  keyframes.find(function(element){
+    return element.name==defName;
+  })["100%"]
+}

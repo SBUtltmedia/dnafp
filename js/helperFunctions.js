@@ -7,22 +7,22 @@ state["TipPosition"] = false
 var criteriaPassed;
 var microtubeAnimation = [{
     target: "Tube",
-    name: animdefs["anim_moveTube"]
+    name: "anim_moveTube"
 }, {
     target: "Cap",
-    name: animdefs["anim_rotateCap"]
+    name: "anim_rotateCap"
 }, {
     target: "Cap",
-    name: animdefs["anim_closeCap"]
+    name: "anim_closeCap"
 }, {
     target: "Tube",
-    name: animdefs["anim_flickTube"]
+    name: "anim_flickTube"
 }, {
     target: "Tube",
-    name: animdefs["anim_tapTube"]
+    name: "anim_tapTube"
 }, {
     target: "Tube",
-    name: animdefs["anim_tubeDown"]
+    name: "anim_tubeDown"
 }]
 var voltage = 0;
 var volume = 0;
@@ -48,17 +48,17 @@ function animate(selector, delay, method, param) {
     var animateDur = 400;
     if (testMode) {
         delay = 0
-        animateDur = .001;
+        animateDur = 0;
     }
 
 
-    if ($(selector + ':visible').length == 0) {
-        setTimeout(function () {
-            $(selector).show();
-            $(selector).removeClass("opClass");
-            $(selector).css("visibility", "visible");
-        }, delay)
-    }
+    // if ($(selector + ':visible').length == 0) {
+    //     setTimeout(function () {
+    //         $(selector).show();
+    //         $(selector).removeClass("opClass");
+    //         $(selector).css("visibility", "visible");
+    //     }, delay)
+    // }
 
     if (method == "css")
 
@@ -75,13 +75,17 @@ function animate(selector, delay, method, param) {
 
     {
         if (testMode) {
-            param = zeroTime(param)
+          var endState=findKeyFrameDef(param.split("_")[1])
+
+      $(selector).css(endState)
         }
 
         //$(selector).attr("style","")
 
         setTimeout(function () {
-            $(selector).playKeyframe(param, function () {});
+          console.log(param)
+          console.log(animdefs[param])
+            $(selector).playKeyframe(animdefs[param], function () {});
         }, delay)
 
         //$(selector).delay(delay).playKeyframe(param, function () {});
@@ -120,10 +124,10 @@ function animate(selector, delay, method, param) {
 
 
 
-                    if ($(selector).css("opacity") == 0) {
-                        $(selector).css("display", "none")
-
-                    }
+                    // if ($(selector).css("opacity") == 0) {
+                    //     $(selector).css("display", "none")
+                    //
+                    // }
 
                 });
             }, delay)
@@ -145,15 +149,15 @@ function animate(selector, delay, method, param) {
 var helperFunctions = {
     //step 0
     "liftEnzyme": function () {
-        animate("#enzTube", 0, "keyframe", animdefs["anim_moveEnz"])
+        animate("#enzTube", 0, "keyframe", "anim_moveEnz")
         $("#indicatorArrow1").remove();
     }, //step 1
     "openEnzyme": function () {
-        animate("#enzCap", 0, "keyframe", animdefs["anim_rotateCap"])
+        animate("#enzCap", 0, "keyframe", "anim_rotateCap")
         state["firstStep"] = 45;
     },
     "openEnzymePost": function () {
-      animate("#micropipet2", 1000, "keyframe", animdefs["anim_PrepPipet"])
+      animate("#micropipet2", 1000, "keyframe", "anim_PrepPipet")
       animate("html", 3000, zoom, [25, 46, 9.5, 1000])
       animate("#volumeButton,#volumeInput", 4000, "removeClass", "opClass")
       animate("#volumeButton,#volumeInput", 4000, "css", [{
@@ -170,10 +174,10 @@ var helperFunctions = {
             opacity: '0.0'
             }])
         animate("#view", 0, zoom, [25, 46, 1, 1000])
-        animate("#micropipet2", 1100, "keyframe", animdefs["anim_lowerPipet"])
+        animate("#micropipet2", 1100, "keyframe", "anim_lowerPipet")
 
         animate("#indicatorArrow0", 2000, "removeClass", "opClass")
-        animate("#indicatorArrow0", 2000, "keyframe", animdefs["anim_oscillate"])
+        animate("#indicatorArrow0", 2000, "keyframe", "anim_oscillate")
     },
 
 
@@ -187,12 +191,12 @@ var helperFunctions = {
         animate("#indicatorArrow6", 3000, "animate", [{
             opacity: '1.0'
         }])
-        animate("#indicatorArrow6", 3000, "keyframe", animdefs["anim_oscillate4"])
+        animate("#indicatorArrow6", 3000, "keyframe", "anim_oscillate4")
         animate("#indicatorArrow0", 0, "addClass", "opClass")
-        animate("#micropipet2", 0, "keyframe", animdefs["anim_addTip1"])
-        animate("#" + evt.target.id, 0, "keyframe", animdefs["anim_hideTip1"])
-        //animate("#tip1", 0, "keyframe", animdefs["anim_mooveTip"])
-        animate("#pipetteTip1", 0, "keyframe", animdefs["anim_showTip1"])
+        animate("#micropipet2", 0, "keyframe", "anim_addTip1")
+        animate("#" + evt.target.id, 0, "keyframe", "anim_hideTip1")
+        //animate("#tip1", 0, "keyframe", "anim_mooveTip")
+        animate("#pipetteTip1", 0, "keyframe", "anim_showTip1")
 
 
     }, //step 3
@@ -203,8 +207,8 @@ var helperFunctions = {
         state["microtubeState"][0] = microTubeEnum[1];
 
 
-        animate("#s0Tube", 0, "keyframe", animdefs["anim_moveTube"])
-        animate("#s0Cap", 0, "keyframe", animdefs["anim_rotateCap"])
+        animate("#s0Tube", 0, "keyframe", "anim_moveTube")
+        animate("#s0Cap", 0, "keyframe", "anim_rotateCap")
         animate("#indicatorArrow6", 0, "animate", [{
             opacity: '0.0'
             }])
@@ -212,14 +216,14 @@ var helperFunctions = {
     }, //step 5
     "addEnzyme": function () {
 
-        //$("#micropipet2").removeClass(animdefs["anim_addTip1"]);
-        animate("#micropipet2", 0, "keyframe", animdefs["anim_pipetToTube1"])
-        animate("#indicatorArrow2", 0, "keyframe", animdefs["anim_oscillate2"])
+        //$("#micropipet2").removeClass("anim_addTip1");
+        animate("#micropipet2", 0, "keyframe", "anim_pipetToTube1")
+        animate("#indicatorArrow2", 0, "keyframe", "anim_oscillate2")
         animate("#indicatorArrow2", 1800, "animate", [{
             opacity: '1.0'
         }])
-        animate("#enzTube", 1500, "keyframe", animdefs["anim_moveEnzBack"])
-        animate("#enzCap", 1000, "keyframe", animdefs["anim_closeCap"])
+        animate("#enzTube", 1500, "keyframe", "anim_moveEnzBack")
+        animate("#enzCap", 1000, "keyframe", "anim_closeCap")
 
 
     }, //step 6
@@ -238,8 +242,8 @@ var helperFunctions = {
             animate("#svgfluid",1000*(i+1),"animate",[{"y": 35.6 },{duration: 500,step: function(now) { $(this).attr("y", now); }}]);
         };
 
-        //animate("#s0TubeBody", 0, "keyframe", animdefs["anim_mixs0TubeBody"])
-        //animate("#tubeContentMixing3", 0, "keyframe", animdefs["anim_mixTubeContent"])
+        //animate("#s0TubeBody", 0, "keyframe", "anim_mixs0TubeBody")
+        //animate("#tubeContentMixing3", 0, "keyframe", "anim_mixTubeContent")
 
         animate("#zoomOut", 9500, "animate", [{
             opacity: '1.0'
@@ -250,7 +254,7 @@ var helperFunctions = {
         animate("#indicatorArrow3", 80, "animate", [{
             opacity: '1.0'
         }]);
-        animate("#indicatorArrow3", 0, "keyframe", animdefs["anim_oscillate3"]);
+        animate("#indicatorArrow3", 0, "keyframe", "anim_oscillate3");
     },
 
     "mixContentsPost": function () {
@@ -266,32 +270,32 @@ var helperFunctions = {
     }, //step 7
 
     "replaceTip": function () {
-        animate("#pipetteTip1", 2300, "keyframe", animdefs["anim_tipToBin"])
-        //animate("#pipetteTip1", 3300, "keyframe", animdefs["anim_hideTip1"]);
-        animate("#micropipet2", 0, "keyframe", animdefs["anim_pipetToBin"])
+        animate("#pipetteTip1", 2300, "keyframe", "anim_tipToBin")
+        //animate("#pipetteTip1", 3300, "keyframe", "anim_hideTip1");
+        animate("#micropipet2", 0, "keyframe", "anim_pipetToBin")
 
         animate("#indicatorArrow3", 50, "animate", [{
             opacity: '0.0'
         }]);
     },
     "closeTube": function (evt) {
-        animate("#s0Cap", 0, "keyframe", animdefs["anim_closeCap"])
+        animate("#s0Cap", 0, "keyframe", "anim_closeCap")
         state["microtubeState"][0] = microTubeEnum[2];
     },
     "flickTube": function (evt) {
-        animate("#s0Tube", 0, "keyframe", animdefs["anim_flickTube"]);
+        animate("#s0Tube", 0, "keyframe", "anim_flickTube");
         state["microtubeState"][0] = microTubeEnum[3];
     },
     "tapTube": function () {
-        animate("#s0Tube", 0, "keyframe", animdefs["anim_tapTube"])
+        animate("#s0Tube", 0, "keyframe", "anim_tapTube")
         state["microtubeState"][0] = microTubeEnum[4];
     },
     "tubeRack": function () {
-        animate("#s0Tube", 0, "keyframe", animdefs["anim_tubeDown"])
+        animate("#s0Tube", 0, "keyframe", "anim_tubeDown")
         for (i = 0; i <= 5; i++) {
-            animate("#s" + i + "Tube", 1000, "keyframe", animdefs["anim_tube" + i + "ToBath"]);
+            animate("#s" + i + "Tube", 1000, "keyframe", "anim_tube" + i + "ToBath");
         }
-        animate("#tubeBlock", 1000, "keyframe", animdefs["anim_moveBlock"]);
+        animate("#tubeBlock", 1000, "keyframe", "anim_moveBlock");
         animate(".pressButton", 2000, "animate", [{
             opacity: '1.0'
             }])
@@ -305,10 +309,10 @@ var helperFunctions = {
                 opacity: '0.0'
             }]);
             for (i = 0; i <= 5; i++) {
-                animate("#s" + i + "Tube", 0, "keyframe", animdefs["anim_pressTube" + i]);
+                animate("#s" + i + "Tube", 0, "keyframe", "anim_pressTube" + i);
             }
         }
-        animate("#s" + tubeId + "Tube", 0, "keyframe", animdefs["anim_pressTube" + tubeId]);
+        animate("#s" + tubeId + "Tube", 0, "keyframe", "anim_pressTube" + tubeId);
         animate("#pressButton_" + tubeId, 50, "animate", [{
             opacity: '0.0'
         }])
@@ -317,7 +321,7 @@ var helperFunctions = {
 
     "removeLid": function (evt) {
         var top1 = document.getElementsByClassName("topView")
-        animate("#waterBathLid", 0, "keyframe", animdefs["anim_removeLid"])
+        animate("#waterBathLid", 0, "keyframe", "anim_removeLid")
 
     }, //step 14
     "checkTemp": function () {
@@ -340,14 +344,14 @@ var helperFunctions = {
         }
     }, //step 15
     "insertRack": function () {
-        animate("#tubeBlock", 0, "keyframe", animdefs["anim_insertRack"])
+        animate("#tubeBlock", 0, "keyframe", "anim_insertRack")
         for (i = 0; i <= 5; i++) {
             animate("#s" + i + "Tube", 0, "addClass", "microTube");
-            animate("#s" + i + "Tube", 0, "keyframe", animdefs["anim_insertTube" + i]);
+            animate("#s" + i + "Tube", 0, "keyframe", "anim_insertTube" + i);
         }
     }, //step 16
     "closeLid": function () {
-        animate("#waterBathLid", 0, "keyframe", animdefs["anim_replaceLid"])
+        animate("#waterBathLid", 0, "keyframe", "anim_replaceLid")
         animate("#view", 1000, zoom, [65, 36, 5, 1500])
         animate("#timerButton,#timer", 1000, "removeClass", "opClass");
 
@@ -372,7 +376,7 @@ var helperFunctions = {
         animate("#day2", 2000, "animate", [{
             opacity: '1.0'
         }])
-        animate("#day2", 2000, "keyframe", animdefs["anim_changeDay2"])
+        animate("#day2", 2000, "keyframe", "anim_changeDay2")
 
         state["microtubeState"] = Array(6).fill(microTubeEnum[0])
 
@@ -388,13 +392,13 @@ var helperFunctions = {
 
     }, //step 18
     "openDye": function (evt) {
-        animate("#loadDye", 0, "keyframe", animdefs["anim_moveLoadingDye"])
-        animate("#loadDyeCap", 0, "keyframe", animdefs["anim_rotateCap"])
+        animate("#loadDye", 0, "keyframe", "anim_moveLoadingDye")
+        animate("#loadDyeCap", 0, "keyframe", "anim_rotateCap")
 
     }, //step 19
     "openDyePost": function () {
         animate("#indicatorArrow0", 0, "removeClass", "opClass")
-        animate("#indicatorArrow0", 0, "keyframe", animdefs["anim_oscillate"])
+        animate("#indicatorArrow0", 0, "keyframe", "anim_oscillate")
     },
 
     "takeDye": function (evt) {
@@ -404,9 +408,9 @@ var helperFunctions = {
         animate("#indicatorArrow0", 0, "addClass", "opClass")
         // in event
         makePipetteTippAnimation(tippLeft);
-        animate("#micropipet2", 0, "keyframe", animdefs["anim_addTipp1"])
-        animate("#" + evt.target.id, 0, "keyframe", animdefs["anim_hideTipp1"])
-        animate("#pipetteTip1", 0, "keyframe", animdefs["anim_showTipp1"])
+        animate("#micropipet2", 0, "keyframe", "anim_addTipp1")
+        animate("#" + evt.target.id, 0, "keyframe", "anim_hideTipp1")
+        animate("#pipetteTip1", 0, "keyframe", "anim_showTipp1")
         setTimeout(function () {
             animate("#pipetteTip1", 0, "animate", [{
                 opacity: '1.0'
@@ -432,15 +436,15 @@ var helperFunctions = {
         animate("#indicatorArrow6", 0, "animate", [{
             opacity: '1.0'
         }])
-        animate("#indicatorArrow6", 0, "keyframe", animdefs["anim_oscillate4"])
+        animate("#indicatorArrow6", 0, "keyframe", "anim_oscillate4")
     }, //step 21
 
     "openTube1": function (evt) {
         helperFunctions.openTube(evt)
     }, //step 22
     "addDye": function () {
-        animate("#micropipet2", 0, "keyframe", animdefs["anim_addDyeToTube"])
-        animate("#indicatorArrow2", 0, "keyframe", animdefs["anim_oscillate2"])
+        animate("#micropipet2", 0, "keyframe", "anim_addDyeToTube")
+        animate("#indicatorArrow2", 0, "keyframe", "anim_oscillate2")
         animate("#indicatorArrow2", 1800, "animate", [{
             opacity: '1.0'
         }]);
@@ -465,11 +469,11 @@ var helperFunctions = {
         helperFunctions.tapTube()
     }, //step 28
     "tubeRack1": function () {
-        animate("#s0Tube", 0, "keyframe", animdefs["anim_tubeDown"])
+        animate("#s0Tube", 0, "keyframe", "anim_tubeDown")
         for (i = 0; i <= 5; i++) {
-            animate("#s" + i + "Tube", 1000, "keyframe", animdefs["anim_tube" + i + "ToBath"]);
+            animate("#s" + i + "Tube", 1000, "keyframe", "anim_tube" + i + "ToBath");
         }
-        animate("#tubeBlock", 1000, "keyframe", animdefs["anim_moveBlock"]);
+        animate("#tubeBlock", 1000, "keyframe", "anim_moveBlock");
         $('.pressButton button').html("Open")
 
         animate(".pressButton", 2000, "animate", [{
@@ -486,10 +490,10 @@ var helperFunctions = {
                 opacity: '0.0'
             }]);
             for (i = 0; i <= 5; i++) {
-                animate("#s" + i + "Tube", 0, "keyframe", animdefs["anim_rotateCap"]);
+                animate("#s" + i + "Tube", 0, "keyframe", "anim_rotateCap");
             }
         }
-        animate("#s" + tubeId + "Cap", 100, "keyframe", animdefs["anim_rotateCap"]);
+        animate("#s" + tubeId + "Cap", 100, "keyframe", "anim_rotateCap");
         animate("#pressButton_" + tubeId, 0, "animate", [{
             opacity: '0.0'
             }])
@@ -498,7 +502,7 @@ var helperFunctions = {
     }, //step 29
 
     "removeComb": function () {
-        animate("#gelComb", 0, "keyframe", animdefs["anim_removeComb"])
+        animate("#gelComb", 0, "keyframe", "anim_removeComb")
         animate("#gelSideView", 1000, "removeClass", "opClass")
     }, //step 30
 
@@ -569,7 +573,7 @@ var helperFunctions = {
         var tubeTopPosition = 17
         var tubeTopAdd = 4.5
         var tubeTop = tubeTopPosition + tubeTopAdd * tubePickedIndex
-      $("#topView").append($('#micropipet2'));
+      $("#topView").append($('#pipetteTip1'));
         animate("#micropipetTopView", 0, "animate", [{
             "left": '36.7%',
             "top": tubeTop + '%'
@@ -608,8 +612,8 @@ var helperFunctions = {
         }])
 
 
-
-        $("#micropipet2,#pipetteTip1 *").css({
+        setTimeout(function(){$("#pipetteTip1").attr("style", "display: block")}, 0)
+        $("#pipetteTip1 *").css({
             opacity: '1.0',
             visibility: "visible",
             display: "block"
@@ -619,15 +623,15 @@ var helperFunctions = {
             visibility: "visible",
             display: "block"
         })
-        animate("#micropipet2", 0, "css", [{
+        animate("#pipetteTip1", 0, "css", [{
             height: "200%",
             width: "40%",
-            top: "-200%",
+            top: "-75%",
             left: "50%",
             "z-index": 100
         }])
-        $('#micropipet2').draggable();
-        $("#micropipet2, #pipetteTip1").resetKeyframe(function () {});
+        $('#pipetteTip1').draggable();
+
 
     }, //step 35,40
     "insertTip": function (evt) {
@@ -758,7 +762,7 @@ var helperFunctions = {
 
     }, //step 77
     "stainGel": function () {
-        animate("#graduatedCylinder", 0, "keyframe", animdefs["anim_pourStain"])
+        animate("#graduatedCylinder", 0, "keyframe", "anim_pourStain")
         animate("#emptyGraduatedCylinder", 3000, "css", [{
          opacity: '1.0'
         }])
@@ -767,7 +771,7 @@ var helperFunctions = {
             opacity: '0.0'
         }])
         animate("#stainingTraySide", 3000, "addClass", "opClass")
-        animate("#stainedGel", 1000, "keyframe", animdefs["anim_slowFadeIn"])
+        animate("#stainedGel", 1000, "keyframe", "anim_slowFadeIn")
 
     }, //step 78
     "examineGel": function () {

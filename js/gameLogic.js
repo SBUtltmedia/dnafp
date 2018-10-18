@@ -143,7 +143,7 @@ function startStep(step) {
 
             $(s.logic.eventSelector).off()
             if (s.logic.postEventFunction) {
-
+                console.log(s.logic.postEventFunction)
                 s.logic.postEventFunction()
             }
             game.nextStep()
