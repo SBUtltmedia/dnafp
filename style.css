@@ -138,6 +138,7 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 
+
 #shelf1 {
     width: 18%;
     height: 3%;
@@ -940,7 +941,7 @@ button, input[type="submit"], input[type="reset"] {
     position: absolute;
     background-repeat: no-repeat;
     background-size: contain;
-    z-index: 0; /*z-index: inherit;*/
+    z-index: 1; /*z-index: inherit;*/
 }
 
 #zoomOutButton3 {
@@ -959,7 +960,7 @@ button, input[type="submit"], input[type="reset"] {
     width: 13%;
     height: 8%;
     left: 69%;
-    top: 73%;
+    top: 71.8%;
     position: absolute;
     background-image: url(img/gelTray.svg);
     background-repeat: no-repeat;
@@ -971,7 +972,7 @@ button, input[type="submit"], input[type="reset"] {
     width: 11%;
     height: 8%;
     left: 70%;
-    top: 71%;
+    top: 70%;
     position: absolute;
     background-image: url(img/gelComb.svg);
     background-repeat: no-repeat;
@@ -991,8 +992,8 @@ button, input[type="submit"], input[type="reset"] {
 #gelSideView {
     width: 20%;
     height: 6%;
-    left: 78%;
-    top: 61.55%;
+    left: 82%;
+    top: 72.5%;
     position: absolute;
     background-image: url(img/gelSideView.svg);
     background-repeat: no-repeat;
@@ -1075,7 +1076,7 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 #topView {
-    display:none;
+    /* display:none; */
     width: 100%;
     height: 100%;
     position: absolute;
@@ -1135,7 +1136,7 @@ button, input[type="submit"], input[type="reset"] {
     background-size: contain;
     background-position: center center;
     z-index: 0; /*z-index: inherit;*/
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 
 #gelTrayTop {
@@ -1169,14 +1170,14 @@ button, input[type="submit"], input[type="reset"] {
 #micropipetTopView {
     width: 5%;
     height: 7%;
-    left: 10.5%;
+    left: -10.5%;
     top: 71.6%;
     position: absolute;
     background-image: url(img/micropipetTopView.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
-    visibility: visible;
+    /* visibility: visible; */
     z-index: 0; /*z-index: 505;*/
 }
 
@@ -1220,7 +1221,7 @@ button, input[type="submit"], input[type="reset"] {
     left: 13.9%;
 }
 
-#lidBox {
+#lidBox,#lidBase {
     width: 35%;
     height: 45%;
     left: -5.5%;
@@ -1230,8 +1231,15 @@ button, input[type="submit"], input[type="reset"] {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
-    visibility: visible;
-    z-index: 0; /*z-index: 1000*/
+}
+
+#lidBox {
+        background-image: url(img/lidBox.svg);
+        z-index: 1;
+}
+
+#lidBase {
+    background-image: url(img/lidBase.svg);
 }
 
 #lidSide {
@@ -1449,7 +1457,7 @@ button, input[type="submit"], input[type="reset"] {
     background-size: contain;
     background-position: center center;
     visibility: visible;
-    z-index: 0; /*z-index: -5000;*/
+    z-index: 1; /*z-index: -5000;*/
 }
 
 
@@ -1633,7 +1641,6 @@ button, input[type="submit"], input[type="reset"] {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    visibility: hidden;
 }
 
 #pipetteTip2 {

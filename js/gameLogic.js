@@ -60,7 +60,7 @@ function newGame(props) {
     hideMenu();
 
     animate("#indicatorArrow1", 50, "removeClass", "opClass");
-    animate("#indicatorArrow1",0,"keyframe", animdefs["anim_oscillate1"])
+    animate("#indicatorArrow1",0,"keyframe", "anim_oscillate1")
     //
 }
 
@@ -143,7 +143,7 @@ function startStep(step) {
 
             $(s.logic.eventSelector).off()
             if (s.logic.postEventFunction) {
-                console.log(s.logic.postEventFunction)
+//                console.log(s.logic.postEventFunction)
                 s.logic.postEventFunction()
             }
             game.nextStep()
@@ -154,7 +154,7 @@ function startStep(step) {
             message(s.logic.criteria.messageWrong)
         }
     }
-    console.log(s)
+//    console.log(s)
       $(s.logic.eventSelector).on(s.logic.eventType, composite);
 
     if (testMode) {

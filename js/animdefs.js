@@ -21,7 +21,7 @@ var animdefs = {
     "anim_tipHidden": "tipHidden 0.1s linear 0s normal forwards",
     "anim_tipVisible": "tipVisible 0.1s linear 0s normal forwards",
     "anim_pressTube3": "pressTube3 0.3s linear 0s 1 normal forwards",
-    "anim_hideTip1": "hideTip1 2s linear 0s 1 normal forwards",
+    "anim_hideTip1": "hideTip1 .7s linear 0s 1 normal forwards",
 
     "anim_hideTipp1": "hideTipp1 .9s linear 0s 1 normal forwards",
 
@@ -47,9 +47,6 @@ var animdefs = {
     "anim_replaceLid": "replaceLid 0.9s linear 0s 1 reverse forwards",
     "anim_pourStain": "pourStain 2s 0s 1 linear normal forwards",
     "anim_rotateCap": "rotateCap 0.5s linear forwards",
-    "anim_showTip1": "showTip1 1s linear 0s 1 normal forwards",
-    "anim_showTipp1": "showTipp1 .3s linear 0s 1 normal forwards",
-
     "anim_lowerTip1": "lowerTip1 0.4s linear 0s 1 normal forwards",
     "anim_insertTube0": "insertTube0 1.8s linear 0s 1 normal forwards",
     "anim_insertTube1": "insertTube1 1.8s linear 0s 1 normal forwards",
@@ -60,6 +57,7 @@ var animdefs = {
 
     "anim_addTip1": "addTip1 3s linear 0s 1 normal forwards",
     "anim_PrepPipet": "PrepPipet 1s linear 0s 1 normal forwards",
+    "anim_pipetBacktoNormal": "pipetBacktoNormal 2s linear 0s 1 normal forwards",
     "anim_addTipp1": "addTipp1 3s linear 0s 1 normal forwards",
 
     "anim_addDyeToTube": "addDyeToTube 3s linear 0s 1 normal forwards",

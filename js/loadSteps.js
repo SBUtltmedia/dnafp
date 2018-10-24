@@ -484,15 +484,8 @@ function loadSteps() {
                         "eventSelector": "#arrowDown"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.orientGel
-                        //, "postEventFunction" : helperFunctions.orientGelPost
                     }
                 }
-//                , {
-//                    "id": "pourBuffer"
-//                    , "shortText": "Pour Buffer"
-//                    , "longText": "Pour electrophoresis buffer into the chamber until it just covers the wells"
-//                    , "feedbackText": "complete the third step"
-//                }
             ]
         }, {
             "id": "group6"

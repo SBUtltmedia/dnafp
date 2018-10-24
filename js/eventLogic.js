@@ -352,6 +352,7 @@ function continueLoading() {
    '#micropipetTopView',
    '#wasteBinTop',
    '#lidBox',
+   '#lidBase',
    '#zoomOutButton2',
    '#zoomOutButton3',
    '#emptyGraduatedCylinder',
@@ -370,7 +371,8 @@ function continueLoading() {
    '#volumeButton2',
    '#zoomOutButton1a',
    '.holderTop',
-   '.day2'].forEach(function(item){
+   '.day2',
+   '.topView'].forEach(function(item){
 
        $(item).addClass("opClass")
 

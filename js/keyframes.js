@@ -171,6 +171,20 @@ var keyframes =[{ name:'moveTube',
         left: '86.4%',
         top: '28%',
 }},
+{ name: 'pipetBacktoNormal',
+    '0%':{
+        left: '52.7%',
+        top: '34.7%',
+},
+    '60%':{
+        left: '27.5%',
+        top: '40%',
+},
+    '100%':{
+        left: '14.5%',
+        top: '52%'
+}},
+                
 { name:'addTipp1',
     '100%':{
         left: '20.9%',
@@ -471,28 +485,20 @@ var keyframes =[{ name:'moveTube',
 
 { name:'tipToBin',
     '0%':{
-        left: '55%',
         top: '100%',
 },
     '10.9091%':{
-        left: '55%',
         top: '105%',
 },
     '72.72727%':{
-        left: '55%',
         top: '120%',
 },
     '90%':{
-        left: '55%',
         top: '130%',
 },
     '100%':{
-        left: '55%',
         top: '170%',
-        opacity: 0,
 }},
-
-
 
 { name:'pipetToBin',
     '0%':{
@@ -1490,34 +1496,6 @@ var keyframes =[{ name:'moveTube',
         opacity: 0,
 
 }},
-
-
-{ name:'showTip1',
-    '0%':{
-        opacity: 0
-},
-    '80%':{
-        opacity: 0,
-        visibility: 'visible'
-},
-    '100%':{
-        opacity: 1,
-        visibility: 'visible'
-}},
-{ name:'showTipp1',
-    '0%':{
-        opacity: 0
-},
-    '80%':{
-        opacity: 0,
-        visibility: 'visible'
-},
-    '100%':{
-        opacity: 1,
-        visibility: 'visible'
-}}
-
-
 ]
 for (i of keyframes){
 
@@ -1527,7 +1505,7 @@ $.keyframe.define(i);
 
 
 function findKeyFrameDef(defName){
-  console.log(defName)
+  //console.log(defName)
 return  keyframes.find(function(element){
     return element.name==defName;
   })["100%"]
