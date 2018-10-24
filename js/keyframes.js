@@ -184,7 +184,7 @@ var keyframes =[{ name:'moveTube',
         left: '14.5%',
         top: '52%'
 }},
-                
+
 { name:'addTipp1',
     '100%':{
         left: '20.9%',
@@ -1154,9 +1154,9 @@ var keyframes =[{ name:'moveTube',
         top: '17%',
 },
     '100%':{
-        left: '61%',
+        left: '60%',
         top: '28%',
-        transform:'scale(0.7)'
+        transform:'scale(0.5)'
 }},
 
 
@@ -1176,9 +1176,9 @@ var keyframes =[{ name:'moveTube',
         top: '17%',
 },
     '100%':{
-        left: '63.78%',
+        left: '62.78%',
         top: '28%',
-        transform:'scale(0.7)'
+        transform:'scale(0.5)'
 }},
 
 
@@ -1198,9 +1198,9 @@ var keyframes =[{ name:'moveTube',
         top: '17%',
 },
     '100%':{
-        left: '66.56%',
-        top: '30%',
-        transform:'scale(0.7)'
+        left: '65.56%',
+        top: '28%',
+        transform:'scale(0.5)'
 }},
 
 
@@ -1220,9 +1220,9 @@ var keyframes =[{ name:'moveTube',
         top: '17%',
 },
     '100%':{
-        left: '69%',
-        top: '30%',
-        transform:'scale(0.7)'
+        left: '68%',
+        top: '28%',
+        transform:'scale(0.5)'
 }},
 
 
@@ -1242,9 +1242,9 @@ var keyframes =[{ name:'moveTube',
         top: '17%',
 },
     '100%':{
-        left: '72.5%',
-        top: '30%',
-        transform:'scale(0.7)'
+        left: '71.5%',
+        top: '28%',
+        transform:'scale(0.5)'
 }},
 
 
@@ -1264,9 +1264,9 @@ var keyframes =[{ name:'moveTube',
         top: '17%',
 },
     '100%':{
-        left: '74%',
-        top: '30%',
-        transform:'scale(0.7)'
+        left: '73%',
+        top: '28%',
+        transform:'scale(0.5)'
 }},
 
 
@@ -1439,17 +1439,26 @@ var keyframes =[{ name:'moveTube',
 { name:'pourStain',
     '0%':{
         transform:'rotate(0deg)',
-        opacity: 1
 },
     '60%':{
         transform:'rotate(105deg)'
 },
     '95%':{
-        opacity: 1
 },
     '100%':{
-        opacity: 0,
         transform:'rotate(105deg)'
+}},
+{ name:'pourStainRev',
+    '0%':{
+        transform:'rotate(105deg)',
+},
+    '60%':{
+        transform:'rotate(0deg)'
+},
+    '95%':{
+},
+    '100%':{
+        transform:'rotate(0deg)'
 }},
 
 /*Step 1 & 2*/

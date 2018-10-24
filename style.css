@@ -360,8 +360,8 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 #s0TubeBody {
-    left: -7%;
-    top: -1%;
+    left: 0%;
+    top: 0%;
     background-image: url(img/csTube.svg);
 }
 
@@ -582,6 +582,11 @@ button, input[type="submit"], input[type="reset"] {
     filter: alpha(opacity=0);
 }
 
+.day3 {
+  /* display:block;
+  opacity: 1.0;
+  visibility:visible;  */
+}
 
 
 .pressButton button{
@@ -1028,12 +1033,12 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 #graduatedCylinder {
-    width: 3%;
-    height: 12%;
+    width: 2%;
+    height: 14%;
     left: 84%;
-    top: 66.2%;
+    top: 63.7%;
     position: absolute;
-    background-image: url(img/graduatedCylinder.svg);
+    /* background-image: url(img/graduatedCylinder.svg); */
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;

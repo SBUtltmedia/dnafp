@@ -107,6 +107,7 @@ var breach = false;
 $(function () {
     loadSVG();
     $('#pipetteTip1').load("img/tip.svg");
+    $('#graduatedCylinder').load("img/graduatedCylinder.svg");
     $('#gelWellBoundary').droppable({tolerance: "touch"});
 
 //

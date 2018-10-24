@@ -46,6 +46,7 @@ var animdefs = {
     "anim_removeComb": "removeComb 1s 0s 1 linear normal forwards",
     "anim_replaceLid": "replaceLid 0.9s linear 0s 1 reverse forwards",
     "anim_pourStain": "pourStain 2s 0s 1 linear normal forwards",
+    "anim_pourStainRev": "pourStainRev 2s 0s 1 linear normal forwards",
     "anim_rotateCap": "rotateCap 0.5s linear forwards",
     "anim_lowerTip1": "lowerTip1 0.4s linear 0s 1 normal forwards",
     "anim_insertTube0": "insertTube0 1.8s linear 0s 1 normal forwards",

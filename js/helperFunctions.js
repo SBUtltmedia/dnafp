@@ -220,16 +220,9 @@ var helperFunctions = {
     "mixContents": function () {
         animate("#view", 0, zoom, [39, 67, 12, 1050])
         animate("#zoomOutButton1", 4000, "removeClass", "opClass")
-
-        // $("#svgfluid").animate(
-        //   {y: 70 },
-        //   {duration: 1000,
-        //     step: function(now) { $(this).attr("y", now); }
-        // });
         for(i=1; i < 4; i++){
-            animate("#svgfluid",1000*i+500,"animate",[{"y": 70 },{duration: 500,step: function(now) { $(this).attr("y", now); }}]);
-            animate("#svgfluid",1000*(i+1),"animate",[{"y": 35.6 },{duration: 500,step: function(now) {
-            $(this).attr("y", now); }}]);
+            animate("#svgfluid",1000*i+500,"animate",[{"y": 70 },{duration: 500,step: function(now) {$(this).attr("y", now); }}]);
+            animate("#svgfluid",1000*(i+1),"animate",[{"y": 35.6 },{duration: 500,step: function(now) {$(this).attr("y", now); }}]);
         };
         animate("#svgfluid",4500,"animate",[{"y": 100 }])
 
@@ -317,7 +310,7 @@ var helperFunctions = {
     "insertRack": function () {
         animate("#tubeBlock", 0, "keyframe", "anim_insertRack")
         for (i = 0; i <= 5; i++) {
-            animate("#s" + i + "Tube", 0, "addClass", "microTube");
+            // animate("#s" + i + "Tube", 0, "addClass", "microTube");
             animate("#s" + i + "Tube", 0, "keyframe", "anim_insertTube" + i);
         }
     }, //step 16
@@ -615,10 +608,6 @@ var helperFunctions = {
             top: '58.5%',
             left: '30.6%',
         }])
-
-        animate("#topView, #topView *", 0, "animate", [{
-            opacity: '0.0'
-        }])
         animate("#topView, #topView *", 0, "addClass", "opClass")
         $("#day2 *, #day2, #bothDays, #bothDays *").resetKeyframe(function () {});
         animate("#graduatedCylinder, #stainingTraySide", 0, "removeClass", "opClass")
@@ -626,28 +615,29 @@ var helperFunctions = {
         animate("#waterBathNoLid, #waterBathLid, #gelComb, #wasteBasket, #shelf1, #loadDyeCap", 0, "addClass", "opClass")
 
 
-//        animate("#day2, #day2 *, #bothDays, #bothDays *", 0, "removeClass", "opClass")
-//        animate("#day2, #day2 *, #bothDays, #bothDays *", 0, "animate", [{
-//            opacity: '1.0',
-//        }])
-//        animate("#day2, #day2 *, #bothDays, #bothDays *", 0, "css", [{
-//            display: "block",
-//        }])
 
+        // animate(".pressButton, #indicatorArrow0, #indicatorArrow1, #indicatorArrow2, #indicatorArrow3, #indicatorArrow4, #indicatorArrow5, #indicatorArrow6, #zoomOutButton, #zoomOutButton1, #zoomOutButton3, #shelf1, #waterBathNoLid, #waterBathLid",
+        //          0, "addClass", "opClass")
+        //animate("#emptyGraduatedCylinder, #stainedGel, #gelSideView, #loadDyeBody, #loadDyeCap, #shelf2, #tubeRack, #volumeInput1Form, #volumeButton2", 0, "addClass", "opClass")
+        animate("#bothDays, #day2, .day3, .day3 *,, .microTube, .microTube *, #graduatedCylinder, #stainingTraySide", 0, "removeClass", "opClass")
+        animate("#stainedGel", 0, "css", [{
+          "opacity": "0"
+        }])
 
     }, //step 77
     "stainGel": function () {
         animate("#graduatedCylinder", 0, "keyframe", "anim_pourStain")
-        animate("#emptyGraduatedCylinder", 3000, "css", [{
-         opacity: '1.0'
-        }])
-        animate("#emptyGraduatedCylinder,#stainedGel", 0, "removeClass", "opClass")
-        animate("#emptyGraduatedCylinder,#stainedGel", 0, "css", [{
-            opacity: '0.0'
-        }])
-        animate("#stainingTraySide", 3000, "addClass", "opClass")
-        animate("#stainedGel", 1000, "keyframe", "anim_slowFadeIn")
-
+        animate("#svgcylfluid",1000,"animate",[{"y": -270 }])
+        // animate("#emptyGraduatedCylinder", 7000, "css", [{
+        //  opacity: '1.0'
+        // }])
+        //animate("#emptyGraduatedCylinder,#stainedGel", 0, "removeClass", "opClass")
+        //animate("#emptyGraduatedCylinder,#stainedGel", 0, "css", [{
+        //     opacity: '0.0'
+        // }])
+        //animate("#stainingTraySide", 3000, "addClass", "opClass")
+        animate("#stainedGel", 600, "keyframe", "anim_slowFadeIn")
+        animate("#graduatedCylinder", 2000, "keyframe", "anim_pourStainRev")
     }, //step 78
     "examineGel": function () {
         var contents = $("#gelFinalTop").contents();
