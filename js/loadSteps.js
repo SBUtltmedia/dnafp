@@ -1,27 +1,5 @@
 function loadSteps() {
-    var volumeButton = document.getElementById("volumeButton");
-    //var microtubeState = [0, 0, 0, 0, 0, 0];
-    var microtubeAnimation = [{
-        target: "Tube"
-        , name: "anim_moveTube"
-}, {
-        target: "Cap"
-        , name: "anim_rotateCap"
-}, {
-        target: "Cap"
-        , name: "anim_closeCap"
-}, {
-        target: "Tube"
-        , name: "anim_flickTube"
-}, {
-        target: "Tube"
-        , name: "anim_tapTube"
-}, {
-        target: "Tube"
-        , name: "anim_tubeDown"
-}]
-    var sideTipMoveSpeed = 0.6;
-    var directionsForSideTipMovement = [[1, 0], [0, 1], [-1, 0], [0, -1]]
+
     var stepText = [
         {
             "id": "group1"

@@ -5,25 +5,7 @@ state["microtubeState"] = Array(6).fill(microTubeEnum[0])
 state["tipTray"] = Array(tipTrayRows * tipTrayCols).fill(0)
 state["TipPosition"] = false
 var criteriaPassed;
-var microtubeAnimation = [{
-    target: "Tube",
-    name: "anim_moveTube"
-}, {
-    target: "Cap",
-    name: "anim_rotateCap"
-}, {
-    target: "Cap",
-    name: "anim_closeCap"
-}, {
-    target: "Tube",
-    name: "anim_flickTube"
-}, {
-    target: "Tube",
-    name: "anim_tapTube"
-}, {
-    target: "Tube",
-    name: "anim_tubeDown"
-}]
+
 var voltage = 0;
 var volume = 0;
 var tyty = 0;
@@ -81,13 +63,13 @@ function animate(selector, delay, method, param) {
         }
 
         //$(selector).attr("style","")
-
+else{
         setTimeout(function () {
 //          console.log(param)
 //          console.log(animdefs[param])
             $(selector).playKeyframe(animdefs[param], function () {});
         }, delay)
-
+}
         //$(selector).delay(delay).playKeyframe(param, function () {});
     }
 
@@ -251,11 +233,11 @@ var helperFunctions = {
         animate("#indicatorArrow3", 50, "addClass", "opClass")
         animate("#micropipet2", 3000, "keyframe", "anim_pipetBacktoNormal")
     },
-    "closeTube": function (evt) {
+    "closeTube": function () {
         animate("#s0Cap", 0, "keyframe", "anim_closeCap")
         state["microtubeState"][0] = microTubeEnum[2];
     },
-    "flickTube": function (evt) {
+    "flickTube": function () {
         animate("#s0Tube", 0, "keyframe", "anim_flickTube");
         state["microtubeState"][0] = microTubeEnum[3];
     },
@@ -312,7 +294,11 @@ var helperFunctions = {
         for (i = 0; i <= 5; i++) {
             // animate("#s" + i + "Tube", 0, "addClass", "microTube");
             animate("#s" + i + "Tube", 0, "keyframe", "anim_insertTube" + i);
+
         }
+            animate("#tubeBlock, .microTube", 1750, "addClass", "opClass");
+
+
     }, //step 16
     "closeLid": function () {
         animate("#waterBathLid", 0, "keyframe", "anim_replaceLid")
@@ -333,7 +319,7 @@ var helperFunctions = {
         animate(".openButton", 0, "addClass", "opClass")
 
         animate("#day1", 1000, "addClass", "opClass");
-        animate("#day2", 2000, "removeClass", "opClass")
+        animate("#day2, #tubeBlock, .microTube", 2000, "removeClass", "opClass")
         animate("#graduatedCylinder, #stainedGel, #stainingTraySide", 0, "addClass", "opClass")
 
         state["microtubeState"] = Array(6).fill(microTubeEnum[0])
@@ -363,6 +349,7 @@ var helperFunctions = {
         $("#holder").css('z-index', '3');
         animate("#volumeButton1,#volumeInput1", 5000, "removeClass", "opClass");
         animate("#view", 3000, zoom, [23, 12, 7, 1400])
+
 
     }, //step 20
     "setDyeVolume": function () {

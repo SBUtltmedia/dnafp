@@ -10,18 +10,18 @@ var keyframes =[{ name:'moveTube',
 
 { name:'closeCap',
     '0%': {
-        transform:'rotate(0deg)'
+        transform:'rotate(-135deg)'
 },
     '100%':{
-        transform:'rotate(-135deg)'
+        transform:'rotate(0deg)'
 }},
 
 { name:'tubeDown',
-    '0%': {
-        top: '71.9%'
-},
-    '100%':{
+    '0%':{
         top: '63%',
+},
+    '100%': {
+        top: '71.9%'
 }},
 
 { name:'movePipet',
@@ -79,21 +79,21 @@ var keyframes =[{ name:'moveTube',
 
 { name:'replaceLid',
     '0%':{
-        top: '21.58%',
-        left: '59.88%',
-        transform:'rotate(0deg)'
-},
-    '10%':{
-        top: '18.5%',
-},
-    '25%':{
-        top: '16.7%',
-        transform:'rotate(20deg)'
-},
-    '100%':{
         top: '11.6%',
         left: '70%',
         transform:'rotate(86deg)'
+},
+    '10%':{
+        top: '16.7%',
+        transform:'rotate(20deg)'
+},
+    '25%':{
+        top: '18.5%',
+},
+    '100%':{
+        top: '21.58%',
+        left: '59.88%',
+        transform:'rotate(0deg)'
 }},
 
 
@@ -167,6 +167,9 @@ var keyframes =[{ name:'moveTube',
 
 //addTip1 is in eventLogic
 { name:'addTip1',
+    '0':{
+
+    },
     '100%':{
         left: '86.4%',
         top: '28%',
@@ -186,6 +189,9 @@ var keyframes =[{ name:'moveTube',
 }},
 
 { name:'addTipp1',
+    '0':{
+
+    },
     '100%':{
         left: '20.9%',
         top: '5.4%',
@@ -545,32 +551,32 @@ var keyframes =[{ name:'moveTube',
         top: '0%',
 },
     '60%':{
-        left: '34%',
+        left: '34.35%',
         top: '15%',
 },
     '100%':{
-        left: '34%',
+        left: '34.35%',
         top: '39%',
 }},
 
 
 { name:'returnLoadingDye1',
-    '0%':{
-        top: '23.2%',
-        left: '7.8%',
+'0%':{
+    top: '28%',
+    left: '22%',
 },
     '15%':{
         top: '16%',
-        left: '7.8%',
+        left: '22%',
 },
     '70%':{
         top: '16%',
-        left: '22%',
+        left: '7.8%',
 },
-    '100%':{
-        top: '28%',
-        left: '22%',
-}},
+     '100%':{
+    top: '23.2%',
+    left: '7.8%',
+},},
 
 
 
@@ -1122,19 +1128,19 @@ var keyframes =[{ name:'moveTube',
 },
     '70%':{
         left: '50%',
-        top: '15%',
-        'z-index': 6
+        top: '17%',
+
 },
     '80%':{
         left: '60%',
-        top: '15%',
-            'z-index': 6
+        top: '17%',
+
 },
     '100%':{
         left: '60%',
-        top: '30%',
-        transform:'scale(0.7)',
-            'z-index': -1
+        top: '28%',
+
+
 }},
 
 
@@ -1147,7 +1153,7 @@ var keyframes =[{ name:'moveTube',
     '70%':{
         left: '50%',
         top: '17%',
-        'z-index': 2
+
 },
     '80%':{
         left: '60%',
@@ -1156,7 +1162,7 @@ var keyframes =[{ name:'moveTube',
     '100%':{
         left: '60%',
         top: '28%',
-        transform:'scale(0.5)'
+
 }},
 
 
@@ -1169,7 +1175,7 @@ var keyframes =[{ name:'moveTube',
     '70%':{
         left: '52.78%',
         top: '17%',
-        'z-index': 2
+
 },
     '80%':{
         left: '62.78%',
@@ -1178,7 +1184,7 @@ var keyframes =[{ name:'moveTube',
     '100%':{
         left: '62.78%',
         top: '28%',
-        transform:'scale(0.5)'
+
 }},
 
 
@@ -1191,7 +1197,7 @@ var keyframes =[{ name:'moveTube',
     '70%':{
         left: '55.56%',
         top: '17%',
-        'z-index': 2
+
 },
     '80%':{
         left: '65.56%',
@@ -1200,7 +1206,7 @@ var keyframes =[{ name:'moveTube',
     '100%':{
         left: '65.56%',
         top: '28%',
-        transform:'scale(0.5)'
+
 }},
 
 
@@ -1213,7 +1219,7 @@ var keyframes =[{ name:'moveTube',
     '70%':{
         left: '58%',
         top: '17%',
-        'z-index': 2
+
 },
     '80%':{
         left: '68%',
@@ -1222,7 +1228,7 @@ var keyframes =[{ name:'moveTube',
     '100%':{
         left: '68%',
         top: '28%',
-        transform:'scale(0.5)'
+
 }},
 
 
@@ -1235,7 +1241,7 @@ var keyframes =[{ name:'moveTube',
     '70%':{
         left: '61.5%',
         top: '17%',
-        'z-index': 2
+
 },
     '80%':{
         left: '71.5%',
@@ -1244,7 +1250,7 @@ var keyframes =[{ name:'moveTube',
     '100%':{
         left: '71.5%',
         top: '28%',
-        transform:'scale(0.5)'
+
 }},
 
 
@@ -1257,7 +1263,7 @@ var keyframes =[{ name:'moveTube',
     '70%':{
         left: '63%',
         top: '17%',
-        'z-index': 2
+
 },
     '80%':{
         left: '73%',
@@ -1266,7 +1272,7 @@ var keyframes =[{ name:'moveTube',
     '100%':{
         left: '73%',
         top: '28%',
-        transform:'scale(0.5)'
+
 }},
 
 
@@ -1361,68 +1367,16 @@ var keyframes =[{ name:'moveTube',
 
 
 
-{ name:'changeDay1',
-    '0%': {
-        'z-index': 0
-},
-    '100%':{
-        'z-index': -1
-}},
 
 
 
-{ name:'changeDay2',
-    '0%': {
-        'z-index': -1
-},
-    '100%':{
-        'z-index': 0
-}},
 
 
 
-{ name:'toTopView1',
-    '0%':{
-        visibility: 'hidden',
-       display:'initial',
-},
-    '100%':{
-        visibility: 'visible',
-        display:'initial',
-        'z-index': -1
-}},
 
 
 
-{ name:'toTopView2',
-    '0%':{
-        visibility: 'visible',
-            display:'initial'
-},
-    '100%':{
-        visibility: 'hidden',
-        'z-index': -3
-}},
 
-
-
-{ name:'toFrontView',
-    '0%':{},
-    '100%':{
-        visibility: 'visible',
-        'z-index': 10
-}},
-
-
-
-{ name:'toFrontView1',
-    '0%':{
-        visibility: 'visible'
-},
-    '100%':{
-        visibility: 'hidden',
-        'z-index': -3
-}},
 
 
 
@@ -1469,12 +1423,13 @@ var keyframes =[{ name:'moveTube',
     '100%':{
         top: '60%'
 }},
+
+
 { name:'moveEnzBack',
-    '100%': {
-        top: '64.7%'
-},
-    '0%':{
+        '0%':{
         top: '60%'
+},'100%': {
+    top: '64.7%'
 }},
 
 
