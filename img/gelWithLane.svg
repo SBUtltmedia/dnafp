@@ -9,7 +9,7 @@
 	.gelBase{fill:#93BCFF;stroke:#020202;stroke-miterlimit:10;}
 	.lanes{fill:#72A0EA;}
 	.wells{fill:#5D88CC;stroke:#020202;stroke-miterlimit:10;}
-	
+
 </style>
 <filter  height="200%" id="f2" width="200%" x="-50%" y="-50%">
 	<feGaussianBlur  in="SourceGraphic" stdDeviation="2.8"></feGaussianBlur>
@@ -18,7 +18,7 @@
 	<feGaussianBlur  in="SourceGraphic" stdDeviation=".9"></feGaussianBlur>
 </filter>
     	<rect x="0.3" y="0.1" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.1153 0.1387)" class="gelBase" width="198.3" height="165.3"/>
-    
+
     <g id="dyeTrail6" class="laneFill">
 	<rect x="171.5" y="15.7" class="laneFills" width="20.1" height="129.6" id="ansLane_6"/>
 </g>
@@ -40,7 +40,7 @@
 <g id="dyeTrail0" class="laneFill">
 	<rect x="10.5" y="15.7" class="laneFills" width="20.1" height="129.6" id="ansLane_0"/>
 </g>
-    
+
 <g id="Lane6">
 	<g id="weight8_6" class="bands">
 		<rect x="173.1" y="8.7" class="bandFill" width="15.6" height="3.2"/>
@@ -245,22 +245,22 @@
 	</g>
 </g>
 <g>
-	
-	
+
+
 	<g class="lanes">
-		
+
 			<rect x="171.9" y="149.7" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.2121 0.2538)" id="well_6" class="wells" width="20.1" height="5.2"/>
-		
+
 			<rect x="145" y="149.7" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.2121 0.2163)" id="well_5" class="wells" width="20.1" height="5.2"/>
-		
+
 			<rect x="118.1" y="149.7" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.2122 0.1788)" id="well_4" class="wells" width="20.1" height="5.2"/>
-		
+
 			<rect x="91.2" y="149.7" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.2122 0.1413)" id="well_3" class="wells" width="20.1" height="5.2"/>
-		
+
 			<rect x="64.3" y="149.7" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.2122 0.1038)" id="well_2" class="wells" width="20.1" height="5.2"/>
-		
+
 			<rect x="37.4" y="149.7" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.2122 6.628948e-02)" id="well_1" class="wells" width="20.1" height="5.2"/>
-		
+
 			<rect x="10.5" y="149.7" transform="matrix(1 -1.393918e-03 1.393918e-03 1 -0.2123 2.879296e-02)" id="well_0" class="wells" width="20.1" height="5.2"/>
 	</g>
 </g>

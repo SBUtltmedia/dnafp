@@ -4,6 +4,7 @@ var tipTrayRows = 8,
 state["microtubeState"] = Array(6).fill(microTubeEnum[0])
 state["tipTray"] = Array(tipTrayRows * tipTrayCols).fill(0)
 state["TipPosition"] = false
+state["wellPosition"] = Array(7).fill(0)
 var criteriaPassed;
 
 var voltage = 0;
@@ -427,6 +428,7 @@ var helperFunctions = {
         animate("#bothDays, #bothDays *", 0, "addClass", "opClass");
         animate("#topView, #topView *", 0, "removeClass", "opClass");
         animate("#sideView, #gelVoltageCover, #micropipetTopView, #stainingTray, #zoomOutButton2, #lidBox", 0, "addClass", "opClass")
+        animate(".bands, .laneFill", 0, "addClass", "opClass");
         $("#sideView").append($('#pipetteTip1'));
 
     }, //step 31
@@ -436,20 +438,33 @@ var helperFunctions = {
 
     }, //step 32, 37, 42
     "addTipTop": function (evt) {
+        // if (evt.currentTarget.classList.contains("st3") == false) {
+        //   console.log(selector.classList)
+        // }
         var totalRows = 8;
         var totalCols = 16;
+
+        var tip = state["tipTray"].indexOf(0)
+        var nextColumn = tip % tipTrayCols
+        var nextRow = Math.floor(tip / tipTrayCols);
+        var nextSelector = "tip" + nextColumn + "_" + nextRow
         if (testMode) {
-            var tip = state["tipTray"].indexOf(0)
-            var column = tip % tipTrayCols
-            var row = Math.floor(tip / tipTrayCols);
-            var currentSelector = "tip" + column + "_" + row
+            var [column, row] = [nextColumn, nextRow]
+            var currentSelector =nextSelector
         } else {
             var currentSelector = evt.currentTarget.id;
             var [column, row] = currentSelector.split("tip")[1].split("_")
         }
-        console.log(row, column, state["tipTray"], currentSelector)
-        var selector = "#" + currentSelector + " ellipse,#" + currentSelector + " circle";
-        animate(selector, 500, "attr", ["class", ".st3"])
+
+        var selectorTip = "#" + currentSelector + " ellipse,#" + currentSelector + " circle";
+        if($(selectorTip).hasClass("st3")){
+          var selectorTip = "#" + nextSelector + " ellipse,#" + nextSelector + " circle";
+          var [column, row] = [nextColumn, nextRow]
+        }
+
+
+        animate(selectorTip, 500, "attr", ["class", "st3"])
+        console.log(selectorTip)
         var topMost = 56.6,
             leftMost = 31.2,
             rowHeight = 1.1,
@@ -537,11 +552,20 @@ var helperFunctions = {
     "insertTipPost": function () {
         animate("#svgfluid", 0, "animate", [{y: "100"}])
         animate("#gelWellBoundary", 400, "css", [{
-           "background-image": "radial-gradient(green, #33ccff, blue)"
+           "background-image": "radial-gradient(blue, #5555ff, #5555ff)"
         }])
 
         animate(".side", 3000, "addClass", "opClass")
-
+        animate("#gelWellBoundary", 3400, "css", [{
+           "background-image": "radial-gradient(rgba(59,128,194,.86), rgba(59,128,194,.86), rgba(59,128,194,.86))"
+        }])
+        var well = state["wellPosition"].indexOf(0)
+        console.log(well)
+        var currentWell = "#well_" + well
+        animate(currentWell, 0, "css", [{
+           "fill": "#5555ff"
+        }])
+        state["wellPosition"][well] = 1;
         // setTimeout(function () {
         //     $('#pipetteTip1').css("top", "-80%")
         //     $('#pipetteTip1').css("left", "42%")
@@ -606,7 +630,7 @@ var helperFunctions = {
         // animate(".pressButton, #indicatorArrow0, #indicatorArrow1, #indicatorArrow2, #indicatorArrow3, #indicatorArrow4, #indicatorArrow5, #indicatorArrow6, #zoomOutButton, #zoomOutButton1, #zoomOutButton3, #shelf1, #waterBathNoLid, #waterBathLid",
         //          0, "addClass", "opClass")
         //animate("#emptyGraduatedCylinder, #stainedGel, #gelSideView, #loadDyeBody, #loadDyeCap, #shelf2, #tubeRack, #volumeInput1Form, #volumeButton2", 0, "addClass", "opClass")
-        animate("#bothDays, #day2, .day3, .day3 *,, .microTube, .microTube *, #graduatedCylinder, #stainingTraySide", 0, "removeClass", "opClass")
+        animate("#bothDays, #day2, .day3, .day3 *, .microTube, .microTube *, #graduatedCylinder, #stainingTraySide", 0, "removeClass", "opClass")
         animate("#stainedGel", 0, "css", [{
           "opacity": "0"
         }])
@@ -623,6 +647,7 @@ var helperFunctions = {
         //     opacity: '0.0'
         // }])
         //animate("#stainingTraySide", 3000, "addClass", "opClass")
+        animate(".bands, .laneFill", 0, "removeClass", "opClass");
         animate("#stainedGel", 600, "keyframe", "anim_slowFadeIn")
         animate("#graduatedCylinder", 2000, "keyframe", "anim_pourStainRev")
     }, //step 78
