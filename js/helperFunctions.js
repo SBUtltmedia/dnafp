@@ -403,7 +403,7 @@ var helperFunctions = {
         }
         animate("#s" + tubeId + "Cap", 100, "keyframe", "anim_rotateCap");
         //animate("#pressButton_" + tubeId, 0, "addClass", "opClass");
-        console.log(evt.currentTarget.id)
+        //console.log(evt.currentTarget.id)
         state["microtubeState"][tubeId] = microTubeEnum[6]
     }, //step 29
 
@@ -508,8 +508,7 @@ var helperFunctions = {
             "z-index": 100
         }])
         animate("#svgfluid", 0, "animate", [{y: "40"}])
-        $('#pipetteTip1').draggable();
-        $('#pipetteTip1').draggable('enable');
+        $('#pipetteTip1').draggable({disabled:false,revert:true});
 
 
     }, //step 35,40
@@ -519,7 +518,8 @@ var helperFunctions = {
         var currentBot = parseFloat($('#pipetteTip1').css("bottom")) / sideViewHeight * 100;
         var currentLeft = parseFloat($('#pipetteTip1').css("left")) / sideViewWidth * 100;
         state["TipPosition"] = false
-        if (currentBot < 52) {
+        // console.log(currentBot, currentLeft)
+        if (currentBot < 53.5) {
             if (currentBot < 12 || currentLeft > 67.8 || currentLeft < 19.5) {
                 message("Make sure the tip is not breaching the wall!")
             } else if (currentBot > 40) {
@@ -530,7 +530,7 @@ var helperFunctions = {
                 message("Your tip is going too deep into the well. Don't risk it to breach the wall!")
             } else {
                 state["TipPosition"] = true
-                $('#pipetteTip1').draggable('disable');
+                $('#pipetteTip1').draggable({disabled: true });
             }
             if(state["TipPosition"] == false){
             $('#pipetteTip1').css("top", "-80%")

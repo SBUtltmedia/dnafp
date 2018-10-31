@@ -1345,10 +1345,24 @@ var keyframes =[{ name:'moveTube',
     '100%':{
         opacity: 1
 }},
-
+{ name:'slowFadeIn',
+    '0%':{
+        opacity: 0
+},
+    '100%':{
+        opacity: 1
+}},
 
 
 { name:'quickFadeOut',
+    '0%':{
+        opacity: 1
+},
+    '100%':{
+        opacity: 0
+}},
+
+{ name:'slowFadeOut',
     '0%':{
         opacity: 1
 },
@@ -1473,7 +1487,7 @@ $.keyframe.define(i);
 
 
 function findKeyFrameDef(defName){
-  //console.log(defName)
+  console.log(defName)
 return  keyframes.find(function(element){
     return element.name==defName;
   })["100%"]

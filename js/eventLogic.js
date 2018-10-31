@@ -108,7 +108,7 @@ $(function () {
     loadSVG();
     $('#pipetteTip1').load("img/tip.svg");
     $('#graduatedCylinder').load("img/graduatedCylinder.svg");
-    $('#gelWellBoundary').droppable({tolerance: "touch"});
+    $('#gelWell').droppable({tolerance: "touch"});
 
 //
 //    $.get("img/gelWithLane.svg", function (data) {

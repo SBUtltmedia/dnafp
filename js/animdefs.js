@@ -13,8 +13,8 @@ var animdefs = {
 
     "anim_quickFadeIn": "quickFadeIn .125s 0s 1 linear normal forwards",
     "anim_quickFadeOut": "quickFadeOut .125s 0s 1 linear normal forwards",
-    "anim_slowFadeIn": "quickFadeIn 2s 0s 1 linear normal forwards",
-    "anim_slowFadeOut": "quickFadeOut 2s 0s 1 linear normal forwards",
+    "anim_slowFadeIn": "slowFadeIn 2s 0s 1 linear normal forwards",
+    "anim_slowFadeOut": "slowFadeOut 2s 0s 1 linear normal forwards",
 
 
     "anim_pipetToTube3": "pipetToTube3 3.4s linear 0s 1 normal forwards",

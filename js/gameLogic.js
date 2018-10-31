@@ -146,12 +146,17 @@ function startStep(step) {
 //                console.log(s.logic.postEventFunction)
                 s.logic.postEventFunction()
             }
+            updateScore(10);
+            console.log(score)
             game.nextStep()
+
                 //$("#headerText").fadeTo(300, 0.25);
         }
         else if (s.logic.criteria.messageWrong) {
+
             state[s.logic.criteria.variable] = undefined;
-            message(s.logic.criteria.messageWrong)
+            message(s.logic.criteria.messageWrong);
+            updateScore(-1);
         }
     }
 //    console.log(s)

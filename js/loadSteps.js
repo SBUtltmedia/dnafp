@@ -35,7 +35,6 @@ function loadSteps() {
 
                 , {
                    "id": "setVolume"
-
                    , "shortText": "Enter volume"
                    , "longText": "Set the volume for the micropipette"
                    , "bottomText": "Enter the correct volume (in µl) of fluid to remove"
@@ -113,7 +112,7 @@ function loadSteps() {
                 , {
                     "id": "replaceTip"
                     , "shortText": "Replace tip"
-                    , "longText": "Discard the tip and return the pipette to the rack"
+                    , "longText": "Discard the tip and return the micropipette to the rack"
                     , "bottomText": "Click on the micropipette to eject the tip"
                     , "feedbackText": "complete the third step"
                     , "logic": {
@@ -262,7 +261,7 @@ function loadSteps() {
                     "id": "setTimer"
                     , "shortText": "Set timer"
                     , "longText": "Incubate the tubes for 45 min at 37°C"
-                    , "bottomText":, "Enter the time in the timer"
+                    , "bottomText": "Enter the time in the timer"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#timerForm"
@@ -296,7 +295,8 @@ function loadSteps() {
                 , {
                     "id": "takeDye"
                     , "shortText": "Use micropipette"
-                    , "longText": "Click on the next tip to add it to the micropipette"
+                    , "longText": "Add a tip to the micropipette"
+                    , "bottomText": "Click on the next tip to add it to the micropipette"
                     , "feedbackText": "complete the second step"
                     , "logic": {
                         "eventSelector": ".tip"
@@ -307,7 +307,8 @@ function loadSteps() {
                 , {
                     "id": "setDyeVolume"
                     , "shortText": "Enter volume"
-                    , "longText": "Enter the correct volume (in microliters)"
+                    , "longText": "Set the volume for the micropipette"
+                    , "bottomText": "Enter the correct volume (in µl) of fluid to remove"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#volumeInput1Form"
@@ -323,7 +324,8 @@ function loadSteps() {
                 }, {
                     "id": "openTube1"
                     , "shortText": "Open reaction tube"
-                    , "longText": "Click on the reaction tube to open it"
+                    , "longText": "Open the reaction tube"
+                    , "bottomText": "Click on the reaction tube to open it"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#s0TubeBody"
@@ -337,7 +339,8 @@ function loadSteps() {
                 , {
                     "id": "addDye"
                     , "shortText": "Add enzyme mix"
-                    , "longText": "Click on the micropipette to add the loading dye to the reaction tube"
+                    , "longText": "Add the loading dye to the reaction tube"
+                    , "bottomText": "Click on the micropipette to add the loading dye"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#micropipet2"
@@ -347,7 +350,8 @@ function loadSteps() {
                 }, {
                     "id": "mixContents1"
                     , "shortText": "Mix the Contents"
-                    , "longText": "Pipette rapidly up and down to mix contents"
+                    , "longText": "Pipet up and down carefully to mix well"
+                    , "bottomText": "Click on the micropipette to mix the contents"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#micropipet2"
@@ -358,7 +362,8 @@ function loadSteps() {
                 }, {
                     "id": "replaceTip1"
                     , "shortText": "Replace tip"
-                    , "longText": "Zoom out and discard the tip"
+                    , "longText": "Discard the tip and return the micropipette to the rack"
+                    , "bottomText": "Click on the micropipette to eject the tip"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#micropipet2"
@@ -369,7 +374,8 @@ function loadSteps() {
                  , {
                     "id": "closeTube1"
                     , "shortText": "Close tube cap"
-                    , "longText": "Click on the reaction tube to close the cap"
+                    , "longText": "Close the reaction tube cap"
+                    , "bottomText": "Click on the reaction tube to close the cap"
                     , "feedbackText": "complete the first step"
                     , "logic": {
                         "eventSelector": "#s0Tube"
@@ -384,7 +390,8 @@ function loadSteps() {
                 , {
                     "id": "flickTube1"
                     , "shortText": "Gently flick tube"
-                    , "longText": "Click on the tube to gently flick it"
+                    , "longText": "Gently flick the tube"
+                    , "bottomText": "Click on the tube to gently flick it"
                     , "feedbackText": "complete the second step"
                     , "logic": {
                         "eventSelector": "#s0TubeBody"
@@ -399,7 +406,8 @@ function loadSteps() {
                 , {
                     "id": "tapTube1"
                     , "shortText": "Tap tube on lab bench"
-                    , "longText": "Click on the tube to tap it on the lab bench, ensuring all contents are at the bottom"
+                    , "longText": "Tap the tube on the lab bench, ensuring all contents are at the bottom"
+                    , "bottomText": "Click on the tube to tap it on the lab bench"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#s0TubeBody"
@@ -428,8 +436,9 @@ function loadSteps() {
                 }
                 , {
                     "id": "pressTube1"
-                    , "shortText": "Expose tube bottoms"
-                    , "longText": "Click on the floating tube and open each tube up."
+                    , "shortText": "Open reaction tubes"
+                    , "longText": "Open each tube up"
+                    , "bottomText": "Click on each tube to open it"
                     , "feedbackText": "complete the second step"
                     , "logic": {
                         "eventSelector": ".microTube"
@@ -449,7 +458,8 @@ function loadSteps() {
                 {
                     "id": "removeComb"
                     , "shortText": "Remove Comb"
-                    , "longText": "Click on the gel comb to remove it"
+                    , "longText": "Remove the comb from the gel to expose the wells"
+                    , "bottomText": "Click on the gel comb to remove it"
                     , "feedbackText": "complete the first step"
                     , "logic": {
                         "eventSelector": "#gelCombHitBox"
@@ -460,7 +470,8 @@ function loadSteps() {
                 , {
                     "id": "toTop"
                     , "shortText": "Place gel tray"
-                    , "longText": "Click on the gel electrophoresis chamber"
+                    , "longText": "Place the gel tray in the electrophoresis chamber"
+                    , "bottomText": "Click on the gel electrophoresis chamber"
                     , "feedbackText": "complete the second step"
                     , "logic": {
                         "eventSelector": "#gelSideView"
@@ -471,7 +482,8 @@ function loadSteps() {
                 , {
                     "id": "orientGel"
                     , "shortText": "Orient gel"
-                    , "longText": "Click on one of the arrows to select the direction you'd like the wells to face in the electrophoresis chamber"
+                    , "longText": "Properly orient your gel in the electrophoresis chamber"
+                    , "bottomText": "Click on one of the arrows to select the direction you'd like the wells to face"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#arrowDown"
@@ -487,7 +499,8 @@ function loadSteps() {
                 {
                     "id": "addTipTop1"
                     , "shortText": "Place tip"
-                    , "longText": "Click on any tip in the tip box to add it to the pipette"
+                    , "longText": "Add a tip to the micropipette"
+                    , "bottomText": "Click on any tip to add it to the micropipette"
                     , "feedbackText": "complete the first step"
                     , "logic": {
                         "eventSelector": ".tipTop"
@@ -499,6 +512,7 @@ function loadSteps() {
                     "id": "takeHind"
                     , "shortText": "DNA size marker"
                     , "longText": "Remove 10 uL of HindIII DNA size marker (grey tube)"
+                    , "bottomText": "Click the HindIII DNA size marker (grey tube) to draw it up"
                     , "feedbackText": "complete the second step"
                     , "logic": {
                         "eventSelector": ".tubeTopp"
@@ -515,7 +529,8 @@ function loadSteps() {
                 , {
                     "id": "toLane1"
                     , "shortText": "Put in Lane 1"
-                    , "longText": "Click on the correct well to move the pipette."
+                    , "longText": "Move the micropipette to the correct well"
+                    , "bottomText": "Click on the correct well to move the micropipette."
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": ".wells" //"#well_0"
@@ -532,10 +547,11 @@ function loadSteps() {
                 , {
                     "id": "insertTip1"
                     , "shortText": "Insert tip"
-                    , "longText": "Drag around the tip to position it in the well. Be sure not to breach the walls!"
+                    , "longText": "Place the tip in the well. Be sure not to breach the walls!"
+                    , "bottomText": "Drag around the tip to position it"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#gelWellBoundary"
+                        "eventSelector": "#gelWell"
                         , "eventType": "drop"
                         , "eventFunction": helperFunctions.insertTip
                         , "postEventFunction": helperFunctions.insertTipPost
@@ -548,7 +564,8 @@ function loadSteps() {
                 , {
                     "id": "disposeTip1"
                     , "shortText": "Dispose of tip"
-                    , "longText": "Click on the waste bin to dispose of the tip"
+                    , "longText": "Dispose of the used tip"
+                    , "bottomText": "Click on the waste bin to dispose of the tip"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#wasteBinTop"
@@ -565,7 +582,8 @@ function loadSteps() {
                 {
                     "id": "addTipTop2"
                     , "shortText": "Place tip"
-                    , "longText": "Click on a tip in the tip box to add it to the pipette"
+                    , "longText": "Add a tip to the micropipette"
+                    , "bottomText": "Click on any tip to add it to the micropipette"
                     , "feedbackText": "complete the first step"
                     , "logic": {
                         "eventSelector": ".tipTop"
@@ -576,7 +594,8 @@ function loadSteps() {
                 , {
                     "id": "takeCS"
                     , "shortText": "Crime Suspect DNA"
-                    , "longText": "Remove 10 uL of crime suspect DNA"
+                    , "longText": "Remove 10 uL of crime suspect DNA (green tube)"
+                    , "bottomText": "Click the crime suspect (green tube) to draw it up"
                     , "feedbackText": "complete the second step"
                     , "logic": {
                         "eventSelector": ".tubeTopp"
@@ -593,8 +612,8 @@ function loadSteps() {
                 , {
                     "id": "toLane2"
                     , "shortText": "Put in Lane 2"
-                    , "longText": "Click on the correct well to move the pipette."
-                    , "feedbackText": "complete the third step"
+                    , "longText": "Move the micropipette to the correct well"
+                    , "bottomText": "Click on the correct well to move the micropipette."                    , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": ".wells" //"#well_0"
                         , "eventType": "click" //"click"
@@ -610,8 +629,8 @@ function loadSteps() {
                 , {
                     "id": "insertTip2"
                     , "shortText": "Insert tip"
-                    , "longText": "Drag around the tip to position it in the well. Be sure not to breach the walls!"
-                    , "feedbackText": "complete the third step"
+                    , "longText": "Place the tip in the well. Be sure not to breach the walls!"
+                    , "bottomText": "Drag around the tip to position it"                    , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#gelWellBoundary"
                         , "eventType": "drop"
@@ -626,8 +645,8 @@ function loadSteps() {
                 , {
                     "id": "disposeTip2"
                     , "shortText": "Dispose of tip"
-                    , "longText": "Click on the waste bin to dispose of the tip"
-                    , "feedbackText": "complete the third step"
+                    , "longText": "Dispose of the used tip"
+                    , "bottomText": "Click on the waste bin to dispose of the tip"                    , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#wasteBinTop"
                         , "eventType": "click"
@@ -642,8 +661,8 @@ function loadSteps() {
                 {
                     "id": "addTipTop3"
                     , "shortText": "Place tip"
-                    , "longText": "Click on any tip in the tip box to add it to the pipette"
-                    , "feedbackText": "complete the first step"
+                    , "longText": "Add a tip to the micropipette"
+                    , "bottomText": "Click on any tip to add it to the micropipette"                    , "feedbackText": "complete the first step"
                     , "logic": {
                         "eventSelector": ".tipTop"
                         , "eventType": "click"
@@ -653,8 +672,8 @@ function loadSteps() {
                 , {
                     "id": "takeS1"
                     , "shortText": "Suspect 1 DNA"
-                    , "longText": "Remove 10 uL of suspect 1 DNA"
-                    , "feedbackText": "complete the second step"
+                    , "longText": "Remove 10 uL of suspect 1 (blue tube)"
+                    , "bottomText": "Click the suspect 1 DNA (blue tube) to draw it up"                    , "feedbackText": "complete the second step"
                     , "logic": {
                         "eventSelector": ".tubeTopp"
                         , "eventType": "click"
@@ -670,8 +689,8 @@ function loadSteps() {
                 , {
                     "id": "toLane3"
                     , "shortText": "Put in Lane 3"
-                    , "longText": "Click on the correct well to move the pipette."
-                    , "feedbackText": "complete the third step"
+                    , "longText": "Move the micropipette to the correct well"
+                    , "bottomText": "Click on the correct well to move the micropipette."                    , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": ".wells" //"#well_0"
                         , "eventType": "click" //"click"
@@ -687,8 +706,8 @@ function loadSteps() {
                 , {
                     "id": "insertTip3"
                     , "shortText": "Insert tip"
-                    , "longText": "Drag around the tip to position it in the well. Be sure not to breach the walls!"
-                    , "feedbackText": "complete the third step"
+                    , "longText": "Place the tip in the well. Be sure not to breach the walls!"
+                    , "bottomText": "Drag around the tip to position it"                    , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#gelWellBoundary"
                         , "eventType": "drop"
@@ -703,8 +722,8 @@ function loadSteps() {
                 , {
                     "id": "disposeTip3"
                     , "shortText": "Dispose of tip"
-                    , "longText": "Click on the waste bin to dispose of the tip"
-                    , "feedbackText": "complete the third step"
+                    , "longText": "Dispose of the used tip"
+                    , "bottomText": "Click on the waste bin to dispose of the tip"                    , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#wasteBinTop"
                         , "eventType": "click"
@@ -719,8 +738,8 @@ function loadSteps() {
                 {
                     "id": "addTipTop4"
                     , "shortText": "Place tip"
-                    , "longText": "Click on any tip in the tip box to add it to the pipette"
-                    , "feedbackText": "complete the first step"
+                    , "longText": "Add a tip to the micropipette"
+                    , "bottomText": "Click on any tip to add it to the micropipette"                    , "feedbackText": "complete the first step"
                     , "logic": {
                         "eventSelector": ".tipTop"
                         , "eventType": "click"
@@ -730,7 +749,8 @@ function loadSteps() {
                 , {
                     "id": "takeS2"
                     , "shortText": "Suspect 2 DNA"
-                    , "longText": "Remove 10 uL of suspect 2 DNA"
+                    , "longText": "Remove 10 uL of suspect 2 (orange tube)"
+                    , "bottomText": "Click the suspect 2 DNA (orange tube) to draw it up"
                     , "feedbackText": "complete the second step"
                     , "logic": {
                         "eventSelector": ".tubeTopp"
@@ -747,7 +767,8 @@ function loadSteps() {
                 , {
                     "id": "toLane4"
                     , "shortText": "Put in Lane 4"
-                    , "longText": "Click on the correct well to move the pipette."
+                    , "longText": "Move the micropipette to the correct well"
+                    , "bottomText": "Click on the correct well to move the micropipette."
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": ".wells" //"#well_0"
@@ -764,7 +785,8 @@ function loadSteps() {
                 , {
                     "id": "insertTip4"
                     , "shortText": "Insert tip"
-                    , "longText": "Drag around the tip to position it in the well. Be sure not to breach the walls!"
+                    , "longText": "Place the tip in the well. Be sure not to breach the walls!"
+                    , "bottomText": "Drag around the tip to position it"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#gelWellBoundary"
@@ -780,7 +802,8 @@ function loadSteps() {
                 , {
                     "id": "disposeTip4"
                     , "shortText": "Dispose of tip"
-                    , "longText": "Click on the waste bin to dispose of the tip"
+                    , "longText": "Dispose of the used tip"
+                    , "bottomText": "Click on the waste bin to dispose of the tip"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#wasteBinTop"
@@ -796,7 +819,8 @@ function loadSteps() {
                 {
                     "id": "addTipTop5"
                     , "shortText": "Place tip"
-                    , "longText": "Click on any tip in the tip box to add it to the pipette"
+                    , "longText": "Add a tip to the micropipette"
+                    , "bottomText": "Click on any tip to add it to the micropipette"
                     , "feedbackText": "complete the first step"
                     , "logic": {
                         "eventSelector": ".tipTop"
@@ -807,7 +831,8 @@ function loadSteps() {
                 , {
                     "id": "takeS3"
                     , "shortText": "Suspect 3 DNA"
-                    , "longText": "Remove 10 uL of suspect 3 DNA"
+                    , "longText": "Remove 10 uL of suspect 3 (purple tube)"
+                    , "bottomText": "Click the suspect 3 DNA (purple tube) to draw it up"
                     , "feedbackText": "complete the second step"
                     , "logic": {
                         "eventSelector": ".tubeTopp"
@@ -824,7 +849,8 @@ function loadSteps() {
                 , {
                     "id": "toLane5"
                     , "shortText": "Put in Lane 5"
-                    , "longText": "Click on the correct well to move the pipette."
+                    , "longText": "Move the micropipette to the correct well"
+                    , "bottomText": "Click on the correct well to move the micropipette."
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": ".wells" //"#well_0"
@@ -841,7 +867,8 @@ function loadSteps() {
                 , {
                     "id": "insertTip5"
                     , "shortText": "Insert tip"
-                    , "longText": "Drag around the tip to position it in the well. Be sure not to breach the walls!"
+                    , "longText": "Place the tip in the well. Be sure not to breach the walls!"
+                    , "bottomText": "Drag around the tip to position it"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#gelWellBoundary"
@@ -857,7 +884,8 @@ function loadSteps() {
                 , {
                     "id": "disposeTip5"
                     , "shortText": "Dispose of tip"
-                    , "longText": "Click on the waste bin to dispose of the tip"
+                    , "longText": "Dispose of the used tip"
+                    , "bottomText": "Click on the waste bin to dispose of the tip"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#wasteBinTop"
@@ -873,7 +901,8 @@ function loadSteps() {
                 {
                     "id": "addTipTop6"
                     , "shortText": "Place tip"
-                    , "longText": "Click on any tip in the tip box to add it to the pipette"
+                    , "longText": "Add a tip to the micropipette"
+                    , "bottomText": "Click on any tip to add it to the micropipette"
                     , "feedbackText": "complete the first step"
                     , "logic": {
                         "eventSelector": ".tipTop"
@@ -884,7 +913,8 @@ function loadSteps() {
                 , {
                     "id": "takeS4"
                     , "shortText": "Suspect 4 DNA"
-                    , "longText": "Remove 10 uL of suspect 4 DNA"
+                    , "longText": "Remove 10 uL of suspect 4 (pink tube)"
+                    , "bottomText": "Click the suspect 4 DNA (pink tube) to draw it up"
                     , "feedbackText": "complete the second step"
                     , "logic": {
                         "eventSelector": ".tubeTopp"
@@ -901,7 +931,8 @@ function loadSteps() {
                 , {
                     "id": "toLane6"
                     , "shortText": "Put in Lane 6"
-                    , "longText": "Click on the correct well to move the pipette."
+                    , "longText": "Move the micropipette to the correct well"
+                    , "bottomText": "Click on the correct well to move the micropipette."
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": ".wells" //"#well_0"
@@ -918,7 +949,8 @@ function loadSteps() {
                 , {
                     "id": "insertTip6"
                     , "shortText": "Insert tip"
-                    , "longText": "Drag around the tip to position it in the well. Be sure not to breach the walls!"
+                    , "longText": "Place the tip in the well. Be sure not to breach the walls!"
+                    , "bottomText": "Drag around the tip to position it"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#gelWellBoundary"
@@ -934,7 +966,8 @@ function loadSteps() {
                 , {
                     "id": "disposeTip6"
                     , "shortText": "Dispose of tip"
-                    , "longText": "Click on the waste bin to dispose of the tip"
+                    , "longText": "Dispose of the used tip"
+                    , "bottomText": "Click on the waste bin to dispose of the tip"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#wasteBinTop"
@@ -950,7 +983,8 @@ function loadSteps() {
                 {
                     "id": "addTipTop7"
                     , "shortText": "Place tip"
-                    , "longText": "Click on any tip in the tip box to add it to the pipette"
+                    , "longText": "Add a tip to the micropipette"
+                    , "bottomText": "Click on any tip to add it to the micropipette"
                     , "feedbackText": "complete the first step"
                     , "logic": {
                         "eventSelector": ".tipTop"
@@ -961,7 +995,8 @@ function loadSteps() {
                 , {
                     "id": "takeS5"
                     , "shortText": "Suspect 5 DNA"
-                    , "longText": "Remove 10 uL of suspect 5 DNA"
+                    , "longText": "Remove 10 uL of suspect 5 (yellow tube)"
+                    , "bottomText": "Click the suspect 5 DNA (yellow tube) to draw it up"
                     , "feedbackText": "complete the second step"
                     , "logic": {
                         "eventSelector": ".tubeTopp"
@@ -978,7 +1013,8 @@ function loadSteps() {
                 , {
                     "id": "toLane7"
                     , "shortText": "Put in Lane 7"
-                    , "longText": "Click on the correct well to move the pipette."
+                    , "longText": "Move the micropipette to the correct well"
+                    , "bottomText": "Click on the correct well to move the micropipette."
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": ".wells" //"#well_0"
@@ -995,7 +1031,8 @@ function loadSteps() {
                 , {
                     "id": "insertTip7"
                     , "shortText": "Insert tip"
-                    , "longText": "Drag around the tip to position it in the well. Be sure not to breach the walls!"
+                    , "longText": "Place the tip in the well. Be sure not to breach the walls!"
+                    , "bottomText": "Drag around the tip to position it"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#gelWellBoundary"
@@ -1011,7 +1048,8 @@ function loadSteps() {
                 , {
                     "id": "disposeTip7"
                     , "shortText": "Dispose of tip"
-                    , "longText": "Click on the waste bin to dispose of the tip"
+                    , "longText": "Dispose of the used tip"
+                    , "bottomText": "Click on the waste bin to dispose of the tip"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#wasteBinTop"
@@ -1027,7 +1065,8 @@ function loadSteps() {
                 {
                     "id": "lidOnBox"
                     , "shortText": "Place lid on the gel box"
-                    , "longText": "Click on the lid to place it on the gel electrophoresis chamber"
+                    , "longText": "Place the lid on the gel electrophoresis chamber"
+                    , "bottomText": "Click on the lid to place it on the chamber"
                     , "feedbackText": "complete the first step"
                     , "logic": {
                         "eventSelector": "#lidSide"
@@ -1038,7 +1077,8 @@ function loadSteps() {
                 , {
                     "id": "setVoltage"
                     , "shortText": "Set the voltage"
-                    , "longText": "Click on the arrows to set the power to 100 volts. Allow the gel to run for 30-40 minutes."
+                    , "longText": "Set the power to 100 volts. Allow the gel to run for 30-40 minutes."
+                    , "bottomText": "Click on the arrows to set the power"
                     , "feedbackText": "complete the second step"
                     , "logic": {
                         "eventSelector": ".btnUpAndDown"
@@ -1054,7 +1094,8 @@ function loadSteps() {
                 , {
                     "id": "removeGelLid"
                     , "shortText": "Remove Lid"
-                    , "longText": "Click on the lid to remove it from the gel chamber"
+                    , "longText": "Remove the lid from the electrophoresis chamber"
+                    , "bottomText": "Click on the lid to remove it from the chamber"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#lidBox"
@@ -1065,7 +1106,8 @@ function loadSteps() {
                 , {
                     "id": "removeGel"
                     , "shortText": "Remove gel"
-                    , "longText": "Click on the staining tray to remove the gel from the gel chamber"
+                    , "longText": "Remove the gel tray from the electrophoresis chamber"
+                    , "bottomText": "Click on the staining tray to remove the gel"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#stainingTray"
@@ -1076,7 +1118,8 @@ function loadSteps() {
                 , {
                     "id": "nudgeGel"
                     , "shortText": "Nudge gel"
-                    , "longText": "Click on the gel to nudge it onto the staining tray"
+                    , "longText": "Nudge the gel onto the staining tray"
+                    , "bottomText": "Click on the gel to nudge it"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#gelFinalTop"
@@ -1092,7 +1135,8 @@ function loadSteps() {
                 {
                     "id": "stainGel"
                     , "shortText": "Stain the gel"
-                    , "longText": "Click on the graduated cylinder to stain the gel"
+                    , "longText": "Pour the stain onto the gel in the staining tray"
+                    , "bottomText": "Click on the graduated cylinder to pour the stain"
                     , "feedbackText": "complete the first step"
                     , "logic": {
                         "eventSelector": "#graduatedCylinder"
@@ -1103,7 +1147,8 @@ function loadSteps() {
                 , {
                     "id": "examineGel"
                     , "shortText": "Examine the gel"
-                    , "longText": "Click on the stained gel to examine it"
+                    , "longText": "Examine the stained gel to identify your suspect"
+                    , "bottomText": "Click on the stained gel to examine it"
                     , "feedbackText": "complete the second step"
                     , "logic": {
                         "eventSelector": "#stainedGel"
@@ -1114,7 +1159,8 @@ function loadSteps() {
                 , {
                     "id": "pickLane"
                     , "shortText": "Pick correct lane"
-                    , "longText": "Which suspect's DNA matches the sample found at the crime scene? (Enter 1,2,3,4, or 5)"
+                    , "longText": "Which suspect's DNA matches the sample found at the crime scene?"
+                    , "bottomText": "Click on a lane to select it"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": ".laneFills"
