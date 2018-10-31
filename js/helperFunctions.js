@@ -216,13 +216,9 @@ var helperFunctions = {
     },
 
     "mixContentsPost": function () {
-        $("#zoomOutButton1").click(function () {
-            animate("#view", 0, zoom, [39, 67, 1, 1000]);
-            animate("#zoomOutButton1", 0, "addClass", "opClass");
-        });
-        if (testMode) {
-            $("#zoomOutButton1").trigger("click")
-        }
+
+        animate("#view", 5000, zoom, [39, 67, 1, 1000]);
+
     }, //step 7
 
     "replaceTip": function () {
@@ -282,17 +278,7 @@ var helperFunctions = {
     "checkTemp": function () {
         //        criteriaPassed = true;
         animate("#view", 0, zoom, [65, 21, 10, 1000])
-        animate("#zoomOutButton", 1600, "removeClass", "opClass");
-        $("#zoomOutButton").on("click", function () {
-
-            animate("#view", 0, zoom, [65, 21, 1, 1000]);
-            animate("#zoomOutButton", 0, "addClass", "opClass");
-            $("#zoomOutButton").off();
-        });
-
-        if (testMode) {
-            $("#zoomOutButton").trigger("click");
-        }
+        animate("#view", 5000, zoom, [65, 21, 1, 1000]);
     }, //step 15
     "insertRack": function () {
         animate("#tubeBlock", 0, "keyframe", "anim_insertRack")

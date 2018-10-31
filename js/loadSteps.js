@@ -8,7 +8,7 @@ function loadSteps() {
                 {
                     "id": "liftEnzyme"
                     , "shortText": "Enzyme mix"
-                    , "longText": "Remove the enzyme mix from the ice"
+                    , "longText": "Remove the tube containing enzyme mix from the ice"
                     , "bottomText": "Hover over the tube containing the enzyme mix"
                     , "feedbackText": "complete the first step"
                     , "logic": {
@@ -38,7 +38,7 @@ function loadSteps() {
 
                    , "shortText": "Enter volume"
                    , "longText": "Set the volume for the micropipette"
-                   , "bottomText": "Enter the correct volume (in microliters) of fluid to remove"
+                   , "bottomText": "Enter the correct volume (in µl) of fluid to remove"
                    , "feedbackText": "complete the second step"
                    , "logic": {
                        "eventSelector": "#volumeInputForm"
@@ -113,7 +113,7 @@ function loadSteps() {
                 , {
                     "id": "replaceTip"
                     , "shortText": "Replace tip"
-                    , "longText": "Zoom out and discard the tip. Return the pipette to the rack"
+                    , "longText": "Discard the tip and return the pipette to the rack"
                     , "bottomText": "Click on the micropipette to eject the tip"
                     , "feedbackText": "complete the third step"
                     , "logic": {
@@ -131,8 +131,8 @@ function loadSteps() {
                 {
                     "id": "closeTube"
                     , "shortText": "Close tube cap"
-                    , "longText": "Click on the reaction tube to close the cap"
-                    , "bottomText": "Click on the micropipette to eject the tip"
+                    , "longText": "Close the reaction tube cap"
+                    , "bottomText": "Click on the reaction tube to close the cap"
                     , "feedbackText": "complete the first step"
                     , "logic": {
                         "eventSelector": "#s0TubeBody"
@@ -147,7 +147,8 @@ function loadSteps() {
                 , {
                     "id": "flickTube"
                     , "shortText": "Gently flick tube"
-                    , "longText": "Click on the tube to gently flick it"
+                    , "longText": "Gently flick the tube"
+                    , "bottomText": "Click on the tube to gently flick it"
                     , "feedbackText": "complete the second step"
                     , "logic": {
                         "eventSelector": "#s0TubeBody"
@@ -162,7 +163,8 @@ function loadSteps() {
                 , {
                     "id": "tapTube"
                     , "shortText": "Tap tube on lab bench"
-                    , "longText": "Click on the tube to tap it on the lab bench, ensuring all contents are at the bottom"
+                    , "longText": "Tap the tube on the lab bench, ensuring all contents are at the bottom"
+                    , "bottomText": "Click on the tube to tap it on the lab bench"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#s0TubeBody"
@@ -183,7 +185,8 @@ function loadSteps() {
                 {
                     "id": "tubeRack"
                     , "shortText": "Tubes in floating rack"
-                    , "longText": "Click on the floating rack to return the tubes"
+                    , "longText": "Place the tubes back in the floating rack"
+                    , "bottomText": "Click on the floating rack to return the tubes"
                     , "feedbackText": "complete the first step"
                     , "logic": {
                         "eventSelector": "#tubeBlock"
@@ -199,6 +202,7 @@ function loadSteps() {
                     "id": "pressTube"
                     , "shortText": "Expose tube bottoms"
                     , "longText": "Press each tube down to expose bottoms to the water"
+                    , "bottomText": "Click on each tube to press it down"
                     , "feedbackText": "complete the second step"
                     , "logic": {
                         "eventSelector": ".microTube"
@@ -213,7 +217,8 @@ function loadSteps() {
                 , {
                     "id": "removeLid"
                     , "shortText": "Remove lid"
-                    , "longText": "Click on the water bath lid to remove it"
+                    , "longText": "Remove the water bath lid"
+                    , "bottomText": "Click on the water bath lid to remove it"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#waterBathLid"
@@ -223,7 +228,8 @@ function loadSteps() {
                 }, {
                     "id": "checkTemp"
                     , "shortText": "Check temperature"
-                    , "longText": "Click on the thermometer to check if it is at 37 degrees Celsius"
+                    , "longText": "Check if the thermometer is at 37 degrees Celsius"
+                    , "bottomText": "Click on the thermometer to check it"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#waterBathNoLid"
@@ -233,7 +239,8 @@ function loadSteps() {
                 }, {
                     "id": "insertRack"
                     , "shortText": "Insert floating rack"
-                    , "longText": "Zoom out, then click on the microtube holder to place it in the incubator"
+                    , "longText": "Place the floating rack of microtubes in the incubator"
+                    , "bottomText": "Click on the floating rack"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#tubeBlock"
@@ -243,8 +250,8 @@ function loadSteps() {
                 }, {
                     "id": "closeLid"
                     , "shortText": "Close incubator"
-                    , "longText": "Click on the lid to close the incubator"
-                    //, "bottomText": "Hello Joochan"
+                    , "longText": "Close the lid of the incubator"
+                    , "bottomText": "Click on the lid to close the incubator"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#waterBathLid"
@@ -255,6 +262,7 @@ function loadSteps() {
                     "id": "setTimer"
                     , "shortText": "Set timer"
                     , "longText": "Incubate the tubes for 45 min at 37°C"
+                    , "bottomText":, "Enter the time in the timer"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#timerForm"
@@ -275,7 +283,8 @@ function loadSteps() {
                 {
                     "id": "openDye"
                     , "shortText": "Open loading dye"
-                    , "longText": "Click on the loading dye tube to open it"
+                    , "longText": "Open the loading dye"
+                    , "bottomText": "Click on the loading dye tube to open it"
                     , "feedbackText": "complete the first step"
                     , "logic": {
                         "eventSelector": ".loadingDye"
