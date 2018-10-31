@@ -132,6 +132,7 @@ function loadSteps() {
                     "id": "closeTube"
                     , "shortText": "Close tube cap"
                     , "longText": "Click on the reaction tube to close the cap"
+                    , "bottomText": "Click on the micropipette to eject the tip"
                     , "feedbackText": "complete the first step"
                     , "logic": {
                         "eventSelector": "#s0TubeBody"
