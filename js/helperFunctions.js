@@ -252,21 +252,25 @@ var helperFunctions = {
             animate("#s" + i + "Tube", 1000, "keyframe", "anim_tube" + i + "ToBath");
         }
         animate("#tubeBlock", 1000, "keyframe", "anim_moveBlock");
-        animate(".pressButton", 2000, "removeClass", "opClass")
+        //animate(".pressButton", 2000, "removeClass", "opClass")
 
         state["microtubeState"][0] = microTubeEnum[5];
+        for (i = 0; i <= 5; i++) {
+            animate("#s" + i + "Tube", 0, "addClass", "microTube");
+        }
 
     }, //step 12
     "pressTube": function (evt) {
-        var tubeId = evt.currentTarget.id.split("_")[1];
+        var tubeId = evt.currentTarget.id.charAt(1);
+        console.log(tubeId)
         if (testMode) {
-            animate(".pressButton", 0, "addClass", "opClass");
+            //animate(".pressButton", 0, "addClass", "opClass");
             for (i = 0; i <= 5; i++) {
                 animate("#s" + i + "Tube", 0, "keyframe", "anim_pressTube" + i);
             }
         }
         animate("#s" + tubeId + "Tube", 0, "keyframe", "anim_pressTube" + tubeId);
-        animate("#pressButton_" + tubeId, 50, "addClass", "opClass")
+        //animate("#pressButton_" + tubeId, 50, "addClass", "opClass")
         state["microtubeState"][tubeId] = microTubeEnum[6]
     }, //step 13
 
@@ -293,7 +297,7 @@ var helperFunctions = {
     "insertRack": function () {
         animate("#tubeBlock", 0, "keyframe", "anim_insertRack")
         for (i = 0; i <= 5; i++) {
-            // animate("#s" + i + "Tube", 0, "addClass", "microTube");
+            //animate("#s" + i + "Tube", 0, "addClass", "microTube");
             animate("#s" + i + "Tube", 0, "keyframe", "anim_insertTube" + i);
 
         }
@@ -320,7 +324,7 @@ var helperFunctions = {
         animate(".openButton", 0, "addClass", "opClass")
 
         animate("#day1", 1000, "addClass", "opClass");
-        animate("#day2, #tubeBlock, .microTube", 2000, "removeClass", "opClass")
+        animate("#day2, #tubeBlock, .microTube, #gelSideView", 2000, "removeClass", "opClass")
         animate("#graduatedCylinder, #stainedGel, #stainingTraySide", 0, "addClass", "opClass")
 
         state["microtubeState"] = Array(6).fill(microTubeEnum[0])
@@ -398,28 +402,28 @@ var helperFunctions = {
             animate("#s" + i + "Tube", 1000, "keyframe", "anim_tube" + i + "ToBath");
         }
         animate("#tubeBlock", 1000, "keyframe", "anim_moveBlock");
-        $('.pressButton button').html("Open")
-        animate(".pressButton", 2000, "removeClass", "opClass");
+        //$('.pressButton button').html("Open")
+        //animate(".pressButton", 2000, "removeClass", "opClass");
         state["microtubeState"][0] = microTubeEnum[5];
     }, //step 29
     "pressTube1": function (evt) {
-        var tubeId = evt.currentTarget.id.split("_")[1];
+        var tubeId = evt.currentTarget.id.charAt(1);
 
         if (testMode) {
-            animate(".pressButton", 0, "addClass", "opClass");
+            //animate(".pressButton", 0, "addClass", "opClass");
             for (i = 0; i <= 5; i++) {
                 animate("#s" + i + "Cap", 0, "keyframe", "anim_rotateCap");
             }
         }
         animate("#s" + tubeId + "Cap", 100, "keyframe", "anim_rotateCap");
-        animate("#pressButton_" + tubeId, 0, "addClass", "opClass");
+        //animate("#pressButton_" + tubeId, 0, "addClass", "opClass");
         console.log(evt.currentTarget.id)
         state["microtubeState"][tubeId] = microTubeEnum[6]
     }, //step 29
 
     "removeComb": function () {
         animate("#gelComb", 0, "keyframe", "anim_removeComb")
-        animate("#gelSideView", 1000, "removeClass", "opClass")
+        // animate("#gelSideView", 1000, "removeClass", "opClass")
     }, //step 30
 
     "toTop": function () {
@@ -427,14 +431,14 @@ var helperFunctions = {
         animate("#day1", 0, "addClass", "opClass");
         animate("#bothDays, #bothDays *", 0, "addClass", "opClass");
         animate("#topView, #topView *", 0, "removeClass", "opClass");
-        animate("#sideView, #gelVoltageCover, #micropipetTopView, #stainingTray, #zoomOutButton2, #lidBox", 0, "addClass", "opClass")
+        animate("#sideView, #gelFinalTop, #gelVoltageCover, #micropipetTopView, #stainingTray, #zoomOutButton2, #lidBox", 0, "addClass", "opClass")
         animate(".bands, .laneFill", 0, "addClass", "opClass");
         $("#sideView").append($('#pipetteTip1'));
 
     }, //step 31
     "orientGel": function () {
         animate("#arrowDown,#arrowUp", 0, "addClass", "opClass")
-        animate("#micropipetTopView", 0, "removeClass", "opClass")
+        animate("#micropipetTopView, #gelFinalTop", 0, "removeClass", "opClass")
 
     }, //step 32, 37, 42
     "addTipTop": function (evt) {

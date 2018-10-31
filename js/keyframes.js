@@ -1,5 +1,5 @@
 
-  var tipLocation=0;
+var tipLocation=0;
 var keyframes =[{ name:'moveTube',
     '0%': {
         top: '71.9%'
@@ -638,6 +638,10 @@ var keyframes =[{ name:'moveTube',
 
 { name:'pipetToTube1',
     '0%':{
+        left: '86.4%',
+        top: '28%',
+},
+    '5%':{
         left: '86.4%',
         top: '35%',
 },

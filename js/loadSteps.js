@@ -8,8 +8,8 @@ function loadSteps() {
                 {
                     "id": "liftEnzyme"
                     , "shortText": "Enzyme mix"
-                    , "longText": "Hover over the tube containing the enzyme mix"
-                    , "bottomText": "Remove the enzyme mix from the ice"
+                    , "longText": "Remove the enzyme mix from the ice"
+                    , "bottomText": "Hover over the tube containing the enzyme mix"
                     , "feedbackText": "complete the first step"
                     , "logic": {
                         "eventSelector": "#enzTube"
@@ -22,8 +22,8 @@ function loadSteps() {
                 , {
                     "id": "openEnzyme"
                     , "shortText": "Open enzyme mix"
-                    , "longText": "Click on the tube containing the enzyme mix"
-                    , "bottomText": "Open the enzyme mix"
+                    , "longText": "Open the enzyme mix"
+                    , "bottomText": "Click on the tube containing the enzyme mix"
                     , "feedbackText": "complete the first step"
                     , "logic": {
                         "eventSelector": "#enzTube"
@@ -37,8 +37,8 @@ function loadSteps() {
                    "id": "setVolume"
 
                    , "shortText": "Enter volume"
-                   , "longText": "Enter the correct volume (in microliters) of fluid to remove"
-                   , "bottomText": ""
+                   , "longText": "Set the volume for the micropipette"
+                   , "bottomText": "Enter the correct volume (in microliters) of fluid to remove"
                    , "feedbackText": "complete the second step"
                    , "logic": {
                        "eventSelector": "#volumeInputForm"
@@ -56,7 +56,8 @@ function loadSteps() {
                 , {
                     "id": "takeEnzyme"
                     , "shortText": "Use micropipette"
-                    , "longText": "Click on any tip to place it on the pipette"
+                    , "longText": "Add a tip to the micropipette"
+                    , "bottomText": "Click on any tip to place it on the micropipette"
                     , "feedbackText": "complete the second step"
                     , "logic": {
                         "eventSelector": ".tip"
@@ -68,7 +69,8 @@ function loadSteps() {
                 , {
                     "id": "openTube"
                     , "shortText": "Open reaction tube"
-                    , "longText": "Click on the reaction tube to open it"
+                    , "longText": "Open the reaction tube"
+                    , "bottomText": "Click on the reaction tube to open it"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#s0TubeBody"
@@ -87,6 +89,7 @@ function loadSteps() {
 
                     , "shortText": "Add enzyme mix"
                     , "longText": "Pipet 10 µl of enzyme mix into the very bottom of the tube"
+                    , "bottomText": "Click on the micropipette to take up the enzyme mix"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#micropipet2"
@@ -98,9 +101,10 @@ function loadSteps() {
                     "id": "mixContents"
                     , "shortText": "Mix the Contents"
                     , "longText": "Pipet up and down carefully to mix well"
+                    , "bottomText": "Click on the micropipette to mix the contents"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#mixContentsButton"
+                        "eventSelector": "#micropipet2"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.mixContents
                         , "postEventFunction": helperFunctions.mixContentsPost
@@ -109,10 +113,11 @@ function loadSteps() {
                 , {
                     "id": "replaceTip"
                     , "shortText": "Replace tip"
-                    , "longText": "Zoom out and discard the tip. Return the pipette to the rack."
+                    , "longText": "Zoom out and discard the tip. Return the pipette to the rack"
+                    , "bottomText": "Click on the micropipette to eject the tip"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#ejectButton"
+                        "eventSelector": "#micropipet2"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.replaceTip
                     }
@@ -177,10 +182,10 @@ function loadSteps() {
                 {
                     "id": "tubeRack"
                     , "shortText": "Tubes in floating rack"
-                    , "longText": "Click on each tube to place it in the floating rack"
+                    , "longText": "Click on the floating rack to return the tubes"
                     , "feedbackText": "complete the first step"
                     , "logic": {
-                        "eventSelector": "#s0TubeBody"
+                        "eventSelector": "#tubeBlock"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.tubeRack
                         , "criteria": {
@@ -192,10 +197,10 @@ function loadSteps() {
                 , {
                     "id": "pressTube"
                     , "shortText": "Expose tube bottoms"
-                    , "longText": "Click on the floating rack and push each tube down to expose bottoms to the water"
+                    , "longText": "Press each tube down to expose bottoms to the water"
                     , "feedbackText": "complete the second step"
                     , "logic": {
-                        "eventSelector": ".pressButton"
+                        "eventSelector": ".microTube"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.pressTube
                         , "criteria": {
@@ -335,7 +340,7 @@ function loadSteps() {
                     , "longText": "Pipette rapidly up and down to mix contents"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#mixContentsButton"
+                        "eventSelector": "#micropipet2"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.mixContents1
                         , "postEventFunction": helperFunctions.mixContents1Post
@@ -346,7 +351,7 @@ function loadSteps() {
                     , "longText": "Zoom out and discard the tip"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#ejectButton"
+                        "eventSelector": "#micropipet2"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.replaceTip1
                     }
@@ -402,7 +407,7 @@ function loadSteps() {
                     , "longText": "Click on the tube to place it in the floating rack"
                     , "feedbackText": "complete the first step"
                     , "logic": {
-                        "eventSelector": "#s0TubeBody"
+                        "eventSelector": "#tubeBlock"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.tubeRack1
                         , "criteria": {
@@ -417,7 +422,7 @@ function loadSteps() {
                     , "longText": "Click on the floating tube and open each tube up."
                     , "feedbackText": "complete the second step"
                     , "logic": {
-                        "eventSelector": ".pressButton"
+                        "eventSelector": ".microTube"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.pressTube1
                         , "criteria": {
