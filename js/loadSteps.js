@@ -422,7 +422,8 @@ function loadSteps() {
                 , {
                     "id": "tubeRack1"
                     , "shortText": "Tubes in floating rack"
-                    , "longText": "Click on the tube to place it in the floating rack"
+                    , "longText": "Place the tubes back in the floating rack"
+                    , "bottomText": "Click on the floating rack to return the tubes"
                     , "feedbackText": "complete the first step"
                     , "logic": {
                         "eventSelector": "#tubeBlock"

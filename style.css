@@ -177,7 +177,7 @@ button, input[type="submit"], input[type="reset"] {
     width: 18%;
     height: 6%;
     left: 59.88%;
-    top: 21.6%;
+    top: 21.64%;
     position: absolute;
     background-image: url(img/water_bath_lid.svg);
     background-repeat: no-repeat;
@@ -311,43 +311,44 @@ button, input[type="submit"], input[type="reset"] {
 #s0Cap {
     left: 5%;
     top: 0%;
-    background-image: url(img/csCap.svg);
+
+      /* img/csCap.svg); */
     transform-origin: 4% 29%;
 }
 
 #s1Cap {
-    left: -2%;
+    left: 5%;
     top: 0%;
-    background-image: url(img/s1Cap.svg);
-    transform-origin: 1% 22%;
+    /* background-image: url(img/csCap.svg); */
+    transform-origin: 4% 29%;
 }
 
 #s2Cap {
-    left: -2%;
+    left: 5%;
     top: 0%;
-    background-image: url(img/s2Cap.svg);
-    transform-origin: 2% 16%;
+    /* background-image: url(img/csCap.svg); */
+    transform-origin: 4% 29%;
 }
 
 #s3Cap {
-    left: -2%;
+    left: 5%;
     top: 0%;
-    background-image: url(img/s3Cap.svg);
-    transform-origin: 4% 21%;
+    /* background-image: url(img/csCap.svg); */
+    transform-origin: 4% 29%;
 }
 
 #s4Cap {
-    left: -2%;
+    left: 5%;
     top: 0%;
-    background-image: url(img/s4Cap.svg);
-    transform-origin: 2% 17%;
+    /* background-image: url(img/csCap.svg); */
+    transform-origin: 4% 29%;
 }
 
 #s5Cap {
-    left: -2%;
+    left: 5%;
     top: 0%;
-    background-image: url(img/s5Cap.svg);
-    transform-origin: 5% 20%;
+    /* background-image: url(img/csCap.svg); */
+    transform-origin: 4% 29%;
 }
 
 .microTubeBody {

@@ -109,6 +109,13 @@ $(function () {
     $('#pipetteTip1').load("img/tip.svg");
     $('#graduatedCylinder').load("img/graduatedCylinder.svg");
     $('#gelWell').droppable({tolerance: "touch"});
+    loadCaps();
+
+    // var sCap = $.get("img/csCap.svg", function(data) {
+    //   console.log(data);
+    //   $('#s0Cap').css("background", "url('data:image/svg+xml;utf8,"+data+"')");
+    // })
+
 
 //
 //    $.get("img/gelWithLane.svg", function (data) {
@@ -143,7 +150,32 @@ animate("#indicatorArrow1", 50, "removeClass", "opClass")
 });
 
 
+function loadCaps(){
 
+  var colors =[{color1: "red", color2: "blue"},
+{color1: "red", color2: "purple"},
+{color1: "orange", color2: "red"},
+{color1: "pink", color2: "orange"},
+{color1: "red", color2: "green"},
+{color1: "red", color2: "black"}]
+var j=0;
+  for (var i = 0; i<6; i++) {
+    $.ajax({
+      url: "img/csCapSample.svg",
+      success: function(data) {
+        var svg = data.replace(/(?:\r\n|\r|\n)/g, '')
+       svg=svg.replace(/~color1/g, colors[j].color1)
+         svg=svg.replace(/~color2/g, colors[j].color2)
+        console.log("#s"+j+"Cap");
+        $('#s'+j+'Cap').css("background", "url('data:image/svg+xml;utf8," + svg + "')");
+        j++;
+      },
+      dataType: "text"
+    });
+  }
+
+
+}
 
 function enableOptionButtons() {
     $("#endOption1").click(function () {

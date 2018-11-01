@@ -78,13 +78,7 @@ function jumpToStep(stepName) {
 
         criteriaPassed = true;
         currentStep = game.getCurrentStep();
-//        if (game.getCurrentStep().id == "setVolume") {
-//
-//            animate("#view", 0, zoom, [50, 50, 1, 100])
-//            $("#volumeInput").remove();
-//            $("#volumeButton").remove();
-//            game.nextStep();
-//        }
+
 
         startStep(currentStep)
         endStep(currentStep)

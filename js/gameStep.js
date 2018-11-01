@@ -165,6 +165,7 @@ function Game(props) {
         if (testMode) {
             jumpToStep(hash)
             console.log(testMode)
+          
         }
     }
     this.nextStep = function () {
