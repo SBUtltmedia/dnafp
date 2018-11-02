@@ -451,13 +451,9 @@ $.keyframe.define({ name:'addTip1',
 function makePipetteTippAnimation(tipLocation) {
 
 $.keyframe.define([{ name:'addTipp1',
-     '0%':{
-        left: '14.5%',
-        top: '52%',
-},
-    '8%':{
-        left: '14.5%',
-        top: '44%',
+    '0%':{
+        left: '27.5%',
+        top: '40%',
 },
     '14%':{
         left:tipLocation+"%",

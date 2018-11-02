@@ -1366,7 +1366,7 @@ button, input[type="submit"], input[type="reset"] {
 
 .tubeTopp {
     width: 7%;
-    height: 7%;
+    height: 3.5%;
     left: 33.5%;
     position: absolute;
     background-repeat: no-repeat;
@@ -1377,39 +1377,39 @@ button, input[type="submit"], input[type="reset"] {
 
 #tubeTop_0 {
 /*    ladderTop*/
-    top: 17.5%;
+    top: 20%;
     background-image: url(img/ladderTop.svg);
 
 }
 
 #tubeTop_1 {
 /*    csTop*/
-    top: 22%;
+    top: 24.5%;
     background-image: url(img/csTop.svg);
 }
 
 #tubeTop_2 {
-    top: 26.5%;
+    top: 29%;
     background-image: url(img/s1Top.svg);
 }
 
 #tubeTop_3 {
-    top: 31%;
+    top: 33.5%;
     background-image: url(img/s2Top.svg);
 }
 
 #tubeTop_4 {
-    top: 35.5%;
+    top: 38%;
     background-image: url(img/s3Top.svg);
 }
 
 #tubeTop_5 {
-    top: 40%;
+    top: 42.5%;
     background-image: url(img/s4Top.svg);
 }
 
 #tubeTop_6 {
-    top: 44.5%;
+    top: 47%;
     background-image: url(img/s5Top.svg);
 }
 

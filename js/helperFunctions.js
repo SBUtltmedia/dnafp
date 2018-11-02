@@ -345,6 +345,23 @@ var helperFunctions = {
     state["microtubeState"] = Array(6).fill(microTubeEnum[0])
 
   }, //step 18
+  "prepPipet1": function(evt) {
+    animate("#volumeButton,#volumeInput", 3400, "removeClass", "opClass");
+    animate("#micropipet2", 0, "keyframe", "anim_PrepPipet")
+    animate("#view", 3000, zoom, [25, 46, 9.5, 1000])
+  },
+
+  "setDyeVolume": function() {
+    state["volume"] = $("#volumeInput").val();
+  },
+
+  "setDyeVolumePost": function() {
+    updateScore(10);
+    animate("#volumeButton,#volumeInput", 1, "addClass", "opClass");
+    animate("#view", 0, zoom, [25, 46, 1, 1000])
+
+  }, //step 21
+
   "openDye": function(evt) {
     animate("#loadDye", 0, "keyframe", "anim_moveLoadingDye")
     animate("#loadDyeCap", 0, "keyframe", "anim_rotateCap")
@@ -353,11 +370,7 @@ var helperFunctions = {
   "openDyePost": function() {
     animate("#indicatorArrow0", 0, "removeClass", "opClass")
     animate("#indicatorArrow0", 0, "keyframe", "anim_oscillate")
-    animate("#svgfluid", 10, "animate", [{
-      "y": 100
-    }])
   },
-
   "takeDye": function(evt) {
     var tippNum = betterParseInt(evt.target.id);
     var tippLeft = tips[(tippNum - 1)];
@@ -368,21 +381,9 @@ var helperFunctions = {
     animate("#" + evt.target.id, 0, "keyframe", "anim_hideTipp1")
     animate("#pipetteTip1", 700, "removeClass", "opClass")
     $("#holder").css('z-index', '3');
-    animate("#volumeButton1,#volumeInput1", 5000, "removeClass", "opClass");
-    animate("#view", 3000, zoom, [23, 12, 7, 1400])
-
-
-  }, //step 20
-  "setDyeVolume": function() {
-    state["volume1"] = $("#volumeInput1").val();
-  },
-  "setDyeVolumePost": function() {
-    updateScore(10);
-    animate("#volumeButton1,#volumeInput1", 1, "addClass", "opClass");
-    animate("#view", 0, zoom, [23, 12, 1, 1000])
     animate("#indicatorArrow6", 0, "removeClass", "opClass");
     animate("#indicatorArrow6", 0, "keyframe", "anim_oscillate4")
-  }, //step 21
+  }, //step 20
 
   "openTube1": function(evt) {
     helperFunctions.openTube(evt)
@@ -394,6 +395,8 @@ var helperFunctions = {
     animate("#micropipet2", 0, "keyframe", "anim_addDyeToTube")
     animate("#indicatorArrow2", 0, "keyframe", "anim_oscillate2")
     animate("#indicatorArrow2", 1800, "removeClass", "opClass");
+    animate("#loadDyeCap", 1000, "keyframe", "anim_closeCap")
+    animate("#loadDye", 0, "keyframe", "anim_moveLoadingDyeback")
 
   }, //step 23
   "mixContents1": function() {
@@ -505,7 +508,7 @@ var helperFunctions = {
   }, //step 34
   "takeMicTubePost": function() {
     var tubePickedIndex = state["tubePicked"]
-    var tubeTopPosition = 17
+    var tubeTopPosition = 17.5
     var tubeTopAdd = 4.5
     var tubeTop = tubeTopPosition + tubeTopAdd * tubePickedIndex
 
@@ -609,12 +612,13 @@ var helperFunctions = {
     }]);
   }, //step 72
 
+//To Day3
+
   "clickLid": function() {
     animate("#lidSide, #micropipetTopView", 0, "addClass", "opClass")
     animate("#lidBox, .gelVoltage", 0, "removeClass", "opClass")
     animate("#gelVoltageCover, #powerSupplyUp, #powerSupplyDown, #voltage", 0, "removeClass", "opClass")
     animate("#tipBoxTop, #wasteBinTop", 0, "addClass", "opClass")
-
   }, //step 73
   "setVoltage": function(evt) {
     if ("powerSupplyUp" == evt.currentTarget.id) {
@@ -649,20 +653,13 @@ var helperFunctions = {
       top: '58.5%',
       left: '30.6%',
     }])
-    animate("#topView, #topView *", 0, "addClass", "opClass")
-    $("#day2 *, #day2, #bothDays, #bothDays *").resetKeyframe(function() {});
-    animate("#graduatedCylinder, #stainingTraySide", 0, "removeClass", "opClass")
-    $("#day2, #bothDays, #graduatedCylinder, #stainingTraySide").show()
-    animate("#waterBathNoLid, #waterBathLid, #gelComb, #wasteBasket, #shelf1, #loadDyeCap", 0, "addClass", "opClass")
-
-
-
-    // animate(".pressButton, #indicatorArrow0, #indicatorArrow1, #indicatorArrow2, #indicatorArrow3, #indicatorArrow4, #indicatorArrow5, #indicatorArrow6, #zoomOutButton, #zoomOutButton1, #zoomOutButton3, #shelf1, #waterBathNoLid, #waterBathLid",
-    //          0, "addClass", "opClass")
-    //animate("#emptyGraduatedCylinder, #stainedGel, #gelSideView, #loadDyeBody, #loadDyeCap, #shelf2, #tubeRack, #volumeInput1Form, #volumeButton2", 0, "addClass", "opClass")
-    animate("#bothDays, #day2, .day3, .day3 *, .microTube, .microTube *, #graduatedCylinder, #stainingTraySide", 0, "removeClass", "opClass")
-    animate("#stainedGel", 0, "css", [{
-      "opacity": "0"
+    animate("#topView, #topView *", 2000, "addClass", "opClass")
+    animate("#day2 *, #day2, #bothDays, #bothDays *", 2000, "attr", ["style", ""])
+    animate("#graduatedCylinder, #stainingTraySide", 2000, "removeClass", "opClass")
+    animate("#waterBathNoLid, #waterBathLid, #gelComb, #wasteBasket, #shelf1, #loadDyeCap", 2000, "addClass", "opClass")
+    animate("#bothDays, #day2, .day3, .day3 *, .microTube, .microTube *, #graduatedCylinder, #stainingTraySide", 2000, "removeClass", "opClass")
+    animate("#stainedGel", 2000, "css", [{
+      opacity: 0 //left it with opacity, because of slowFadeIn animation
     }])
 
   }, //step 77
@@ -712,15 +709,9 @@ var helperFunctions = {
     state["lanePickedNumber"] = studentAnswer
   },
   "pickLanePost": function() {
-    animate("#day2, #day2 *", 1000, "animate", [{
-      opacity: '0.0'
-    }]);
     animate("#day2, #day2 *", 1000, "addClass", "opClass")
-
     animate("#day1", 2000, "removeClass", "opClass")
-    animate("#day1", 2000, "animate", [{
-      opacity: '1.0'
-    }])
+    animate("#day1, #bothDays, #bothDays *, #day1 *", 2000, "attr", ["style", ""])
   }
 
 }

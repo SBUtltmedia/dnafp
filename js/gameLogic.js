@@ -127,6 +127,7 @@ function startStep(step) {
     $("#footerText").text(s.bottomText);
     var composite = function (evt) {
         evt.preventDefault();
+        //console.log(s)
         s.logic.eventFunction(evt)
 
         if (testMode && s.logic && s.logic.criteria) {

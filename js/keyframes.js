@@ -540,6 +540,24 @@ var keyframes =[{ name:'moveTube',
         left: '22%',
 }},
 
+{ name:'moveLoadingDyeback',
+    '0%':{
+      top: '30%',
+      left: '22%',
+},
+    '15%':{
+      top: '16%',
+      left: '22%',
+},
+    '70%':{
+      top: '16%',
+      left: '7.8%',
+},
+    '100%':{
+      top: '23.2%',
+      left: '7.8%',
+}},
+
 
 { name:'addDyeToTube',
     '0%':{

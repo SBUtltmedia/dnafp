@@ -41,6 +41,8 @@ var animdefs = {
     "anim_pipetToTube2": "pipetToTube2 3.4s linear 0s 1 normal forwards",
     "anim_returnLoadingDye1": "returnLoadingDye1 2s linear 0s 1 normal forwards",
     "anim_moveLoadingDye": "moveLoadingDye 2s linear 0s 1 normal forwards",
+    "anim_moveLoadingDyeback": "moveLoadingDyeback 2s linear 0s 1 normal forwards",
+
     "anim_moveEnz": "moveEnz 0.5s linear 0s 1 normal forwards",
     "anim_moveEnzBack": "moveEnzBack 1.5s linear 0s 1 normal forwards",
     "anim_removeComb": "removeComb 1s 0s 1 linear normal forwards",

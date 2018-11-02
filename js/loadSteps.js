@@ -279,7 +279,35 @@ function loadSteps() {
             "id": "group4"
             , "shortText": "Add Loading Dye"
             , "steps": [
-                {
+              {
+                    "id": "prepPipet1"
+                    , "shortText": "Prepare micropipet"
+                    , "longText": "Set the volume for the micropipette"
+                    , "bottomText": "Enter the correct volume (in µl) of fluid to remove"
+                    , "feedbackText": "complete the first step"
+                    , "logic": {
+                        "eventSelector": "#micropipet2"
+                        , "eventType": "click"
+                        , "eventFunction": helperFunctions.prepPipet1
+                    }
+              },  {
+                    "id": "setDyeVolume"
+                    , "shortText": "Enter volume"
+                    , "longText": "Set the volume for the micropipette"
+                    , "bottomText": "Enter the correct volume (in µl) of fluid to remove"
+                    , "feedbackText": "complete the third step"
+                    , "logic": {
+                        "eventSelector": "#volumeInputForm"
+                        , "eventType": "submit"
+                        , "eventFunction": helperFunctions.setDyeVolume
+                        , "postEventFunction": helperFunctions.setDyeVolumePost
+                        , "criteria": {
+                            "variable": "volume"
+                            , "value": 5
+                            , "messageWrong": "Incorrect, please enter the approriate volume!"
+                        }
+                      }
+                }, {
                     "id": "openDye"
                     , "shortText": "Open loading dye"
                     , "longText": "Open the loading dye"
@@ -305,23 +333,6 @@ function loadSteps() {
                     }
                 }
                 , {
-                    "id": "setDyeVolume"
-                    , "shortText": "Enter volume"
-                    , "longText": "Set the volume for the micropipette"
-                    , "bottomText": "Enter the correct volume (in µl) of fluid to remove"
-                    , "feedbackText": "complete the third step"
-                    , "logic": {
-                        "eventSelector": "#volumeInput1Form"
-                        , "eventType": "submit"
-                        , "eventFunction": helperFunctions.setDyeVolume
-                        , "postEventFunction": helperFunctions.setDyeVolumePost
-                        , "criteria": {
-                            "variable": "volume1"
-                            , "value": 5
-                            , "messageWrong": "Incorrect, please enter the approriate volume!"
-                        }
-                    }
-                }, {
                     "id": "openTube1"
                     , "shortText": "Open reaction tube"
                     , "longText": "Open the reaction tube"

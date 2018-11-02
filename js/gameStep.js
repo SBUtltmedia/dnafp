@@ -165,7 +165,7 @@ function Game(props) {
         if (testMode) {
             jumpToStep(hash)
             console.log(testMode)
-          
+
         }
     }
     this.nextStep = function () {
@@ -270,9 +270,10 @@ function Step(cur, div, iconDiv) {
     }
     this.animateToPosition = function (line) {
         this.position = line;
-        $(this.div).animate({
-            'top': (10 * line) + "%"
-        }, 250);
+        animate(this.div, 250, "css", [{
+          'top': (10 * line) + "%"
+        }])
+
     }
 }
 // Object representing a collapsable group of steps
@@ -307,9 +308,9 @@ function StepGroup(id, shortText, div, iconDiv) {
     }
     this.animateToPosition = function (line) {
         this.position = line;
-        $(this.div).animate({
-            'top': (10 * line) + "%"
-        }, 250);
+        animate(this.div, 250, "css", [{
+          'top': (10 * line) + "%"
+        }])
     }
     this.isActive = function () {
         return this.state == 1;
