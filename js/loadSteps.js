@@ -633,7 +633,7 @@ function loadSteps() {
                     , "longText": "Place the tip in the well. Be sure not to breach the walls!"
                     , "bottomText": "Drag around the tip to position it"                    , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#gelWellBoundary"
+                        "eventSelector": "#gelWell"
                         , "eventType": "drop"
                         , "eventFunction": helperFunctions.insertTip
                         , "postEventFunction": helperFunctions.insertTipPost
@@ -710,7 +710,7 @@ function loadSteps() {
                     , "longText": "Place the tip in the well. Be sure not to breach the walls!"
                     , "bottomText": "Drag around the tip to position it"                    , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#gelWellBoundary"
+                        "eventSelector": "#gelWell"
                         , "eventType": "drop"
                         , "eventFunction": helperFunctions.insertTip
                         , "postEventFunction": helperFunctions.insertTipPost
@@ -790,7 +790,7 @@ function loadSteps() {
                     , "bottomText": "Drag around the tip to position it"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#gelWellBoundary"
+                        "eventSelector": "#gelWell"
                         , "eventType": "drop"
                         , "eventFunction": helperFunctions.insertTip
                         , "postEventFunction": helperFunctions.insertTipPost
@@ -872,7 +872,7 @@ function loadSteps() {
                     , "bottomText": "Drag around the tip to position it"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#gelWellBoundary"
+                        "eventSelector": "#gelWell"
                         , "eventType": "drop"
                         , "eventFunction": helperFunctions.insertTip
                         , "postEventFunction": helperFunctions.insertTipPost
@@ -954,7 +954,7 @@ function loadSteps() {
                     , "bottomText": "Drag around the tip to position it"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#gelWellBoundary"
+                        "eventSelector": "#gelWell"
                         , "eventType": "drop"
                         , "eventFunction": helperFunctions.insertTip
                         , "postEventFunction": helperFunctions.insertTipPost
@@ -1036,7 +1036,7 @@ function loadSteps() {
                     , "bottomText": "Drag around the tip to position it"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#gelWellBoundary"
+                        "eventSelector": "#gelWell"
                         , "eventType": "drop"
                         , "eventFunction": helperFunctions.insertTip
                         , "postEventFunction": helperFunctions.insertTipPost

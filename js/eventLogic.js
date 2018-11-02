@@ -105,6 +105,7 @@ var tips = [18.2, 19, 19.8, 20.6, 21.4, 22.2, 23, 24.8, 25.6, 26.4, 26.8, 27.3]
 //var breach = false;
 var breach = false;
 $(function () {
+
     loadSVG();
     $('#pipetteTip1').load("img/tip.svg");
     $('#graduatedCylinder').load("img/graduatedCylinder.svg");
@@ -152,9 +153,9 @@ animate("#indicatorArrow1", 50, "removeClass", "opClass")
 
 function loadCaps(){
 
-  var colors =[{color1: "red", color2: "blue"},
-{color1: "red", color2: "purple"},
-{color1: "orange", color2: "red"},
+  var colors =[{color1: "green", color2: "green"},
+{color1: "purple", color2: "purple"},
+{color1: "orange", color2: "orange"},
 {color1: "pink", color2: "orange"},
 {color1: "red", color2: "green"},
 {color1: "red", color2: "black"}]
@@ -247,106 +248,15 @@ function continueLoading() {
     //
     //Back button in progress
     //
-    var goBack = localStorage.setItem("backCount", 0)
+
     var current = window.location.href.split("#")[0]
 
-    $("#zoomOutButton1a").click(function () {
-        zoom(50, 50, 1, 1000)
-        $("#zoomOutButton1a").animate({
-            opacity: '0.0'
-        });
-    });
-//    $("#zoomOutButton1").click(function () {
-//        zoom(50, 50, 1, 1000)
-//        $("#zoomOutButton1").animate({
-//            opacity: '0.0'
-//        });
-//    });
-    $("#csTop").click(function () {
-        if ((game.getCurrentStep().id == "takeCS")) {
-            $("#micropipetTopView").animate({
-                "left": '36.5%',
-                "top": '21.5%'
-            });
-            // game.nextStep();
-            updateScore(10);
-        }
-    });
-    $("#s1Top").click(function () {
-        if ((game.getCurrentStep().id == "takeS1")) {
-            $("#micropipetTopView").animate({
-                "left": '36.5%',
-                "top": '26%'
-            });
-            // game.nextStep();
-            updateScore(10);
-        }
-    });
-    $("#s2Top").click(function () {
-        if ((game.getCurrentStep().id == "takeS2")) {
-            $("#micropipetTopView").animate({
-                "left": '36.5%',
-                "top": '30.5%'
-            });
-            // game.nextStep();
-            updateScore(10);
-        }
-    });
-    $("#s3Top").click(function () {
-        if ((game.getCurrentStep().id == "takeS3")) {
-            $("#micropipetTopView").animate({
-                "left": '36.5%',
-                "top": '35%'
-            });
-            // game.nextStep();
-            updateScore(10);
-        }
-    });
-    $("#s4Top").click(function () {
-        if ((game.getCurrentStep().id == "takeS4")) {
-            $("#micropipetTopView").animate({
-                "left": '36.5%',
-                "top": '39.5%'
-            });
-            // game.nextStep();
-            updateScore(10);
-        }
-    });
-    $("#s5Top").click(function () {
-        if ((game.getCurrentStep().id == "takeS5")) {
-            $("#micropipetTopView").animate({
-                "left": '36.5%',
-                "top": '44%'
-            });
-            // game.nextStep();
-            updateScore(10);
-        }
-    });
-    $("#zoomOutButton2").click(function () {
-        if ((game.getCurrentStep().id == "stainGel")) {
-            $(".side").addClass("anim_toTopView2")
-            $(".topView").addClass("anim_toTopView2")
-            $(".holderTop").addClass("anim_toTopView2")
-            $("day1").addClass("anim_toTopView2")
-            $("#zoomOutButton2").animate({
-                opacity: '0.0'
-            });
-            $(".day2").attr("class", " anim_toFrontView");
-        }
-    });
-    $("#zoomOutButton3").click(function () {
-        zoom(50, 50, 1, 100)
-        $("#zoomOutButton3").animate({
-            opacity: '0.0'
-        });
-    });
+
+
     var answerButton = document.getElementById("answerButton");
     $("#arrowUp").click(function () {
         message("Incorrect. Please ensure the wells of the gel are on the cathode (-) side.")
         updateScore(-10);
-    });
-    $("#micropipet0").click(function () {
-        $("#micropipet0").addClass("anim_movePipet");
     });
 
    ['#pressButton_0',
