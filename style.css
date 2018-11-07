@@ -300,55 +300,15 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 .microTubeCap {
-    width: 100%;
+    width: 90%;
     height: 20%;
+    left: 4%;
+    top: 0%;
+    transform-origin: 4% 29%;
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
-    z-index: 0; /*z-index: 2;*/
-}
-
-#s0Cap {
-    left: 5%;
-    top: 0%;
-
-      /* img/csCap.svg); */
-    transform-origin: 4% 29%;
-}
-
-#s1Cap {
-    left: 5%;
-    top: 0%;
-    /* background-image: url(img/csCap.svg); */
-    transform-origin: 4% 29%;
-}
-
-#s2Cap {
-    left: 5%;
-    top: 0%;
-    /* background-image: url(img/csCap.svg); */
-    transform-origin: 4% 29%;
-}
-
-#s3Cap {
-    left: 5%;
-    top: 0%;
-    /* background-image: url(img/csCap.svg); */
-    transform-origin: 4% 29%;
-}
-
-#s4Cap {
-    left: 5%;
-    top: 0%;
-    /* background-image: url(img/csCap.svg); */
-    transform-origin: 4% 29%;
-}
-
-#s5Cap {
-    left: 5%;
-    top: 0%;
-    /* background-image: url(img/csCap.svg); */
-    transform-origin: 4% 29%;
+    z-index: 2; /*z-index: 2;*/
 }
 
 .microTubeBody {
@@ -1091,31 +1051,27 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 #arrowDown {
-    width: 10%;
-    height: 15%;
-    left: 52%;
+    width: 5%;
+    height: 16%;
+    left: 55%;
     top: 10%;
     position: absolute;
     background-image: url(img/arrowDown.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
-    visibility: visible;
-    z-index: 0; /*z-index: 200;*/
 }
 
 #arrowUp {
-    width: 10%;
-    height: 15%;
-    left: 58%;
+    width: 5%;
+    height: 16%;
+    left: 60%;
     top: 10%;
     position: absolute;
     background-image: url(img/arrowUp.svg);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
-    visibility: visible;
-    z-index: 0; /*z-index: 200;*/
 }
 
 #gelTopView {

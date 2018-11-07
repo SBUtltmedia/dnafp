@@ -72,7 +72,7 @@ function loadSteps() {
                     , "bottomText": "Click on the reaction tube to open it"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#s0TubeBody"
+                        "eventSelector": "#s0Tube"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.openTube
                         , "criteria": {
@@ -113,10 +113,10 @@ function loadSteps() {
                     "id": "replaceTip"
                     , "shortText": "Replace tip"
                     , "longText": "Discard the tip and return the micropipette to the rack"
-                    , "bottomText": "Click on the micropipette to eject the tip"
+                    , "bottomText": "Click on the waste bin to eject the tip"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#micropipet2"
+                        "eventSelector": "#wasteBasket"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.replaceTip
                     }
@@ -134,7 +134,7 @@ function loadSteps() {
                     , "bottomText": "Click on the reaction tube to close the cap"
                     , "feedbackText": "complete the first step"
                     , "logic": {
-                        "eventSelector": "#s0TubeBody"
+                        "eventSelector": "#s0Tube"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.closeTube
                         , "criteria": {
@@ -150,7 +150,7 @@ function loadSteps() {
                     , "bottomText": "Click on the tube to gently flick it"
                     , "feedbackText": "complete the second step"
                     , "logic": {
-                        "eventSelector": "#s0TubeBody"
+                        "eventSelector": "#s0Tube"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.flickTube
                         , "criteria": {
@@ -166,7 +166,7 @@ function loadSteps() {
                     , "bottomText": "Click on the tube to tap it on the lab bench"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#s0TubeBody"
+                        "eventSelector": "#s0Tube"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.tapTube
                         //, "postEventFunction": helperFunctions.afterTapTube
@@ -188,7 +188,7 @@ function loadSteps() {
                     , "bottomText": "Click on the floating rack to return the tubes"
                     , "feedbackText": "complete the first step"
                     , "logic": {
-                        "eventSelector": "#tubeBlock"
+                        "eventSelector": "#s0Tube"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.tubeRack
                         , "criteria": {
@@ -339,7 +339,7 @@ function loadSteps() {
                     , "bottomText": "Click on the reaction tube to open it"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#s0TubeBody"
+                        "eventSelector": "#s0Tube"
                         , "eventType": "click"
                         , "eventFunction":helperFunctions.openTube1
                         , "criteria": {
@@ -374,10 +374,10 @@ function loadSteps() {
                     "id": "replaceTip1"
                     , "shortText": "Replace tip"
                     , "longText": "Discard the tip and return the micropipette to the rack"
-                    , "bottomText": "Click on the micropipette to eject the tip"
+                    , "bottomText": "Click on the waste bin to eject the tip"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#micropipet2"
+                        "eventSelector": "#wasteBasket"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.replaceTip1
                     }
@@ -405,7 +405,7 @@ function loadSteps() {
                     , "bottomText": "Click on the tube to gently flick it"
                     , "feedbackText": "complete the second step"
                     , "logic": {
-                        "eventSelector": "#s0TubeBody"
+                        "eventSelector": "#s0Tube"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.flickTube1
                         , "criteria": {
@@ -421,7 +421,7 @@ function loadSteps() {
                     , "bottomText": "Click on the tube to tap it on the lab bench"
                     , "feedbackText": "complete the third step"
                     , "logic": {
-                        "eventSelector": "#s0TubeBody"
+                        "eventSelector": "#s0Tube"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.tapTube1
                         , "criteria": {

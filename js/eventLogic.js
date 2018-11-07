@@ -153,12 +153,12 @@ animate("#indicatorArrow1", 50, "removeClass", "opClass")
 
 function loadCaps(){
 
-  var colors =[{color1: "green", color2: "green"},
-{color1: "purple", color2: "purple"},
-{color1: "orange", color2: "orange"},
-{color1: "pink", color2: "orange"},
-{color1: "red", color2: "green"},
-{color1: "red", color2: "black"}]
+  var colors =[{color1: "green", color2: "black"},
+{color1: "blue", color2: "black"},
+{color1: "orange", color2: "black"},
+{color1: "purple", color2: "black"},
+{color1: "red", color2: "black"},
+{color1: "yellow", color2: "black"}]
 var j=0;
   for (var i = 0; i<6; i++) {
     $.ajax({
@@ -168,7 +168,7 @@ var j=0;
        svg=svg.replace(/~color1/g, colors[j].color1)
          svg=svg.replace(/~color2/g, colors[j].color2)
         console.log("#s"+j+"Cap");
-        $('#s'+j+'Cap').css("background", "url('data:image/svg+xml;utf8," + svg + "')");
+        $('#s'+j+'Cap').css("background-image", "url('data:image/svg+xml;utf8," + svg + "')");
         j++;
       },
       dataType: "text"

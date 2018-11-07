@@ -1390,15 +1390,13 @@ var keyframes =[{ name:'moveTube',
 
 { name:'removeComb',
     '0%':{
-        top: '71%',
+        top: '70%',
 },
     '90%':{
         top: '66%',
-        opacity: 1
 },
     '100%':{
         top: '66%',
-        opacity: 0
 }},
 
 

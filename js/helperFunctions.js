@@ -138,6 +138,7 @@ function animate(selector, delay, method, param, callback = () => {}) {
 var helperFunctions = {
   //step 0
   "liftEnzyme": function() {
+
     animate("#enzTube", 0, "keyframe", "anim_moveEnz")
     $("#indicatorArrow1").remove();
   }, //step 1
@@ -212,7 +213,7 @@ var helperFunctions = {
 
   }, //step 6
   "mixContents": function() {
-    animate("#view", 0, zoom, [39, 67, 12, 1050])
+    animate("#view", 0, zoom, [35, 66, 12, 1050])
     animate("#zoomOutButton1", 4000, "removeClass", "opClass")
     for (i = 1; i < 4; i++) {
       animate("#svgfluid", 1000 * i + 500, "animate", [{
@@ -244,7 +245,7 @@ var helperFunctions = {
 
   "mixContentsPost": function() {
 
-    animate("#view", 5000, zoom, [39, 67, 1, 1000]);
+    animate("#view", 5000, zoom, [35, 66, 1, 1000]);
 
   }, //step 7
 
@@ -340,7 +341,7 @@ var helperFunctions = {
 
     animate("#day1", 1000, "addClass", "opClass");
     animate("#day2, #tubeBlock, .microTube, #gelSideView", 2000, "removeClass", "opClass")
-    animate("#graduatedCylinder, #stainedGel, #stainingTraySide", 0, "addClass", "opClass")
+    animate("#graduatedCylinder, #waterBathNoLid, #waterBathLid, #shelf1, #stainedGel, #stainingTraySide", 0, "addClass", "opClass")
 
     state["microtubeState"] = Array(6).fill(microTubeEnum[0])
 
@@ -365,6 +366,9 @@ var helperFunctions = {
   "openDye": function(evt) {
     animate("#loadDye", 0, "keyframe", "anim_moveLoadingDye")
     animate("#loadDyeCap", 0, "keyframe", "anim_rotateCap")
+    animate("#svgfluid", 0, "animate", [{
+      "y": 100
+    }])
 
   }, //step 19
   "openDyePost": function() {
@@ -395,8 +399,8 @@ var helperFunctions = {
     animate("#micropipet2", 0, "keyframe", "anim_addDyeToTube")
     animate("#indicatorArrow2", 0, "keyframe", "anim_oscillate2")
     animate("#indicatorArrow2", 1800, "removeClass", "opClass");
-    animate("#loadDyeCap", 1000, "keyframe", "anim_closeCap")
-    animate("#loadDye", 0, "keyframe", "anim_moveLoadingDyeback")
+    animate("#loadDyeCap", 500, "keyframe", "anim_closeCap")
+    animate("#loadDye", 1000, "keyframe", "anim_moveLoadingDyeback")
 
   }, //step 23
   "mixContents1": function() {
@@ -431,20 +435,17 @@ var helperFunctions = {
     var tubeId = evt.currentTarget.id.charAt(1);
 
     if (testMode) {
-      //animate(".pressButton", 0, "addClass", "opClass");
       for (i = 0; i <= 5; i++) {
         animate("#s" + i + "Cap", 0, "keyframe", "anim_rotateCap");
       }
     }
     animate("#s" + tubeId + "Cap", 100, "keyframe", "anim_rotateCap");
-    //animate("#pressButton_" + tubeId, 0, "addClass", "opClass");
-    //console.log(evt.currentTarget.id)
     state["microtubeState"][tubeId] = microTubeEnum[6]
   }, //step 29
 
   "removeComb": function() {
     animate("#gelComb", 0, "keyframe", "anim_removeComb")
-    // animate("#gelSideView", 1000, "removeClass", "opClass")
+    animate("#gelComb", 1000, "addClass", "opClass")
   }, //step 30
 
   "toTop": function() {
@@ -470,6 +471,7 @@ var helperFunctions = {
     var totalCols = 16;
 
     var tip = state["tipTray"].indexOf(0)
+    console.log(tip)
     var nextColumn = tip % tipTrayCols
     var nextRow = Math.floor(tip / tipTrayCols);
     var nextSelector = "tip" + nextColumn + "_" + nextRow
@@ -482,9 +484,11 @@ var helperFunctions = {
     }
 
     var selectorTip = "#" + currentSelector + " ellipse,#" + currentSelector + " circle";
-    if ($(selectorTip).hasClass("st3")) {
-      var selectorTip = "#" + nextSelector + " ellipse,#" + nextSelector + " circle";
-      var [column, row] = [nextColumn, nextRow]
+    while ($(selectorTip).hasClass("st3")) {
+      selectorTip = "#" + nextSelector + " ellipse,#" + nextSelector + " circle";
+      [column, row] = [nextColumn, nextRow]
+      nextColumn++
+      nextSelector = "tip" + nextColumn + "_" + nextRow
     }
 
 
@@ -501,6 +505,7 @@ var helperFunctions = {
       "top": microPipetTopViewTop + '%'
     }]);
     state["tipTray"][column + (row * tipTrayRows)] = 1;;
+    console.log(column+(row * tipTrayRows))
   }, //step 33
 
   "takeMicTube": function(evt) {
@@ -570,7 +575,8 @@ var helperFunctions = {
       } else {
         state["TipPosition"] = true
         $('#pipetteTip1').draggable({
-          disabled: true
+          disabled: true,
+          revert: false
         });
       }
       if (state["TipPosition"] == false) {
