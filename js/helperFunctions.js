@@ -627,14 +627,15 @@ var helperFunctions = {
     animate("#tipBoxTop, #wasteBinTop", 0, "addClass", "opClass")
   }, //step 73
   "setVoltage": function(evt) {
-    if ("powerSupplyUp" == evt.currentTarget.id) {
-      updateVoltage(10);;
-      $("#voltage").html(voltage);
-    } else {
-      updateVoltage(-10);;
-      $("#voltage").html(voltage);
-    }
-    state["voltage"] = voltage
+    console.log("fds")
+    // if ("powerSupplyUp" == evt.currentTarget.id) {
+    //   updateVoltage(10);
+    //   $("#voltage").html(voltage);
+    // } else {
+    //   updateVoltage(-10);
+    //   $("#voltage").html(voltage);
+    // }
+    state["voltage"] = $("#voltage").val()
 
   },
   "setVoltagePost": function() {

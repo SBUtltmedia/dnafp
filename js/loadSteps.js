@@ -23,7 +23,7 @@ function loadSteps() {
                     "id": "openEnzyme"
                     , "shortText": "Open enzyme mix"
                     , "longText": "Open the enzyme mix"
-                    , "bottomText": "Click on the tube containing the enzyme mix"
+                    , "bottomText": "Click on the tube containing the enzyme mix to open it"
                     , "feedbackText": "complete the first step"
                     , "logic": {
                         "eventSelector": "#enzTube"
@@ -36,7 +36,7 @@ function loadSteps() {
                 , {
                    "id": "setVolume"
                    , "shortText": "Enter volume"
-                   , "longText": "Set the volume for the micropipette"
+                   , "longText": "Set the volume for the micropipette to 10µl"
                    , "bottomText": "Enter the correct volume (in µl) of fluid to remove"
                    , "feedbackText": "complete the second step"
                    , "logic": {
@@ -68,8 +68,8 @@ function loadSteps() {
                 , {
                     "id": "openTube"
                     , "shortText": "Open reaction tube"
-                    , "longText": "Open the reaction tube"
-                    , "bottomText": "Click on the reaction tube to open it"
+                    , "longText": "Open the crime scene DNA reaction tube (green tube)"
+                    , "bottomText": "Click on the green reaction tube to open it"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#s0Tube"
@@ -130,8 +130,8 @@ function loadSteps() {
                 {
                     "id": "closeTube"
                     , "shortText": "Close tube cap"
-                    , "longText": "Close the reaction tube cap"
-                    , "bottomText": "Click on the reaction tube to close the cap"
+                    , "longText": "Close the crime scene DNA reaction tube cap"
+                    , "bottomText": "Click on the green reaction tube to close the cap"
                     , "feedbackText": "complete the first step"
                     , "logic": {
                         "eventSelector": "#s0Tube"
@@ -188,7 +188,7 @@ function loadSteps() {
                     , "bottomText": "Click on the floating rack to return the tubes"
                     , "feedbackText": "complete the first step"
                     , "logic": {
-                        "eventSelector": "#s0Tube"
+                        "eventSelector": "#tubeBlock"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.tubeRack
                         , "criteria": {
@@ -283,7 +283,7 @@ function loadSteps() {
                     "id": "prepPipet1"
                     , "shortText": "Prepare micropipet"
                     , "longText": "Set the volume for the micropipette"
-                    , "bottomText": "Enter the correct volume (in µl) of fluid to remove"
+                    , "bottomText": "Click to pick up the micropipette"
                     , "feedbackText": "complete the first step"
                     , "logic": {
                         "eventSelector": "#micropipet2"
@@ -293,7 +293,7 @@ function loadSteps() {
               },  {
                     "id": "setDyeVolume"
                     , "shortText": "Enter volume"
-                    , "longText": "Set the volume for the micropipette"
+                    , "longText": "Set the volume for the micropipette to 5µl"
                     , "bottomText": "Enter the correct volume (in µl) of fluid to remove"
                     , "feedbackText": "complete the third step"
                     , "logic": {
@@ -324,7 +324,7 @@ function loadSteps() {
                     "id": "takeDye"
                     , "shortText": "Use micropipette"
                     , "longText": "Add a tip to the micropipette"
-                    , "bottomText": "Click on the next tip to add it to the micropipette"
+                    , "bottomText": "Click on a tip to add it to the micropipette"
                     , "feedbackText": "complete the second step"
                     , "logic": {
                         "eventSelector": ".tip"
@@ -1090,16 +1090,17 @@ function loadSteps() {
                     "id": "setVoltage"
                     , "shortText": "Set the voltage"
                     , "longText": "Set the power to 100 volts. Allow the gel to run for 30-40 minutes."
-                    , "bottomText": "Click on the arrows to set the power"
+                    , "bottomText": "Enter the correct voltage"
                     , "feedbackText": "complete the second step"
                     , "logic": {
-                        "eventSelector": ".btnUpAndDown"
-                        , "eventType": "click"
+                        "eventSelector": "#voltageInputForm"
+                        , "eventType": "submit"
                         , "eventFunction": helperFunctions.setVoltage
                         , "postEventFunction": helperFunctions.setVoltagePost
                         , "criteria": {
                             "variable": "voltage"
                             , "value": 100
+                            , "messageWrong": "Incorrect, please enter the approriate volume!"
                         }
                     }
                 }

@@ -197,7 +197,8 @@ function loadStartMenu(result) {
     $("#endSubText").text(result);
     // Show subtext
     $("#endSubText").css({
-        opacity: 1
+        opacity: 1,
+        "visibility": "visibile"
     });
     // Hide error text
     $(".endErrorText").css({
