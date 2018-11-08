@@ -195,7 +195,16 @@ var helperFunctions = {
 
 
     animate("#s0Tube", 0, "keyframe", "anim_moveTube")
-    animate("#s0Cap", 0, "keyframe", "anim_rotateCap")
+    animate("#s0Tube svg .Cap", 0, "animate", [{
+      "text-indent": -120
+    }, {
+      duration: 500,
+      step: function(now) {
+        rotate = 'rotate('+now+')'
+        $(this).attr("transform", rotate);
+        console.log(rotate);
+      }
+    }])
     animate("#indicatorArrow6", 0, "addClass", "opClass")
 
   }, //step 5
