@@ -258,45 +258,41 @@ button, input[type="submit"], input[type="reset"] {
 /*------------------------------------*/
 .microTube {
     width: 2.9%;
-    height: 7.75%;
+    height: 7%;
+    top: 67.9%;
     position: absolute;
     background-repeat: no-repeat;
     background-size: contain;
     transform-origin: 100% 0%;
     z-index: 0; /*z-index: 2;*/
 }
+/* .microTube svg {
+  position:absolute;
+top:10%;
+} */
 
 #s0Tube {
     left: 35.5%;
-    top: 71.9%;
 }
 
 #s1Tube {
     left: 38%;
-    top: 71.9%;
 }
 
 #s2Tube {
     left: 40.5%; /* width: 2.5%; */
-    top: 71.9%;
 }
 
 #s3Tube {
     left: 43%; /* width: 2.5%; */
-    top: 71.9%;
-
 }
 
 #s4Tube {
     left: 45.5%; /* width: 2.5%; */
-    top: 71.9%;
-/*???*/    transform-origin: left;
 }
 
 #s5Tube {
     left: 48%; /* width: 2.5%; */
-    top: 71.9%;
-    transform-origin: 100% 0%;
 }
 
 .microTubeCap {
@@ -617,92 +613,6 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 
-
-/*#indicatorArrow0 {
-    width: 0.7%;
-    height: 7%;
-    left: 20.8%;
-    top: 62.7%;
-    position: absolute;
-    background-image: url(img/indicatorArrow.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}*/
-
-#indicatorArrow1 {
-    width: 0.7%;
-    height: 7%;
-    left: 88%;
-    top: 60.7%;
-    position: absolute;
-    background-image: url(img/indicatorArrow.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-
-#indicatorArrow2 {
-    width: 0.7%;
-    height: 7%;
-    left: 12%;
-    top: 5.5%;
-    position: absolute;
-    background-image: url(img/indicatorArrowUp.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-
-#indicatorArrow3 {
-    width: 0.7%;
-    height: 7%;
-    left: 20.8%;
-    top: 62.7%;
-    position: absolute;
-    background-image: url(img/indicatorArrowUp.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-
-#indicatorArrow4 {
-    width: 0.7%;
-    height: 7%;
-    left: 20.8%;
-    top: 62.7%;
-    position: absolute;
-    background-image: url(img/indicatorArrow.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-
-#indicatorArrow5 {
-    width: 0.7%;
-    height: 7%;
-    left: 20.8%;
-    top: 62.7%;
-    position: absolute;
-    background-image: url(img/indicatorArrow.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-
-#indicatorArrow6 {
-    width: 0.7%;
-    height: 7%;
-    left: 36.6%;
-    top: 62%;
-    z-index: 0; /*z-index: 1;*/
-    position: absolute;
-    background-image: url(img/indicatorArrow.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-
 /*
 #volumeButton {
     width: 2%;
@@ -742,17 +652,6 @@ button, input[type="submit"], input[type="reset"] {
     /*    font-size: .1rem;*/
 }
 
-#indicatorArrow1 {
-    width: 0.7%;
-    height: 7%;
-    left: 20.8%;
-    top: 62.7%;
-    position: absolute;
-    background-image: url(img/indicatorArrow.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
 
 #volumeInput1 {
     -webkit-appearance: none;
@@ -1578,34 +1477,7 @@ button, input[type="submit"], input[type="reset"] {
     transform-origin: 1.5% 15%;
 }
 
-#indicatorArrow0 {
-    width: 6%;
-    height: 9%;
-    left: 22%;
-    top: 58.7%;
-    position: absolute;
-    background-image: url(img/largeArrow.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
 
-.indicatorArrowClass {
-    width: 0.7%;
-    height: 7%;
-    position: absolute;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-}
-
-#indicatorArrowPointingUp {
-    background-image: url(img/indicatorArrow.svg);
-}
-
-#indicatorArrowPointingDown {
-    background-image: url(img/indicatorArrowUp.svg);
-}
 
 #pipetteTip1 {
     width: 15%;

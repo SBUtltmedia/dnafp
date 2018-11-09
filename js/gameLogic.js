@@ -58,9 +58,6 @@ function newGame(props) {
     game.start();
     updateSteps();
     hideMenu();
-
-    animate("#indicatorArrow1", 50, "removeClass", "opClass");
-    animate("#indicatorArrow1",0,"keyframe", "anim_oscillate1")
     //
 }
 

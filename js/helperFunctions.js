@@ -17,6 +17,22 @@ function updateVoltage(amount) {
   voltage += amount;
 
 }
+var rotateObj = [{
+  "text-indent": -120
+}, {
+  duration: 500,
+  step: function(now) {
+    $(this).attr("transform", 'rotate('+now+')');
+  }
+}]
+var reverseRotateObj=[{
+  "text-indent": 0
+}, {
+  duration: 500,
+  step: function(now) {
+    $(this).attr("transform", 'rotate('+now+')');
+  }
+}]
 
 function zeroTime(def) {
 
@@ -140,7 +156,6 @@ var helperFunctions = {
   "liftEnzyme": function() {
 
     animate("#enzTube", 0, "keyframe", "anim_moveEnz")
-    $("#indicatorArrow1").remove();
   }, //step 1
   "openEnzyme": function() {
     animate("#enzCap", 0, "keyframe", "anim_rotateCap")
@@ -162,15 +177,11 @@ var helperFunctions = {
     animate("#volumeButton,#volumeInput", 1, "addClass", "opClass")
     animate("#view", 0, zoom, [25, 46, 1, 1000])
     animate("#micropipet2", 1100, "keyframe", "anim_lowerPipet")
-
-    animate("#indicatorArrow0", 2000, "removeClass", "opClass")
-    animate("#indicatorArrow0", 2000, "keyframe", "anim_oscillate")
   },
 
 
 
   "takeEnzyme": function(evt) {
-    animate("#indicatorArrow0", 0, "addClass", "opClass")
     var selectedTip = evt.currentTarget.id.split("tip")[1];
 
     var tipNum = betterParseInt(evt.target.id);
@@ -179,8 +190,6 @@ var helperFunctions = {
     console.log(evt.target.id);
     // in event
     makePipetteTipAnimation(tipLeft);
-    animate("#indicatorArrow6", 3000, "removeClass", "opClass")
-    animate("#indicatorArrow6", 3000, "keyframe", "anim_oscillate4")
     animate("#micropipet2", 0, "keyframe", "anim_addTip1")
     animate("#tip" + selectedTip, 0, "keyframe", "anim_hideTip1")
     animate("#pipetteTip1", 600, "removeClass", "opClass")
@@ -195,17 +204,7 @@ var helperFunctions = {
 
 
     animate("#s0Tube", 0, "keyframe", "anim_moveTube")
-    animate("#s0Tube svg .Cap", 0, "animate", [{
-      "text-indent": -120
-    }, {
-      duration: 500,
-      step: function(now) {
-        rotate = 'rotate('+now+')'
-        $(this).attr("transform", rotate);
-        console.log(rotate);
-      }
-    }])
-    animate("#indicatorArrow6", 0, "addClass", "opClass")
+    animate("#s0Tube svg .Cap", 0, "animate", rotateObj)
 
   }, //step 5
   "addEnzyme": function() {
@@ -214,8 +213,6 @@ var helperFunctions = {
     animate("#svgfluid", 10, "animate", [{
       "y": 35.6
     }])
-    animate("#indicatorArrow2", 0, "keyframe", "anim_oscillate2")
-    animate("#indicatorArrow2", 1800, "removeClass", "opClass")
     animate("#enzTube", 1500, "keyframe", "anim_moveEnzBack")
     animate("#enzCap", 1000, "keyframe", "anim_closeCap")
 
@@ -245,11 +242,6 @@ var helperFunctions = {
     animate("#svgfluid", 4500, "animate", [{
       "y": 100
     }])
-
-
-    animate("#indicatorArrow2", 80, "addClass", "opClass");
-    animate("#indicatorArrow3", 80, "removeClass", "opClass");
-    animate("#indicatorArrow3", 0, "keyframe", "anim_oscillate3");
   },
 
   "mixContentsPost": function() {
@@ -264,11 +256,11 @@ var helperFunctions = {
     animate("#pipetteTip1", 2700, "attr", ["style", ""])
     animate("#pipetteTip1", 2700, "addClass", "opClass")
 
-    animate("#indicatorArrow3", 50, "addClass", "opClass")
+
     animate("#micropipet2", 3000, "keyframe", "anim_pipetBacktoNormal")
   },
   "closeTube": function() {
-    animate("#s0Cap", 0, "keyframe", "anim_closeCap")
+    animate("#s0Tube svg .Cap", 0, "animate", reverseRotateObj)
     state["microtubeState"][0] = microTubeEnum[2];
   },
   "flickTube": function() {
@@ -315,7 +307,7 @@ var helperFunctions = {
   "checkTemp": function() {
     //        criteriaPassed = true;
     animate("#view", 0, zoom, [65, 21, 10, 1000])
-    animate("#view", 5000, zoom, [65, 21, 1, 1000]);
+    animate("#view", 55000, zoom, [65, 21, 1, 1000]);
   }, //step 15
   "insertRack": function() {
     animate("#tubeBlock", 0, "keyframe", "anim_insertRack")
@@ -342,7 +334,7 @@ var helperFunctions = {
     animate("#timer,#timerButton", 1, "addClass", "opClass");
     animate("#view", 0, zoom, [65, 36, 1, 1000]);
     animate("#bothDays *, #bothDays, #day1 *", 0, "attr", ["style", ""], () => {
-      loadCaps()
+      loadTubes()
     })
     animate("#pipetteTip1", 0, "addClass", "opClass")
 
@@ -381,21 +373,18 @@ var helperFunctions = {
 
   }, //step 19
   "openDyePost": function() {
-    animate("#indicatorArrow0", 0, "removeClass", "opClass")
-    animate("#indicatorArrow0", 0, "keyframe", "anim_oscillate")
   },
   "takeDye": function(evt) {
     var tippNum = betterParseInt(evt.target.id);
     var tippLeft = tips[(tippNum - 1)];
-    animate("#indicatorArrow0", 0, "addClass", "opClass")
     // in event
     makePipetteTippAnimation(tippLeft);
     animate("#micropipet2", 0, "keyframe", "anim_addTipp1")
     animate("#" + evt.target.id, 0, "keyframe", "anim_hideTipp1")
     animate("#pipetteTip1", 700, "removeClass", "opClass")
     $("#holder").css('z-index', '3');
-    animate("#indicatorArrow6", 0, "removeClass", "opClass");
-    animate("#indicatorArrow6", 0, "keyframe", "anim_oscillate4")
+
+
   }, //step 20
 
   "openTube1": function(evt) {
@@ -406,8 +395,6 @@ var helperFunctions = {
   }, //step 22
   "addDye": function() {
     animate("#micropipet2", 0, "keyframe", "anim_addDyeToTube")
-    animate("#indicatorArrow2", 0, "keyframe", "anim_oscillate2")
-    animate("#indicatorArrow2", 1800, "removeClass", "opClass");
     animate("#loadDyeCap", 500, "keyframe", "anim_closeCap")
     animate("#loadDye", 1000, "keyframe", "anim_moveLoadingDyeback")
 
@@ -445,10 +432,10 @@ var helperFunctions = {
 
     if (testMode) {
       for (i = 0; i <= 5; i++) {
-        animate("#s" + i + "Cap", 0, "keyframe", "anim_rotateCap");
+        animate("#s"+i+"Tube svg .Cap", 0, "animate", rotateObj)
       }
     }
-    animate("#s" + tubeId + "Cap", 100, "keyframe", "anim_rotateCap");
+    animate("#s"+tubeId+"Tube svg .Cap", 0, "animate", rotateObj)
     state["microtubeState"][tubeId] = microTubeEnum[6]
   }, //step 29
 

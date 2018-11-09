@@ -28,25 +28,6 @@
 <path id="rect17022_3_" class="st0" d="M98.4,3L98.4,3c5.5,0,10,12,10,26.8v375.5c0,14.8-4.5,26.8-10,26.8l0,0c-5.5,0-10-12-10-26.8
 	V29.8C88.4,15,92.9,3,98.4,3z"/>
 <g>
-	<line id="line16060_3_" class="st1" x1="96.6" y1="371.4" x2="91.8" y2="371.4"/>
-	<text id="text16062_3_" transform="matrix(0.3903 0 0 1 101.0996 375.0477)" class="st2 st3 st4">30</text>
-	<line id="line16064_3_" class="st1" x1="96.6" y1="366.5" x2="94.7" y2="366.5"/>
-	<line id="line16066_3_" class="st1" x1="96.6" y1="361.7" x2="94.7" y2="361.7"/>
-	<line id="line16068_3_" class="st1" x1="96.6" y1="356.8" x2="94.7" y2="356.8"/>
-	<line id="line16070_3_" class="st1" x1="96.6" y1="352" x2="94.7" y2="352"/>
-	<line id="line16072_3_" class="st1" x1="96.6" y1="347.1" x2="91.8" y2="347.1"/>
-	<text id="text16074_3_" transform="matrix(0.3903 0 0 1 101.0996 350.8035)" class="st2 st3 st4">20</text>
-	<line id="line16076_3_" class="st1" x1="96.6" y1="342.3" x2="94.7" y2="342.3"/>
-	<line id="line16078_3_" class="st1" x1="96.6" y1="337.4" x2="94.7" y2="337.4"/>
-	<line id="line16080_3_" class="st1" x1="96.6" y1="332.6" x2="94.7" y2="332.6"/>
-	<line id="line16082_3_" class="st1" x1="96.6" y1="327.7" x2="94.7" y2="327.7"/>
-	<line id="line16084_3_" class="st1" x1="96.6" y1="322.9" x2="91.8" y2="322.9"/>
-	<text id="text16086_3_" transform="matrix(0.3903 0 0 1 101.0996 326.5604)" class="st2 st3 st4">10</text>
-	<line id="line16088_3_" class="st1" x1="96.6" y1="318" x2="94.7" y2="318"/>
-	<line id="line16090_3_" class="st1" x1="96.6" y1="313.2" x2="94.7" y2="313.2"/>
-	<line id="line16092_3_" class="st1" x1="96.6" y1="308.3" x2="94.7" y2="308.3"/>
-	<line id="line16094_3_" class="st1" x1="96.6" y1="303.5" x2="94.7" y2="303.5"/>
-	<line id="line16096_3_" class="st1" x1="96.6" y1="298.6" x2="91.8" y2="298.6"/>
 	<text id="text16098_3_" transform="matrix(0.3903 0 0 1 102.1533 302.3172)" class="st5 st3 st4">0</text>
 	<line id="line16100_3_" class="st1" x1="96.6" y1="293.8" x2="94.7" y2="293.8"/>
 	<line id="line16102_3_" class="st1" x1="96.6" y1="288.9" x2="94.7" y2="288.9"/>
@@ -116,66 +97,7 @@
 		c0-3.7-1-6.9-2.4-7.9V240.4H97.4L97.4,240.4z"/>
 	<text transform="matrix(0.3903 0 0 1 95.4185 25.7708)" class="st5 st9 st10">°C</text>
 </g>
-<line id="line16060_2_" class="st1" x1="96.6" y1="371.4" x2="91.8" y2="371.4"/>
-<text id="text16062_2_" transform="matrix(0.3903 0 0 1 101.0996 375.0477)" class="st2 st3 st4">30</text>
-<line id="line16064_2_" class="st1" x1="96.6" y1="366.5" x2="94.7" y2="366.5"/>
-<line id="line16066_2_" class="st1" x1="96.6" y1="361.7" x2="94.7" y2="361.7"/>
-<line id="line16068_2_" class="st1" x1="96.6" y1="356.8" x2="94.7" y2="356.8"/>
-<line id="line16070_2_" class="st1" x1="96.6" y1="352" x2="94.7" y2="352"/>
-<line id="line16072_2_" class="st1" x1="96.6" y1="347.1" x2="91.8" y2="347.1"/>
-<text id="text16074_2_" transform="matrix(0.3903 0 0 1 101.0996 350.8035)" class="st2 st3 st4">20</text>
-<line id="line16076_2_" class="st1" x1="96.6" y1="342.3" x2="94.7" y2="342.3"/>
-<line id="line16078_2_" class="st1" x1="96.6" y1="337.4" x2="94.7" y2="337.4"/>
-<line id="line16080_2_" class="st1" x1="96.6" y1="332.6" x2="94.7" y2="332.6"/>
-<line id="line16082_2_" class="st1" x1="96.6" y1="327.7" x2="94.7" y2="327.7"/>
-<line id="line16084_2_" class="st1" x1="96.6" y1="322.9" x2="91.8" y2="322.9"/>
-<text id="text16086_2_" transform="matrix(0.3903 0 0 1 101.0996 326.5604)" class="st2 st3 st4">10</text>
-<line id="line16088_2_" class="st1" x1="96.6" y1="318" x2="94.7" y2="318"/>
-<line id="line16090_2_" class="st1" x1="96.6" y1="313.2" x2="94.7" y2="313.2"/>
-<line id="line16092_2_" class="st1" x1="96.6" y1="308.3" x2="94.7" y2="308.3"/>
-<line id="line16094_2_" class="st1" x1="96.6" y1="303.5" x2="94.7" y2="303.5"/>
-<line id="line16096_2_" class="st1" x1="96.6" y1="298.6" x2="91.8" y2="298.6"/>
-<text id="text16098_2_" transform="matrix(0.3903 0 0 1 102.1533 302.3172)" class="st5 st3 st4">0</text>
-<line id="line16100_2_" class="st1" x1="96.6" y1="293.8" x2="94.7" y2="293.8"/>
-<line id="line16102_2_" class="st1" x1="96.6" y1="288.9" x2="94.7" y2="288.9"/>
-<line id="line16104_2_" class="st1" x1="96.6" y1="284.1" x2="94.7" y2="284.1"/>
-<line id="line16106_2_" class="st1" x1="96.6" y1="279.2" x2="94.7" y2="279.2"/>
-<line id="line16108_2_" class="st1" x1="96.6" y1="274.4" x2="91.8" y2="274.4"/>
-<text id="text16110_2_" transform="matrix(0.3903 0 0 1 101.0996 278.0731)" class="st5 st3 st4">10</text>
-<line id="line16112_2_" class="st1" x1="96.6" y1="269.5" x2="94.7" y2="269.5"/>
-<line id="line16114_2_" class="st1" x1="96.6" y1="264.7" x2="94.7" y2="264.7"/>
-<line id="line16116_2_" class="st1" x1="96.6" y1="259.8" x2="94.7" y2="259.8"/>
-<line id="line16118_2_" class="st1" x1="96.6" y1="255" x2="94.7" y2="255"/>
-<line id="line16120_2_" class="st1" x1="96.6" y1="250.2" x2="91.8" y2="250.2"/>
-<text id="text16122_2_" transform="matrix(0.3903 0 0 1 101.0996 253.8294)" class="st5 st3 st4">20</text>
-<line id="line16124_2_" class="st1" x1="96.6" y1="245.3" x2="94.7" y2="245.3"/>
-<line id="line16126_2_" class="st1" x1="96.6" y1="240.5" x2="94.7" y2="240.5"/>
-<line id="line16128_2_" class="st1" x1="96.6" y1="235.6" x2="94.7" y2="235.6"/>
-<line id="line16130_2_" class="st1" x1="96.6" y1="230.8" x2="94.7" y2="230.8"/>
-<line id="line16132_2_" class="st1" x1="96.6" y1="225.9" x2="91.8" y2="225.9"/>
-<text id="text16134_2_" transform="matrix(0.3903 0 0 1 101.0996 229.5853)" class="st5 st3 st4">30</text>
-<line id="line16136_2_" class="st1" x1="96.6" y1="221.1" x2="94.7" y2="221.1"/>
-<line id="line16138_2_" class="st1" x1="96.6" y1="216.2" x2="94.7" y2="216.2"/>
-<line id="line16140_2_" class="st1" x1="96.6" y1="211.4" x2="94.7" y2="211.4"/>
-<line id="line16142_2_" class="st1" x1="96.6" y1="206.5" x2="94.7" y2="206.5"/>
-<line id="line16144_2_" class="st1" x1="96.6" y1="201.7" x2="91.8" y2="201.7"/>
-<text id="text16146_2_" transform="matrix(0.3903 0 0 1 101.0996 205.3411)" class="st5 st3 st4">40</text>
-<line id="line16148_2_" class="st1" x1="96.6" y1="196.8" x2="94.7" y2="196.8"/>
-<line id="line16150_2_" class="st1" x1="96.6" y1="192" x2="94.7" y2="192"/>
-<line id="line16152_2_" class="st1" x1="96.6" y1="187.1" x2="94.7" y2="187.1"/>
-<line id="line16154_2_" class="st1" x1="96.6" y1="182.3" x2="94.7" y2="182.3"/>
-<line id="line16156_2_" class="st1" x1="96.6" y1="177.4" x2="91.8" y2="177.4"/>
-<text id="text16158_2_" transform="matrix(0.3903 0 0 1 101.0996 181.099)" class="st5 st3 st4">50</text>
-<line id="line16160_2_" class="st1" x1="96.6" y1="172.6" x2="94.7" y2="172.6"/>
-<line id="line16162_2_" class="st1" x1="96.6" y1="167.7" x2="94.7" y2="167.7"/>
-<line id="line16164_2_" class="st1" x1="96.6" y1="162.9" x2="94.7" y2="162.9"/>
-<line id="line16166_2_" class="st1" x1="96.6" y1="158" x2="94.7" y2="158"/>
-<line id="line16168_2_" class="st1" x1="96.6" y1="153.2" x2="91.8" y2="153.2"/>
-<text id="text16170_2_" transform="matrix(0.3903 0 0 1 101.0996 156.8548)" class="st5 st3 st4">60</text>
-<line id="line16172_2_" class="st1" x1="96.6" y1="148.3" x2="94.7" y2="148.3"/>
-<line id="line16174_2_" class="st1" x1="96.6" y1="143.5" x2="94.7" y2="143.5"/>
-<line id="line16176_2_" class="st1" x1="96.6" y1="138.6" x2="94.7" y2="138.6"/>
-<text id="text16182_2_" transform="matrix(0.3903 0 0 1 101.0996 132.6126)" class="st5 st3 st4">70</text>
+
 <path id="rect16246_2_" class="st6" d="M98.4,34.3c-0.5,0-1,1.1-1,2.5V384c-1.4,1-2.4,4.1-2.4,7.9v27.2c0,4.6,1.5,8.2,3.3,8.2
 	s3.3-3.7,3.3-8.2v-27.2c0-3.7-1-6.9-2.4-7.9V36.8C99.3,35.4,98.9,34.3,98.4,34.3L98.4,34.3z"/>
 <rect x="97.9" y="209.1" class="st2" width="0.9" height="178.1"/>

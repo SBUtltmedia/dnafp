@@ -154,7 +154,6 @@ $(function() {
     newStudentData();
     continueLoading();
   });
-  animate("#indicatorArrow1", 50, "removeClass", "opClass")
 });
 
 
@@ -188,12 +187,6 @@ function enableOptionButtons() {
         "mode": 1
       }
       newGame(props);
-      //
-      //
-      $("#indicatorArrow1").addClass("anim_oscillate1");
-      //            $("#indicatorArrow1").delay(delayFactor * 550).animate({
-      //                opacity: '1.0'
-      //            });
     }
   });
 
@@ -268,13 +261,6 @@ function continueLoading() {
     '#pressButton_5',
     '#zoomOutButton',
     '#zoomOutButton1',
-    '#indicatorArrow0',
-    '#indicatorArrow1',
-    '#indicatorArrow2',
-    '#indicatorArrow3',
-    '#indicatorArrow4',
-    '#indicatorArrow5',
-    '#indicatorArrow6',
     '#volumeButton',
     '#volumeInput',
     '.side',

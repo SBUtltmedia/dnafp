@@ -936,10 +936,7 @@ var keyframes =[{ name:'moveTube',
 
 
 { name:'tube0ToBath',
-    '0%':{
-        left: '35.72%',
-        top: '71.9%',
-},
+
     '100%':{
         left: '30.72%',
         top: '55%',
@@ -948,10 +945,7 @@ var keyframes =[{ name:'moveTube',
 
 
 { name:'tube1ToBath',
-    '0%':{
-        left: '38%',
-        top: '71.9%',
-},
+
     '100%':{
         left: '33.5%',
         top: '55%',
@@ -960,10 +954,6 @@ var keyframes =[{ name:'moveTube',
 
 
 { name:'tube2ToBath',
-    '0%':{
-        left: '40.5%',
-        top: '71.9%',
-},
     '100%':{
         left: '36.3%',
         top: '55%',
@@ -972,10 +962,6 @@ var keyframes =[{ name:'moveTube',
 
 
 { name:'tube3ToBath',
-    '0%':{
-        left: '43%',
-        top: '71.9%',
-},
     '100%':{
         left: '39%',
         top: '55%',
@@ -984,10 +970,6 @@ var keyframes =[{ name:'moveTube',
 
 
 { name:'tube4ToBath',
-    '0%':{
-        left: '45.5%',
-        top: '71.9%',
-},
     '100%':{
         left: '41.7%',
         top: '55%',
@@ -996,13 +978,9 @@ var keyframes =[{ name:'moveTube',
 
 
 { name:'tube5ToBath',
-    '0%':{
-        left: '48%',
-        top: '71.9%',
-},
     '100%':{
         left: '44.4%',
-        top: '55%',
+        top: '52%',
 }},
 
 
