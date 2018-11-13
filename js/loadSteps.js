@@ -185,12 +185,13 @@ function loadSteps() {
                     "id": "tubeRack"
                     , "shortText": "Tubes in floating rack"
                     , "longText": "Place the tubes back in the floating rack"
-                    , "bottomText": "Click on the floating rack to return the tubes"
+                    , "bottomText": "Click on the tube to return it back to the rack"
                     , "feedbackText": "complete the first step"
                     , "logic": {
-                        "eventSelector": "#tubeBlock"
+                        "eventSelector": "#s0Tube"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.tubeRack
+                        , "postEventFunction": helperFunctions.tubeRackPost
                         , "criteria": {
                             "variable": "microtubeState"
                             ,  "value": [microTubeEnum[5], microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0]]
@@ -207,6 +208,7 @@ function loadSteps() {
                         "eventSelector": ".microTube"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.pressTube
+                        , "postEventFunction": helperFunctions.pressTubePost
                         , "criteria": {
                             "variable": "microtubeState"
                             , "value": [microTubeEnum[6],microTubeEnum[6],microTubeEnum[6],microTubeEnum[6],microTubeEnum[6],microTubeEnum[6]]
@@ -434,12 +436,13 @@ function loadSteps() {
                     "id": "tubeRack1"
                     , "shortText": "Tubes in floating rack"
                     , "longText": "Place the tubes back in the floating rack"
-                    , "bottomText": "Click on the floating rack to return the tubes"
+                    , "bottomText": "Click on the tube to return it to the rack"
                     , "feedbackText": "complete the first step"
                     , "logic": {
-                        "eventSelector": "#tubeBlock"
+                        "eventSelector": "#s0Tube"
                         , "eventType": "click"
                         , "eventFunction": helperFunctions.tubeRack1
+                        , "postEventFunction": helperFunctions.tubeRackPost
                         , "criteria": {
                             "variable": "microtubeState"
                             ,  "value": [microTubeEnum[5], microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0],  microTubeEnum[0]]
@@ -447,7 +450,7 @@ function loadSteps() {
                     }
                 }
                 , {
-                    "id": "pressTube1"
+                    "id": "openTubes"
                     , "shortText": "Open reaction tubes"
                     , "longText": "Open each tube up"
                     , "bottomText": "Click on each tube to open it"
@@ -455,7 +458,8 @@ function loadSteps() {
                     , "logic": {
                         "eventSelector": ".microTube"
                         , "eventType": "click"
-                        , "eventFunction": helperFunctions.pressTube1
+                        , "eventFunction": helperFunctions.openTubes
+                        , "postEventFunction": helperFunctions.pressTubePost
                         , "criteria": {
                             "variable": "microtubeState"
                             , "value": [microTubeEnum[6],microTubeEnum[6],microTubeEnum[6],microTubeEnum[6],microTubeEnum[6],microTubeEnum[6]]

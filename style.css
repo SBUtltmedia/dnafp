@@ -259,7 +259,7 @@ button, input[type="submit"], input[type="reset"] {
 .microTube {
     width: 2.9%;
     height: 7%;
-    top: 67.9%;
+    top: 70%;
     position: absolute;
     background-repeat: no-repeat;
     background-size: contain;
@@ -280,19 +280,19 @@ top:10%;
 }
 
 #s2Tube {
-    left: 40.5%; /* width: 2.5%; */
+    left: 40.5%;
 }
 
 #s3Tube {
-    left: 43%; /* width: 2.5%; */
+    left: 43%;
 }
 
 #s4Tube {
-    left: 45.5%; /* width: 2.5%; */
+    left: 45.5%;
 }
 
 #s5Tube {
-    left: 48%; /* width: 2.5%; */
+    left: 48%;
 }
 
 .microTubeCap {
@@ -464,15 +464,14 @@ top:10%;
 */
 
 #wasteBasket {
-    width: 20%;
+    width: 11.5%;
     height: 14%;
-    left: 51%;
+    left: 55%;
     top: 64.5%;
     position: absolute;
     background-image: url(img/waste_basket.svg);
     background-repeat: no-repeat;
     background-size: contain;
-    z-index: 0; /*z-index: 7;*/
 }
 
 #ejectButton {
@@ -1482,7 +1481,7 @@ top:10%;
 #pipetteTip1 {
     width: 15%;
     height: 22.5%;
-    left: 55.5%;
+    left: 54%;
     top: 96%;
     position: absolute;
     background-repeat: no-repeat;

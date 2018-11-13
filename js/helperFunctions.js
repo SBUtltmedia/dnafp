@@ -220,7 +220,6 @@ var helperFunctions = {
   }, //step 6
   "mixContents": function() {
     animate("#view", 0, zoom, [35, 66, 12, 1050])
-    animate("#zoomOutButton1", 4000, "removeClass", "opClass")
     for (i = 1; i < 4; i++) {
       animate("#svgfluid", 1000 * i + 500, "animate", [{
         "y": 70
@@ -285,6 +284,9 @@ var helperFunctions = {
     }
 
   }, //step 12
+  "tubeRackPost": function() {
+    animate("html", 0, zoom, [40, 70, 4, 1000]);
+  },
   "pressTube": function(evt) {
     var tubeId = evt.currentTarget.id.charAt(1);
     console.log(tubeId)
@@ -298,7 +300,9 @@ var helperFunctions = {
     //animate("#pressButton_" + tubeId, 50, "addClass", "opClass")
     state["microtubeState"][tubeId] = microTubeEnum[6]
   }, //step 13
-
+  "pressTubePost": function() {
+    animate("html", 0, zoom, [40, 70, 1, 1000]);
+  },
   "removeLid": function(evt) {
     var top1 = document.getElementsByClassName("topView")
     animate("#waterBathLid", 0, "keyframe", "anim_removeLid")
@@ -307,7 +311,7 @@ var helperFunctions = {
   "checkTemp": function() {
     //        criteriaPassed = true;
     animate("#view", 0, zoom, [65, 21, 10, 1000])
-    animate("#view", 55000, zoom, [65, 21, 1, 1000]);
+    animate("#view", 5500, zoom, [65, 21, 1, 1000]);
   }, //step 15
   "insertRack": function() {
     animate("#tubeBlock", 0, "keyframe", "anim_insertRack")
@@ -383,8 +387,6 @@ var helperFunctions = {
     animate("#" + evt.target.id, 0, "keyframe", "anim_hideTipp1")
     animate("#pipetteTip1", 700, "removeClass", "opClass")
     $("#holder").css('z-index', '3');
-
-
   }, //step 20
 
   "openTube1": function(evt) {
@@ -427,9 +429,8 @@ var helperFunctions = {
     //animate(".pressButton", 2000, "removeClass", "opClass");
     state["microtubeState"][0] = microTubeEnum[5];
   }, //step 29
-  "pressTube1": function(evt) {
+  "openTubes": function(evt) {
     var tubeId = evt.currentTarget.id.charAt(1);
-
     if (testMode) {
       for (i = 0; i <= 5; i++) {
         animate("#s"+i+"Tube svg .Cap", 0, "animate", rotateObj)
@@ -440,6 +441,7 @@ var helperFunctions = {
   }, //step 29
 
   "removeComb": function() {
+    animate("html", 0, zoom, [40, 70, 1, 1000]);
     animate("#gelComb", 0, "keyframe", "anim_removeComb")
     animate("#gelComb", 1000, "addClass", "opClass")
   }, //step 30
@@ -618,8 +620,9 @@ var helperFunctions = {
 
   "clickLid": function() {
     animate("#lidSide, #micropipetTopView", 0, "addClass", "opClass")
-    animate("#lidBox, .gelVoltage", 0, "removeClass", "opClass")
-    animate("#gelVoltageCover, #powerSupplyUp, #powerSupplyDown, #voltage", 0, "removeClass", "opClass")
+    animate("#lidBox", 0, "removeClass", "opClass")
+    animate(".gelVoltage", 1000, "removeClass", "opClass")
+    animate("#gelVoltageCover, #voltage", 1000, "removeClass", "opClass")
     animate("#tipBoxTop, #wasteBinTop", 0, "addClass", "opClass")
   }, //step 73
   "setVoltage": function(evt) {
