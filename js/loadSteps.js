@@ -284,7 +284,7 @@ function loadSteps() {
               {
                     "id": "prepPipet1"
                     , "shortText": "Prepare micropipet"
-                    , "longText": "Set the volume for the micropipette"
+                    , "longText": "Pick up the micropipette"
                     , "bottomText": "Click to pick up the micropipette"
                     , "feedbackText": "complete the first step"
                     , "logic": {

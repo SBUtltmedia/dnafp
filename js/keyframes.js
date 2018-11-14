@@ -21,7 +21,7 @@ var keyframes =[{ name:'moveTube',
         top: '63%',
 },
     '100%': {
-        top: '71.9%'
+        top: '70%'
 }},
 
 { name:'movePipet',
@@ -569,11 +569,11 @@ var keyframes =[{ name:'moveTube',
         top: '0%',
 },
     '60%':{
-        left: '34.35%',
+        left: '34.75%',
         top: '15%',
 },
     '100%':{
-        left: '34.35%',
+        left: '34.75%',
         top: '39%',
 }},
 
@@ -681,30 +681,28 @@ var keyframes =[{ name:'moveTube',
 }},
 
 { name:'moveBlock',
-    '0%':{
-        left: '35.72%',
-        top: '73.4%',
-},
     '100%':{
         left: '30.72%',
-        top: '57%',
+        top: '58.5%',
 }},
 
 
 
 { name:'tube0ToBath',
-
+'0%':{
+    left: '35.5%',
+    top: '70%'
+},
     '100%':{
-        left: '30.72%',
+        left: '31.02%',
         top: '55%',
 }},
 
 
 
 { name:'tube1ToBath',
-
     '100%':{
-        left: '33.5%',
+        left: '33.52%',
         top: '55%',
 }},
 
@@ -712,7 +710,7 @@ var keyframes =[{ name:'moveTube',
 
 { name:'tube2ToBath',
     '100%':{
-        left: '36.3%',
+        left: '36.02%',
         top: '55%',
 }},
 
@@ -720,7 +718,7 @@ var keyframes =[{ name:'moveTube',
 
 { name:'tube3ToBath',
     '100%':{
-        left: '39%',
+        left: '38.52%',
         top: '55%',
 }},
 
@@ -728,7 +726,7 @@ var keyframes =[{ name:'moveTube',
 
 { name:'tube4ToBath',
     '100%':{
-        left: '41.7%',
+        left: '41.02%',
         top: '55%',
 }},
 
@@ -736,8 +734,8 @@ var keyframes =[{ name:'moveTube',
 
 { name:'tube5ToBath',
     '100%':{
-        left: '44.4%',
-        top: '52%',
+        left: '43.52%',
+        top: '55%',
 }},
 
 
@@ -808,72 +806,72 @@ var keyframes =[{ name:'moveTube',
 
 { name:'pressTube0',
     '0%': {
-        left: '30.72%',
+        left: '31.02%',
         top: '55%',
 },
     '100%':{
-        left: '30.72%',
-        top: '56.5%',
+        left: '31.02%',
+        top: '56.3%',
 }},
 
 
 
 { name:'pressTube1',
     '0%': {
-        left: '33.5%',
+        left: '33.52%',
         top: '55%',
 },
     '100%':{
-        left: '33.5%',
-        top: '56.5%',
+        left: '33.52%',
+        top: '56.3%',
 }},
 
 
 
 { name:'pressTube2',
     '0%': {
-        left: '36.3%',
+        left: '36.02%',
         top: '55%',
 },
     '100%':{
-        left: '36.3%',
-        top: '56.5%',
+        left: '36.02%',
+        top: '56.3%',
 }},
 
 
 
 { name:'pressTube3',
     '0%': {
-        left: '39%',
+        left: '38.52%',
         top: '55%',
 },
     '100%':{
-        left: '39%',
-        top: '56.5%',
+        left: '38.52%',
+        top: '56.3%',
 }},
 
 
 
 { name:'pressTube4',
     '0%': {
-        left: '41.7%',
+        left: '41.02%',
         top: '55%',
 },
     '100%':{
-        left: '41.7%',
-        top: '56.5%',
+        left: '41.02%',
+        top: '56.3%',
 }},
 
 
 
 { name:'pressTube5',
     '0%': {
-        left: '44.4%',
+        left: '43.52%',
         top: '55%',
 },
     '100%':{
-        left: '44.4%',
-        top: '56.5%',
+        left: '43.52%',
+        top: '56.3%',
 }},
 
 
@@ -881,7 +879,7 @@ var keyframes =[{ name:'moveTube',
 { name:'insertRack',
     '0%':{
         left: '30.72%',
-        top: '57%',
+        top: '58.5%',
 },
     '70%':{
         left: '50%',
@@ -904,21 +902,21 @@ var keyframes =[{ name:'moveTube',
 
 { name:'insertTube0',
     '0%':{
-        left: '30.72%',
-        top: '56.5%',
+        left: '31.02%',
+        top: '56.3%',
 },
     '70%':{
-        left: '50%',
-        top: '17%',
+        left: '50.3%',
+        top: '14.8%',
 
 },
     '80%':{
-        left: '60%',
-        top: '17%',
+        left: '60.3%',
+        top: '14.8%',
 },
     '100%':{
-        left: '60%',
-        top: '28%',
+        left: '60.3%',
+        top: '25.8%',
 
 }},
 
@@ -926,21 +924,21 @@ var keyframes =[{ name:'moveTube',
 
 { name:'insertTube1',
     '0%':{
-        left: '33.5%',
-        top: '56.5%',
+        left: '33.52%',
+        top: '56.3%',
 },
     '70%':{
-        left: '52.78%',
-        top: '17%',
+        left: '52.8%',
+        top: '14.8%',
 
 },
     '80%':{
-        left: '62.78%',
-        top: '17%',
+        left: '62.8%',
+        top: '14.8%',
 },
     '100%':{
-        left: '62.78%',
-        top: '28%',
+        left: '62.8%',
+        top: '25.8%',
 
 }},
 
@@ -948,21 +946,21 @@ var keyframes =[{ name:'moveTube',
 
 { name:'insertTube2',
     '0%':{
-        left: '36.3%',
-        top: '56.5%',
+        left: '36.02%',
+        top: '56.3%',
 },
     '70%':{
-        left: '55.56%',
-        top: '17%',
+        left: '55.3%',
+        top: '14.8%',
 
 },
     '80%':{
-        left: '65.56%',
-        top: '17%',
+        left: '65.3%',
+        top: '14.8%',
 },
     '100%':{
-        left: '65.56%',
-        top: '28%',
+        left: '65.3%',
+        top: '25.8%',
 
 }},
 
@@ -970,21 +968,21 @@ var keyframes =[{ name:'moveTube',
 
 { name:'insertTube3',
     '0%':{
-        left: '38.8%',
-        top: '56.5%',
+        left: '38.52%',
+        top: '56.3%',
 },
     '70%':{
-        left: '58%',
-        top: '17%',
+        left: '57.8%',
+        top: '14.8%',
 
 },
     '80%':{
-        left: '68%',
-        top: '17%',
+        left: '67.8%',
+        top: '14.8%',
 },
     '100%':{
-        left: '68%',
-        top: '28%',
+        left: '67.8%',
+        top: '25.8%',
 
 }},
 
@@ -992,21 +990,21 @@ var keyframes =[{ name:'moveTube',
 
 { name:'insertTube4',
     '0%':{
-        left: '41.3%',
-        top: '56.5%',
+        left: '41.02%',
+        top: '56.3%',
 },
     '70%':{
-        left: '61.5%',
-        top: '17%',
+        left: '60.3%',
+        top: '14.8%',
 
 },
     '80%':{
-        left: '71.5%',
-        top: '17%',
+        left: '70.35%',
+        top: '14.8%',
 },
     '100%':{
-        left: '71.5%',
-        top: '28%',
+        left: '70.3%',
+        top: '25.8%',
 
 }},
 
@@ -1014,21 +1012,21 @@ var keyframes =[{ name:'moveTube',
 
 { name:'insertTube5',
     '0%':{
-        left: '44.4%',
-        top: '56.5%',
+        left: '43.52%',
+        top: '56.3%',
 },
     '70%':{
-        left: '63%',
-        top: '17%',
+        left: '62.8%',
+        top: '14.8%',
 
 },
     '80%':{
-        left: '73%',
-        top: '17%',
+        left: '72.8%',
+        top: '14.8%',
 },
     '100%':{
-        left: '73%',
-        top: '28%',
+        left: '72.8%',
+        top: '25.8%',
 
 }},
 

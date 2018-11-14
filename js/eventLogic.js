@@ -117,7 +117,7 @@ $(function() {
   $('#gelWell').droppable({
     tolerance: "touch"
   });
-  loadTubes();
+
 
   // var sCap = $.get("img/csCap.svg", function(data) {
   //   console.log(data);
@@ -153,6 +153,7 @@ $(function() {
   }).fail(function() {
     newStudentData();
     continueLoading();
+      loadTubes();
   });
 });
 

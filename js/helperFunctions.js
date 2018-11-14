@@ -273,9 +273,9 @@ var helperFunctions = {
   "tubeRack": function() {
     animate("#s0Tube", 0, "keyframe", "anim_tubeDown")
     for (i = 0; i <= 5; i++) {
-      animate("#s" + i + "Tube", 1000, "keyframe", "anim_tube" + i + "ToBath");
+      animate("#s" + i + "Tube", 1500, "keyframe", "anim_tube" + i + "ToBath");
     }
-    animate("#tubeBlock", 1000, "keyframe", "anim_moveBlock");
+    animate("#tubeBlock", 1500, "keyframe", "anim_moveBlock");
     //animate(".pressButton", 2000, "removeClass", "opClass")
 
     state["microtubeState"][0] = microTubeEnum[5];
@@ -285,7 +285,7 @@ var helperFunctions = {
 
   }, //step 12
   "tubeRackPost": function() {
-    animate("html", 0, zoom, [40, 70, 4, 1000]);
+    animate("html", 0, zoom, [35, 65, 4, 1000]);
   },
   "pressTube": function(evt) {
     var tubeId = evt.currentTarget.id.charAt(1);
@@ -301,7 +301,7 @@ var helperFunctions = {
     state["microtubeState"][tubeId] = microTubeEnum[6]
   }, //step 13
   "pressTubePost": function() {
-    animate("html", 0, zoom, [40, 70, 1, 1000]);
+    animate("html", 0, zoom, [35, 65, 1, 1000]);
   },
   "removeLid": function(evt) {
     var top1 = document.getElementsByClassName("topView")
@@ -311,7 +311,7 @@ var helperFunctions = {
   "checkTemp": function() {
     //        criteriaPassed = true;
     animate("#view", 0, zoom, [65, 21, 10, 1000])
-    animate("#view", 5500, zoom, [65, 21, 1, 1000]);
+    animate("#view", 3500, zoom, [65, 21, 1, 1000]);
   }, //step 15
   "insertRack": function() {
     animate("#tubeBlock", 0, "keyframe", "anim_insertRack")
@@ -425,8 +425,6 @@ var helperFunctions = {
       animate("#s" + i + "Tube", 1000, "keyframe", "anim_tube" + i + "ToBath");
     }
     animate("#tubeBlock", 1000, "keyframe", "anim_moveBlock");
-    //$('.pressButton button').html("Open")
-    //animate(".pressButton", 2000, "removeClass", "opClass");
     state["microtubeState"][0] = microTubeEnum[5];
   }, //step 29
   "openTubes": function(evt) {
@@ -441,7 +439,6 @@ var helperFunctions = {
   }, //step 29
 
   "removeComb": function() {
-    animate("html", 0, zoom, [40, 70, 1, 1000]);
     animate("#gelComb", 0, "keyframe", "anim_removeComb")
     animate("#gelComb", 1000, "addClass", "opClass")
   }, //step 30

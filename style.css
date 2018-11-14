@@ -815,6 +815,7 @@ top:10%;
     left: 40%;
     top: 40%;
     border: .1rem solid black;
+    font-size: 1rem;
     position: absolute;
     background-repeat: no-repeat;
     background-size: contain;

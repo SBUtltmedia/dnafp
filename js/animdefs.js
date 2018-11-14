@@ -66,7 +66,7 @@ var animdefs = {
     "anim_addDyeToTube": "addDyeToTube 3s linear 0s 1 normal forwards",
 
     "anim_tubeDown": "tubeDown 0.5s linear 0s 1 normal forwards",
-      "anim_tipToTube4": "tipToTube4 3.4s linear 0s 1 normal forwards",
+    "anim_tipToTube4": "tipToTube4 3.4s linear 0s 1 normal forwards",
     "anim_oscillate3": "oscillate3 0.75s linear 0s infinite normal forwards",
     "anim_oscillate2": "oscillate2 0.75s linear 0s infinite normal forwards",
     "anim_oscillate1": "oscillate1 0.75s linear 0s infinite normal forwards",
@@ -86,7 +86,7 @@ var animdefs = {
     "anim_tipToTube2": "tipToTube2 3.4s linear 0s 1 normal forwards",
     "anim_tipToTube1": "tipToTube1 3.4s linear 0s 1 normal forwards",
 
-      "anim_movePipet": "movePipet 8s linear 0s 1 normal forwards",
+    "anim_movePipet": "movePipet 8s linear 0s 1 normal forwards",
     "anim_ejectTip": "ejectTip 0.8s linear 0s 1 normal forwards",
     "anim_oscillate4": "oscillate4 0.75s linear 0s infinite normal forwards",
     "anim_lowerPipet": "lowerPipet 0.4s linear 0s normal forwards",
