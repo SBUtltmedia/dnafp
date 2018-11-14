@@ -158,7 +158,7 @@ var helperFunctions = {
     animate("#enzTube", 0, "keyframe", "anim_moveEnz")
   }, //step 1
   "openEnzyme": function() {
-    animate("#enzCap", 0, "keyframe", "anim_rotateCap")
+    animate("#enzTube svg .Cap", 0, "animate", rotateObj)
     state["firstStep"] = 45;
     animate("#svgfluid", 0, "animate", [{
       "y": 100
@@ -206,15 +206,16 @@ var helperFunctions = {
     animate("#s0Tube", 0, "keyframe", "anim_moveTube")
     animate("#s0Tube svg .Cap", 0, "animate", rotateObj)
 
+
   }, //step 5
   "addEnzyme": function() {
-
+    $("#s0Tube").css("z-index", "5")
     animate("#micropipet2", 0, "keyframe", "anim_pipetToTube1")
     animate("#svgfluid", 10, "animate", [{
       "y": 35.6
     }])
     animate("#enzTube", 1500, "keyframe", "anim_moveEnzBack")
-    animate("#enzCap", 1000, "keyframe", "anim_closeCap")
+    animate("#enzTube svg .Cap", 1000, "animate", reverseRotateObj)
 
 
   }, //step 6
@@ -247,6 +248,7 @@ var helperFunctions = {
 
     animate("#view", 5000, zoom, [35, 66, 1, 1000]);
 
+
   }, //step 7
 
   "replaceTip": function() {
@@ -256,10 +258,12 @@ var helperFunctions = {
     animate("#pipetteTip1", 2700, "addClass", "opClass")
 
 
+
     animate("#micropipet2", 3000, "keyframe", "anim_pipetBacktoNormal")
   },
   "closeTube": function() {
     animate("#s0Tube svg .Cap", 0, "animate", reverseRotateObj)
+    $("#s0Tube").css("z-index", "0")
     state["microtubeState"][0] = microTubeEnum[2];
   },
   "flickTube": function() {
@@ -352,9 +356,9 @@ var helperFunctions = {
 
   }, //step 18
   "prepPipet1": function(evt) {
-    animate("#volumeButton,#volumeInput", 3400, "removeClass", "opClass");
+    animate("#volumeButton,#volumeInput", 2400, "removeClass", "opClass");
     animate("#micropipet2", 0, "keyframe", "anim_PrepPipet")
-    animate("#view", 3000, zoom, [25, 46, 9.5, 1000])
+    animate("#view", 2000, zoom, [25, 46, 9.5, 1000])
   },
 
   "setDyeVolume": function() {
@@ -370,7 +374,7 @@ var helperFunctions = {
 
   "openDye": function(evt) {
     animate("#loadDye", 0, "keyframe", "anim_moveLoadingDye")
-    animate("#loadDyeCap", 0, "keyframe", "anim_rotateCap")
+    animate("#loadDye svg .Cap", 0, "animate", rotateObj)
     animate("#svgfluid", 0, "animate", [{
       "y": 100
     }])
@@ -397,8 +401,9 @@ var helperFunctions = {
   }, //step 22
   "addDye": function() {
     animate("#micropipet2", 0, "keyframe", "anim_addDyeToTube")
-    animate("#loadDyeCap", 500, "keyframe", "anim_closeCap")
+    animate("#loadDye svg .Cap", 700, "animate", reverseRotateObj)
     animate("#loadDye", 1000, "keyframe", "anim_moveLoadingDyeback")
+    $("#s0Tube").css("z-index", "5")
 
   }, //step 23
   "mixContents1": function() {

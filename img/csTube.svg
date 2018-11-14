@@ -13,7 +13,7 @@
 	.opacity3{opacity:0.3;}
 	.opacity2{opacity:0.2;}
 	.opacity1{opacity:0.1;}
-	.tubeFluid{fill:blue;}
+	.tubeFluid{opacity:1;fill:#818AC4;}
 	.Cap{transform-origin:3% 5%;}
 </style>
 <g class="Cap">

@@ -117,6 +117,7 @@ $(function() {
   $('#gelWell').droppable({
     tolerance: "touch"
   });
+  loadTubes();
 
 
   // var sCap = $.get("img/csCap.svg", function(data) {
@@ -153,7 +154,7 @@ $(function() {
   }).fail(function() {
     newStudentData();
     continueLoading();
-      loadTubes();
+
   });
 });
 
@@ -165,18 +166,36 @@ function loadTubes() {
     "orange",
     "purple",
     "red",
-    "yellow"
+    "yellow",
+    "#CFCCCC"
+
+  ]
+  var fluidColors = [
+    "#2E4EA2"
   ]
   var j = 0;
   for (var i = 0; i < 6; i++) {
 
-    $(`#s${i}Tube`).load("img/csTube.svg",function(){
+    $(`#s${i}Tube`).load("img/csTube.svg", function() {
+      setTimeout(function() {
+        $(`#s${j}Tube svg .tubeColor`).attr("style", `fill:${colors[j]}`)
+        j++;
+      }, 500);
 
-  $(`#s${j}Tube svg .tubeColor`).attr("style", `fill:${colors[j]}`)
-j++;
     });
-
   }
+  $(`#enzTube`).load("img/csTube.svg", function() {
+    setTimeout(function() {
+      $(`#enzTube svg .tubeColor`).attr("style", `fill:${colors[6]}`)
+    }, 500);
+  });
+  console.log("j = " + j)
+  $(`#loadDye`).load("img/csTube.svg", function() {
+    setTimeout(function() {
+      $(`#loadDye svg .tubeColor`).attr("style", `fill:${colors[6]}`)
+      $(`#loadDye svg .tubeFluid`).attr("style", `fill:${fluidColors[1]}`)
+    }, 500);
+  });
 }
 
 function enableOptionButtons() {
@@ -459,12 +478,12 @@ function makePipetteTippAnimation(tipLocation) {
       top: '42%',
     },
     '90%': {
-      left: '20.9%',
+      left: '22.9%',
       top: '1%',
       transform: "scale(0.8)"
     },
     '100%': {
-      left: '20.9%',
+      left: '22.9%',
       top: '5.4%',
     },
   }, ])

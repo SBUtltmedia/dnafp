@@ -1,9 +1,7 @@
 
 var tipLocation=0;
 var keyframes =[{ name:'moveTube',
-    '0%': {
-        top: '71.9%'
-},
+
     '100%': {
         top: '63%',
 }},
@@ -189,11 +187,8 @@ var keyframes =[{ name:'moveTube',
 }},
 
 { name:'addTipp1',
-    '0':{
-
-    },
     '100%':{
-        left: '20.9%',
+        left: '22.9%',
         top: '5.4%',
 }},
 
@@ -508,11 +503,11 @@ var keyframes =[{ name:'moveTube',
 
 { name:'pipetToBin',
     '0%':{
-        left: '34%',
+        left: '34.8%',
         top: '39%',
 },
     '15%':{
-        left: '34%',
+        left: '34.8%',
         top: '31%',
 },
     '100%':{
@@ -523,10 +518,6 @@ var keyframes =[{ name:'moveTube',
 
 
 { name:'moveLoadingDye',
-    '0%':{
-        top: '23.2%',
-        left: '7.8%',
-},
     '15%':{
         top: '16%',
         left: '7.8%',
@@ -536,13 +527,13 @@ var keyframes =[{ name:'moveTube',
         left: '22%',
 },
     '100%':{
-        top: '30%',
+        top: '28%',
         left: '22%',
 }},
 
 { name:'moveLoadingDyeback',
     '0%':{
-      top: '30%',
+      top: '28%',
       left: '22%',
 },
     '15%':{
@@ -554,18 +545,18 @@ var keyframes =[{ name:'moveTube',
       left: '7.8%',
 },
     '100%':{
-      top: '23.2%',
-      left: '7.8%',
+      top: '19.2%',
+      left: '8%'
 }},
 
 
 { name:'addDyeToTube',
     '0%':{
-        left: '20.9%',
+        left: '22.9%',
         top: '5.4%',
 },
     '20%':{
-        left: '20.9%',
+        left: '22.9%',
         top: '0%',
 },
     '60%':{
@@ -1184,19 +1175,18 @@ var keyframes =[{ name:'moveTube',
 
 /*Step 1 & 2*/
 { name:'moveEnz',
-    '0%': {
-        top: '64.7%'
-},
+
     '100%':{
-        top: '60%'
+        top: '54%'
 }},
 
 
 { name:'moveEnzBack',
         '0%':{
-        top: '60%'
-},'100%': {
-    top: '64.7%'
+        top: '54%'
+},
+    '100%': {
+        top: '62.7%'
 }},
 
 
