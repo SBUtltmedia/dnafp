@@ -151,10 +151,10 @@ function animate(selector, delay, method, param, callback = () => {}) {
 
   }
 }
+var clicked = "0";
 var helperFunctions = {
   //step 0
   "liftEnzyme": function() {
-
     animate("#enzTube", 0, "keyframe", "anim_moveEnz")
   }, //step 1
   "openEnzyme": function() {
@@ -657,12 +657,14 @@ var helperFunctions = {
 
   }, //step 76
   "nudgeGel": function() {
+    animate("#day1, #bothDays, #bothDays *, #day1 *", 2000, "attr", ["style", ""], () => {
+      loadTubes()
+    })
     animate("#gelFinalTop", 0, "animate", [{
       top: '58.5%',
       left: '30.6%',
     }])
     animate("#topView, #topView *", 2000, "addClass", "opClass")
-    animate("#day2 *, #day2, #bothDays, #bothDays *", 2000, "attr", ["style", ""])
     animate("#graduatedCylinder, #stainingTraySide", 2000, "removeClass", "opClass")
     animate("#waterBathNoLid, #waterBathLid, #gelComb, #wasteBasket, #shelf1, #loadDyeCap", 2000, "addClass", "opClass")
     animate("#bothDays, #day2, .day3, .day3 *, .microTube, .microTube *, #graduatedCylinder, #stainingTraySide", 2000, "removeClass", "opClass")
@@ -676,14 +678,7 @@ var helperFunctions = {
     animate("#svgcylfluid", 1000, "animate", [{
       "y": -270
     }])
-    // animate("#emptyGraduatedCylinder", 7000, "css", [{
-    //  opacity: '1.0'
-    // }])
-    //animate("#emptyGraduatedCylinder,#stainedGel", 0, "removeClass", "opClass")
-    //animate("#emptyGraduatedCylinder,#stainedGel", 0, "css", [{
-    //     opacity: '0.0'
-    // }])
-    //animate("#stainingTraySide", 3000, "addClass", "opClass")
+
     animate(".bands, .laneFill", 0, "removeClass", "opClass");
     animate("#stainedGel", 600, "keyframe", "anim_slowFadeIn")
     animate("#graduatedCylinder", 2000, "keyframe", "anim_pourStainRev")
@@ -702,24 +697,19 @@ var helperFunctions = {
     }).animate({
       opacity: 1
     }, 200)
-    //        $("#answerButton").delay(1).animate({
-    //            opacity: '1.0'
-    //        });
-    //        $("#answerInput").delay(1).animate({
-    //            opacity: '1.0'
-    //        });
 
   }, //step 79
   "pickLane": function(evt) {
     var studentAnswer = evt.currentTarget.id.split("_")[1];
     console.log(evt.currentTarget.id);
     console.log(answer);
+    console.log($("svg [type = 'text/css']")[1])
     state["lanePickedNumber"] = studentAnswer
   },
   "pickLanePost": function() {
-    animate("#day2, #day2 *", 1000, "addClass", "opClass")
-    animate("#day1", 2000, "removeClass", "opClass")
-    animate("#day1, #bothDays, #bothDays *, #day1 *", 2000, "attr", ["style", ""])
+    animate("#day1, #day1 *, #bothDays, #bothDays *", 0, "removeClass", "opClass")
+    animate("#day2, #day2 *, #timer, #timerButton, #volumeInput, #volumeButton, #endOption1", 0, "addClass", "opClass")
+
   }
 
 }

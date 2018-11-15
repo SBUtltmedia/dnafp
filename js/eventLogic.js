@@ -180,7 +180,7 @@ function loadTubes() {
       setTimeout(function() {
         $(`#s${j}Tube svg .tubeColor`).attr("style", `fill:${colors[j]}`)
         j++;
-      }, 500);
+      }, 100);
 
     });
   }

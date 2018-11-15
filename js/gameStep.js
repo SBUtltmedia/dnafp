@@ -202,12 +202,12 @@ function Step(cur, div, iconDiv) {
         if (this.state == 1) {
             endStep(this);
             this.state = 2;
-            animateCompleteObject(this);
+            //animateCompleteObject(this);
             if (this.successor != null) {
                 this.successor.activate();
             }
             else {
-                endGame("You Won! Click \"Start\" to Play Again.");
+                endGame("You Won! Refresh the Page to Play Again.    Your Score Was: "+score);
 //                steps = [0];
             }
             this.prepComplete();

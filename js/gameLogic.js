@@ -120,13 +120,18 @@ function failGame(error, correct) {
 */
 function startStep(step) {
     var s = jQuery.extend(true, {}, step);
+    var clicked = false;
     $("#headerText").text(s.longText);
     $("#footerText").text(s.bottomText);
+    $("#view").off()
+    $("#view").on("click", function() {
+    updateScore(-1);
+    console.log("Score: "+score)
+    console.log("Test")});
     var composite = function (evt) {
         evt.preventDefault();
         //console.log(s)
         s.logic.eventFunction(evt)
-
         if (testMode && s.logic && s.logic.criteria) {
             state[s.logic.criteria.variable] = JSON.parse(JSON.stringify(s.logic.criteria.value)) //returns reference to value, don't touch
         }
@@ -138,17 +143,17 @@ function startStep(step) {
 //                console.log(s.logic.postEventFunction)
                 s.logic.postEventFunction()
             }
-            updateScore(10);
-            console.log(score)
+            updateScore(11);
+            console.log("Score: "+score)
             game.nextStep()
 
                 //$("#headerText").fadeTo(300, 0.25);
         }
         else if (s.logic.criteria.messageWrong) {
-
             state[s.logic.criteria.variable] = undefined;
             message(s.logic.criteria.messageWrong);
-            updateScore(-1);
+            //updateScore(-5);
+            console.log("Score: "+score)
         }
     }
 //    console.log(s)
