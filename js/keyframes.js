@@ -22,6 +22,26 @@ var keyframes =[{ name:'moveTube',
         top: '70%'
 }},
 
+// { name:'pulse',
+//   '0%' {
+//   box-shadow: 1px 1px 1rem 0.2rem red;
+// },
+//   '50%' {
+//   box-shadow: 1px 1px 5rem 2rem red;
+// },
+//   '100%' {
+//   box-shadow: 1px 1px 1rem 0.2rem red;
+// }},
+
+
+{ name:'tubeDown',
+    '0%':{
+        top: '63%',
+},
+    '100%': {
+        top: '70%'
+}},
+
 { name:'movePipet',
     '0%':{
         left: '0.5%',

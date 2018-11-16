@@ -121,7 +121,20 @@ function failGame(error, correct) {
     this is the "set-up" phase for a particular step
     specify code that should be executed when a step starts (animations, etc)
 */
+function highlightObject(highlight,selector) {
+  if (highlight){
+    animate(selector, 0, "addClass", "highLighted")
+  }
+  else {
+    animate(selector, 0, "removeClass", "highLighted")
+  }
+
+}
+
+
 function startStep(step) {
+    window.location.hash= step.id;
+    highlightObject(true,step.logic.eventSelector);
     var s = jQuery.extend(true, {}, step);
     var clicked = false;
     $("#headerText").text(s.longText);
@@ -140,6 +153,7 @@ function startStep(step) {
         }
 
         if ((s.logic.criteria && isEqual(state[s.logic.criteria.variable], s.logic.criteria.value)) || !s.logic.criteria) {
+          highlightObject(false,step.logic.eventSelector);
 
             $(s.logic.eventSelector).off()
             if (s.logic.postEventFunction) {
