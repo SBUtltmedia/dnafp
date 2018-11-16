@@ -160,41 +160,20 @@ $(function() {
 
 
 function loadTubes() {
-
-  var colors = ["green",
-    "blue",
-    "orange",
-    "purple",
-    "red",
-    "yellow",
-    "#CFCCCC"
-
-  ]
-  var fluidColors = [
-    "#2E4EA2"
-  ]
   var j = 0;
   for (var i = 0; i < 6; i++) {
 
     $(`#s${i}Tube`).load("img/csTube.svg", function() {
-      setTimeout(function() {
-        $(`#s${j}Tube svg .tubeColor`).attr("style", `fill:${colors[j]}`)
+        $(`#s${j}Tube svg .tubeColor`).addClass(`s${j}TubeColor`)
         j++;
-      }, 100);
-
     });
   }
   $(`#enzTube`).load("img/csTube.svg", function() {
-    setTimeout(function() {
-      $(`#enzTube svg .tubeColor`).attr("style", `fill:${colors[6]}`)
-    }, 500);
+      $(`#enzTube svg .tubeColor`).addClass(`clearTube`)
   });
-  console.log("j = " + j)
   $(`#loadDye`).load("img/csTube.svg", function() {
-    setTimeout(function() {
-      $(`#loadDye svg .tubeColor`).attr("style", `fill:${colors[6]}`)
-      $(`#loadDye svg .tubeFluid`).attr("style", `fill:${fluidColors[1]}`)
-    }, 500);
+      $(`#loadDye svg .tubeColor`).addClass(`clearTube`)
+      $(`#loadDye svg .tubeFluid`).addClass(`dyeFluid`)
   });
 }
 
@@ -228,10 +207,6 @@ function getDate() {
 //Monitor game score
 function updateScore(amount) {
   score += amount;
-}
-//Change voltage
-function updateVoltage(amount) {
-  voltage += amount;
 }
 
 function tipSelect(number) {
@@ -462,8 +437,8 @@ function makePipetteTippAnimation(tipLocation) {
   $.keyframe.define([{
     name: 'addTipp1',
     '0%': {
-      left: '27.5%',
-      top: '40%',
+      left: '24.5%',
+      top: '38%',
     },
     '14%': {
       left: tipLocation + "%",

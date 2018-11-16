@@ -337,8 +337,8 @@ function loadSteps() {
                 , {
                     "id": "openTube1"
                     , "shortText": "Open reaction tube"
-                    , "longText": "Open the reaction tube"
-                    , "bottomText": "Click on the reaction tube to open it"
+                    , "longText": "Open the crime scene DNA reaction tube (green tube)"
+                    , "bottomText": "Click on the crime scene DNA reaction tube (green tube) to open it"
                     , "feedbackText": "complete the third step"
                     , "logic": {
                         "eventSelector": "#s0Tube"
@@ -352,7 +352,7 @@ function loadSteps() {
                 , {
                     "id": "addDye"
                     , "shortText": "Add enzyme mix"
-                    , "longText": "Add the loading dye to the reaction tube"
+                    , "longText": "Add the loading dye to the crime scene DNA reaction tube (green tube)"
                     , "bottomText": "Click on the micropipette to add the loading dye"
                     , "feedbackText": "complete the third step"
                     , "logic": {
@@ -387,7 +387,7 @@ function loadSteps() {
                  , {
                     "id": "closeTube1"
                     , "shortText": "Close tube cap"
-                    , "longText": "Close the reaction tube cap"
+                    , "longText": "Close the crime scene DNA reaction tube cap"
                     , "bottomText": "Click on the reaction tube to close the cap"
                     , "feedbackText": "complete the first step"
                     , "logic": {

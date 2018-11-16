@@ -208,6 +208,9 @@ function Step(cur, div, iconDiv) {
             }
             else {
                 endGame("You Won! Refresh the Page to Play Again.    Your Score Was: "+score);
+                setTimeout(function() {
+                  score = 0
+                }, 100)
 //                steps = [0];
             }
             this.prepComplete();

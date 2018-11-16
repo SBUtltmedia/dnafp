@@ -1,17 +1,21 @@
 var microTubeEnum = ["untouched", "opened", "closed", "flicked", "tapped", "returned", "exposed"]
-var tipTrayRows = 8,
+const tipTrayRows = 8,
   tipTrayCols = 12;
-state["microtubeState"] = Array(6).fill(microTubeEnum[0])
-state["tipTray"] = Array(tipTrayRows * tipTrayCols).fill(0)
-state["TipPosition"] = false
-state["wellPosition"] = Array(7).fill(0)
-var criteriaPassed;
 
-var voltage = 0;
-var volume = 0;
-var tyty = 0;
+var criteriaPassed;
 var idArray = ["#s0Tube", "#tubeContentMixing3"]
-var mix = 0;
+
+function stateInit() {
+  state["microtubeState"] = Array(6).fill(microTubeEnum[0])
+  state["tipTray"] = Array(tipTrayRows * tipTrayCols).fill(0)
+  state["TipPosition"] = false
+  state["wellPosition"] = Array(7).fill(0)
+  state["voltage"] = 0
+  state["volume"] = 0
+  $("#micropipet2").append($('#pipetteTip1'));
+  animate("#pipetteTip1", 0, "addClass", "opClass")
+}
+
 
 function updateVoltage(amount) {
   voltage += amount;
@@ -192,7 +196,7 @@ var helperFunctions = {
     makePipetteTipAnimation(tipLeft);
     animate("#micropipet2", 0, "keyframe", "anim_addTip1")
     animate("#tip" + selectedTip, 0, "keyframe", "anim_hideTip1")
-    animate("#pipetteTip1", 600, "removeClass", "opClass")
+    animate("#pipetteTip1, #pipetteTip1 *", 600, "removeClass", "opClass")
 
 
   }, //step 3
@@ -341,9 +345,7 @@ var helperFunctions = {
 
     animate("#timer,#timerButton", 1, "addClass", "opClass");
     animate("#view", 0, zoom, [65, 36, 1, 1000]);
-    animate("#bothDays *, #bothDays, #day1 *", 0, "attr", ["style", ""], () => {
-      loadTubes()
-    })
+    animate("#bothDays *, #bothDays, #day1 *", 0, "attr", ["style", ""])
     animate("#pipetteTip1", 0, "addClass", "opClass")
 
     animate(".openButton", 0, "addClass", "opClass")
@@ -629,13 +631,6 @@ var helperFunctions = {
   }, //step 73
   "setVoltage": function(evt) {
     console.log("fds")
-    // if ("powerSupplyUp" == evt.currentTarget.id) {
-    //   updateVoltage(10);
-    //   $("#voltage").html(voltage);
-    // } else {
-    //   updateVoltage(-10);
-    //   $("#voltage").html(voltage);
-    // }
     state["voltage"] = $("#voltage").val()
 
   },
@@ -657,9 +652,7 @@ var helperFunctions = {
 
   }, //step 76
   "nudgeGel": function() {
-    animate("#day1, #bothDays, #bothDays *, #day1 *", 2000, "attr", ["style", ""], () => {
-      loadTubes()
-    })
+    animate("#day1, #bothDays, #bothDays *, #day1 *", 2000, "attr", ["style", ""])
     animate("#gelFinalTop", 0, "animate", [{
       top: '58.5%',
       left: '30.6%',
@@ -708,8 +701,7 @@ var helperFunctions = {
   },
   "pickLanePost": function() {
     animate("#day1, #day1 *, #bothDays, #bothDays *", 0, "removeClass", "opClass")
-    animate("#day2, #day2 *, #timer, #timerButton, #volumeInput, #volumeButton, #endOption1", 0, "addClass", "opClass")
-
+    animate("#day2, #day2 *, #timer, #timerButton, #volumeInput, #volumeButton", 0, "addClass", "opClass")
   }
 
 }

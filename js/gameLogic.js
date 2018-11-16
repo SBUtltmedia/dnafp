@@ -53,11 +53,14 @@ var skipEnabled = false;
 function newGame(props) {
     // Create a new game object
     game = new Game(props);
+    stateInit()
     loadSteps();
+    loadTubes();
     enterStepObjects();
     game.start();
     updateSteps();
     hideMenu();
+
     //
 }
 
