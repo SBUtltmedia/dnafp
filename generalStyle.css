@@ -105,7 +105,7 @@ body {
 
 .groupPanel {
     top: 15%;
-    left: 7%;
+left: 13%;
     width: 93%;
     height: 70%;
     position: absolute;
@@ -159,8 +159,14 @@ body {
 
 .activeGroupIcon {
     background-image: url("general_img/group_active.svg");
+
 }
 
+.activeGroupIcon ~ .groupPanel>.stepText  {
+
+color:yellow!important;
+
+}
 .completeIcon {
     background-image: url("../resources/img/step_complete.svg");
 }

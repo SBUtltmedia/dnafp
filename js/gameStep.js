@@ -29,9 +29,11 @@ function Game(props) {
             var groupIcon=$('<div/>', {id:'groupIcon'+ i,class:"icon clickToSpin" })
 
             groupPanel.append(groupText);
+                  group.append(groupIconBG)
+              group.append(groupIcon)
             group.append(groupPanel)
-            group.append(groupIconBG)
-            group.append(groupIcon)
+
+
 
                $("#steps").append(group)
         }
@@ -44,10 +46,11 @@ function Game(props) {
             var iconBG = $('<div/>', {class:"icon_bg" })
             var currentIcon = $('<div/>', {id:'icon' + i, class:"icon clickToSpin" })
 
-            currentPanel.append(currentStepText)
+
             currentStep.append(currentPanel)
             currentStep.append(iconBG)
             currentStep.append(currentIcon)
+            currentPanel.append(currentStepText)
 
                 $("#steps").append(currentStep)
 
