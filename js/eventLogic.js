@@ -336,7 +336,7 @@ function postData() {
     type: "POST",
     url: "writer.php",
     data: {
-      'studentData': str
+      'studentData': score
       //    , 'stats': str2
     }
   }).done(function(msg) {}).fail(function() {});
